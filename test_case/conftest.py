@@ -29,11 +29,14 @@ def createInitRole(getPermissoinIds):
     name = 'test'
     response = createRole(code='test', name=name, permissionIds=getPermissoinIds)
     assert response['msg'] in ('请求成功', '角色编码已被使用')
-    # 查询角色id
+    # 根据角色名查询角色id
     list = request.get('/role/list?pageNum=0&pageSize=50&name=%s' % name)
     assert list['data']['totalCount'] > 0
-    roleId = list['data']['rows'][0]['id']
-    return roleId
+    # 查询返回结果中角色名=name的值
+    for i in list['data']['rows']:
+        if i['name'] == name:
+            roleId = i['id']
+            return roleId
 
 
 # 创建一个用户名和帐号为test的用户,并返回用户id
@@ -43,11 +46,14 @@ def createInitUser(createInitRole):
     name = 'test'
     response = createUser(name='test', loginName=name, roleIds=[createInitRole])
     assert response['msg'] in ('请求成功', '登录名已存在')
-    # 查询初始用户的id
+    # 根据loginName查询初始用户的id（模糊查询，可能查询出其他包含指定值的数据）
     list = request.get('/user/list?pageNum=0&pageSize=50&loginName=%s' % name)
     assert list['data']['totalCount'] > 0
-    userId = list['data']['rows'][0]['id']
-    return userId
+    # 查询返回结果中loginName=name的值
+    for i in list['data']['rows']:
+        if i['loginName'] == name:
+            userId = i['id']
+            return userId
 
 
 def pytest_collection_modifyitems(items):

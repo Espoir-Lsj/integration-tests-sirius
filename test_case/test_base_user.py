@@ -40,6 +40,32 @@ def editUser(name, id, loginName, roleIds, email=None, img=None, remark=None, ty
     return response
 
 
+# 根据角色查询用户信息
+def userListByRoleId(roleId, isEnabled='true', loginName=None, name=None, ownerRole='true', pageNum=0, pageSize=20):
+    params = {
+        'isEnabled': isEnabled,  # 用户是否启用
+        'loginName': loginName,  # 登录账号
+        'name': name,  # 用户名称
+        'ownerRole': ownerRole,  # 查询的用户是否属于该角色
+        'roleId': roleId,
+        'pageNum': pageNum,
+        'pageSize': pageSize,
+        # 'sortList[0].desc': 'true'
+    }
+    response = request.get_params('/user/userListByRoleId', params=params)
+    return response
+
+
+# 获取当前登录用户的id,当前py文件仅执行一次
+@pytest.fixture(scope="module")
+def getCurrentUserId():
+    # 查询当前登录用户的id
+    response = request.get('/user/currentUser')
+    assert response['msg'] == '请求成功'
+    userId = response['data']['id']
+    return userId
+
+
 class TestCreateUser:
     """创建用户"""
     url = '/user/createUser'
@@ -72,15 +98,6 @@ class TestCreateUser:
         """登录名重复"""
         response = createUser(name=self.userName, loginName='test', roleIds=[createInitRole])
         assert response['msg'] == '登录名已存在'
-
-
-class TestCurrentUser:
-    """获取当前登录用户信息"""
-    url = '/user/currentUser'
-
-    def test_01(self):
-        response = request.get(self.url)
-        assert response['msg'] == '请求成功'
 
 
 class TestEditPwd:
@@ -125,6 +142,26 @@ class TestEditPwd:
         log.info(response)
         assert response['msg'] == '密码需包含数字、大写、小写字母、特殊符号中的至少3种'
 
+    def test_05(self):
+        """旧密码不正确"""
+        body = {
+            'newPassword': '88888888',
+            'oldPassword': '0000'
+        }
+        response = request.put_body(self.url, body=body)
+        log.info(response)
+        assert response['msg'] == '旧密码不正确'
+
+    def test_06(self):
+        """新旧密码一致"""
+        body = {
+            'newPassword': param_config.loginPassword,
+            'oldPassword': param_config.loginPassword
+        }
+        response = request.put_body(self.url, body=body)
+        log.info(response)
+        assert response['msg'] == '新密码和旧密码一致; 请重新输入新密码'
+
 
 class TestEditUser:
     """修改用户"""
@@ -138,6 +175,21 @@ class TestEditUser:
         """用户id不存在"""
         response = editUser(name=self.userName, id=0, loginName=self.loginName, roleIds=[createInitRole])
         assert response['msg'] == '用户不存在，请检查重试'
+
+    def test_02(self, createInitUser):
+        """修改初始用户"""
+        # 查询初始用户的信息
+        response = request.get('/user/userDetail/{userId}'.format(userId=createInitUser))
+        # 判断查询出的id,与初始用户id一致
+        assert response['data']['id'] == createInitUser
+        # 获取信息内容
+        initId = response['data']['id']
+        initRoleIds = response['data']['roleIds']
+        initLoginName = response['data']['loginName']
+        initName = response['data']['name']
+        # 修改用户
+        response = editUser(name=initName, id=initId, loginName=initLoginName, roleIds=initRoleIds)
+        assert response['msg'] == '请求成功'
 
 
 class TestList:
@@ -156,11 +208,10 @@ class TestList:
             assert j['isEnabled'] == False
 
     def test_02(self):
-        """按姓名查询"""
-        response = request.get(self.url + '?pageNum=0&pageSize=50&name=test')
-        # 根据返回结果判断，列表中是否存在姓名为test（初始用户名）的用户
-        for i in response['data']['rows']:
-            assert 'test' in i['name']
+        """查询结果为空的情况"""
+        response = request.get(self.url + '?pageNum=0&pageSize=50&isEnabled=true&loginName=--')
+        # totalCount=0
+        assert response['data']['totalCount'] == 0
 
 
 class TestResetPassword:
@@ -180,24 +231,18 @@ class TestResetPassword:
     def test_03(self, createInitUser):
         """正确的用户id"""
         # 重置初始用户的密码
-        response2 = request.put_body(self.url, body={'userId': createInitUser})
-        assert response2['msg'] == '请求成功'
-
-
-class TestEnable:
-    """启用/禁用用户"""
-    url = '/role/list'
-
-    @pytest.mark.parametrize('isEnable', [True, False])
-    @pytest.mark.parametrize('name', ['test', '%%'])
-    def test_01(self, isEnable, name):
-        """查询已启用的角色"""
-        response = request.get('/role/list?pageNum=0&pageSize=50&isEnable=%s&name=%s' % (isEnable, name))
+        response = request.put_body(self.url, body={'userId': createInitUser})
         assert response['msg'] == '请求成功'
+
+    def test_04(self, getCurrentUserId):
+        """重置当前登录用户的密码"""
+        response = request.put_body(self.url, body={'userId': getCurrentUserId})
+        log.info(response)
+        assert response['msg'] == '不允许重置自己的密码'
 
 
 class TestSetEnable:
-    """启用禁用角色"""
+    """启用禁用用户"""
     url = '/user/setEnable'
 
     def test_01(self):
@@ -248,6 +293,16 @@ class TestSetEnable:
             response2 = request.put_body(self.url, body={'id': createInitUser, 'isEnabled': True})
             assert response2['msg'] == '请求成功'
 
+    def test_05(self, getCurrentUserId):
+        """禁用当前登录用户"""
+        body = {
+            'id': getCurrentUserId,
+            'isEnabled': False
+        }
+        response = request.put_body(self.url, body=body)
+        log.info(response)
+        assert response['msg'] == '不允许启用或者禁用自己的账号'
+
 
 class TestUserBindRole:
     """用户绑定角色"""
@@ -294,9 +349,66 @@ class TestUserDetail:
     def test_01(self):
         """不存在的用户id"""
         response = request.get(self.url.format(userId=0))
+        log.info(response)
         assert response['msg'] == '用户不存在'
 
     def test_02(self):
         """用户id为空"""
         response = request.get(self.url.format(userId=None))
+        log.info(response)
         assert response['msg'] == '请求参数异常'
+
+
+class TestUserListByRoleId:
+    """根据角色查询用户信息"""
+    url = '/user/userListByRoleId'
+
+    def test_01(self):
+        """角色id不存在"""
+        response = userListByRoleId(roleId=0)
+        log.info(response)
+        assert response['msg'] == '请求成功'
+
+    def test_02(self, createInitRole):
+        """初始角色id"""
+        response = userListByRoleId(roleId=createInitRole)
+        log.info(response)
+        assert response['msg'] == '请求成功'
+
+
+class TestUserUnbindRole:
+    """用户解绑角色"""
+    url = '/user/userUnbindRole'
+
+    def test_01(self, createInitUser):
+        """角色id不存在"""
+        params = [
+            {
+                'roleId': 0,
+                'userId': createInitUser
+            }
+        ]
+        response = request.post_body(self.url, body=params)
+        assert response['msg'] == '角色不存在'
+
+    def test_02(self, createInitRole):
+        """用户id不存在"""
+        params = [
+            {
+                'roleId': createInitRole,
+                'userId': 0
+            }
+        ]
+        response = request.post_body(self.url, body=params)
+        assert response['msg'] == '用户不存在'
+
+    def test_03(self, createInitRole, createInitUser):
+        """正确的用户和角色id"""
+        params = [
+            {
+                'roleId': createInitRole,
+                'userId': createInitUser
+            }
+        ]
+        response = request.post_body(self.url, body=params)
+        assert response['msg'] == '请求成功'
