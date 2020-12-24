@@ -33,10 +33,10 @@ categoryId = ids[random.randint(0, len(ids))]
 
 # 供应商A新增售卖信息
 def addSale(skuCode=None, goodsName='test', manufacturerName='test', specification='test', model=None, price=1,
-            expirationDate=tomorrow_stamp, imageResource='123', newAndOldStandard='brand_new',
-            abrasionStandard='not_used', packingIntactStandard='package_is_complete', quantity=1, category=categoryId,
-            contact=faker.name(), contactPhone=faker.phone_number(), deliveryArea=110101000000,
-            supplierName=supplier_name, remark=None):
+            lotNum=random.randint(10000, 99999), serialNumber=None, expirationDate=tomorrow_stamp, imageResource='123',
+            newAndOldStandard='brand_new', abrasionStandard='not_used', packingIntactStandard='package_is_complete',
+            quantity=1, category=categoryId, contact=faker.name(), contactPhone=faker.phone_number(),
+            deliveryArea=110101000000, supplierName=supplier_name, remark=None):
     body = {
         'skuCode': skuCode,  # 原厂编号
         'goodsName': goodsName,
@@ -44,6 +44,8 @@ def addSale(skuCode=None, goodsName='test', manufacturerName='test', specificati
         'specification': specification,
         'model': model,
         'price': price,
+        'lotNum': lotNum,
+        'serialNumber': serialNumber,
         'expirationDate': expirationDate,  # 失效日期
         'imageResource': [imageResource],  # 物资照片 array
         # 新旧程度 brand_new, eighty_percent, fifty_percent, less_than_fifty_percent, sixty_percent
@@ -64,11 +66,11 @@ def addSale(skuCode=None, goodsName='test', manufacturerName='test', specificati
 
 # 供应商B新增售卖信息
 def addSale_02(skuCode=None, goodsName='test', manufacturerName='test', specification='test', model=None, price=1,
-               expirationDate=tomorrow_stamp, imageResource='123', newAndOldStandard='brand_new',
-               abrasionStandard='not_used', packingIntactStandard='package_is_complete', quantity=1,
-               category=categoryId,
-               contact=faker.name(), contactPhone=faker.phone_number(), deliveryArea=110101000000,
-               supplierName=supplier_name_02, remark=None):
+               lotNum=random.randint(10000, 99999), serialNumber=None, expirationDate=tomorrow_stamp,
+               imageResource='123', newAndOldStandard='brand_new', abrasionStandard='not_used',
+               packingIntactStandard='package_is_complete', quantity=1, category=categoryId, contact=faker.name(),
+               contactPhone=faker.phone_number(), deliveryArea=110101000000, supplierName=supplier_name_02,
+               remark=None):
     body = {
         'skuCode': skuCode,  # 原厂编号
         'goodsName': goodsName,
@@ -76,6 +78,8 @@ def addSale_02(skuCode=None, goodsName='test', manufacturerName='test', specific
         'specification': specification,
         'model': model,
         'price': price,
+        'lotNum': lotNum,
+        'serialNumber': serialNumber,
         'expirationDate': expirationDate,  # 失效日期
         'imageResource': [imageResource],  # 物资照片 array
         # 新旧程度 brand_new, eighty_percent, fifty_percent, less_than_fifty_percent, sixty_percent
@@ -108,18 +112,20 @@ def saleDetail(id):
 
 # 编辑售卖信息
 def editSale(id, skuCode=None, goodsName='test', manufacturerName='test', specification='test', model=None, price=1,
-             expirationDate=tomorrow_stamp, imageResource='123', newAndOldStandard='brand_new',
-             abrasionStandard='not_used', packingIntactStandard='package_is_complete', quantity=1, category=categoryId,
-             contact=faker.name(), contactPhone=faker.phone_number(), deliveryArea=110101000000,
-             supplierName=supplier_name, remark=None):
+             lotNum=random.randint(10000, 99999), serialNumber=None, expirationDate=tomorrow_stamp,
+             imageResource='123', newAndOldStandard='brand_new', abrasionStandard='not_used',
+             packingIntactStandard='package_is_complete', quantity=1, category=categoryId, contact=faker.name(),
+             contactPhone=faker.phone_number(), deliveryArea=110101000000, supplierName=supplier_name, remark=None):
     body = {
         'id': id,
         'skuCode': skuCode,  # 原厂编号
         'goodsName': goodsName,
         'manufacturerName': manufacturerName,
-        'specification': specification,
-        'model': model,
+        'specification': specification,  # 规格
+        'model': model,  # 型号
         'price': price,
+        'lotNum': lotNum,  # 批号
+        'serialNumber': serialNumber,  # 序列号
         'expirationDate': expirationDate,  # 失效日期
         'imageResource': [imageResource],  # 物资照片 array
         # 新旧程度 brand_new, eighty_percent, fifty_percent, less_than_fifty_percent, sixty_percent

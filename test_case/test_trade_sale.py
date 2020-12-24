@@ -217,6 +217,12 @@ class TestAdd:
         log.info(response)
         assert response['msg'] == '请求参数异常'
 
+    def test_15(self):
+        """批次号为空"""
+        response = tradeSale.addSale(lotNum=None)
+        log.info(response)
+        assert response['msg'] == '请输入批次/序列号'
+
 
 class TestEdit:
     """编辑售卖信息"""
@@ -396,6 +402,12 @@ class TestEdit:
         response = tradeSale.editSale(id=0, packingIntactStandard='test')
         log.info(response)
         assert response['msg'] == '请求参数异常'
+
+    def test_16(self, addSale):
+        """批次号为空"""
+        response = tradeSale.editSale(id=addSale, lotNum=None)
+        log.info(response)
+        assert response['msg'] == '请输入批次/序列号'
 
 
 class TestDelete:
