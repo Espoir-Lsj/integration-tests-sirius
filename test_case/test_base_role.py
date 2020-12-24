@@ -34,6 +34,19 @@ def editRole(code, id, name, permissionIds, remark='test'):
     return response
 
 
+# 获取初始角色详情,当前py文件仅执行一次
+@pytest.fixture(scope="module")
+def getInitRoleDetail(createInitRole):
+    # 查询初始角色的详情
+    response = request.get('/role/get/%s' % createInitRole)
+    assert response['msg'] == '请求成功'
+    # 获取信息内容
+    initCode = response['data']['code']
+    initName = response['data']['name']
+    initIsEnabled = response['data']['isEnabled']
+    return initCode, initName, initIsEnabled
+
+
 class TestCreate:
     """创建角色"""
     url = '/role/createRole'
@@ -85,19 +98,15 @@ class TestEditRole:
         response = editRole(code=self.code, id=0, name=self.name, permissionIds=getPermissoinIds)
         assert response['msg'] == '角色不存在，请刷新重试'
 
-    def test_02(self, createInitRole, getPermissoinIds):
+    def test_02(self, createInitRole, getInitRoleDetail, getPermissoinIds):
         """修改存在的角色"""
-        # 查询初始角色的详情
-        response = request.get('/role/get/%s' % createInitRole)
-        assert response['msg'] == '请求成功'
-        # 获取信息内容
-        initCode = response['data']['code']
-        initName = response['data']['name']
         # 修改角色权限，取权限列表中第一个值
-        edit_response = editRole(code=initCode, id=createInitRole, name=initName, permissionIds=getPermissoinIds[0:1])
+        edit_response = editRole(code=getInitRoleDetail[0], id=createInitRole, name=getInitRoleDetail[1],
+                                 permissionIds=getPermissoinIds[0:1])
         assert edit_response['msg'] == '请求成功'
         # 修改角色权限为全部权限
-        edit_response2 = editRole(code=initCode, id=createInitRole, name=initName, permissionIds=getPermissoinIds)
+        edit_response2 = editRole(code=getInitRoleDetail[0], id=createInitRole, name=getInitRoleDetail[1],
+                                  permissionIds=getPermissoinIds)
         assert edit_response2['msg'] == '请求成功'
 
     def test_03(self, getPermissoinIds):
@@ -170,13 +179,12 @@ class TestSetEnable:
         response = request.put_body(self.url, body=body)
         assert response['msg'] == '请选择角色'
 
-    def test_04(self, createInitRole):
+    def test_04(self, createInitRole, getInitRoleDetail):
         """启用禁用角色"""
         # 查询初始角色详情
-        response = request.get('/role/get/{id}'.format(id=createInitRole))
-        assert response['msg'] == '请求成功'
+        isEabled = getInitRoleDetail[2]
         # 如果状态为已禁用则启用角色
-        if response['data']['isEnabled'] == False:
+        if isEabled == False:
             response = request.put_body(self.url, body={'id': createInitRole, 'isEnabled': True})
             assert response['msg'] == '请求成功'
             # 重复启用
