@@ -66,6 +66,21 @@ def getCurrentUserId():
     return userId
 
 
+# 获取初始用户详情,当前py文件仅执行一次
+@pytest.fixture(scope="module")
+def getInitUserDetail(createInitUser):
+    # 查询初始用户的信息
+    response = request.get('/user/userDetail/{userId}'.format(userId=createInitUser))
+    # 判断查询出的id,与初始用户id一致
+    assert response['data']['id'] == createInitUser
+    # 获取信息内容
+    initName = response['data']['name']
+    initLoginName = response['data']['loginName']
+    initRoleIds = response['data']['roleIds']
+    initIsEnabled = response['data']['isEnabled']
+    return initName, initLoginName, initRoleIds, initIsEnabled
+
+
 class TestCreateUser:
     """创建用户"""
     url = '/user/createUser'
@@ -176,18 +191,11 @@ class TestEditUser:
         response = editUser(name=self.userName, id=0, loginName=self.loginName, roleIds=[createInitRole])
         assert response['msg'] == '用户不存在，请检查重试'
 
-    def test_02(self, createInitUser):
+    def test_02(self, createInitUser, getInitUserDetail):
         """修改初始用户"""
-        # 查询初始用户的信息
-        response = request.get('/user/userDetail/{userId}'.format(userId=createInitUser))
-        # 判断查询出的id,与初始用户id一致
-        assert response['data']['id'] == createInitUser
-        # 获取信息内容
-        initRoleIds = response['data']['roleIds']
-        initLoginName = response['data']['loginName']
-        initName = response['data']['name']
         # 修改用户
-        response = editUser(name=initName, id=createInitUser, loginName=initLoginName, roleIds=initRoleIds)
+        response = editUser(name=getInitUserDetail[0], id=createInitUser, loginName=getInitUserDetail[1],
+                            roleIds=getInitUserDetail[2])
         assert response['msg'] == '请求成功'
 
 
@@ -271,12 +279,10 @@ class TestSetEnable:
         response = request.put_body(self.url, body=body)
         assert response['msg'] == '请选择用户'
 
-    def test_04(self, createInitUser):
+    def test_04(self, createInitUser, getInitUserDetail):
         """启用禁用"""
         # 查询初始用户状态
-        list = request.get('/user/list?pageNum=0&pageSize=50&name=test')
-        assert list['data']['totalCount'] > 0
-        isEabled = list['data']['rows'][0]['isEnabled']
+        isEabled = getInitUserDetail[3]
         # 如果状态为已禁用则启用
         if isEabled == True:
             response = request.put_body(self.url, body={'id': createInitUser, 'isEnabled': True})
