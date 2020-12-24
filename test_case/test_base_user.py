@@ -183,12 +183,11 @@ class TestEditUser:
         # 判断查询出的id,与初始用户id一致
         assert response['data']['id'] == createInitUser
         # 获取信息内容
-        initId = response['data']['id']
         initRoleIds = response['data']['roleIds']
         initLoginName = response['data']['loginName']
         initName = response['data']['name']
         # 修改用户
-        response = editUser(name=initName, id=initId, loginName=initLoginName, roleIds=initRoleIds)
+        response = editUser(name=initName, id=createInitUser, loginName=initLoginName, roleIds=initRoleIds)
         assert response['msg'] == '请求成功'
 
 
