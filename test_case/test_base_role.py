@@ -190,10 +190,21 @@ class TestSetEnable:
             # 重复启用
             response2 = request.put_body(self.url, body={'id': createInitRole, 'isEnabled': True})
             assert response2['msg'] == '请求成功'
+            # 禁用角色
+            response3 = request.put_body(self.url, body={'id': createInitRole, 'isEnabled': False})
+            assert response3['msg'] == '请求成功'
+            # 重复禁用
+            response4 = request.put_body(self.url, body={'id': createInitRole, 'isEnabled': False})
+            assert response4['msg'] == '请求成功'
         else:
-            # 如果状态为已启用则禁用角色
             response = request.put_body(self.url, body={'id': createInitRole, 'isEnabled': False})
             assert response['msg'] == '请求成功'
-            # 重复禁用
+            # 重复启用
             response2 = request.put_body(self.url, body={'id': createInitRole, 'isEnabled': False})
             assert response2['msg'] == '请求成功'
+            # 禁用角色
+            response3 = request.put_body(self.url, body={'id': createInitRole, 'isEnabled': True})
+            assert response3['msg'] == '请求成功'
+            # 重复禁用
+            response4 = request.put_body(self.url, body={'id': createInitRole, 'isEnabled': True})
+            assert response4['msg'] == '请求成功'

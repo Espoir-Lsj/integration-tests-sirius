@@ -290,13 +290,24 @@ class TestSetEnable:
             # 重复启用
             response2 = request.put_body(self.url, body={'id': createInitUser, 'isEnabled': True})
             assert response2['msg'] == '请求成功'
-        else:
             # 如果状态为已启用则禁用
+            response3 = request.put_body(self.url, body={'id': createInitUser, 'isEnabled': False})
+            assert response3['msg'] == '请求成功'
+            # 重复禁用
+            response4 = request.put_body(self.url, body={'id': createInitUser, 'isEnabled': False})
+            assert response4['msg'] == '请求成功'
+        else:
             response = request.put_body(self.url, body={'id': createInitUser, 'isEnabled': False})
             assert response['msg'] == '请求成功'
-            # 重复禁用
-            response2 = request.put_body(self.url, body={'id': createInitUser, 'isEnabled': True})
+            # 重复启用
+            response2 = request.put_body(self.url, body={'id': createInitUser, 'isEnabled': False})
             assert response2['msg'] == '请求成功'
+            # 如果状态为已启用则禁用
+            response3 = request.put_body(self.url, body={'id': createInitUser, 'isEnabled': True})
+            assert response3['msg'] == '请求成功'
+            # 重复禁用
+            response4 = request.put_body(self.url, body={'id': createInitUser, 'isEnabled': True})
+            assert response4['msg'] == '请求成功'
 
     def test_05(self, getCurrentUserId):
         """禁用当前登录用户"""
@@ -409,6 +420,7 @@ class TestUserUnbindRole:
 
     def test_03(self, createInitRole, createInitUser):
         """正确的用户和角色id"""
+        # 解绑
         params = [
             {
                 'roleId': createInitRole,
