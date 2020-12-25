@@ -16,7 +16,7 @@ today_stamp = int(time.mktime(today.timetuple())) * 1000
 
 # 创建一个待审核的快递出库单
 @pytest.fixture(scope="module")
-def prepare():
+def createOutboundOrder():
     # 创建临调单
     response = adhocOrder.appCreateAdhocOrder(param_config.goodsId)
     assert response['msg'] == '请求成功'
@@ -55,100 +55,134 @@ def prepare():
         '/allocateOutboundOrder/list?pageNum=0&pageSize=50&status=delivery_pending&status=pick_pending&keyword=%s' % adhocOrderCode)
     # 出库单id
     outboundOrderId = getList['data']['rows'][0]['id']
-    # 提货方式
-    deliveryMode = getList['data']['rows'][0]['deliveryMode']
-    return outboundOrderId, deliveryMode
+    # # 提货方式
+    # deliveryMode = getList['data']['rows'][0]['deliveryMode']
+    return outboundOrderId
 
 
-class TestOutbound:
+# 发货
+def delivery(id, logisticsCompany='京东', expressNo='JD881991899', deliveryDate=today_stamp, deliveryMode='SELF_PIKE_UP'):
+    body = {
+        'logisticsCompany': logisticsCompany,
+        'expressNo': expressNo,
+        'deliveryDate': deliveryDate,
+        'id': id,
+        'deliveryMode': deliveryMode
+    }
+    response = request.put_body('/allocateOutboundOrder/delivery', body=body)
+    return response
+
+
+# 发货审核
+def approval(id, logisticsCompany='京东', expressNo='JD881991899', deliveryDate=today_stamp):
+    body = {
+        'logisticsCompany': logisticsCompany,
+        'expressNo': expressNo,
+        'deliveryDate': deliveryDate,
+        'id': id,
+    }
+    response = request.put_body('/allocateOutboundOrder/approval', body=body)
+    return response
+
+
+class TestDeliveryAndApproval:
     """设置调拨出库单已发货"""
     url = '/allocateOutboundOrder/delivery'
     approval_url = '/allocateOutboundOrder/approval'
 
-    def test_01(self, prepare):
+    # 发货成功，class内仅执行一次
+    @pytest.fixture(scope="class")
+    def setDelivery(self, createOutboundOrder):
+        # 发货方式设置为快递
+        response = delivery(id=createOutboundOrder, deliveryMode='DELIVERY')
+        return response
+
+    def test_01(self, createOutboundOrder):
         """收货地址未填写"""
-        body = {
-            'logisticsCompany': '京东',
-            'expressNo': 'JD881991899',
-            'deliveryDate': today_stamp,
-            'id': prepare[0],
-            'deliveryMode': 'SELF_PIKE_UP'
-        }
-        response = request.put_body(self.url, body=body)
+        response = delivery(id=createOutboundOrder)
         log.info(response)
         assert response['msg'] == '收货信息不完整,请联系客服/商务,补全收货信息'
-        # 设置出库单为已发货
-        body['deliveryMode'] = 'DELIVERY'
-        response2 = request.put_body(self.url, body=body)
-        log.info(response2)
-        assert response2['msg'] == '请求成功'
 
     def test_02(self):
         """出库单id不存在"""
-        body = {
-            'logisticsCompany': '京东',
-            'expressNo': 'JD881991899',
-            'deliveryDate': today_stamp,
-            'id': 0,
-            'deliveryMode': 'SELF_PIKE_UP'
-        }
-        response = request.put_body(self.url, body=body)
+        response = delivery(id=0)
         log.info(response)
         assert response['msg'] == '调拨出库单不存在'
 
     def test_03(self):
         """审核不存在的出库单"""
-        body = {
-            'logisticsCompany': '京东',
-            'expressNo': 'JD881991899',
-            'deliveryDate': today_stamp,
-            'id': 0,
-        }
-        response = request.put_body(self.approval_url, body=body)
+        response = approval(id=0)
         log.info(response)
         assert response['msg'] == '调拨出库单不存在'
 
-    def test_03_1(self, prepare):
-        """审核出库单发货日期为空"""
-        body = {
-            'logisticsCompany': '京东',
-            'expressNo': 'JD881991899',
-            'deliveryDate': None,
-            'id': prepare[0],
-        }
-        response = request.put_body(self.approval_url, body=body)
+    def test_04(self, createOutboundOrder):
+        """审核未发货的出库单"""
+        response = approval(id=createOutboundOrder)
+        log.info(response)
+        assert response['msg'] == '该订单状态不正确'
+
+    def test_05(self, createOutboundOrder, setDelivery):
+        """审核时日期为空"""
+        response = approval(id=createOutboundOrder, deliveryDate=None)
         log.info(response)
         assert response['msg'] == '请输入发货日期'
 
-    def test_04(self, prepare):
-        """查询调拨出库单发货信息"""
-        # 出库单id不存在
-        response = request.get('/allocateOutboundOrder/deliveryInfo/0')
-        log.info(response)
-        assert response['msg'] == '调拨出库单不存在'
-        # 正确的出库单id
-        response2 = request.get('/allocateOutboundOrder/deliveryInfo/%s' % prepare[0])
-        assert response2['msg'] == '请求成功'
 
-    def test_05(self, prepare):
-        """查询调拨出库单明细"""
-        # 出库单id不存在
-        response = request.get('/allocateOutboundOrder/detail/0')
-        log.info(response)
-        assert response['msg'] == '调拨出库单不存在'
-        # 正确的出库单id
-        response2 = request.get('/allocateOutboundOrder/detail/%s' % prepare[0])
-        assert response2['msg'] == '请求成功'
+class TestDeliveryInfo:
+    """调拨出库单发货信息"""
+    url = '/allocateOutboundOrder/deliveryInfo/{orderId}'
 
-    def test_06(self, prepare):
-        """调拨出库单打印"""
-        # 出库单id不存在
-        response = request.get('/allocateOutboundOrder/print/0')
+    def test_01(self):
+        """调拨出库单id不存在"""
+        response = request.get(self.url.format(orderId=0))
         log.info(response)
         assert response['msg'] == '调拨出库单不存在'
-        # 正确的出库单id
-        response2 = request.get('/allocateOutboundOrder/print/%s' % prepare[0])
-        assert response2['msg'] == '请求成功'
+
+    def test_02(self, createOutboundOrder):
+        """正确的调拨出库单id"""
+        response = request.get(self.url.format(orderId=createOutboundOrder))
+        log.info(response)
+        assert response['msg'] == '请求成功'
+
+
+class TestDetail:
+    """调拨出库单明细"""
+    url = '/allocateOutboundOrder/detail/{orderId}'
+
+    def test_01(self):
+        """出库单id不存在"""
+        response = request.get(self.url.format(orderId=0))
+        log.info(response)
+        assert response['msg'] == '调拨出库单不存在'
+
+    def test_02(self, createOutboundOrder):
+        """正确的出库单id"""
+        response = request.get(self.url.format(orderId=createOutboundOrder))
+        log.info(response)
+        assert response['msg'] == '请求成功'
+
+
+class TestGetAddress:
+    """查询调拨出库单收货信息"""
+    url = '/allocateOutboundOrder/getAddress'
+
+    def test_01(self):
+        """出库单id不存在"""
+        params = {
+            'outboundOrderId': 0
+        }
+        response = request.get_params(self.url, params=params)
+        log.info(response)
+        assert response['msg'] == '调拨出库单不存在'
+
+    def test_02(self, createOutboundOrder):
+        """正确的出库单id"""
+        params = {
+            'outboundOrderId': createOutboundOrder
+        }
+        response = request.get_params(self.url, params=params)
+        log.info(response)
+        assert response['msg'] == '操作成功'
 
 
 class TestList:
@@ -173,3 +207,20 @@ class TestList:
         }
         r = request.get_params(self.url, params=params)
         assert r['msg'] == '请求成功'
+
+
+class TestPrint:
+    """调拨出库单打印"""
+    url = '/allocateOutboundOrder/print/{orderId}'
+
+    def test_01(self):
+        """出库单id不存在"""
+        response = request.get(self.url.format(orderId=0))
+        log.info(response)
+        assert response['msg'] == '调拨出库单不存在'
+
+    def test_02(self, createOutboundOrder):
+        """正确的出库单id"""
+        response = request.get(self.url.format(orderId=createOutboundOrder))
+        log.info(response)
+        assert response['msg'] == '请求成功'
