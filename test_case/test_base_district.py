@@ -37,7 +37,6 @@ class TestReversePosition:
             'lat': 39.74990554421901
         }
         response = request.get_params(self.url, params=params)
-        log.info(response)
         # 判断响应data非空
         assert response['data'] != None
 
@@ -48,7 +47,6 @@ class TestReversePosition:
             'lat': None
         }
         response = request.get_params(self.url, params=params)
-        log.info(response)
         assert response['msg'] == '请求参数异常'
 
 

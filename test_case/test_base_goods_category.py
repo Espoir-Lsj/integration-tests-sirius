@@ -18,7 +18,6 @@ class TestAddCategory:
             'goodsId': 0
         }
         response = request.post_body(self.url, body=body)
-        log.info(response)
         assert response['msg'] == '该商品不存在'
 
     def test_02(self):
@@ -27,4 +26,3 @@ class TestAddCategory:
             'goodsId': param_config.goodsId
         }
         response = request.post_body(self.url, body=body)
-        log.info(response)

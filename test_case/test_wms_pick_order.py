@@ -53,7 +53,6 @@ class TestApproval:
     def test_01(self):
         """拣货单id不存在"""
         response = request.put('/pickOrder/approval/0')
-        log.info(response)
         assert response['msg'] == '拣货单不存在'
 
 
@@ -63,7 +62,6 @@ class TestDetail:
     def test_01(self):
         """拣货单id不存在"""
         response = request.get('/pickOrder/detail/0')
-        log.info(response)
         assert response['msg'] == '拣货单不存在'
 
 
@@ -73,7 +71,6 @@ class TestDetailPda:
     def test_01(self):
         """拣货单id不存在"""
         response = request.get('/pickOrder/detailByPda/0')
-        log.info(response)
         assert response['msg'] == '拣货单不存在'
 
     def test_02(self, prepare_pick_order):
@@ -121,7 +118,6 @@ class TestPickFinished:
             "pickOrderId": 0
         }
         response = request.put_body(self.url, body=body)
-        log.info(response)
         assert response['msg'] == '拣货单不存在'
 
     def test_02(self, prepare_pick_order):
@@ -131,7 +127,6 @@ class TestPickFinished:
             "pickOrderId": prepare_pick_order
         }
         response = request.put_body(self.url, body=body)
-        log.info(response)
         assert response['msg'] == '存在未拣货完成的商品不能结束拣货'
 
 
@@ -154,43 +149,36 @@ class TestPicking:
     def test_01(self, detail, prepare_pick_order):
         """批号为空"""
         response = pick.pickOne(detail[0], None, detail[2], detail[3], prepare_pick_order)
-        log.info(response)
         assert response['msg'] == '该批次商品不存在'
 
     def test_02(self, detail, prepare_pick_order):
         """物资id为空"""
         response = pick.pickOne(None, detail[1], detail[2], detail[3], prepare_pick_order)
-        log.info(response)
         assert response['msg'] == '请选择需要拣的物资'
 
     def test_03(self, detail, prepare_pick_order):
         """货位号为空"""
         response = pick.pickOne(detail[0], detail[1], detail[2], None, prepare_pick_order)
-        log.info(response)
         assert response['msg'] == '拣货的商品或该批次的商品在拣货单中不存在'
 
     def test_04(self,detail,prepare_pick_order):
         """货位号不存在"""
         response = pick.pickOne(detail[0], detail[1], detail[2], 'test', prepare_pick_order)
-        log.info(response)
         assert response['msg'] == '请求参数异常'
 
     def test_05(self,detail,prepare_pick_order):
         """拣货单id为空"""
         response = pick.pickOne(detail[0], detail[1], detail[2], detail[3], None)
-        log.info(response)
         assert response['msg'] == '请选择拣货单'
 
     def test_06(self,detail,prepare_pick_order):
         """拣货单id不存在"""
         response = pick.pickOne(detail[0], detail[1], detail[2], detail[3], 0)
-        log.info(response)
         assert response['msg'] == '拣货单不存在'
 
     def test_07(self,detail,prepare_pick_order):
         """重复拣货"""
         response = pick.pickOne(detail[0], detail[1], detail[2], detail[3], prepare_pick_order)
-        log.info(response)
         response2 = pick.pickOne(detail[0], detail[1], detail[2], detail[3], prepare_pick_order)
         log.info(response2)
         assert response2['msg'] == '该商品已拣货完成请勿重复操作'

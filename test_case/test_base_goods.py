@@ -35,7 +35,6 @@ class TestCreateGoods:
 
     def test_01(self):
         response = create(name=self.goodsName, commonName=self.goodsName, skuCode=self.skuCode)
-        log.info(response)
 
 
 # 查询商品列表
@@ -74,7 +73,6 @@ class TestFindGoodsList:
     def test_01(self, casename, manufacturerId, pageNum, pageSize, msg):
         """必填字段校验"""
         response = find_goods_list(manufacturerId=manufacturerId, pageNum=pageNum, pageSize=pageSize)
-        log.info(response)
         assert response['msg'] == msg
 
 
@@ -106,7 +104,6 @@ class TestFindList:
     def test_01(self, casename, pageNum, pageSize, msg):
         """必填字段校验"""
         response = find_list(pageNum=pageNum, pageSize=pageSize)
-        log.info(response)
         assert response['msg'] == msg
 
 
@@ -147,7 +144,6 @@ class TestFindListByAuxiliaryMaterial:
     def test_01(self, casename, manufacturerId, pageNum, pageSize, msg):
         """必填字段校验"""
         response = find_goods_list(manufacturerId=manufacturerId, pageNum=pageNum, pageSize=pageSize)
-        log.info(response)
         assert response['msg'] == msg
 
 
@@ -188,7 +184,6 @@ class TestFindListByMainMaterial:
     def test_01(self, casename, manufacturerId, pageNum, pageSize, msg):
         """必填字段校验"""
         response = find_goods_list(manufacturerId=manufacturerId, pageNum=pageNum, pageSize=pageSize)
-        log.info(response)
         assert response['msg'] == msg
 
 
@@ -229,7 +224,6 @@ class TestGetMainFitRelation:
     def test_01(self, casename, manufacturerId, pageNum, pageSize, msg):
         """必填字段校验"""
         response = find_goods_list(manufacturerId=manufacturerId, pageNum=pageNum, pageSize=pageSize)
-        log.info(response)
         assert response['msg'] == msg
 
 
@@ -242,7 +236,6 @@ class TestGS1Decode:
             'code': 0
         }
         response = request.get_params(self.url, params=params)
-        log.info(response)
         assert response['msg'] == '请求成功'
 
 
@@ -264,6 +257,5 @@ class TestSetEnable:
             'isEnabled': isEnabled
         }
         response = request.put_body(self.url, body=body)
-        log.info(response)
         assert response['msg'] == msg
 

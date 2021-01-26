@@ -100,31 +100,26 @@ class TestDeliveryAndApproval:
     def test_01(self, createOutboundOrder):
         """收货地址未填写"""
         response = delivery(id=createOutboundOrder)
-        log.info(response)
         assert response['msg'] == '收货信息不完整,请联系客服/商务,补全收货信息'
 
     def test_02(self):
         """出库单id不存在"""
         response = delivery(id=0)
-        log.info(response)
         assert response['msg'] == '调拨出库单不存在'
 
     def test_03(self):
         """审核不存在的出库单"""
         response = approval(id=0)
-        log.info(response)
         assert response['msg'] == '调拨出库单不存在'
 
     def test_04(self, createOutboundOrder):
         """审核未发货的出库单"""
         response = approval(id=createOutboundOrder)
-        log.info(response)
         assert response['msg'] == '该订单状态不正确'
 
     def test_05(self, createOutboundOrder, setDelivery):
         """审核时日期为空"""
         response = approval(id=createOutboundOrder, deliveryDate=None)
-        log.info(response)
         assert response['msg'] == '请输入发货日期'
 
 
@@ -135,13 +130,11 @@ class TestDeliveryInfo:
     def test_01(self):
         """调拨出库单id不存在"""
         response = request.get(self.url.format(orderId=0))
-        log.info(response)
         assert response['msg'] == '调拨出库单不存在'
 
     def test_02(self, createOutboundOrder):
         """正确的调拨出库单id"""
         response = request.get(self.url.format(orderId=createOutboundOrder))
-        log.info(response)
         assert response['msg'] == '请求成功'
 
 
@@ -152,13 +145,11 @@ class TestDetail:
     def test_01(self):
         """出库单id不存在"""
         response = request.get(self.url.format(orderId=0))
-        log.info(response)
         assert response['msg'] == '调拨出库单不存在'
 
     def test_02(self, createOutboundOrder):
         """正确的出库单id"""
         response = request.get(self.url.format(orderId=createOutboundOrder))
-        log.info(response)
         assert response['msg'] == '请求成功'
 
 
@@ -172,7 +163,6 @@ class TestGetAddress:
             'outboundOrderId': 0
         }
         response = request.get_params(self.url, params=params)
-        log.info(response)
         assert response['msg'] == '调拨出库单不存在'
 
     def test_02(self, createOutboundOrder):
@@ -181,7 +171,6 @@ class TestGetAddress:
             'outboundOrderId': createOutboundOrder
         }
         response = request.get_params(self.url, params=params)
-        log.info(response)
         assert response['msg'] == '操作成功'
 
 
@@ -216,11 +205,9 @@ class TestPrint:
     def test_01(self):
         """出库单id不存在"""
         response = request.get(self.url.format(orderId=0))
-        log.info(response)
         assert response['msg'] == '调拨出库单不存在'
 
     def test_02(self, createOutboundOrder):
         """正确的出库单id"""
         response = request.get(self.url.format(orderId=createOutboundOrder))
-        log.info(response)
         assert response['msg'] == '请求成功'

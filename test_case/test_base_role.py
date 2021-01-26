@@ -57,32 +57,27 @@ class TestCreate:
     def test_01(self, getPermissoinIds):
         """角色编码为空"""
         response = createRole(code=None, name=self.name, permissionIds=getPermissoinIds)
-        log.info(response)
         assert response['msg'] == '请填写角色编码'
 
     def test_02(self, getPermissoinIds):
         """角色名为空"""
         response = createRole(code=self.code, name=None, permissionIds=getPermissoinIds)
-        log.info(response)
         assert response['msg'] == '请填写角色名称'
 
     def test_03(self, getPermissoinIds):
         """权限id为空"""
         response = createRole(code=self.code, name=self.name, permissionIds=None)
-        log.info(response)
         assert response['msg'] == '请选择角色需要关联的权限'
 
     def test_04(self, getPermissoinIds):
         """角色编码重复"""
         # 创建一个角色编码和角色名称为test的角色
         response = createRole(code='test', name='test', permissionIds=getPermissoinIds)
-        log.info(response)
         assert response['msg'] == '角色编码已被使用'
 
     def test_05(self):
         """权限id不存在"""
         response = createRole(code=self.code, name=self.name, permissionIds=[0])
-        log.info(response)
         assert response['msg'] == '请选择正确的权限'
 
 

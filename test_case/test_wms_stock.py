@@ -23,13 +23,11 @@ class TestKitStock:
     def test_01(self):
         """打印套包条码"""
         response = request.get('/kitStock/printKitBarcode/{barcode}'.format(barcode=0))
-        log.info(response)
         assert response['msg'] == '套包不存在'
 
     def test_02(self):
         """打印工具包条码"""
         response = request.get('/kitStock/printToolKitBarcode/{barcode}'.format(barcode=0))
-        log.info(response)
         assert response['msg'] == '套包不存在'
 
     def test_03(self):
@@ -41,14 +39,12 @@ class TestKitStock:
             }
         ]
         response = request.post_body('/kitStock/putOnShelf', body=body)
-        log.info(response)
         assert response['msg'] == '货位test不存在'
 
     def test_04(self):
         """套包待上架列表"""
         # 分页大小为空
         response = request.get('/kitStock/putOnShelfPendingProcedureList?pageNum=0')
-        log.info(response)
         assert response['msg'] == '请填写分页大小'
         # 页码为空
         response2 = request.get('/kitStock/putOnShelfPendingProcedureList?pageSize=20')
@@ -63,7 +59,6 @@ class TestKitStock:
         """工具包待上架列表"""
         # 分页大小为空
         response = request.get('/kitStock/putOnShelfPendingToolsList?pageNum=0')
-        log.info(response)
         assert response['msg'] == '请填写分页大小'
         # 页码为空
         response2 = request.get('/kitStock/putOnShelfPendingToolsList?pageSize=20')

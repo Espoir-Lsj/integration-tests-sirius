@@ -144,7 +144,6 @@ class TestEditPwd:
             'oldPassword': param_config.loginPassword
         }
         response = request.put_body(self.url, body=body)
-        log.info(response)
         assert response['msg'] == '密码长度8~16位，包含数字、大写、小写字母、特殊符号中的至少3种'
 
     def test_04(self):
@@ -154,7 +153,6 @@ class TestEditPwd:
             'oldPassword': param_config.loginPassword
         }
         response = request.put_body(self.url, body=body)
-        log.info(response)
         assert response['msg'] == '密码需包含数字、大写、小写字母、特殊符号中的至少3种'
 
     def test_05(self):
@@ -164,7 +162,6 @@ class TestEditPwd:
             'oldPassword': '0000'
         }
         response = request.put_body(self.url, body=body)
-        log.info(response)
         assert response['msg'] == '旧密码不正确'
 
     def test_06(self):
@@ -174,7 +171,6 @@ class TestEditPwd:
             'oldPassword': param_config.loginPassword
         }
         response = request.put_body(self.url, body=body)
-        log.info(response)
         assert response['msg'] == '新密码和旧密码一致; 请重新输入新密码'
 
 
@@ -244,7 +240,6 @@ class TestResetPassword:
     def test_04(self, getCurrentUserId):
         """重置当前登录用户的密码"""
         response = request.put_body(self.url, body={'userId': getCurrentUserId})
-        log.info(response)
         assert response['msg'] == '不允许重置自己的密码'
 
 
@@ -316,7 +311,6 @@ class TestSetEnable:
             'isEnabled': False
         }
         response = request.put_body(self.url, body=body)
-        log.info(response)
         assert response['msg'] == '不允许启用或者禁用自己的账号'
 
 
@@ -365,13 +359,11 @@ class TestUserDetail:
     def test_01(self):
         """不存在的用户id"""
         response = request.get(self.url.format(userId=0))
-        log.info(response)
         assert response['msg'] == '用户不存在'
 
     def test_02(self):
         """用户id为空"""
         response = request.get(self.url.format(userId=None))
-        log.info(response)
         assert response['msg'] == '请求参数异常'
 
 
@@ -382,13 +374,11 @@ class TestUserListByRoleId:
     def test_01(self):
         """角色id不存在"""
         response = userListByRoleId(roleId=0)
-        log.info(response)
         assert response['msg'] == '请求成功'
 
     def test_02(self, createInitRole):
         """初始角色id"""
         response = userListByRoleId(roleId=createInitRole)
-        log.info(response)
         assert response['msg'] == '请求成功'
 
 

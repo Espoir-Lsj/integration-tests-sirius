@@ -121,19 +121,16 @@ class TestAppCreate:
     def test_01(self):
         """物资id不存在"""
         response = adhocOrder.appCreateAdhocOrder(goodsId=0)
-        log.info(response)
         assert response['msg'] == '商品不存在,请刷新重试'
 
     def test_02(self):
         """调拨数量为0"""
         response = adhocOrder.appCreateAdhocOrder(goodsId=self.goodsId, goodsQuantity=0)
-        log.info(response)
         assert response['msg'] == '调拨数量不能小于1'
 
     def test_03(self):
         """调拨数量为空"""
         response = adhocOrder.appCreateAdhocOrder(goodsId=self.goodsId, goodsQuantity=None)
-        log.info(response)
         assert response['msg'] == '请输入商品数量'
 
     # def test_04(self):
@@ -151,115 +148,96 @@ class TestAppCreate:
     def test_11(self):
         """医院名称为空"""
         response = adhocOrder.appCreateAdhocOrder(goodsId=self.goodsId, hospitalName=None)
-        log.info(response)
         assert response['msg'] == '请输入医院名称'
 
     def test_12(self):
         """医院名称超长"""
         response = adhocOrder.appCreateAdhocOrder(goodsId=self.goodsId, hospitalName=self.context)
-        log.info(response)
         assert response['msg'] == '医院名称长度超出限制'
 
     def test_13(self):
         """患者年龄段为空"""
         response = adhocOrder.appCreateAdhocOrder(goodsId=self.goodsId, ageGroup=None)
-        log.info(response)
         assert response['msg'] == '请选择患者年龄'
 
     def test_14(self):
         """患者年龄段传错误的值"""
         response = adhocOrder.appCreateAdhocOrder(goodsId=self.goodsId, ageGroup='test')
-        log.info(response)
         assert response['msg'] == '请求参数异常'
 
     def test_21(self):
         """手术部位为空"""
         response = adhocOrder.appCreateAdhocOrder(goodsId=self.goodsId, siteId=None)
-        log.info(response)
         assert response['msg'] == '请选择正确的手术部位'
 
     def test_22(self):
         """手术部位不存在"""
         response = adhocOrder.appCreateAdhocOrder(goodsId=self.goodsId, siteId='1')
-        log.info(response)
         assert response['msg'] == '请选择正确的手术部位'
 
     def test_31(self):
         """主刀医生为空"""
         response = adhocOrder.appCreateAdhocOrder(goodsId=self.goodsId, surgeon=None)
-        log.info(response)
         assert response['msg'] == '请输入正确的主刀医生姓名'
 
     def test_32(self):
         """手术日期为空"""
         response = adhocOrder.appCreateAdhocOrder(goodsId=self.goodsId, procedureTime=None)
-        log.info(response)
         assert response['msg'] == '请选择手术日期'
 
     def test_33(self):
         """手术日期早于当天"""
         response = adhocOrder.appCreateAdhocOrder(goodsId=self.goodsId, procedureTime=self.yesterday_stamp)
-        log.info(response)
         assert response['msg'] == '手术日期不能早于当天'
 
     def test_34(self):
         """预计归还日期为空"""
         response = adhocOrder.appCreateAdhocOrder(goodsId=self.goodsId, expectReturnTime=None)
-        log.info(response)
         assert response['msg'] == '请选择归还日期'
 
     def test_35(self):
         """预计归还日期早于手术日期"""
         response = adhocOrder.appCreateAdhocOrder(goodsId=self.goodsId, expectReturnTime=self.yesterday_stamp)
-        log.info(response)
         assert response['msg'] == '预计归还日期不能早于手术日期'
 
     def test_36(self):
         """订单联系人为空"""
         response = adhocOrder.appCreateAdhocOrder(goodsId=self.goodsId, contactName=None)
-        log.info(response)
         assert response['msg'] == '请输入正确的联系人姓名'
 
     def test_37(self):
         """订单联系电话为空"""
         response = adhocOrder.appCreateAdhocOrder(goodsId=self.goodsId, contactPhone=None)
-        log.info(response)
         assert response['msg'] == '请输入正确的手机号码'
 
     def test_38(self):
         """销售人员字段超长"""
         response = adhocOrder.appCreateAdhocOrder(goodsId=self.goodsId, salesPerson=self.context)
-        log.info(response)
         assert response['msg'] == '销售人员长度超出限制'
 
     def test_41(self):
         """物流方式为空"""
         response = adhocOrder.appCreateAdhocOrder(goodsId=self.goodsId, deliveryMode=None)
-        log.info(response)
         assert response['msg'] == '请选择收货方式'
 
     def test_42(self):
         """收件人为空"""
         response = adhocOrder.appCreateAdhocOrder(goodsId=self.goodsId, receivingName=None)
-        log.info(response)
         assert response['msg'] == '请输入正确的收货人姓名'
 
     def test_43(self):
         """收件人电话为空"""
         response = adhocOrder.appCreateAdhocOrder(goodsId=self.goodsId, receivingPhone=None)
-        log.info(response)
         assert response['msg'] == '请输入正确的手机号码'
 
     def test_44(self):
         """收件人地址为空"""
         response = adhocOrder.appCreateAdhocOrder(goodsId=self.goodsId, receivingAddress=None)
-        log.info(response)
         assert response['msg'] == '请填写收货地址'
 
     def test_45(self):
         """收件人身份证错误"""
         response = adhocOrder.appCreateAdhocOrder(goodsId=self.goodsId, receivingIdCard='null')
-        log.info(response)
         assert response['msg'] == '请输入正确的身份证号'
 
 
@@ -310,31 +288,26 @@ class TestCreate:
     def test_01(self):
         """物资id不存在"""
         response = adhocOrder.createAdhocOrder(goodsId=0)
-        log.info(response)
         assert response['msg'] == '商品不存在,请刷新重试'
 
     def test_02(self):
         """调拨数量为0"""
         response = adhocOrder.createAdhocOrder(goodsId=self.goodsId, goodsQuantity=0)
-        log.info(response)
         assert response['msg'] == '调拨数量不能小于1'
 
     def test_03(self):
         """调拨数量为空"""
         response = adhocOrder.createAdhocOrder(goodsId=self.goodsId, goodsQuantity=None)
-        log.info(response)
         assert response['msg'] == '请输入商品数量'
 
     def test_04(self):
         """经销商id为空"""
         response = adhocOrder.createAdhocOrder(goodsId=self.goodsId, supplierId=None)
-        log.info(response)
         assert response['msg'] == '请输入经销商'
 
     def test_05(self):
         """经销商id不存在"""
         response = adhocOrder.createAdhocOrder(goodsId=self.goodsId, supplierId=0)
-        log.info(response)
         assert response['msg'] == '目标仓库不存在，请选择目标仓库'
 
     # 删除了物资库存校验
@@ -347,109 +320,91 @@ class TestCreate:
     def test_11(self):
         """医院名称为空"""
         response = adhocOrder.createAdhocOrder(goodsId=self.goodsId, hospitalName=None)
-        log.info(response)
         assert response['msg'] == '请输入医院名称'
 
     def test_12(self):
         """医院名称超长"""
         response = adhocOrder.createAdhocOrder(goodsId=self.goodsId, hospitalName=self.context)
-        log.info(response)
         assert response['msg'] == '医院名称长度超出限制'
 
     def test_13(self):
         """患者年龄段为空"""
         response = adhocOrder.createAdhocOrder(goodsId=self.goodsId, ageGroup=None)
-        log.info(response)
         assert response['msg'] == '请选择患者年龄'
 
     def test_14(self):
         """患者年龄段传错误的值"""
         response = adhocOrder.createAdhocOrder(goodsId=self.goodsId, ageGroup='test')
-        log.info(response)
         assert response['msg'] == '请求参数异常'
 
     def test_21(self):
         """手术部位为空"""
         response = adhocOrder.createAdhocOrder(goodsId=self.goodsId, siteId=None)
-        log.info(response)
         assert response['msg'] == '请选择正确的手术部位'
 
     def test_22(self):
         """手术部位不存在"""
         response = adhocOrder.createAdhocOrder(goodsId=self.goodsId, siteId='1')
-        log.info(response)
         assert response['msg'] == '请选择正确的手术部位'
 
     def test_31(self):
         """主刀医生为空"""
         response = adhocOrder.createAdhocOrder(goodsId=self.goodsId, surgeon=None)
-        log.info(response)
         assert response['msg'] == '请输入正确的主刀医生姓名'
 
     def test_32(self):
         """手术日期为空"""
         response = adhocOrder.createAdhocOrder(goodsId=self.goodsId, procedureTime=None)
-        log.info(response)
         assert response['msg'] == '请选择手术日期'
 
     def test_33(self):
         """手术日期早于当天"""
         response = adhocOrder.createAdhocOrder(goodsId=self.goodsId, procedureTime=self.yesterday_stamp)
-        log.info(response)
         assert response['msg'] == '手术日期不能早于当天'
 
     def test_34(self):
         """预计归还日期为空"""
         response = adhocOrder.createAdhocOrder(goodsId=self.goodsId, expectReturnTime=None)
-        log.info(response)
         assert response['msg'] == '请选择归还日期'
 
     def test_35(self):
         """预计归还日期早于手术日期"""
         response = adhocOrder.createAdhocOrder(goodsId=self.goodsId, expectReturnTime=self.yesterday_stamp)
-        log.info(response)
         assert response['msg'] == '预计归还日期不能早于手术日期'
 
     def test_36(self):
         """订单联系人为空"""
         response = adhocOrder.createAdhocOrder(goodsId=self.goodsId, contactName=None)
-        log.info(response)
         assert response['msg'] == '请输入正确的联系人姓名'
 
     def test_37(self):
         """订单联系电话为空"""
         response = adhocOrder.createAdhocOrder(goodsId=self.goodsId, contactPhone=None)
-        log.info(response)
         assert response['msg'] == '请输入正确的手机号码'
 
     def test_38(self):
         """销售人员字段超长"""
         response = adhocOrder.createAdhocOrder(goodsId=self.goodsId, salesPerson=self.context)
-        log.info(response)
         assert response['msg'] == '销售人员长度超出限制'
 
     def test_41(self):
         """物流方式为空"""
         response = adhocOrder.createAdhocOrder(goodsId=self.goodsId, deliveryMode=None)
-        log.info(response)
         assert response['msg'] == '请选择收货方式'
 
     def test_42(self):
         """收件人为空"""
         response = adhocOrder.createAdhocOrder(goodsId=self.goodsId, receivingName=None)
-        log.info(response)
         assert response['msg'] == '请输入正确的收货人姓名'
 
     def test_43(self):
         """收件人电话为空"""
         response = adhocOrder.createAdhocOrder(goodsId=self.goodsId, receivingPhone=None)
-        log.info(response)
         assert response['msg'] == '请输入正确的手机号码'
 
     def test_44(self):
         """收件人地址为空"""
         response = adhocOrder.createAdhocOrder(goodsId=self.goodsId, receivingAddress=None)
-        log.info(response)
         assert response['msg'] == '请填写收货地址'
 
     # 删除了邮编的必填校验
@@ -472,7 +427,6 @@ class TestEdit:
     def create(self):
         """创建临调单"""
         response = adhocOrder.appCreateAdhocOrder(goodsId=self.goodsId)
-        log.info(response)
         try:
             assert response['msg'] == '请求成功'
         except:
@@ -488,13 +442,11 @@ class TestEdit:
     def test_01(self, create):
         """商品明细、工具包明细为空"""
         response = adhocOrder.edit_order(self.orderId, None, None)
-        log.info(response)
         assert response['msg'] == '请选择物资'
 
     def test_02(self, create):
         """商品明细、工具包array的内容为空"""
         response = adhocOrder.edit_order(self.orderId, [None], [None])
-        log.info(response)
         assert response['msg'] == '参数异常'
 
     def test_03(self, create):
@@ -505,7 +457,6 @@ class TestEdit:
             'supplierId': 0
         }]
         response = adhocOrder.edit_order(self.orderId, goodsDetail, None)
-        log.info(response)
         assert response['msg'] == '调拨数量不能小于1'
 
     def test_04(self, create):
@@ -516,7 +467,6 @@ class TestEdit:
             'supplierId': 0
         }]
         response = adhocOrder.edit_order(self.orderId, goodsDetail, None)
-        log.info(response)
         assert response['msg'] == '只能修改待修改的订单'
 
 
@@ -582,7 +532,6 @@ class TestGetDetail:
     def create(self):
         """创建临调单"""
         response = adhocOrder.appCreateAdhocOrder(goodsId=self.goodsId)
-        log.info(response)
         try:
             assert response['msg'] == '请求成功'
         except:
@@ -668,74 +617,62 @@ class TestUpdateAddress:
     def test_01(self):
         """临调单id不存在"""
         response = adhocOrder.updateAddress(orderId=0)
-        log.info(response)
         assert response['msg'] == '未查询到该临调订单，请刷新重试'
 
     def test_02(self):
         """临调单id为空"""
         response = adhocOrder.updateAddress(orderId=None)
-        log.info(response)
         assert response['msg'] == '不能为null'
 
     def test_03(self):
         """临调单id错误"""
         response = adhocOrder.updateAddress(orderId='%%')
-        log.info(response)
         assert response['msg'] == '请求参数异常'
 
     def test_04(self):
         """收件人为空"""
         response = adhocOrder.updateAddress(orderId=self.adhocOrderId, receivingName=None)
-        log.info(response)
         assert response['msg'] == '请输入正确的收件人'
 
     def test_05(self):
         """联系电话为空"""
         response = adhocOrder.updateAddress(orderId=self.adhocOrderId, receivingPhone=None)
-        log.info(response)
         assert response['msg'] == '请输入正确的手机号码'
 
     def test_06(self):
         """收件地址为空"""
         response = adhocOrder.updateAddress(orderId=self.adhocOrderId, receivingAddress=None)
-        log.info(response)
         assert response['msg'] == '请输入收货地址'
 
     def test_11(self):
         """物流方式为自提时，提货人为空"""
         response = adhocOrder.updateAddress(orderId=self.adhocOrderId, deliveryMode='SELF_PIKE_UP', consignorName=None)
-        log.info(response)
         assert response['msg'] == '请输入提货人'
 
     def test_12(self):
         """物流方式为自提时，提货人电话为空"""
         response = adhocOrder.updateAddress(orderId=self.adhocOrderId, deliveryMode='SELF_PIKE_UP', consignorPhone=None)
-        log.info(response)
         assert response['msg'] == '请输入提货人电话'
 
     def test_13(self):
         """物流方式为自提时，提货人身份证为空"""
         response = adhocOrder.updateAddress(orderId=self.adhocOrderId, deliveryMode='SELF_PIKE_UP',
                                             receivingIdCard=None)
-        log.info(response)
         assert response['msg'] == '请输入身份证号码'
 
     def test_14(self):
         """物流方式为自提时，委托书为空"""
         response = adhocOrder.updateAddress(orderId=self.adhocOrderId, deliveryMode='SELF_PIKE_UP', file=None)
-        log.info(response)
         assert response['msg'] == '请上传提货委托书'
 
     def test_15(self):
         """物流方式为快递时，收件地址为空"""
         response = adhocOrder.updateAddress(orderId=self.adhocOrderId, deliveryMode='DELIVERY', receivingAddress=None)
-        log.info(response)
         assert response['msg'] == '请输入收货地址'
 
     def test_16(self):
         """不修改任何信息"""
         response = adhocOrder.updateAddress(orderId=self.adhocOrderId)
-        log.info(response)
         assert response['msg'] == '请求成功'
 
 
