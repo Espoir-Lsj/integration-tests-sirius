@@ -4,11 +4,11 @@
 # _*_ coding: utf-8 _*_
 import requests, json
 from test_config import param_config
-from common import login
+from common import login,logger
 
 headers = login.headers
 api_url = param_config.api_url
-
+log = logger.Log()
 
 def get_params(path, params):
     r = requests.get(api_url + path, headers=headers, params=params, verify=False)
