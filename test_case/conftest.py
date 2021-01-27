@@ -7,6 +7,8 @@ import pytest, jsonpath
 from common import request
 from test_base_role import createRole
 from test_base_user import createUser
+from test_config import param_config
+from test_base_department import createDept
 
 
 # 获取权限列表,并返回所有权限id(数组)
@@ -22,38 +24,57 @@ def getPermissoinIds():
     return ids
 
 
-# 创建一个角色编码和角色名称为test的角色,并返回角色id
-# 整个项目测试用例执行之前执行一次，无论调用多少次，也只执行一次
-@pytest.fixture(scope="session", autouse=True)
-def createInitRole(getPermissoinIds):
-    name = 'test'
-    response = createRole(code='test', name=name, permissionIds=getPermissoinIds)
-    assert response['msg'] in ('请求成功', '角色编码已被使用')
-    # 根据角色名查询角色id
-    list = request.get('/role/list?pageNum=0&pageSize=50&name=%s' % name)
-    assert list['data']['totalCount'] > 0
-    # 查询返回结果中角色名=name的值
-    for i in list['data']['rows']:
-        if i['name'] == name:
-            roleId = i['id']
-            return roleId
+# # 创建一个角色编码和角色名称为test的角色,并返回角色id
+# # 整个项目测试用例执行之前执行一次，无论调用多少次，也只执行一次
+# @pytest.fixture(scope="session", autouse=True)
+# def createInitRole(getPermissoinIds):
+#     name = 'test'
+#     response = createRole(name='test', roleType='5', rolePermissionId=None)
+#     assert response['msg'] in ('请求成功', '角色编码已被使用')
+#     # 根据角色名查询角色id
+#     list = request.get('/role/list?pageNum=0&pageSize=50&name=%s' % name)
+#     assert list['data']['totalCount'] > 0
+#     # 查询返回结果中角色名=name的值
+#     for i in list['data']['rows']:
+#         if i['name'] == name:
+#             roleId = i['id']
+#             return roleId
 
 
-# 创建一个用户名和帐号为test的用户,并返回用户id
-# 整个项目测试用例执行之前执行一次，无论调用多少次，也只执行一次
-@pytest.fixture(scope="session", autouse=True)
-def createInitUser(createInitRole):
-    name = 'test'
-    response = createUser(name='test', loginName=name, roleIds=[createInitRole])
-    assert response['msg'] in ('请求成功', '登录名已存在')
-    # 根据loginName查询初始用户的id（模糊查询，可能查询出其他包含指定值的数据）
-    list = request.get('/user/list?pageNum=0&pageSize=50&loginName=%s' % name)
-    assert list['data']['totalCount'] > 0
-    # 查询返回结果中loginName=name的值
-    for i in list['data']['rows']:
-        if i['loginName'] == name:
-            userId = i['id']
-            return userId
+# # 创建一个用户名和帐号为test的用户,并返回用户id
+# # 整个项目测试用例执行之前执行一次，无论调用多少次，也只执行一次
+# @pytest.fixture(scope="session", autouse=True)
+# def createInitUser(createInitRole):
+#     name = 'test'
+#     response = createUser(name='test', loginName=name, roleIds=[createInitRole])
+#     assert response['msg'] in ('请求成功', '登录名已存在')
+#     # 根据loginName查询初始用户的id（模糊查询，可能查询出其他包含指定值的数据）
+#     list = request.get('/user/list?pageNum=0&pageSize=50&loginName=%s' % name)
+#     assert list['data']['totalCount'] > 0
+#     # 查询返回结果中loginName=name的值
+#     for i in list['data']['rows']:
+#         if i['loginName'] == name:
+#             userId = i['id']
+#             return userId
+#新建初始分类，整个项目仅执行一次
+#新建初始一个角色，整个项目仅执行一次
+
+# 创建一个初始部门，并返回部门id，整个项目测试用例执行之前执行一次
+@pytest.fixture(scope="session")
+def createInitDepartment(getByTypeId,parentId):
+    # 初始化一个部门名称
+    departmentName = param_config.departmentName
+    response = createDept(departmentName=departmentName, departmentTypeId=getByTypeId, parentId=parentId)
+    # assert response['msg'] in ('操作成功', '部门[%s]已存在,请重新输入' % departmentName)
+    # 根据部门名称查询部门id
+    list = request.get('/department/findDepartment?keyword=%s' % departmentName)
+    assert len(list['data']) > 0
+    # 查询返回结果中部门id的值
+    for i in list['data']:
+        if i['id'] == id:
+            departmentId = i['id']
+            return departmentId
+
 
 
 def pytest_collection_modifyitems(items):

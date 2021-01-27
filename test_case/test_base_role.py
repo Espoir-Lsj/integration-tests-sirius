@@ -10,12 +10,12 @@ log = logger.Log()
 
 
 # 创建角色
-def createRole(code, name, permissionIds, remark='test'):
+def createRole(name, roleType,rolePermissionId=0,remark=None):
     body = {
-        'code': code,
         'name': name,
-        'permissionIds': permissionIds,
-        'remark': remark
+        'remark': remark,
+        'rolePermissionId': rolePermissionId,
+        'roleType': roleType
     }
     response = request.post_body('/role/createRole', body=body)
     return response
