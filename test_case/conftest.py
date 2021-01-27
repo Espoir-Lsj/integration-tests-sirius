@@ -56,25 +56,30 @@ def getPermissoinIds():
 #         if i['loginName'] == name:
 #             userId = i['id']
 #             return userId
-#新建初始分类，整个项目仅执行一次
-#新建初始一个角色，整个项目仅执行一次
+# 新建初始分类，整个项目仅执行一次
+# 新建初始一个角色，整个项目仅执行一次
 
 # 创建一个初始部门，并返回部门id，整个项目测试用例执行之前执行一次
 @pytest.fixture(scope="session")
-def createInitDepartment(getByTypeId,parentId):
+def createInitDepartment():
     # 初始化一个部门名称
-    departmentName = param_config.departmentName
-    response = createDept(departmentName=departmentName, departmentTypeId=getByTypeId, parentId=parentId)
-    # assert response['msg'] in ('操作成功', '部门[%s]已存在,请重新输入' % departmentName)
+    deptName = param_config.initDeptName
+    # 获取部门id
+    detail = request.get('/department/findDepartment')
+    departmentId = detail['data'][0]['id']
+    # 获取字典部门分类id
+    detail2 = request.get('/dictionary/getByType/department_type')
+    sortId = detail2['data'][0]['id']
+    response = createDept(departmentName=deptName, departmentTypeId=sortId, parentId=departmentId)
+    assert response['msg'] in ('请求成功', '部门已存在')
     # 根据部门名称查询部门id
-    list = request.get('/department/findDepartment?keyword=%s' % departmentName)
+    list = request.get('/department/findDepartment?keyword=%s' % deptName)
     assert len(list['data']) > 0
     # 查询返回结果中部门id的值
     for i in list['data']:
         if i['id'] == id:
             departmentId = i['id']
             return departmentId
-
 
 
 def pytest_collection_modifyitems(items):
