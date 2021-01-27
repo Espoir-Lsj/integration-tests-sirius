@@ -4,11 +4,13 @@
 # _*_ coding: utf-8 _*_
 
 import pytest, jsonpath
-from common import request
-from test_base_role import createRole
+from common import request, logger
+from test_base_role import createRole, createRoleType
 from test_base_user import createUser
 from test_config import param_config
 from test_base_department import createDept
+
+log = logger.Log()
 
 
 # 获取权限列表,并返回所有权限id(数组)
@@ -24,21 +26,45 @@ def getPermissoinIds():
     return ids
 
 
-# # 创建一个角色编码和角色名称为test的角色,并返回角色id
-# # 整个项目测试用例执行之前执行一次，无论调用多少次，也只执行一次
-# @pytest.fixture(scope="session", autouse=True)
-# def createInitRole(getPermissoinIds):
-#     name = 'test'
-#     response = createRole(name='test', roleType='5', rolePermissionId=None)
-#     assert response['msg'] in ('请求成功', '角色编码已被使用')
-#     # 根据角色名查询角色id
-#     list = request.get('/role/list?pageNum=0&pageSize=50&name=%s' % name)
-#     assert list['data']['totalCount'] > 0
-#     # 查询返回结果中角色名=name的值
-#     for i in list['data']['rows']:
-#         if i['name'] == name:
-#             roleId = i['id']
-#             return roleId
+# 创建一个初始角色分类,并返回角色分类id
+# 整个项目测试用例执行之前执行一次，无聊调用多少次，也只执行一次
+@pytest.fixture(scope="session", autouse=True)
+def createInitRoleType():
+    # 创建角色分类
+    name = param_config.initRoleTypeName
+    response = createRoleType(name=name)
+    assert response['msg'] in ('请求成功', '该角色分类名称已存在')
+    # 根据角色分类名查询分类id
+    list = request.get('/role/findRoleTypeList')
+    assert len(list['data']) > 1
+    for i in list['data']:
+        if i['name'] == name:
+            typeId = i['roleTypeId']
+            return typeId
+
+
+# 创建一个初始角色,并返回角色id
+# 整个项目测试用例执行之前执行一次，无论调用多少次，也只执行一次
+@pytest.fixture(scope="session", autouse=True)
+def createInitRole(createInitRoleType):
+    # 创建角色
+    name = param_config.initRoleName
+    response = createRole(name=name, roleType=createInitRoleType)
+    assert response['msg'] in ('请求成功', '该角色名称已存在')
+    # 根据角色名查询角色id
+    list = request.get('/role/findRoleTypeList')
+    assert len(list['data']) > 1
+    # 查询返回结果中所有的角色名
+    names = jsonpath.jsonpath(list, '$..role[*].name')
+    # 所有角色id
+    ids = jsonpath.jsonpath(list, '$..role[*].id')
+    # 根据角色名查询id
+    i = 0
+    while i < len(names):
+        if names[i] == name:
+            roleId = ids[i]
+            return roleId
+        i += 1
 
 
 # # 创建一个用户名和帐号为test的用户,并返回用户id
@@ -56,12 +82,12 @@ def getPermissoinIds():
 #         if i['loginName'] == name:
 #             userId = i['id']
 #             return userId
-#新建初始分类，整个项目仅执行一次
-#新建初始一个角色，整个项目仅执行一次
+# 新建初始分类，整个项目仅执行一次
+# 新建初始一个角色，整个项目仅执行一次
 
 # 创建一个初始部门，并返回部门id，整个项目测试用例执行之前执行一次
 @pytest.fixture(scope="session")
-def createInitDepartment(getByTypeId,parentId):
+def createInitDepartment(getByTypeId, parentId):
     # 初始化一个部门名称
     departmentName = param_config.departmentName
     response = createDept(departmentName=departmentName, departmentTypeId=getByTypeId, parentId=parentId)
@@ -74,7 +100,6 @@ def createInitDepartment(getByTypeId,parentId):
         if i['id'] == id:
             departmentId = i['id']
             return departmentId
-
 
 
 def pytest_collection_modifyitems(items):
