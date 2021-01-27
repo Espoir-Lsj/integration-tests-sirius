@@ -2,204 +2,190 @@
 # date:2020/11/28
 # !/usr/bin/env python3
 # _*_ coding: utf-8 _*_
-import pytest, time
+import pytest, time, jsonpath
 from common import logger, request
+from test_config import param_config
 import test_base_permission
 
 log = logger.Log()
 
+roleName = '一个新角色%d' % param_config.count
 
-# 创建角色
-def createRole(name, roleType,rolePermissionId=0,remark=None):
+
+# 自定义方法-创建角色分类
+def createRoleType(name):
+    body = {
+        'name': name
+    }
+    response = request.post_body('/role/createRoleType', body)
+    return response
+
+
+# 自定义方法-创建角色
+def createRole(name, roleType, rolePermissionId=None, remark=None):
     body = {
         'name': name,
         'remark': remark,
-        'rolePermissionId': rolePermissionId,
+        'rolePermissionId': rolePermissionId,  # roleId
         'roleType': roleType
     }
     response = request.post_body('/role/createRole', body=body)
     return response
 
 
-# 修改角色
-def editRole(code, id, name, permissionIds, remark='test'):
+# 自定义方法-修改角色
+def editRole(id, name, roleType, remark=None):
     body = {
-        'code': code,
         'id': id,
         'name': name,
-        'permissionIds': permissionIds,
+        'roleType': roleType,
         'remark': remark
     }
     response = request.put_body('/role/editRole', body=body)
     return response
 
 
-# 获取初始角色详情,当前py文件仅执行一次
-@pytest.fixture(scope="module")
-def getInitRoleDetail(createInitRole):
-    # 查询初始角色的详情
-    response = request.get('/role/get/%s' % createInitRole)
-    assert response['msg'] == '请求成功'
-    # 获取信息内容
-    initCode = response['data']['code']
-    initName = response['data']['name']
-    initIsEnabled = response['data']['isEnabled']
-    return initCode, initName, initIsEnabled
+# 自定义方法-删除角色
+def deleteRole(roleId):
+    body = {
+        'roleId': roleId
+    }
+    response = request.delete_body('/role/deleteRole', body)
+    return response
+
+
+# 创建一个新的角色分类，每个类执行一次(涉及到删除角色，所以范围是class)
+@pytest.fixture(scope="class")
+def createNewRoleType():
+    name = '一个新分类%d' % param_config.count
+    response = createRoleType(name=name)
+    assert response['msg'] in ('请求成功', '该角色分类名称已存在')
+    # 根据角色分类名查询分类id
+    list = request.get('/role/findRoleTypeList')
+    assert len(list['data']) > 1
+    for i in list['data']:
+        if i['name'] == name:
+            typeId = i['roleTypeId']
+            return typeId
+
+
+# 创建一个新的角色,使用新增的分类,每个类执行一次(涉及到删除角色，所以范围是class)
+@pytest.fixture(scope="class")
+def createNewRole(createNewRoleType):
+    response = createRole(name=roleName, roleType=createNewRoleType)
+    assert response['msg'] in ('请求成功', '该角色名称已存在')
+    # 根据角色分类名查询分类id
+    list = request.get('/role/findRoleTypeList')
+    assert len(list['data']) > 1
+    # 查询返回结果中所有的角色名
+    names = jsonpath.jsonpath(list, '$..role[*].name')
+    # 所有角色id
+    ids = jsonpath.jsonpath(list, '$..role[*].id')
+    # 根据角色名查询id
+    i = 0
+    while i < len(names):
+        if names[i] == roleName:
+            roleId = ids[i]
+            return roleId
+        i += 1
 
 
 class TestCreate:
     """创建角色"""
-    url = '/role/createRole'
-    num = int(time.time() * 1000)
-    code = 'code%d' % num
-    name = '测试角色%d' % num
 
-    def test_01(self, getPermissoinIds):
-        """角色编码为空"""
-        response = createRole(code=None, name=self.name, permissionIds=getPermissoinIds)
-        assert response['msg'] == '请填写角色编码'
+    name = '测试角色%d' % int(time.time() * 1000)
 
-    def test_02(self, getPermissoinIds):
+    def test_01(self, createInitRoleType):
         """角色名为空"""
-        response = createRole(code=self.code, name=None, permissionIds=getPermissoinIds)
-        assert response['msg'] == '请填写角色名称'
+        response = createRole(name=None, roleType=createInitRoleType)
+        assert response['msg'] == '角色只支持中文、英文、数字'
 
-    def test_03(self, getPermissoinIds):
-        """权限id为空"""
-        response = createRole(code=self.code, name=self.name, permissionIds=None)
-        assert response['msg'] == '请选择角色需要关联的权限'
+    def test_02(self):
+        """角色分类id不存在"""
+        response = createRole(name=self.name, roleType=0)
+        assert response['msg'] == '该角色分类不存在'
 
-    def test_04(self, getPermissoinIds):
-        """角色编码重复"""
-        # 创建一个角色编码和角色名称为test的角色
-        response = createRole(code='test', name='test', permissionIds=getPermissoinIds)
-        assert response['msg'] == '角色编码已被使用'
+    def test_03(self):
+        """角色分类id为空"""
+        response = createRole(name=self.name, roleType=None)
+        assert response['msg'] == '请填写角色分类名称'
 
-    def test_05(self):
-        """权限id不存在"""
-        response = createRole(code=self.code, name=self.name, permissionIds=[0])
-        assert response['msg'] == '请选择正确的权限'
+    @pytest.mark.skip('system busy')  # TODO
+    def test_04(self, createInitRoleType):
+        """复制的角色id不存在"""
+        response = createRole(name=self.name, roleType=createInitRoleType, rolePermissionId=0)
+
+    def test_05(self, createInitRoleType):
+        """创建的角色名与初始角色名重复"""
+        response = createRole(name=param_config.initRoleName, roleType=createInitRoleType)
+        assert response['msg'] == '该角色名称已存在'
+
+
+class TestCreateRoleType:
+    """创建角色分类"""
+
+    def test_01(self):
+        """分类名为空"""
+        response = createRoleType(name=None)
+        assert response['msg'] == '角色分类只支持中文、英文、数字'
+
+    def test_02(self):
+        """分类名重复(系统内置分类名：未分类角色)"""
+        response = createRoleType(name='未分类角色')
+        assert response['msg'] == '该角色分类名称已存在'
+
+
+class TestDeleteRole:
+    """删除角色"""
+
+    def test_01(self):
+        """角色id为空"""
+        response = deleteRole(roleId=None)
+        assert response['msg'] == '请选择角色'
+
+    def test_02(self):
+        """角色id不存在"""
+        response = deleteRole(roleId=0)
+        assert response['msg'] == '角色不存在，请刷新重试'
+
+    def test_03(self, createNewRole):
+        """删除角色"""
+        response = deleteRole(roleId=createNewRole)
+        assert response['msg'] == '操作成功'
 
 
 class TestEditRole:
     """修改角色"""
-    url = '/role/editRole'
-    num = int(time.time() * 1000)
-    code = 'code%d' % num
-    name = '测试角色%d' % num
 
-    def test_01(self, getPermissoinIds):
+    def test_01(self, createNewRoleType):
         """修改不存在的角色"""
-        response = editRole(code=self.code, id=0, name=self.name, permissionIds=getPermissoinIds)
+        response = editRole(id=0, name='test%d' % int(time.time() * 1000), roleType=createNewRoleType)
         assert response['msg'] == '角色不存在，请刷新重试'
 
-    def test_02(self, createInitRole, getInitRoleDetail, getPermissoinIds):
-        """修改存在的角色"""
-        # 修改角色权限，取权限列表中第一个值
-        edit_response = editRole(code=getInitRoleDetail[0], id=createInitRole, name=getInitRoleDetail[1],
-                                 permissionIds=getPermissoinIds[0:1])
-        assert edit_response['msg'] == '请求成功'
-        # 修改角色权限为全部权限
-        edit_response2 = editRole(code=getInitRoleDetail[0], id=createInitRole, name=getInitRoleDetail[1],
-                                  permissionIds=getPermissoinIds)
-        assert edit_response2['msg'] == '请求成功'
-
-    def test_03(self, getPermissoinIds):
-        """修改角色编码重复"""
-        # 查询管理员角色id
-        list = request.get('/role/list?pageNum=0&pageSize=50&name=管理')
-        assert list['data']['totalCount'] > 0
-        roleId = list['data']['rows'][0]['id']
-        # 修改角色编码为测试用编码
-        edit_response = editRole(code='test', id=roleId, name='test', permissionIds=getPermissoinIds)
-        assert edit_response['msg'] == '角色编码已被使用'
-
-
-class TestGetDetail:
-    """获取角色详情"""
-    url = '/role/get/{id}'
-
-    def test_01(self):
-        """角色id不存在"""
-        response = request.get(self.url.format(id=0))
-        assert response['msg'] == '角色不存在'
-
-    def test_02(self, createInitRole):
-        """角色id存在"""
-        # 查询角色详情
-        response = request.get(self.url.format(id=createInitRole))
-        assert response['msg'] == '请求成功'
-
-
-class TestList:
-    """角色列表"""
-    url = '/role/list'
-
-    @pytest.mark.parametrize('isEnable', [True, False])
-    @pytest.mark.parametrize('name', ['test', '%%'])
-    def test_01(self, isEnable, name):
-        """查询已启用的角色"""
-        response = request.get('/role/list?pageNum=0&pageSize=50&isEnable=%s&name=%s' % (isEnable, name))
-        assert response['msg'] == '请求成功'
-
-
-class TestSetEnable:
-    """启用禁用角色"""
-    url = '/role/setEnable'
-
-    def test_01(self):
-        """启用角色id不存在"""
-        body = {
-            'id': 0,
-            'isEnabled': True
-        }
-        response = request.put_body(self.url, body=body)
-        assert response['msg'] == '角色不存在'
-
-    def test_02(self):
-        """禁用角色id不存在"""
-        body = {
-            'id': 0,
-            'isEnabled': False
-        }
-        response = request.put_body(self.url, body=body)
-        assert response['msg'] == '角色不存在'
-
-    def test_03(self):
+    def test_02(self, createNewRoleType):
         """角色id为空"""
-        body = {
-            'id': None,
-            'isEnabled': True
-        }
-        response = request.put_body(self.url, body=body)
-        assert response['msg'] == '请选择角色'
+        response = editRole(id=None, name=roleName, roleType=createNewRoleType)
+        assert response['msg'] == '请选择需要修改的角色'
 
-    def test_04(self, createInitRole, getInitRoleDetail):
-        """启用禁用角色"""
-        # 查询初始角色详情
-        isEabled = getInitRoleDetail[2]
-        # 如果状态为已禁用则启用角色
-        if isEabled == False:
-            response = request.put_body(self.url, body={'id': createInitRole, 'isEnabled': True})
-            assert response['msg'] == '请求成功'
-            # 重复启用
-            response2 = request.put_body(self.url, body={'id': createInitRole, 'isEnabled': True})
-            assert response2['msg'] == '请求成功'
-            # 禁用角色
-            response3 = request.put_body(self.url, body={'id': createInitRole, 'isEnabled': False})
-            assert response3['msg'] == '请求成功'
-            # 重复禁用
-            response4 = request.put_body(self.url, body={'id': createInitRole, 'isEnabled': False})
-            assert response4['msg'] == '请求成功'
-        else:
-            response = request.put_body(self.url, body={'id': createInitRole, 'isEnabled': False})
-            assert response['msg'] == '请求成功'
-            # 重复启用
-            response2 = request.put_body(self.url, body={'id': createInitRole, 'isEnabled': False})
-            assert response2['msg'] == '请求成功'
-            # 禁用角色
-            response3 = request.put_body(self.url, body={'id': createInitRole, 'isEnabled': True})
-            assert response3['msg'] == '请求成功'
-            # 重复禁用
-            response4 = request.put_body(self.url, body={'id': createInitRole, 'isEnabled': True})
-            assert response4['msg'] == '请求成功'
+    def test_03(self, createNewRole):
+        """角色分类不存在"""
+        response = editRole(id=createNewRole, name=roleName, roleType=0)
+
+    def test_04(self, createNewRole):
+        """角色分类为空"""
+        response = editRole(id=createNewRole, name=roleName, roleType=None)
+        assert response['msg'] == '请填写角色分类名称'
+
+    def test_05(self, createNewRole, createNewRoleType):
+        """角色名为空"""
+        response = editRole(id=createNewRole, name=None, roleType=createNewRoleType)
+        assert response['msg'] == '角色只支持中文和英文'
+
+    def test_06(self, createNewRole, createNewRoleType):
+        """修改角色名称与初始角色名称相同"""
+        response = editRole(id=createNewRole, name=param_config.initRoleName, roleType=createNewRoleType)
+        assert response['msg'] == '该角色名称已存在'
+
+    def test_07(self, createNewRole, createNewRoleType):
+        """修改角色成功"""
+        response = editRole(id=createNewRole, name=roleName, roleType=createNewRoleType)
