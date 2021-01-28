@@ -67,15 +67,17 @@ def createInitRole(createInitRoleType):
         i += 1
 
 
-# 创建一个用户名为test的用户,并返回用户id
+# 创建一个用户名为defaultLoginName的用户,并返回用户id
 # 整个项目测试用例执行之前执行一次，无论调用多少次，也只执行一次
 @pytest.fixture(scope="session", autouse=True)
 def createInitUser(createInitDepartment):
     # 账号名称
     loginName = param_config.initLoginName
-    response = createUser(loginName=loginName, initialPassword='Aa888888', departmentId=createInitDepartment)
+    #密码
+    initialPassword = param_config.initialPassword
+    response = createUser(loginName=loginName, initialPassword=initialPassword, departmentId=createInitDepartment)
     assert response['msg'] in ('请求成功', '登录名已存在')
-    # 根据loginName查询初始用户的id（模糊查询，可能查询出其他包含指定值的数据）
+    # 根据departmentId查询初始用户的id
     list = request.get('/user/list?pageNum=0&pageSize=50&departmentId=%s' % createInitDepartment)
     assert list['data']['totalCount'] > 0
     # 查询返回的所有账号名
@@ -102,7 +104,7 @@ def createInitDepartment():
     # 获取字典部门分类id
     detail2 = request.get('/dictionary/getByType/department_type')
     sortId = detail2['data'][0]['id']
-    response = createDept(departmentName=deptName, departmentTypeId=sortId, parentId=departmentId)
+    response = createDept(departmentName=deptName, departmentTypeId=sortId, parentId=departmentId,isEnabled=False)
     assert response['msg'] in ('请求成功', '部门已存在')
     # 查询列表
     list = request.get('/department/findDepartment')
