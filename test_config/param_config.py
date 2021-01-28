@@ -26,5 +26,7 @@ departmentName = '默认部门'
 initRoleTypeName = '默认角色分类'
 # 初始角色名称（不需要修改）
 initRoleName = '默认角色'
+#初始用户名称（不需要修改）
+initLoginName = 'defaultLoginName'
 # 新增基础数据的编号，年月日小时，每小时内重复执行不会再次新增
 count = int('{0:%Y%m%d%H}'.format(datetime.datetime.now()))

@@ -67,23 +67,29 @@ def createInitRole(createInitRoleType):
         i += 1
 
 
-# # 创建一个用户名和帐号为test的用户,并返回用户id
-# # 整个项目测试用例执行之前执行一次，无论调用多少次，也只执行一次
-# @pytest.fixture(scope="session", autouse=True)
-# def createInitUser(createInitRole):
-#     name = 'test'
-#     response = createUser(name='test', loginName=name, roleIds=[createInitRole])
-#     assert response['msg'] in ('请求成功', '登录名已存在')
-#     # 根据loginName查询初始用户的id（模糊查询，可能查询出其他包含指定值的数据）
-#     list = request.get('/user/list?pageNum=0&pageSize=50&loginName=%s' % name)
-#     assert list['data']['totalCount'] > 0
-#     # 查询返回结果中loginName=name的值
-#     for i in list['data']['rows']:
-#         if i['loginName'] == name:
-#             userId = i['id']
-#             return userId
-# 新建初始分类，整个项目仅执行一次
-# 新建初始一个角色，整个项目仅执行一次
+# 创建一个用户名为test的用户,并返回用户id
+# 整个项目测试用例执行之前执行一次，无论调用多少次，也只执行一次
+@pytest.fixture(scope="session", autouse=True)
+def createInitUser(createInitDepartment):
+    # 账号名称
+    loginName = param_config.initLoginName
+    response = createUser(loginName=loginName, initialPassword='Aa888888', departmentId=createInitDepartment)
+    assert response['msg'] in ('请求成功', '登录名已存在')
+    # 根据loginName查询初始用户的id（模糊查询，可能查询出其他包含指定值的数据）
+    list = request.get('/user/list?pageNum=0&pageSize=50&departmentId=%s' % createInitDepartment)
+    assert list['data']['totalCount'] > 0
+    # 查询返回的所有账号名
+    names = jsonpath.jsonpath(list, '$..loginName')
+    # 获取账号id
+    ids = jsonpath.jsonpath(list, '$..id')
+    # 根据账号名获取到账号id
+    i = 0
+    while i < len(names):
+        if names[i] == loginName:
+            id = ids[i]
+            return id
+        i += 1
+
 
 # 创建一个初始部门，并返回部门id，整个项目测试用例执行之前执行一次
 @pytest.fixture(scope="session")
@@ -102,13 +108,13 @@ def createInitDepartment():
     list = request.get('/department/findDepartment')
     assert len(list['data']) > 0
     # 提取所有部门名称
-    departmentName = jsonpath.jsonpath(list, '$..childrenDepartment[*].departmentName')
+    departmentNames = jsonpath.jsonpath(list, '$..childrenDepartment[*].departmentName')
     # 提取所有的部门id
     ids = jsonpath.jsonpath(list, '$..childrenDepartment[*].id')
     # 根据部门名称循环查询部门id
     i = 0
-    while i < len(departmentName):
-        if departmentName[i] == deptName:
+    while i < len(departmentNames):
+        if departmentNames[i] == deptName:
             id = ids[i]
             return id
         i += 1

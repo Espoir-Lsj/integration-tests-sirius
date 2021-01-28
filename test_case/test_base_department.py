@@ -5,15 +5,17 @@
 import pytest, time, jsonpath
 from common import logger, request
 from test_config import param_config
+from faker import Faker
 
+faker = Faker(locale='zh_CN')
 log = logger.Log()
 # 新部门名称
 departmentName = '一个新仓库%d' % param_config.count
 
 
 # 创建部门
-def createDept(departmentName, departmentTypeId, parentId, sort='1', isEnabled=False, director=None, phone=None,
-               remark=None):
+def createDept(departmentName, departmentTypeId, parentId, sort='1', isEnabled=True, director=None,
+               phone=faker.phone_number(), remark=None):
     body = {
         'departmentName': departmentName,  # 部门名称
         'departmentTypeId': departmentTypeId,  # 分类
@@ -29,8 +31,8 @@ def createDept(departmentName, departmentTypeId, parentId, sort='1', isEnabled=F
 
 
 # 编辑部门
-def updateDept(departmentName, departmentTypeId, id, parentId, sort='1', isEnabled=False, director=None, phone=None,
-               remark=None):
+def updateDept(departmentName, departmentTypeId, id, parentId, sort='1', isEnabled=True, director=None,
+               phone=faker.phone_number(), remark=None):
     body = {
         'departmentName': departmentName,  # 部门名称
         'departmentTypeId': departmentTypeId,  # 分类
@@ -147,6 +149,11 @@ class TestCreateDept:
         response = createDept(departmentName=departmentName, departmentTypeId=9999, parentId=parentId)
         assert response['msg'] == '部门类型不存在'
 
+    def test_08(self, parentId):
+        """手机号错误"""
+        response = createDept(departmentName=departmentName, departmentTypeId=9999, parentId=parentId, phone=123)
+        assert response['msg'] == '请输入正确的手机号码'
+
 
 class TestUpdateDept:
     """编辑部门"""
@@ -205,6 +212,12 @@ class TestUpdateDept:
         response = updateDept(departmentName=param_config.initDeptName, departmentTypeId=getByTypeId,
                               id=createNewDepartment, parentId=parentId)
         assert response['msg'] == '部门已存在'
+
+    def test_10(self, createNewDepartment, getByTypeId, parentId):
+        """编辑手机号错误"""
+        response = updateDept(departmentName=departmentName, departmentTypeId=getByTypeId,
+                              id=createNewDepartment, parentId=parentId, phone=123)
+        assert response['msg'] == '请输入正确的手机号码'
 
 
 class TestSetEnable:
