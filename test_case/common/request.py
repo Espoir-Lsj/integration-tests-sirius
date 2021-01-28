@@ -119,13 +119,13 @@ def put_body(path, body):
     assert (r.status_code == 200)
     if response['code'] == 2:
         log.error('----------系统错误---------- \n 请求地址：%s \n 传入参数：%s \n 响应内容：%s' % (
-        path, json.dumps(body, ensure_ascii=False), response))
+            path, json.dumps(body, ensure_ascii=False), json.dumps(response, ensure_ascii=False)))
     elif response['code'] == 1:
         log.warning('----------接口报错---------- \n 请求地址：%s \n 传入参数：%s \n 响应内容：%s' % (
-        path, json.dumps(body, ensure_ascii=False), response))
+            path, json.dumps(body, ensure_ascii=False), json.dumps(response, ensure_ascii=False)))
     elif response['code'] == 0:
         log.info('----------请求成功---------- \n 请求地址：%s \n 传入参数：%s \n 响应内容：%s' % (
-        path, json.dumps(body, ensure_ascii=False), response))
+            path, json.dumps(body, ensure_ascii=False), json.dumps(response, ensure_ascii=False)))
     return response
 
 
@@ -134,9 +134,9 @@ def put(path):
     response = r.json()
     assert (r.status_code == 200)
     if response['code'] == 2:
-        log.error('----------系统错误---------- \n 请求地址：%s \n 响应内容：%s' % (path, response))
+        log.error('----------系统错误---------- \n 请求地址：%s \n 响应内容：%s' % (path, json.dumps(response, ensure_ascii=False)))
     elif response['code'] == 1:
-        log.warning('----------接口报错---------- \n 请求地址：%s \n 响应内容：%s' % (path, response))
+        log.warning('----------接口报错---------- \n 请求地址：%s \n 响应内容：%s' % (path, json.dumps(response, ensure_ascii=False)))
     elif response['code'] == 0:
-        log.info('----------请求成功---------- \n 请求地址：%s \n 响应内容：%s' % (path, response))
+        log.info('----------请求成功---------- \n 请求地址：%s \n 响应内容：%s' % (path, json.dumps(response, ensure_ascii=False)))
     return response

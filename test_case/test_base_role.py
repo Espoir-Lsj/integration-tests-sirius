@@ -9,7 +9,7 @@ import test_base_permission
 
 log = logger.Log()
 
-roleName = '一个新角色%d' % param_config.count
+NewRoleName = '一个新角色%d' % param_config.count
 
 
 # 自定义方法-创建角色分类
@@ -18,6 +18,25 @@ def createRoleType(name):
         'name': name
     }
     response = request.post_body('/role/createRoleType', body)
+    return response
+
+
+# 自定义方法-编辑角色分类
+def updateRoleType(id, name):
+    body = {
+        'id': id,
+        'name': name
+    }
+    response = request.put_body('/role/updateRoleType', body)
+    return response
+
+
+# 自定义方法-删除角色分类
+def deleteRoleType(id):
+    body = {
+        'id': id
+    }
+    response = request.delete_body('/role/deleteRoleType', body)
     return response
 
 
@@ -54,8 +73,8 @@ def deleteRole(roleId):
     return response
 
 
-# 创建一个新的角色分类，每个类执行一次(涉及到删除角色，所以范围是class)
-@pytest.fixture(scope="class")
+# 创建一个新的角色分类，每个文件执行一次
+@pytest.fixture(scope="module")
 def createNewRoleType():
     name = '一个新分类%d' % param_config.count
     response = createRoleType(name=name)
@@ -69,10 +88,10 @@ def createNewRoleType():
             return typeId
 
 
-# 创建一个新的角色,使用新增的分类,每个类执行一次(涉及到删除角色，所以范围是class)
-@pytest.fixture(scope="class")
+# 创建一个新的角色,使用新增的分类,每个文件执行一次
+@pytest.fixture(scope="module")
 def createNewRole(createNewRoleType):
-    response = createRole(name=roleName, roleType=createNewRoleType)
+    response = createRole(name=NewRoleName, roleType=createNewRoleType)
     assert response['msg'] in ('请求成功', '该角色名称已存在')
     # 根据角色分类名查询分类id
     list = request.get('/role/findRoleTypeList')
@@ -84,13 +103,17 @@ def createNewRole(createNewRoleType):
     # 根据角色名查询id
     i = 0
     while i < len(names):
-        if names[i] == roleName:
+        if names[i] == NewRoleName:
             roleId = ids[i]
             return roleId
         i += 1
 
 
-class TestCreate:
+class TestBindDataScope:
+    """角色数据权限"""
+
+
+class TestCreateRole:
     """创建角色"""
 
     name = '测试角色%d' % int(time.time() * 1000)
@@ -98,7 +121,7 @@ class TestCreate:
     def test_01(self, createInitRoleType):
         """角色名为空"""
         response = createRole(name=None, roleType=createInitRoleType)
-        assert response['msg'] == '角色只支持中文、英文、数字'
+        assert response['msg'] == '角色分类只支持中文和英文'
 
     def test_02(self):
         """角色分类id不存在"""
@@ -127,7 +150,7 @@ class TestCreateRoleType:
     def test_01(self):
         """分类名为空"""
         response = createRoleType(name=None)
-        assert response['msg'] == '角色分类只支持中文、英文、数字'
+        assert response['msg'] == '角色分类只支持中文和英文'
 
     def test_02(self):
         """分类名重复(系统内置分类名：未分类角色)"""
@@ -148,10 +171,43 @@ class TestDeleteRole:
         response = deleteRole(roleId=0)
         assert response['msg'] == '角色不存在，请刷新重试'
 
-    def test_03(self, createNewRole):
+    def test_03(self, createNewRoleType):
         """删除角色"""
-        response = deleteRole(roleId=createNewRole)
-        assert response['msg'] == '操作成功'
+        # 新增一个临时角色，然后删除
+        tempName = 'temp%d' % int(time.time() * 1000)
+        response = createRole(name=tempName, roleType=createNewRoleType)
+        assert response['msg'] == '请求成功'
+        # 获取角色id
+        roleId = response['data']
+        # 删除角色
+        response2 = deleteRole(roleId=roleId)
+        assert response2['msg'] == '请求成功'
+
+
+class TestDeleteRoleType:
+    """删除角色分类"""
+
+    def test_01(self):
+        """角色分类id为空"""
+        response = deleteRoleType(id=None)
+        assert response['msg'] == '角色分类id不能为空'
+
+    def test_02(self):
+        """角色分类id不存在"""
+        response = deleteRoleType(id=0)
+        assert response['msg'] == '该角色分类不存在'
+
+    def test_03(self):
+        """删除角色分类"""
+        # 新增一个临时角色分类
+        tempName = 'temp%d' % int(time.time() * 1000)
+        response = createRoleType(name=tempName)
+        assert response['msg'] == '请求成功'
+        # 获取角色分类id
+        typeId = response['data']
+        # 删除角色分类
+        delete_response = deleteRoleType(id=typeId)
+        assert delete_response['msg'] == '请求成功'
 
 
 class TestEditRole:
@@ -164,16 +220,17 @@ class TestEditRole:
 
     def test_02(self, createNewRoleType):
         """角色id为空"""
-        response = editRole(id=None, name=roleName, roleType=createNewRoleType)
+        response = editRole(id=None, name=NewRoleName, roleType=createNewRoleType)
         assert response['msg'] == '请选择需要修改的角色'
 
     def test_03(self, createNewRole):
         """角色分类不存在"""
-        response = editRole(id=createNewRole, name=roleName, roleType=0)
+        response = editRole(id=createNewRole, name=NewRoleName, roleType=0)
+        assert response['msg'] == '该角色分类不存在'
 
     def test_04(self, createNewRole):
         """角色分类为空"""
-        response = editRole(id=createNewRole, name=roleName, roleType=None)
+        response = editRole(id=createNewRole, name=NewRoleName, roleType=None)
         assert response['msg'] == '请填写角色分类名称'
 
     def test_05(self, createNewRole, createNewRoleType):
@@ -188,4 +245,24 @@ class TestEditRole:
 
     def test_07(self, createNewRole, createNewRoleType):
         """修改角色成功"""
-        response = editRole(id=createNewRole, name=roleName, roleType=createNewRoleType)
+        response = editRole(id=createNewRole, name=NewRoleName, roleType=createNewRoleType)
+        assert response['msg'] == '请求成功'
+
+
+class TestUpdateRoleType:
+    """编辑角色分类"""
+
+    def test_01(self):
+        """分类id为空"""
+        response = updateRoleType(id=None, name=NewRoleName)
+        assert response['msg'] == '角色分类id不能为空'
+
+    def test_02(self):
+        """分类id不存在"""
+        response = updateRoleType(id=0, name=NewRoleName)
+        assert response['msg'] == '该角色分类不存在'
+
+    def test_03(self, createNewRoleType):
+        """编辑分类成功"""
+        response = updateRoleType(id=createNewRoleType, name=NewRoleName)
+        assert response['msg'] == '请求成功'
