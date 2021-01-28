@@ -5,20 +5,27 @@
 import pytest, time
 from common import logger, request
 from test_config import param_config
+from faker import Faker
+faker = Faker(locale='zh_CN')
 
 log = logger.Log()
 
 
 # 新增用户
-def createUser(name, loginName, roleIds, email=None, img=None, remark=None, type=None):
+def createUser(loginName, initialPassword, departmentId, code=None, email=faker.safe_email(), gender=None, manager=None,
+               name=faker.name(), phone=faker.phone_number(), remark=None, title=None):
     body = {
-        'email': email,
-        'loginName': loginName,
-        'name': name,
-        'profileImg': img,
-        'remark': remark,
-        'roleIds': roleIds,
-        'userType': type
+        'code': code,  # 员工编号
+        'departmentId': departmentId,  # 所属部门id
+        'email': email,  # 用户邮箱
+        'gender': gender,  # 性别
+        'initialPassword': initialPassword,  # 初始密码
+        'loginName': loginName,  # 登录名
+        'manager': manager,  # 主管
+        'name': name,  # 真实姓名
+        'phone': phone,  # 手机号
+        'remark': remark,  # 备注
+        'title': title  # 职位
     }
     response = request.post_body('/user/createUser', body=body)
     return response
@@ -88,6 +95,8 @@ class TestCreateUser:
     num = int(time.time() * 1000)
     userName = '测试用户%d' % num
     loginName = 'test%d' % num
+    def test_20(self,createInitUser):
+        log.info(createInitUser)
 
     def test_01(self, createInitRole):
         """姓名为空"""
