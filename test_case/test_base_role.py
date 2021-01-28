@@ -211,11 +211,25 @@ class TestBindRole:
         assert response['msg'] == '请选择账号'
 
     def test_02(self, createNewRole):
+        """用户id不存在"""
         response = bindRole(userId=0, roleIds=[createNewRole])
         assert response['msg'] == '用户不存在'
 
-    # def test_03(self, createNewRole):
-        # TODO 等用户部分的用例出来再写
+    def test_03(self, createInitUser):
+        """角色id为空"""
+        response = bindRole(userId=createInitUser, roleIds=None)
+        assert response['msg'] == '请至少分配一个角色'
+
+    def test_04(self, createInitUser):
+        """角色id不存在"""
+        response = bindRole(userId=createInitUser, roleIds=[0])
+        assert response['msg'] == '该角色不存在'
+
+    def test_05(self, createInitUser, createNewRole):
+        """分配角色成功"""
+        response = bindRole(userId=createInitUser, roleIds=[createNewRole])
+        assert response['msg'] == '请求成功'
+
 
 class TestCreateRole:
     """创建角色"""
