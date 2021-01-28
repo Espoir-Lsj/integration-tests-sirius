@@ -2,7 +2,7 @@
 # date:2020/11/28
 # !/usr/bin/env python3
 # _*_ coding: utf-8 _*_
-import pytest, time
+import pytest, time, jsonpath
 from common import logger, request
 from test_config import param_config
 
@@ -42,7 +42,7 @@ def updateDept(departmentName, departmentTypeId, id, parentId, sort='1', isEnabl
         'remark': remark,  # 备注
         'sort': sort  # 排序
     }
-    response = request.post_body('/department/update', body=body)
+    response = request.put_body('/department/update', body=body)
     return response
 
 
@@ -68,8 +68,8 @@ def parentId():
 @pytest.fixture(scope="module")
 def getByTypeId():
     detail = request.get('/dictionary/getByType/department_type')
-    sortId = detail['data'][0]['id']
-    return sortId
+    id = detail['data'][0]['id']
+    return id
 
 
 # 循环获取顶级部门id
@@ -86,17 +86,24 @@ def topLevelId():
 
 # 新增一个新的部门(便于编辑和删除使用)
 @pytest.fixture(scope="module")
-def createNewDepartment():
-    response = createDept(departmentName=departmentName, departmentTypeId=getByTypeId, parentId=departmentId)
+def createNewDepartment(getByTypeId, parentId):
+    deptName = '一个新仓库%d' % param_config.count
+    response = createDept(departmentName=deptName, departmentTypeId=getByTypeId, parentId=parentId)
     assert response['msg'] in ('请求成功', '部门已存在')
-    # 根据部门名称查询部门id
-    list = request.get('/department/findDepartment?keyword=%s' % deptName)
+    # 查询列表
+    list = request.get('/department/findDepartment')
     assert len(list['data']) > 0
-    # 查询返回结果中部门id的值
-    for i in list['data']:
-        if i['id'] == id:
-            departmentId = i['id']
-            return departmentId
+    # 提取所有部门名称
+    departmentName = jsonpath.jsonpath(list, '$..childrenDepartment[*].departmentName')
+    # 提取所有的部门id
+    ids = jsonpath.jsonpath(list, '$..childrenDepartment[*].id')
+    # 根据部门名称循环查询部门id
+    i = 0
+    while i < len(departmentName):
+        if departmentName[i] == deptName:
+            id = ids[i]
+            return id
+        i += 1
 
 
 class TestCreateDept:
@@ -146,57 +153,58 @@ class TestUpdateDept:
 
     def test_01(self, getByTypeId, createNewDepartment, parentId):
         """编辑部门成功"""
-        response = updateDept(departmentName=param_config.initDeptName, departmentTypeId=getByTypeId,
+        response = updateDept(departmentName=departmentName, departmentTypeId=getByTypeId,
                               id=createNewDepartment, parentId=parentId)
-        assert response['msg'] == ''
+        assert response['msg'] == '请求成功'
 
     def test_02(self, getByTypeId, parentId):
         """编辑部门为空"""
         response = updateDept(departmentName=departmentName, departmentTypeId=getByTypeId,
                               id=None, parentId=parentId)
-        assert response['msg'] == ''
+        assert response['msg'] == '部门id不能为空'
 
     def test_03(self, getByTypeId, createNewDepartment):
         """编辑上级部门为空"""
         response = updateDept(departmentName=departmentName, departmentTypeId=getByTypeId,
                               id=createNewDepartment, parentId=None)
-        assert response['msg'] == ''
+        assert response['msg'] == '上级部门不存在'
 
     def test_04(self, getByTypeId, createNewDepartment, parentId):
         """编辑部门名称为空"""
         response = updateDept(departmentName=None, departmentTypeId=getByTypeId,
                               id=createNewDepartment, parentId=parentId)
-        assert response['msg'] == ''
+        assert response['msg'] == '请输入部门名称'
 
     def test_05(self, createNewDepartment, parentId):
         """编辑分类为空"""
         response = updateDept(departmentName=departmentName, departmentTypeId=None,
                               id=createNewDepartment, parentId=parentId)
-        assert response['msg'] == ''
+        assert response['msg'] == '请选择分类'
 
     def test_06(self, createNewDepartment, parentId):
         """编辑分类不存在"""
         response = updateDept(departmentName=departmentName, departmentTypeId=9999,
                               id=createNewDepartment, parentId=parentId)
-        assert response['msg'] == ''
+        assert response['msg'] == '部门类型不存在'
 
+    @pytest.mark.skip('排序是必填项，为空编辑成功')  # TODO
     def test_07(self, createNewDepartment, getByTypeId, parentId):
         """编辑排序为空"""
         response = updateDept(departmentName=departmentName, departmentTypeId=getByTypeId,
                               id=createNewDepartment, parentId=parentId, sort=None)
-        assert response['msg'] == ''
+        assert response['msg'] == '请求成功'
 
     def test_08(self, createNewDepartment, getByTypeId, parentId):
         """编辑状态为空"""
         response = updateDept(departmentName=departmentName, departmentTypeId=getByTypeId,
                               id=createNewDepartment, parentId=parentId, isEnabled=None)
-        assert response['msg'] == ''
+        assert response['msg'] == '请选择部门状态'
 
     def test_09(self, createNewDepartment, getByTypeId, parentId):
         """编辑部门名称已存在"""
         response = updateDept(departmentName=param_config.initDeptName, departmentTypeId=getByTypeId,
                               id=createNewDepartment, parentId=parentId)
-        assert response['msg'] == ''
+        assert response['msg'] == '部门已存在'
 
 
 class TestSetEnable:
@@ -234,11 +242,11 @@ class TestSetEnable:
             response = enableDept(id=createNewDepartment, isEnabled=True)
             assert response['msg'] == '请求成功'
 
-    @pytest.mark.skip('顶级部门不能被禁用，目前禁用成功了')  # TODO
+    # @pytest.mark.skip('顶级部门不能被禁用，目前禁用成功了')  # TODO
     def test_05(self, topLevelId):
         """禁用顶级部门"""
         response = enableDept(id=topLevelId, isEnabled=False)
-        assert response['msg'] == '请求成功'
+        assert response['msg'] == '不能禁用最上层部门'
 
 
 class TestGetDetail:
@@ -253,14 +261,3 @@ class TestGetDetail:
         """部门id不存在"""
         response = request.get('/department/getDetail/%d' % 000000)
         assert response['msg'] == '未找到该部门'
-
-
-
-
-
-
-
-
-
-    def test_20(self, createInitDepartment):
-        log.warning(createInitDepartment)

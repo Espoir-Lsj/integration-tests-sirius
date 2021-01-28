@@ -82,8 +82,8 @@ def createInitRole(createInitRoleType):
 #         if i['loginName'] == name:
 #             userId = i['id']
 #             return userId
-#新建初始分类，整个项目仅执行一次
-#新建初始一个角色，整个项目仅执行一次
+# 新建初始分类，整个项目仅执行一次
+# 新建初始一个角色，整个项目仅执行一次
 
 # 创建一个初始部门，并返回部门id，整个项目测试用例执行之前执行一次
 @pytest.fixture(scope="session")
@@ -98,14 +98,20 @@ def createInitDepartment():
     sortId = detail2['data'][0]['id']
     response = createDept(departmentName=deptName, departmentTypeId=sortId, parentId=departmentId)
     assert response['msg'] in ('请求成功', '部门已存在')
-    # 根据部门名称查询部门id
-    list = request.get('/department/findDepartment?keyword=%s' % deptName)
+    # 查询列表
+    list = request.get('/department/findDepartment')
     assert len(list['data']) > 0
-    # 查询返回结果中部门id的值
-    for i in list['data']:
-        if i['id'] == id:
-            departmentId = i['id']
-            return departmentId
+    # 提取所有部门名称
+    departmentName = jsonpath.jsonpath(list, '$..childrenDepartment[*].departmentName')
+    # 提取所有的部门id
+    ids = jsonpath.jsonpath(list, '$..childrenDepartment[*].id')
+    # 根据部门名称循环查询部门id
+    i = 0
+    while i < len(departmentName):
+        if departmentName[i] == deptName:
+            id = ids[i]
+            return id
+        i += 1
 
 
 def pytest_collection_modifyitems(items):
