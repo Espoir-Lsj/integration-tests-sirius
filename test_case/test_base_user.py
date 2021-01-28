@@ -2,13 +2,17 @@
 # date:2020/11/28
 # !/usr/bin/env python3
 # _*_ coding: utf-8 _*_
-import pytest, time
+import pytest, time, jsonpath
 from common import logger, request
 from test_config import param_config
+from test_base_department import enableDept
 from faker import Faker
+
 faker = Faker(locale='zh_CN')
 
 log = logger.Log()
+
+loginName = 'NeW%d' % param_config.count
 
 
 # 新增用户
@@ -32,16 +36,20 @@ def createUser(loginName, initialPassword, departmentId, code=None, email=faker.
 
 
 # 修改用户
-def editUser(name, id, loginName, roleIds, email=None, img=None, remark=None, type=None):
+def editUser(loginName, departmentId, id, code=None, email=faker.safe_email(), gender=None, manager=None,
+             name=faker.name(), phone=faker.phone_number(), remark=None, title=None):
     body = {
-        'email': email,
-        'id': id,
-        'loginName': loginName,
-        'name': name,
-        'profileImg': img,
-        'remark': remark,
-        'roleIds': roleIds,
-        'userType': type
+        'code': code,  # 员工编号
+        'departmentId': departmentId,  # 所属部门
+        'email': email,  # 邮箱
+        'gender': gender,  # 性别
+        'id': id,  # 用户id
+        'loginName': loginName,  # 用户名
+        'manager': manager,  # 主管
+        'name': name,  # 真实姓名
+        'phone': phone,  # 手机号
+        'remark': remark,  # 备注
+        'title': title  # 职位
     }
     response = request.put_body('/user/editUser', body=body)
     return response
@@ -61,6 +69,33 @@ def userListByRoleId(roleId, isEnabled='true', loginName=None, name=None, ownerR
     }
     response = request.get_params('/user/userListByRoleId', params=params)
     return response
+
+
+# 新增一个新的用户，(便于编辑和删除使用)
+@pytest.fixture(scope="module")
+def createNewUser(createInitDepartment):
+    # 账号名称
+    Name = loginName
+    # 密码
+    initialPassword = param_config.initialPassword
+    # 启用默认部门
+    response2 = enableDept(id=createInitDepartment, isEnabled=True)
+    response = createUser(loginName=Name, initialPassword=initialPassword, departmentId=createInitDepartment)
+    assert response['msg'] in ('请求成功', '登录名已存在')
+    # 根据departmentId查询初始用户的id
+    list = request.get('/user/list?pageNum=0&pageSize=50&departmentId=%s' % createInitDepartment)
+    assert list['data']['totalCount'] > 0
+    # 查询返回的所有账号名
+    names = jsonpath.jsonpath(list, '$..loginName')
+    # 获取账号id
+    ids = jsonpath.jsonpath(list, '$..id')
+    # 根据账号名获取到账号id
+    i = 0
+    while i < len(names):
+        if names[i] == Name:
+            id = ids[i]
+            return id
+        i += 1
 
 
 # 获取当前登录用户的id,当前py文件仅执行一次
@@ -90,38 +125,69 @@ def getInitUserDetail(createInitUser):
 
 class TestCreateUser:
     """创建用户"""
-    url = '/user/createUser'
 
-    num = int(time.time() * 1000)
-    userName = '测试用户%d' % num
-    loginName = 'test%d' % num
-    def test_20(self,createInitUser):
-        log.info(createInitUser)
+    def test_01(self, createInitDepartment):
+        """用户名为空"""
+        response = createUser(loginName=None, initialPassword=param_config.initialPassword,
+                              departmentId=createInitDepartment)
+        assert response['msg'] == '账号只支持英文、数字'
 
-    def test_01(self, createInitRole):
-        """姓名为空"""
-        response = createUser(name=None, loginName=self.loginName, roleIds=[createInitRole])
-        assert response['msg'] == '请填写用户名称'
-
-    def test_02(self, createInitRole):
-        """登录名为空"""
-        response = createUser(name=self.userName, loginName=None, roleIds=[createInitRole])
-        assert response['msg'] == '请填写登录名'
+    def test_02(self, createInitDepartment):
+        """密码为空"""
+        response = createUser(loginName=loginName, initialPassword=None, departmentId=createInitDepartment)
+        assert response['msg'] == '请填写初始密码'
 
     def test_03(self):
-        """角色为空"""
-        response = createUser(name=self.userName, loginName=self.loginName, roleIds=None)
-        assert response['msg'] == '请选择用户关联的角色'
+        """部门为空"""
+        response = createUser(loginName=loginName, initialPassword=param_config.initialPassword, departmentId=None)
+        assert response['msg'] == '请选择所属部门'
 
-    def test_04(self):
-        """角色id不存在"""
-        response = createUser(name=self.userName, loginName=self.loginName, roleIds=[0])
-        assert response['msg'] == '角色不存在'
-
-    def test_05(self, createInitRole):
-        """登录名重复"""
-        response = createUser(name=self.userName, loginName='test', roleIds=[createInitRole])
+    def test_04(self, createInitUser, createInitDepartment):
+        """用户名重复"""
+        response = createUser(loginName=createInitUser, initialPassword=param_config.initialPassword,
+                              departmentId=createInitDepartment)
         assert response['msg'] == '登录名已存在'
+
+    def test_05(self, createInitDepartment):
+        """部门被禁用"""
+        # 禁用默认部门
+        response = enableDept(id=createInitDepartment, isEnabled=False)
+        response2 = createUser(loginName=loginName, initialPassword=param_config.initialPassword,
+                               departmentId=createInitDepartment)
+        assert response2['msg'] == '您的部门被禁用，请联系管理员'
+
+    def test_06(self, createInitDepartment):
+        """密码输入规则（大写字母，小写字母，数字，常用特殊字符这4中缺2）"""
+        response = createUser(loginName=loginName, initialPassword='aa888888', departmentId=createInitDepartment)
+        assert response['msg'] == '密码需包含数字、大写、小写字母、特殊符号中的至少3种'
+
+    def test_07(self, createInitDepartment):
+        """密码小于6位或大于20位"""
+        response = createUser(loginName=loginName, initialPassword='12345', departmentId=createInitDepartment)
+        assert response['msg'] == '密码长度为6-20之间'
+
+    def test_08(self, createInitDepartment):
+        """手机号格式错误"""
+        response = createUser(loginName=loginName, initialPassword=param_config.initialPassword,
+                              departmentId=createInitDepartment, phone=123)
+        assert response['msg'] == '请输入正确的手机号码'
+
+    def test_09(self, createInitDepartment):
+        """邮箱格式错误"""
+        response = createUser(loginName=loginName, initialPassword=param_config.initialPassword,
+                              departmentId=createInitDepartment, email=123)
+        assert response['msg'] == '请输入正确的邮箱'
+
+    def test_10(self):
+        """部门不存在"""
+        response = createUser(loginName=loginName, initialPassword=param_config.initialPassword, departmentId=9999)
+        assert response['msg'] == '未找到该部门'
+
+    def test_11(self, createInitDepartment):
+        """账号输入汉字（只支持字母、数字）"""
+        response = createUser(loginName='苏勇', initialPassword=param_config.initialPassword,
+                              departmentId=createInitDepartment)
+        assert response['msg'] == '账号只支持英文、数字'
 
 
 class TestEditPwd:
@@ -185,23 +251,51 @@ class TestEditPwd:
 
 class TestEditUser:
     """修改用户"""
-    url = '/user/editUser'
 
-    num = int(time.time() * 1000)
-    userName = '测试用户%d' % num
-    loginName = 'test%d' % num
+    def test_01(self, createInitDepartment, createNewUser):
+        """编辑成功"""
+        response = editUser(loginName=loginName, departmentId=createInitDepartment, id=createNewUser)
+        assert response['msg'] == '请求成功'
 
-    def test_01(self, createInitRole):
-        """用户id不存在"""
-        response = editUser(name=self.userName, id=0, loginName=self.loginName, roleIds=[createInitRole])
+    def test_02(self, createInitDepartment, createNewUser):
+        """用户名重复"""
+        response = editUser(loginName=param_config.initLoginName, departmentId=createInitDepartment, id=createNewUser)
+        assert response['msg'] == '登录名已存在'
+
+    def test_03(self, createInitDepartment, createNewUser):
+        """用户名为空"""
+        response = editUser(loginName=None, departmentId=createInitDepartment, id=createNewUser)
+        assert response['msg'] == '账号只支持英文、数字'
+
+    def test_04(self, createNewUser):
+        """部门不存在"""
+        response = editUser(loginName=loginName, departmentId=99999, id=createNewUser)
+        assert response['msg'] == '未找到该部门'
+
+    def test_05(self, createNewUser):
+        """部门为空"""
+        response = editUser(loginName=loginName, departmentId=None, id=createNewUser)
+        assert response['msg'] == '请选择所属部门'
+
+    def test_06(self, createInitDepartment):
+        """用户不存在"""
+        response = editUser(loginName=loginName, departmentId=createInitDepartment, id=99999)
         assert response['msg'] == '用户不存在，请检查重试'
 
-    def test_02(self, createInitUser, getInitUserDetail):
-        """修改初始用户"""
-        # 修改用户
-        response = editUser(name=getInitUserDetail[0], id=createInitUser, loginName=getInitUserDetail[1],
-                            roleIds=getInitUserDetail[2])
-        assert response['msg'] == '请求成功'
+    def test_07(self, createInitDepartment):
+        """用户为空"""
+        response = editUser(loginName=loginName, departmentId=createInitDepartment, id=None)
+        assert response['msg'] == '请输入用户id'
+
+    def test_08(self, createInitDepartment, createNewUser):
+        """手机号错误"""
+        response = editUser(loginName=loginName, departmentId=createInitDepartment, id=createNewUser,phone=123)
+        assert response['msg'] == '请输入正确的手机号码'
+
+    def test_09(self, createInitDepartment, createNewUser):
+        """邮箱错误"""
+        response = editUser(loginName=loginName, departmentId=createInitDepartment, id=createNewUser,email=123)
+        assert response['msg'] == '请输入正确的邮箱'
 
 
 class TestList:

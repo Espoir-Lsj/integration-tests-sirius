@@ -10,7 +10,7 @@ from faker import Faker
 faker = Faker(locale='zh_CN')
 log = logger.Log()
 # 新部门名称
-departmentName = '一个新仓库%d' % param_config.count
+departmentName = '一个新部门%d' % param_config.count
 
 
 # 创建部门
