@@ -93,6 +93,16 @@ def bindPermission(roleId, permissionIds):
     return response
 
 
+# 自定义方法-绑定角色
+def bindRole(userId, roleIds):
+    body = {
+        'roleIds': roleIds,
+        'userId': userId
+    }
+    response = request.put_body('/role/bindRole', body)
+    return response
+
+
 # 创建一个新的角色分类，每个文件执行一次
 @pytest.fixture(scope="module")
 def createNewRoleType():
@@ -142,10 +152,10 @@ class TestBindDataScope:
         response = bindDataScope(roleId=None)
         assert response['msg'] == '角色id不能为空'
 
-    @pytest.mark.skip('system busy')  # TODO
     def test_03(self, createNewRole):
         """权限范围为空"""
         response = bindDataScope(roleId=createNewRole, dataScope=None)
+        assert response['msg'] == '请选择角色数据权限'
 
     def test_04(self, createNewRole):
         """权限范围不存在"""
@@ -164,10 +174,12 @@ class TestBindPermission:
     def test_01(self, createNewRole):
         """权限为空"""
         response = bindPermission(roleId=createNewRole, permissionIds=None)
+        assert response['msg'] == '请选择角色功能权限'
 
     def test_02(self, createNewRole):
         """未选择权限"""
         response = bindPermission(roleId=createNewRole, permissionIds=[])
+        assert response['msg'] == '请选择角色功能权限'
 
     def test_03(self, createNewRole):
         """权限id不存在"""
@@ -189,6 +201,21 @@ class TestBindPermission:
         response = bindPermission(roleId=createNewRole, permissionIds=getPermissoinIds)
         assert response['msg'] == '请求成功'
 
+
+class TestBindRole:
+    """绑定角色"""
+
+    def test_01(self, createNewRole):
+        """用户id为空"""
+        response = bindRole(userId=None, roleIds=[createNewRole])
+        assert response['msg'] == '请选择账号'
+
+    def test_02(self, createNewRole):
+        response = bindRole(userId=0, roleIds=[createNewRole])
+        assert response['msg'] == '用户不存在'
+
+    # def test_03(self, createNewRole):
+        # TODO 等用户部分的用例出来再写
 
 class TestCreateRole:
     """创建角色"""
