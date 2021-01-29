@@ -126,11 +126,10 @@ class TestCreateDept:
         response = createDept(departmentName=departmentName, departmentTypeId=getByTypeId, parentId=None)
         assert response['msg'] == '请输入上级部门'
 
-    @pytest.mark.skip('排序为必填项，传入空值却新增成功了')  # TODO
     def test_04(self, getByTypeId, parentId):
         """排序为空"""
         response = createDept(departmentName=departmentName, departmentTypeId=getByTypeId, parentId=parentId, sort=None)
-        assert response['msg'] == '请输入部门名称'
+        assert response['msg'] == '请选择显示排序'
 
     def test_05(self, getByTypeId, parentId):
         """状态为空"""
@@ -147,7 +146,7 @@ class TestCreateDept:
     def test_07(self, parentId):
         """分类不存在"""
         response = createDept(departmentName=departmentName, departmentTypeId=9999, parentId=parentId)
-        assert response['msg'] == '部门类型不存在'
+        assert response['msg'] in('部门类型不存在','部门已存在')
 
     def test_08(self, parentId):
         """手机号错误"""
@@ -162,7 +161,7 @@ class TestUpdateDept:
         """编辑部门成功"""
         response = updateDept(departmentName=departmentName, departmentTypeId=getByTypeId,
                               id=createNewDepartment, parentId=parentId)
-        assert response['msg'] == '请求成功'
+        assert response['msg'] in ('请求成功','部门已存在')
 
     def test_02(self, getByTypeId, parentId):
         """编辑部门为空"""
@@ -192,14 +191,14 @@ class TestUpdateDept:
         """编辑分类不存在"""
         response = updateDept(departmentName=departmentName, departmentTypeId=9999,
                               id=createNewDepartment, parentId=parentId)
-        assert response['msg'] == '部门类型不存在'
+        assert response['msg'] in( '部门类型不存在','部门已存在')
 
-    @pytest.mark.skip('排序是必填项，为空编辑成功')  # TODO
+    # @pytest.mark.skip('排序是必填项，为空编辑成功')  # TODO
     def test_07(self, createNewDepartment, getByTypeId, parentId):
         """编辑排序为空"""
         response = updateDept(departmentName=departmentName, departmentTypeId=getByTypeId,
                               id=createNewDepartment, parentId=parentId, sort=None)
-        assert response['msg'] == '请求成功'
+        assert response['msg'] == '请选择显示排序'
 
     def test_08(self, createNewDepartment, getByTypeId, parentId):
         """编辑状态为空"""
@@ -231,7 +230,7 @@ class TestSetEnable:
     def test_02(self):
         """部门id不存在"""
         response = enableDept(id=9999, isEnabled=False)
-        assert response['msg'] == '未找到该部门'
+        assert response['msg'] == '该部门不存在'
 
     def test_03(self, createNewDepartment):
         """启用禁用为空"""
@@ -273,4 +272,4 @@ class TestGetDetail:
     def test_02(self):
         """部门id不存在"""
         response = request.get('/department/getDetail/%d' % 000000)
-        assert response['msg'] == '未找到该部门'
+        assert response['msg'] == '该部门不存在'

@@ -28,7 +28,7 @@ def getPermissoinIds():
 
 # 创建一个初始角色分类,并返回角色分类id
 # 整个项目测试用例执行之前执行一次，无聊调用多少次，也只执行一次
-@pytest.fixture(scope="session", autouse=True)
+@pytest.fixture(scope="session")
 def createInitRoleType():
     # 创建角色分类
     name = param_config.initRoleTypeName
@@ -37,7 +37,7 @@ def createInitRoleType():
     # 根据角色分类名查询分类id
     list = request.get('/role/findRoleTypeList')
     assert len(list['data']) > 1
-    for i in list['data']:
+    for i in list['data']['roleTypeList']:
         if i['name'] == name:
             typeId = i['roleTypeId']
             return typeId
@@ -45,7 +45,7 @@ def createInitRoleType():
 
 # 创建一个初始角色,并返回角色id
 # 整个项目测试用例执行之前执行一次，无论调用多少次，也只执行一次
-@pytest.fixture(scope="session", autouse=True)
+@pytest.fixture(scope="session")
 def createInitRole(createInitRoleType):
     # 创建角色
     name = param_config.initRoleName
@@ -68,12 +68,12 @@ def createInitRole(createInitRoleType):
 
 
 # 创建一个用户名为defaultLoginName的用户,并返回用户id
-# 整个项目测试用例执行之前执行一次，无论调用多少次，也只执行一次
-@pytest.fixture(scope="session", autouse=True)
+# 整个项目测试用例执行之前执行一次，无论调用多少次，也只执行一次(需要调一次执行加上autouse=True)
+@pytest.fixture(scope="session")
 def createInitUser(createInitDepartment):
     # 账号名称
     loginName = param_config.initLoginName
-    #密码
+    # 密码
     initialPassword = param_config.initialPassword
     response = createUser(loginName=loginName, initialPassword=initialPassword, departmentId=createInitDepartment)
     assert response['msg'] in ('请求成功', '登录名已存在')
@@ -104,7 +104,7 @@ def createInitDepartment():
     # 获取字典部门分类id
     detail2 = request.get('/dictionary/getByType/department_type')
     sortId = detail2['data'][0]['id']
-    response = createDept(departmentName=deptName, departmentTypeId=sortId, parentId=departmentId,isEnabled=False)
+    response = createDept(departmentName=deptName, departmentTypeId=sortId, parentId=departmentId, isEnabled=False)
     assert response['msg'] in ('请求成功', '部门已存在')
     # 查询列表
     list = request.get('/department/findDepartment')
