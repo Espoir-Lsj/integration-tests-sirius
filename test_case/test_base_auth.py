@@ -4,7 +4,7 @@
 # _*_ coding: utf-8 _*_
 import pytest, requests, urllib3
 from common import logger, request, login
-from test_config import param_config
+# from test_config import param_config
 
 urllib3.disable_warnings()
 log = logger.Log()
