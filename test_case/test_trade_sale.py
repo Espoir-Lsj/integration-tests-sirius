@@ -21,7 +21,8 @@ list = supplier_request.get('/category/getTree?parentCode=MATERIAL')
 # 获取所有的分类id，包括一级二级分类
 ids = jsonpath.jsonpath(list, '$..id')
 # 随机取一个分类id
-categoryId = ids[random.randint(0, len(ids))]
+# categoryId = ids[random.randint(0, len(ids))]
+categoryId = 10
 
 
 # 新增一个供应商A的售卖信息，fixture生效范围为每个class仅执行一次
@@ -35,13 +36,13 @@ def addSale():
 
 
 # 新增一个供应商B的售卖信息，fixture生效范围为每个class仅执行一次
-@pytest.fixture(scope="class")
-def addSale_02():
-    response = tradeSale.addSale_02()
-    assert response['msg'] == '请求成功'
-    # 获取求购信息的id,并返回
-    id = response['data']
-    return id
+# @pytest.fixture(scope="class")
+# def addSale_02():
+#     response = tradeSale.addSale_02()
+#     assert response['msg'] == '请求成功'
+#     # 获取求购信息的id,并返回
+#     id = response['data']
+#     return id
 
 
 class TestAdd:

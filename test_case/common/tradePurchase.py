@@ -27,7 +27,9 @@ list = supplier_request.get('/category/getTree?parentCode=MATERIAL')
 # 获取所有的分类id，包括一级二级分类
 ids = jsonpath.jsonpath(list, '$..id')
 # 随机取一个分类id
+# print(ids)
 categoryId = ids[random.randint(0, len(ids))]
+# print(categoryId)
 
 
 # 新增求购信息

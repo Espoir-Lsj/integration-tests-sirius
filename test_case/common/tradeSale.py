@@ -27,9 +27,10 @@ yesterday_stamp = int(time.mktime(yesterday.timetuple())) * 1000
 list = supplier_request.get('/category/getTree?parentCode=MATERIAL')
 # 获取所有的分类id，包括一级二级分类
 ids = jsonpath.jsonpath(list, '$..id')
+# print(list)
 # 随机取一个分类id
-categoryId = ids[random.randint(0, len(ids))]
-
+# categoryId = ids[random.randint(0, len(ids))]
+categoryId = 10
 
 # 供应商A新增售卖信息
 def addSale(skuCode=None, goodsName='test', manufacturerName='test', specification='test', model=None, price=1,

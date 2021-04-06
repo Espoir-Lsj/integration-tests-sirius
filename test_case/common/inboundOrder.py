@@ -5,10 +5,12 @@
 import time, datetime, jsonpath
 from common import logger, request
 from faker import Faker
+from test_config import param_config
 
 log = logger.Log()
 faker = Faker(locale='zh_CN')
-
+# 新增参数type
+type = param_config.Ordertpye
 
 # 提交入库单
 def submit(adhocOrderId, consumeQuantity):
@@ -40,7 +42,8 @@ def submit(adhocOrderId, consumeQuantity):
     # 提交入库单
     body = {
         'allocateInboundOrderId': allocateInboundOrderId,
-        'allocateInboundOrderDetailCheckBeanList': list
+        'allocateInboundOrderDetailCheckBeanList': list,
+        'type': 'adhoc'
     }
     log.info('传入的参数 %s' % body)
     submit = request.put_body('/allocateInboundOrder/submit', body)
@@ -49,13 +52,14 @@ def submit(adhocOrderId, consumeQuantity):
 
 
 # 入库单验收
-def check(allocateInboundOrderId, subNum=1):
+def check(allocateInboundOrderId, subNum=1,):
     """
     subNum: 待验收数量与实际验收数量的差值
     """
     # 根据入库单id查询明细
+
     inbound_detail = request.get(
-        '/allocateInboundOrder/getDetailById?allocateInboundOrderId=%s' % allocateInboundOrderId)
+        '/allocateInboundOrder/getDetailById?allocateInboundOrderId=%s&type=%s' % (allocateInboundOrderId,type))
     assert inbound_detail['msg'] == '请求成功'
 
     # 获取所有的goodsId和对应的出库数量
@@ -83,7 +87,8 @@ def check(allocateInboundOrderId, subNum=1):
     # 验收入库单
     body = {
         'allocateInboundOrderId': allocateInboundOrderId,
-        'allocateInboundOrderDetailCheckBeanList': list
+        'allocateInboundOrderDetailCheckBeanList': list,
+        'type':type
     }
     log.info('传入的参数 %s' % body)
     check = request.put_body('/allocateInboundOrder/check', body)

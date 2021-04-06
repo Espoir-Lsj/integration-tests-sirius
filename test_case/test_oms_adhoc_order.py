@@ -61,26 +61,41 @@ class TestAccept:
         response = request.put_body(self.url, body=body)
         assert response['msg'] == msg
 
-    def test_04(self):
-        """接收临调单时库存不足"""
-        # 创建订单
-        response = adhocOrder.createAdhocOrder(goodsId=self.goodsId, goodsQuantity=999999999)
-        try:
-            assert response['msg'] == '请求成功'
-        except:
-            raise Exception(response['msg'], response['exMsg'])
-        # 临调单id
-        adhocOrderId = response['data']['id']
-        # 接收临调单
-        response2 = request.put_body(self.url, body={'id': adhocOrderId, 'accept': True})
-        log.info(response2)
-        assert response2['exMsg'] == '库存不足'
-        # 关闭临调单
-        response3 = request.put_body('/adhocOrder/close', body={'id': adhocOrderId})
-        assert response3['msg'] == '请求成功'
-        # 再次关闭临调单
-        response4 = request.put_body('/adhocOrder/close', body={'id': adhocOrderId})
-        assert response4['msg'] == '订单状态为待接收或待修改时才能关闭'
+    # 调试 通过审核
+    # case4 = [
+    #     ('accept传', 74, '请求成功'),
+    # ]
+    #
+    # @pytest.mark.parametrize('casename,id,msg', case4)
+    # def test_0031(self,casename,id,msg):
+    #     body = {
+    #         'id': id,
+    #         'accept': True,
+    #         'reason':''
+    #     }
+    #     response = request.put_body(self.url,body=body)
+    #     assert response['msg'] ==msg
+
+    # def test_04(self):
+    #     """接收临调单时库存不足"""
+    #     # 创建订单
+    #     response = adhocOrder.createAdhocOrder(goodsId=self.goodsId, goodsQuantity=999999999)
+    #     try:
+    #         assert response['msg'] == '请求成功'
+    #     except:
+    #         raise Exception(response['msg'], response['exMsg'])
+    #     # 临调单id
+    #     adhocOrderId = response['data']['id']
+    #     # 接收临调单
+    #     response2 = request.put_body(self.url, body={'id': adhocOrderId, 'accept': True})
+    #     log.info(response2)
+    #     assert response2['exMsg'] == '库存不足'
+    #     # 关闭临调单
+    #     response3 = request.put_body('/adhocOrder/close', body={'id': adhocOrderId})
+    #     assert response3['msg'] == '请求成功'
+    #     # 再次关闭临调单
+    #     response4 = request.put_body('/adhocOrder/close', body={'id': adhocOrderId})
+    #     assert response4['msg'] == '订单状态为待接收或待修改时才能关闭'
 
     def test_05(self):
         """拒绝临调单时没有传原因"""

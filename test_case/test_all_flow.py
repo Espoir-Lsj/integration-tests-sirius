@@ -22,9 +22,9 @@ def askChoice(text):
 
 class TestAll:
     # 调拨数量
-    transferQuantity = 3
+    transferQuantity = 1
     # 消耗数量
-    consumeQuantity = 2  # 待验收数量=调拨数量-消耗数量
+    consumeQuantity = 1  # 待验收数量=调拨数量-消耗数量
     # 实际验收数量
     receiveQuantity = 1  # 实际消耗数量=调拨数量-实际验收数量
     # 临调单id
@@ -122,7 +122,7 @@ class TestAll:
         # 工具包信息
         tools = {
             "kitTemplateId": param_config.kitTemplateId,
-            "quantity": 2,
+            "quantity": 1,
             "supplierId": supplierId
         }
         if type == '2':
@@ -149,6 +149,7 @@ class TestAll:
         TestAll.adhocOrderCode = create['data']['code']
         log.info('生成的临调单code: %s' % TestAll.adhocOrderCode)
 
+    @pytest.mark.skip
     def test_03_get(self):
         """查询接口"""
         # 查询订单地址
@@ -160,31 +161,100 @@ class TestAll:
 
     @pytest.mark.主流程
     @pytest.mark.dependency(depends=["create"])
+    @pytest.mark.skip
+    #跳过
     def test_04_refuse(self):
         """退回临调单"""
         # 拒绝临调单
-        response = request.put_body('/adhocOrder/accept',
-                                    body={'id': self.adhocOrderId, 'accept': False, 'reason': 'refuse'})
+        if self.adhocOrderId == '':
+            id = input("\n输入临调单id:")
+        else:
+            id = self.adhocOrderId
+        response = request.put_body('/adhocOrder/reject',
+                                    body={'id': id, 'reason': 'refuse'})
         log.info(response)
         assert response['msg'] == '请求成功'
 
+    # @pytest.mark.主流程
+    # @pytest.mark.dependency(depends=["create"])
+    # def test_05_1_accept(self):
+    #     "先接收一次临调单"
+    #     detail = request.get('/adhocOrder/getDetailByOrderId?orderId=%s' % self.adhocOrderId)
+    #     goodsDetail = detail['data']['childUiList'][0]['detailBeanUiList']
+    #     toolsDetails = detail['data']['childUiList'][0]['toolsKitUiBeans']
+    #     goodsId = goodsDetail[0]['goodsId']
+    #     quantity = goodsDetail[0]['quantity']
+    #     kitTemplateId = toolsDetails[0]['id']
+    #     templateQuantity = toolsDetails[0]['templateQuantity']
+    #     log.info('------接收临调单第一次------')
+    #     if self.adhocOrderId == '':
+    #         id = input("\n输入临调单id:")
+    #     else:
+    #         id = self.adhocOrderId
+    #     body = {
+    #
+    #         "detail": [
+    #             {
+    #                 "deliveryMode": 'DELIVERY',
+    #                 "goodsDetailUiBeans": [
+    #                     {
+    #                         "goodsId": goodsId,
+    #                         "quantity": quantity
+    #                     }
+    #                 ],
+    #                 "toolsDetailUiBeans": [
+    #                     {
+    #                         "kitTemplateId": kitTemplateId,
+    #                         "quantity": templateQuantity
+    #                     }
+    #                 ],
+    #                 "warehouseId": 6
+    #             }
+    #         ],
+    #         "id": id
+    #
+    #     }
+    #     accept = request.put_body('/adhocOrder/accept', body=body)
+    #     try:
+    #         assert accept['msg'] == '请求成功'
+    #     except:
+    #         raise Exception(accept['msg'], accept['exMsg'])
+    #     log.info('临调单接收成功 %s' % accept)
+
     @pytest.mark.主流程
     @pytest.mark.dependency(depends=["create"])
+    @pytest.mark.skip
     def test_05_edit(self):
         """修改临调单"""
         # 查看临调单详情
-        detail = request.get('/adhocOrder/getDetail?orderId=%s' % self.adhocOrderId)
-        goodsDetail = detail['data']['goodsDetail']
-        toolsDetails = detail['data']['toolsKitBeans']
+        # detail = request.get('/adhocOrder/getDetailByOrderId?orderId=%s' % 645)
+        detail = request.get('/adhocOrder/getDetailByOrderId?orderId=%s' % self.adhocOrderId)
+        goodsDetail = detail['data']['childUiList'][0]['detailBeanUiList']
+        toolsDetails = detail['data']['childUiList'][0]['toolsKitUiBeans']
         # 根据详情数据重新生成新的ARRAY
         new_toolsDetails = []
         for i in toolsDetails:
-            detail = {
+            Tdetail = {
                 'kitTemplateId': i['id'],
                 'quantity': i['templateQuantity'],
-                'supplierId': i['supplierId']
+                # 'supplierId': i['supplierId']
             }
-            new_toolsDetails.append(detail)
+            new_toolsDetails.append(Tdetail) #T数组添加数据
+        # self.adhocOrderId = 650
+        # goodsDetail =[
+        #
+        #         {
+        #             "goodsId": 243,
+        #             "quantity": 1
+        #         }
+        #
+        # ]
+        # new_toolsDetails = [
+        #     {
+        #         "kitTemplateId": 21,
+        #         "quantity": 1
+        #     }
+        # ]
         response = adhocOrder.edit_order(self.adhocOrderId, goodsDetail, new_toolsDetails)
         log.info(response)
         assert response['msg'] == '请求成功'
@@ -206,8 +276,25 @@ class TestAll:
         else:
             id = self.adhocOrderId
         body = {
-            'id': id,
-            'accept': True
+            "detail": [
+                {
+                    "deliveryMode": "DELIVERY",
+                    "goodsDetailUiBeans": [
+                        {
+                            "goodsId": self.goodsId,
+                            "quantity": self.transferQuantity
+                        }
+                    ],
+                    "toolsDetailUiBeans": [
+                      {
+                        "kitTemplateId": param_config.kitTemplateId,
+                        "quantity": 1
+                      }
+                    ],
+                    "warehouseId": 6
+                }
+            ],
+            "id": id
         }
         accept = request.put_body('/adhocOrder/accept', body=body)
         try:
@@ -296,11 +383,15 @@ class TestAll:
         else:
             # 根据临调单号查询入库单id
             getList = request.get(
-                '/allocateInboundOrder/findList?pageNum=0&pageSize=50&keyword=%s' % self.adhocOrderCode)
+                # '/allocateInboundOrder/getDetailByCode?pageNum=0&pageSize=50&keyword=%s' % self.adhocOrderCode)
+                '/allocateInboundOrder/getDetailByOrderId?orderId=%s' % self.adhocOrderId)
             assert getList['msg'] == '请求成功'
-            allocateInboundOrderId = getList['data']['rows'][0]['allocateInboundOrderId']
+            allocateInboundOrderId = getList['data']['allocateInboundOrderId']
         # 入库单验收, 实际验收数量比待验收数量少1
-        check_response = inboundOrder.check(allocateInboundOrderId, subNum=1)
+        # check_response = inboundOrder.check(allocateInboundOrderId, subNum=1)
+
+        # 入库单验收, 实际验收数量比待验收数量少1
+        check_response = inboundOrder.check(allocateInboundOrderId, subNum=0)
         assert check_response['msg'] == '请求成功'
 
     @pytest.mark.待生成销售单
@@ -392,7 +483,6 @@ class TestAll:
     def test_17_get_detail(self):
         """查询临调订单明细"""
         adhocOrder.getDetail(self.adhocOrderId)
-
 
 
 if __name__ == '__main__':
