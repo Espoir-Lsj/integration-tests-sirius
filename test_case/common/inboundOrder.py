@@ -37,6 +37,7 @@ def submit(adhocOrderId, consumeQuantity):
         dict = {'goodsId': goodsId[i],
                 'goodsLotInfoId': goodsLotInfoId[i],
                 'quantity': consumeQuantity}  # 消耗数量
+                # 'quantity': nums}  # 消耗数量
         list.append(dict)
         i += 1
     # 提交入库单
@@ -52,7 +53,7 @@ def submit(adhocOrderId, consumeQuantity):
 
 
 # 入库单验收
-def check(allocateInboundOrderId, subNum=1,):
+def check(allocateInboundOrderId, subNum=0,):
     """
     subNum: 待验收数量与实际验收数量的差值
     """

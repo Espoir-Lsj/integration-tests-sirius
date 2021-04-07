@@ -149,9 +149,9 @@ def createAdhocOrder(goodsId, goodsQuantity=1, ageGroup='adult', gender='male', 
 
 
 # 编辑临调单
-def edit_order(id, goodsDetail, toolsDetail):
+def edit_order(orderUiBean, goodsDetail, toolsDetail):
     body = {
-        'id': id,
+        'orderUiBean': orderUiBean,
         'goodsDetailUiBeans': goodsDetail,
         'toolsDetailUiBeans': toolsDetail
     }
