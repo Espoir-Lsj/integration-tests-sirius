@@ -78,7 +78,7 @@ def appCreateAdhocOrder(goodsId, goodsQuantity=1, kitTemplateId=None, ageGroup='
     goods = {
         'goodsId': goodsId,
         'quantity': goodsQuantity,
-        'supplierId': goodsSupplierId
+        # 'supplierId': goodsSupplierId
     }
     body['goodsDetailUiBeans'] = [goods]
     if kitTemplateId != None:
@@ -86,7 +86,7 @@ def appCreateAdhocOrder(goodsId, goodsQuantity=1, kitTemplateId=None, ageGroup='
         tools = {
             "kitTemplateId": kitTemplateId,
             "quantity": 1,
-            "supplierId": goodsSupplierId
+            # "supplierId": goodsSupplierId
         }
         body['toolsDetailUiBeans'] = [tools]
     # 创建临调单
@@ -95,13 +95,14 @@ def appCreateAdhocOrder(goodsId, goodsQuantity=1, kitTemplateId=None, ageGroup='
 
 
 # 创建临调单
-def createAdhocOrder(goodsId, goodsQuantity=1, ageGroup='adult', gender='male', goodsSupplierId=supplierId,
-                     supplierId=supplierId, hospitalName='测试', siteId=siteId, surgeon=faker.name(),
-                     procedureTime=tomorrow_stamp, expectReturnTime=twoDaysAfter_stamp, postcode=faker.postcode(),
-                     contactName='测试', contactPhone=faker.phone_number(), manufacturerId=brandId,
-                     salesPerson=faker.name(), deliveryMode='SELF_PIKE_UP', receivingName=faker.name(),
-                     receivingIdCard=None, receivingPhone=faker.phone_number(), districtCode=110101000000,
-                     receivingAddress=faker.address()):
+def createAdhocOrder(goodsId, goodsQuantity=1, kitTemplateId=None, ageGroup='adult', gender='male',
+                     goodsSupplierId=supplierId, supplierId=supplierId, hospitalName='测试', siteId=siteId,
+                     surgeon=faker.name(), procedureTime=tomorrow_stamp, expectReturnTime=twoDaysAfter_stamp,
+                     postcode=faker.postcode(), contactName='测试', contactPhone=faker.phone_number(),
+                     manufacturerId=brandId, salesPerson=faker.name(), deliveryMode='SELF_PIKE_UP',
+                     receivingName=faker.name(), receivingIdCard=None, receivingPhone=faker.phone_number(),
+                     districtCode=110101000000, receivingAddress=faker.address(), powerOfAttorney=None,
+                     consignorName=None, consignorPhone=None):
     # # 查询商品主耗材列表
     # goods = request.get('/goods/findListByMainMaterial?pageNum=0&pageSize=50&manufacturerId=%d' % brandId)
     # goodsId = goods['data']['rows'][0]['id']
@@ -143,13 +144,81 @@ def createAdhocOrder(goodsId, goodsQuantity=1, ageGroup='adult', gender='male', 
         'supplierId': goodsSupplierId
     }
     body['goodsDetailUiBeans'] = [goods]
+    if kitTemplateId != None:
+        # 工具包信息
+        tools = {
+            "kitTemplateId": kitTemplateId,
+            "quantity": 1,
+            # "supplierId": goodsSupplierId
+        }
+        body['toolsDetailUiBeans'] = [tools]
     # 创建临调单
     create = request.post_body('/adhocOrder/create', body=body)
     return create
 
 
-# 编辑临调单
-def edit_order(orderUiBean, goodsDetail, toolsDetail):
+# 小程序编辑临调单
+def app_edit_order(id, goodsDetail, toolsDetail):
+    body = {
+        'id': id,
+        'goodsDetailUiBeans': goodsDetail,
+        'toolsDetailUiBeans': toolsDetail
+    }
+    response = request.put_body('/adhocOrder/appEdit', body=body)
+    return response
+
+
+# web 编辑临调单
+def edit_order(id, goodsId=320, goodsQuantity=1, kitTemplateId=None, ageGroup='adult', gender='male',
+               goodsSupplierId=supplierId, supplierId=supplierId, hospitalName='测试', siteId=siteId,
+               surgeon=faker.name(), procedureTime=tomorrow_stamp, expectReturnTime=twoDaysAfter_stamp,
+               postcode=faker.postcode(), contactName='测试', contactPhone=faker.phone_number(),
+               manufacturerId=brandId, salesPerson=faker.name(), salesPhone=faker.phone_number(),
+               deliveryMode='SELF_PIKE_UP',
+               receivingName=faker.name(), receivingIdCard=None, receivingPhone=faker.phone_number(),
+               districtCode=110101000000, receivingAddress=faker.address(), powerOfAttorney=None,
+               consignorName=None, consignorPhone=None):
+    body = {
+        'goodsDetailUiBeans': [],
+        'toolsDetailUiBeans': [],
+        'orderUiBean': {
+            "ageGroup": ageGroup,
+            "consignorName": consignorName,
+            "consignorPhone": consignorPhone,
+            "contactName": contactName,
+            "contactPhone": contactPhone,
+            "deliveryMode": deliveryMode,
+            "districtCode": districtCode,
+            "expectReturnTime": expectReturnTime,
+            "gender": gender,
+            "hospitalName": hospitalName,
+            "id": id,
+            "manufacturerId": manufacturerId,
+            # "payOnDelivery": false,
+            "postcode": postcode,
+            "powerOfAttorney": powerOfAttorney,
+            "procedureSite": [siteId],
+            "procedureTime": procedureTime,
+            "receivingAddress": receivingAddress,
+            "receivingIdCard": receivingIdCard,
+            "receivingName": receivingName,
+            "receivingPhone": receivingPhone,
+            "salesPerson": salesPerson,
+            "salesPhone": salesPhone,
+            "supplierId": supplierId,
+            "surgeon": surgeon
+        }
+    }
+    goods = {
+        'goodsId': goodsId,
+        'quantity': goodsQuantity
+    }
+    body['goodsDetailUiBeans'] = [goods]
+    response = request.put_body('/adhocOrder/edit', body=body)
+    return response
+
+
+def edit_order1(orderUiBean, goodsDetail, toolsDetail):
     body = {
         'orderUiBean': orderUiBean,
         'goodsDetailUiBeans': goodsDetail,
