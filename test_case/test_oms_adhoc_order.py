@@ -10,7 +10,8 @@ from test_config import param_config
 log = logger.Log()
 
 
-class TestAccept:
+@pytest.mark.skip
+class TestAccept1:
     """接收订单"""
     url = '/adhocOrder/accept'
     # 物资id
@@ -112,6 +113,7 @@ class TestAccept:
         assert response2['msg'] == '请输入修改建议'
 
 
+@pytest.mark.skip
 class TestAppCreate:
     """小程序创建临调单"""
     url = '/adhocOrder/appCreate'
