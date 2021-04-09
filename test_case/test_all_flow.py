@@ -179,52 +179,6 @@ class TestAll:
         log.info(response)
         assert response['msg'] == '请求成功'
 
-    # @pytest.mark.主流程
-    # @pytest.mark.dependency(depends=["create"])
-    # def test_05_1_accept(self):
-    #     "先接收一次临调单"
-    #     detail = request.get('/adhocOrder/getDetailByOrderId?orderId=%s' % self.adhocOrderId)
-    #     goodsDetail = detail['data']['childUiList'][0]['detailBeanUiList']
-    #     toolsDetails = detail['data']['childUiList'][0]['toolsKitUiBeans']
-    #     goodsId = goodsDetail[0]['goodsId']
-    #     quantity = goodsDetail[0]['quantity']
-    #     kitTemplateId = toolsDetails[0]['id']
-    #     templateQuantity = toolsDetails[0]['templateQuantity']
-    #     log.info('------接收临调单第一次------')
-    #     if self.adhocOrderId == '':
-    #         id = input("\n输入临调单id:")
-    #     else:
-    #         id = self.adhocOrderId
-    #     body = {
-    #
-    #         "detail": [
-    #             {
-    #                 "deliveryMode": 'DELIVERY',
-    #                 "goodsDetailUiBeans": [
-    #                     {
-    #                         "goodsId": goodsId,
-    #                         "quantity": quantity
-    #                     }
-    #                 ],
-    #                 "toolsDetailUiBeans": [
-    #                     {
-    #                         "kitTemplateId": kitTemplateId,
-    #                         "quantity": templateQuantity
-    #                     }
-    #                 ],
-    #                 "warehouseId": 6
-    #             }
-    #         ],
-    #         "id": id
-    #
-    #     }
-    #     accept = request.put_body('/adhocOrder/accept', body=body)
-    #     try:
-    #         assert accept['msg'] == '请求成功'
-    #     except:
-    #         raise Exception(accept['msg'], accept['exMsg'])
-    #     log.info('临调单接收成功 %s' % accept)
-
     @pytest.mark.主流程
     @pytest.mark.dependency(depends=["create"])
     # @pytest.mark.skip
@@ -416,13 +370,14 @@ class TestAll:
         check_response = inboundOrder.check(allocateInboundOrderId, subNum=0)
         assert check_response['msg'] == '请求成功'
 
+    @pytest.mark.待生成销售单
     @pytest.mark.主流程
-    @pytest.mark.待上架
     @pytest.mark.dependency(name='put_on_shelf', depends=["inbound_check"])
     def test_11_put_on_shelf(self):
-        """"查询出上架单号"""
+        """"上架商品"""
+        log.info('------开始上架商品------')
         if self.adhocOrderCode == '':
-            allocateInboundOrderId = input("\n输入入库单id:")
+            allocateInboundOrderCode = input("\n输入入库单id:")
         else:
             # 根据临调单号查询入库单id
             getList = request.get(
@@ -430,39 +385,9 @@ class TestAll:
                 '/allocateInboundOrder/getDetailByOrderId?orderId=%s' % self.adhocOrderId)
             assert getList['msg'] == '请求成功'
             allocateInboundOrderCode = getList['data']['allocateInboundOrderCode']
-        putOn_response = putOnShelf.put(allocateInboundOrderCode)
+        putOn_response = putOnShelf.put_all(allocateInboundOrderCode)
         assert putOn_response['msg'] == '请求成功'
 
-    # @pytest.mark.待生成销售单
-    # @pytest.mark.主流程
-    # @pytest.mark.dependency(name='put_on_shelf', depends=["inbound_check"])
-    # @pytest.mark.skip
-    # def test_11_put_on_shelf(self):
-    #     """物资上架"""
-    #     log.info('------开始上架------')
-    #     try:
-    #         goodsId = int(askChoice('请输入需要上架的物资id: '))
-    #     except func_timeout.exceptions.FunctionTimedOut as e:
-    #         goodsId = self.goodsId
-    #     # 查询物资待上架列表
-    #     getList = request.get('/goodsStock/putOnShelfPendingList?pageNum=0&pageSize=50')
-    #     if getList['data']['totalCount'] > 0:
-    #         for i in getList['data']['rows']:
-    #             if i['goodsId'] == goodsId:
-    #                 goodsStockId = i['id']
-    #                 locationCode = i['storageLocationCode']
-    #                 quantity = i['quantity']
-    #                 # 上架
-    #                 body = [{
-    #                     'goodsStockId': goodsStockId,
-    #                     'locationCode': locationCode,
-    #                     'quantity': quantity
-    #                 }]
-    #                 response = request.post_body('/goodsStock/putOnShelf', body=body)
-    #                 assert response['msg'] == '请求成功'
-    #                 log.info('------%d上架成功------' % goodsId)
-    #     else:
-    #         log.warning('------无待上架物资 %s------' % getList)
 
     @pytest.mark.主流程
     @pytest.mark.dependency(name='check_sales_order', depends=["put_on_shelf"])
@@ -507,11 +432,6 @@ class TestAll:
         # 入库单验收，实际验收数量等于待验收数量
         check_response2 = inboundOrder.check(allocateInboundOrderId, subNum=0)
         assert check_response2['msg'] == '请求成功'
-
-
-
-
-
 
     @pytest.mark.dependency(depends=["inbound_check"])
     def test_16_get_detail_by_app(self):
