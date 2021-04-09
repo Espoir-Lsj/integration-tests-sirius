@@ -31,39 +31,7 @@ def put_all(allocateInboundOrderCode):
     # toolsList = jsonpath.jsonpath(putList,'$..toolsList')
     goodsList = []
     toolsList = []
-    #
-    # i = 0
-    # while i < len(goodsId):
-    #     dict = {
-    #         "goodsId": goodsId[i],
-    #         "goodsLotInfoId": goodsLotInfoId[i],
-    #         "quantity": quantity[i],
-    #         "storageLocationCode": storageLocationCode[i]
-    #     }
-    #     goodsList.append(dict)
-    #     i += 1
-    # j = 0
-    # # log.info('sbbbbbs %s' % kitStockId)
-    # if kitStockId :
-    #     while j < len(kitStockId):
-    #         dict1 = {
-    #             "kitStockId": kitStockId[j],
-    #             "storageLocationCode": TstorageLocationCode[j]
-    #         }
-    #         toolsList.append(dict1)
-    #         j += 1
-    #     # 上架
-    #     body = {
-    #         "orderId": putId,
-    #         "goodsList": goodsList,
-    #         "toolsList": toolsList
-    #     }
-    # else:
-    #     body = {
-    #         "orderId": putId,
-    #         "goodsList": goodsList,
-    #     }
-
+    # 临调单 上架商品 只有物资 or 物资加工具包
     if goodsId:
         i = 0
         while i < len(goodsId):
@@ -89,11 +57,14 @@ def put_all(allocateInboundOrderCode):
                     "goodsList": goodsList,
                     "toolsList": toolsList
                 }
+                log.info("上架物资加工具包")
             else:
                 body = {
                     "orderId": putId,
                     "goodsList": goodsList
                 }
+                log.info("只上架商品")
+    # 临调单上架商品只有 工具包
     elif kitStockId:
         j = 0
         while j < len(kitStockId):
@@ -107,10 +78,13 @@ def put_all(allocateInboundOrderCode):
             "orderId": putId,
             "toolsList": toolsList
         }
+        log.info("只上架工具包")
+    #临调单 没有物资上架
     else:
         body = {
             "orderId": putId
         }
+        log.info("没有物资上架")
 
     log.info('传入的参数 %s' % body)
     put = request.post_body('/putOnShelf/putOnShelf', body)
