@@ -1,5 +1,5 @@
 import time, datetime, pytest, jsonpath, re
-from common import logger, request, adhocOrder, inboundOrder, outboundOrder, salesOrder, pick, putOnShelf
+from common import logger, request, adhocOrder, inboundOrder, outboundOrder, salesOrder, pick, putOnShelf, accept
 from faker import Faker
 
 from common.adhocOrder import supplierId, siteId, brandId
@@ -24,9 +24,9 @@ def askChoice(text):
 
 class TestAll:
     # 调拨数量
-    transferQuantity = 1
+    transferQuantity = 2
     # 消耗数量
-    consumeQuantity = 0  # 待验收数量=调拨数量-消耗数量
+    consumeQuantity = 1  # 待验收数量=调拨数量-消耗数量
     # 实际验收数量
     receiveQuantity = 1  # 实际消耗数量=调拨数量-实际验收数量
     # 临调单id
@@ -231,7 +231,7 @@ class TestAll:
             }
             new_toolsDetails.append(Tdetail)  # T数组添加数据
 
-        response = adhocOrder.edit_order(orderUiBean, new_goodssDetails, new_toolsDetails)
+        response = adhocOrder.edit_order1(orderUiBean, new_goodssDetails, new_toolsDetails)
         log.info(response)
         assert response['msg'] == '请求成功'
 
@@ -251,32 +251,33 @@ class TestAll:
             id = input("\n输入临调单id:")
         else:
             id = self.adhocOrderId
-        body = {
-            "detail": [
-                {
-                    "deliveryMode": "DELIVERY",
-                    "goodsDetailUiBeans": [
-                        {
-                            "goodsId": self.goodsId,
-                            "quantity": self.transferQuantity
-                        }
-                    ],
-                    "toolsDetailUiBeans": [
-                        {
-                            "kitTemplateId": param_config.kitTemplateId,
-                            "quantity": 1
-                        }
-                    ],
-                    "warehouseId": 6
-                }
-            ],
-            "id": id
-        }
-        accept = request.put_body('/adhocOrder/accept', body=body)
+        # body = {
+        #     "detail": [
+        #         {
+        #             "deliveryMode": "DELIVERY",
+        #             "goodsDetailUiBeans": [
+        #                 {
+        #                     "goodsId": self.goodsId,
+        #                     "quantity": self.transferQuantity
+        #                 }
+        #             ],
+        #             "toolsDetailUiBeans": [
+        #                 {
+        #                     "kitTemplateId": param_config.kitTemplateId,
+        #                     "quantity": 1
+        #                 }
+        #             ],
+        #             "warehouseId": 6
+        #         }
+        #     ],
+        #     "id": id
+        # }
+        # response = request.put_body('/adhocOrder/accept', body=body)
+        response = accept.check(self.adhocOrderId)
         try:
-            assert accept['msg'] == '请求成功'
+            assert response['msg'] == '请求成功'
         except:
-            raise Exception(accept['msg'], accept['exMsg'])
+            raise Exception(response['msg'], response['exMsg'])
         log.info('临调单接收成功 %s' % accept)
         # 根据临调单id查询临调单code
         getDetail = request.get(
