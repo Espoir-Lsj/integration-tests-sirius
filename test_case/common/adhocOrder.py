@@ -20,9 +20,10 @@ twoDaysAfter_stamp = int(time.mktime(twoDaysAfter.timetuple())) * 1000
 yesterday_stamp = int(time.mktime(yesterday.timetuple())) * 1000
 
 # 获取供应商列表
-list = request.get('/supplier/dropDownSupplierList')
+# list = request.get('/supplier/dropDownSupplierList')
 # 获取供应商id
-supplierId = list['data'][0]['id']
+# supplierId = list['data'][0]['id']
+supplierId = 1
 # 获取手术部位
 site = request.get('/dictionary/getByType/procedure_site')
 siteId = site['data'][0]['id']
@@ -36,7 +37,7 @@ def appCreateAdhocOrder(goodsId, goodsQuantity=1, kitTemplateId=None, ageGroup='
                         goodsSupplierId=supplierId, supplierId=supplierId, hospitalName='测试', siteId=siteId,
                         surgeon=faker.name(), procedureTime=tomorrow_stamp, expectReturnTime=twoDaysAfter_stamp,
                         postcode=faker.postcode(), contactName='测试', contactPhone=faker.phone_number(),
-                        manufacturerId=brandId, salesPerson=faker.name(), deliveryMode='SELF_PIKE_UP',
+                        manufacturerId=brandId, salesPerson=faker.name(), deliveryMode='DELIVERY',
                         receivingName=faker.name(), receivingIdCard=None, receivingPhone=faker.phone_number(),
                         districtCode=110101000000, receivingAddress=faker.address(), powerOfAttorney=None,
                         consignorName=None, consignorPhone=None):
@@ -99,7 +100,7 @@ def createAdhocOrder(goodsId, goodsQuantity=1, kitTemplateId=None, ageGroup='adu
                      goodsSupplierId=supplierId, supplierId=supplierId, hospitalName='测试', siteId=siteId,
                      surgeon=faker.name(), procedureTime=tomorrow_stamp, expectReturnTime=twoDaysAfter_stamp,
                      postcode=faker.postcode(), contactName='测试', contactPhone=faker.phone_number(),
-                     manufacturerId=brandId, salesPerson=faker.name(), deliveryMode='SELF_PIKE_UP',
+                     manufacturerId=brandId, salesPerson=faker.name(), deliveryMode='DELIVERY',
                      receivingName=faker.name(), receivingIdCard=None, receivingPhone=faker.phone_number(),
                      districtCode=110101000000, receivingAddress=faker.address(), powerOfAttorney=None,
                      consignorName=None, consignorPhone=None):
