@@ -3,7 +3,7 @@
 # !/usr/bin/env python3
 # _*_ coding: utf-8 _*_
 import pytest, datetime, time
-from common import params, request, logger
+from common import params, request, logger, accept
 from faker import Faker
 from common import adhocOrder, pick
 from test_config import param_config
@@ -15,7 +15,7 @@ log = logger.Log()
 @pytest.fixture(scope="module")
 def prepare_pick_order():
     # 创建临调单
-    response = adhocOrder.appCreateAdhocOrder(param_config.goodsId)
+    response = adhocOrder.createAdhocOrder(param_config.goodsId)
     assert response['msg'] == '请求成功'
     try:
         assert response['msg'] == '请求成功'
@@ -27,16 +27,12 @@ def prepare_pick_order():
     adhocOrderCode = response['data']['code']
     log.info('生成的临调单code: %s' % adhocOrderCode)
     # 接收临调单
-    body = {
-        'id': adhocOrderId,
-        'accept': True
-    }
-    accept = request.put_body('/adhocOrder/accept', body=body)
+    response1 = accept.check(adhocOrderId)
     try:
-        assert accept['msg'] == '请求成功'
+        assert response1['msg'] == '请求成功'
     except:
-        raise Exception(accept['msg'], accept['exMsg'])
-    log.info('临调单接收成功 %s' % accept)
+        raise Exception(response1['msg'], response1['exMsg'])
+    log.info('临调单接收成功 %s' % response1)
     # 根据临调单code查询拣货单id
     getList = request.get(
         '/allocateOutboundOrder/list?pageNum=0&pageSize=20&keyword=%s' % adhocOrderCode)
@@ -141,9 +137,9 @@ class TestPicking:
         assert detail['msg'] == '请求成功'
         # 获取待拣货商品的详情
         goodsId = detail['data']['goodsDetail'][0]['goodsId']
-        lotNum = detail['data']['goodsDetail'][0]['lotNum']
-        serialNumber = detail['data']['goodsDetail'][0]['serialNumber']
-        storageLocationId = detail['data']['goodsDetail'][0]['storageLocationId']
+        lotNum = detail['data']['goodsDetail'][0]['lotNum'] #商品批次号
+        serialNumber = detail['data']['goodsDetail'][0]['serialNumber'] #商品序列号
+        storageLocationId = detail['data']['goodsDetail'][0]['storageLocationId']   #货位ID
         return goodsId, lotNum, serialNumber, storageLocationId
 
     def test_01(self, detail, prepare_pick_order):
@@ -161,22 +157,22 @@ class TestPicking:
         response = pick.pickOne(detail[0], detail[1], detail[2], None, prepare_pick_order)
         assert response['msg'] == '拣货的商品或该批次的商品在拣货单中不存在'
 
-    def test_04(self,detail,prepare_pick_order):
+    def test_04(self, detail, prepare_pick_order):
         """货位号不存在"""
         response = pick.pickOne(detail[0], detail[1], detail[2], 'test', prepare_pick_order)
         assert response['msg'] == '请求参数异常'
 
-    def test_05(self,detail,prepare_pick_order):
+    def test_05(self, detail, prepare_pick_order):
         """拣货单id为空"""
         response = pick.pickOne(detail[0], detail[1], detail[2], detail[3], None)
         assert response['msg'] == '请选择拣货单'
 
-    def test_06(self,detail,prepare_pick_order):
+    def test_06(self, detail, prepare_pick_order):
         """拣货单id不存在"""
         response = pick.pickOne(detail[0], detail[1], detail[2], detail[3], 0)
         assert response['msg'] == '拣货单不存在'
 
-    def test_07(self,detail,prepare_pick_order):
+    def test_07(self, detail, prepare_pick_order):
         """重复拣货"""
         response = pick.pickOne(detail[0], detail[1], detail[2], detail[3], prepare_pick_order)
         response2 = pick.pickOne(detail[0], detail[1], detail[2], detail[3], prepare_pick_order)
