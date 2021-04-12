@@ -3,7 +3,7 @@
 # !/usr/bin/env python3
 # _*_ coding: utf-8 _*_
 import pytest, datetime, time
-from common import params, request, logger
+from common import params, request, logger, accept
 from faker import Faker
 from common import adhocOrder, outboundOrder, pick
 from test_config import param_config
@@ -30,16 +30,12 @@ def createOutboundOrder():
     adhocOrderCode = response['data']['code']
     log.info('生成的临调单code: %s' % adhocOrderCode)
     # 接收临调单
-    body = {
-        'id': adhocOrderId,
-        'accept': True
-    }
-    accept = request.put_body('/adhocOrder/accept', body=body)
+    response1 = accept.check(adhocOrderId)
     try:
-        assert accept['msg'] == '请求成功'
+        assert response1['msg'] == '请求成功'
     except:
-        raise Exception(accept['msg'], accept['exMsg'])
-    log.info('临调单接收成功 %s' % accept)
+        raise Exception(response1['msg'], response1['exMsg'])
+    log.info('临调单接收成功 %s' % response1)
     # 根据临调单code查询拣货单id
     getList = request.get(
         '/allocateOutboundOrder/list?pageNum=0&pageSize=20&keyword=%s' % adhocOrderCode)
@@ -171,7 +167,7 @@ class TestGetAddress:
             'outboundOrderId': createOutboundOrder
         }
         response = request.get_params(self.url, params=params)
-        assert response['msg'] == '操作成功'
+        assert response['msg'] == '请求成功'
 
 
 class TestList:
