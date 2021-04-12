@@ -20,7 +20,7 @@ def check(adhocOrderId, subNum=0):
     detail = request.get('/salesOrder/getDetailByAdhocId?adhocId=%s' % adhocOrderId)
     # if detail['data']['mainList'] == None and len(detail['data']['toolsList']) == 0:
     # 消耗明细为空
-    if detail['data']['goodsList'] == None and detail['data']['toolsList'] == None:
+    if detail['data']['childList'][0]['goodsUiList'] == None and detail['data']['childList'][0]['toolsUiList'] == None:
         # 提交
         i = 0
 
@@ -64,12 +64,13 @@ def check(adhocOrderId, subNum=0):
             ],
             "parentId": adhocOrderId
         }
-        check = request.post_body('/salesOrder/checkSalesOrder', body=body)
-        # 提示生成入库单，提交
-        if check['msg'] == '请求成功' and check['data'] != None:
-            log.info('------提交生成销售单的入库单------')
+        # check = request.post_body('/salesOrder/checkSalesOrder', body=body)
+        # # 提示生成入库单，提交
+        # if check['msg'] == '请求成功' and check['data'] != None:
+        #     log.info('------提交生成销售单的入库单------')
             # response = request.post_body('/salesOrder/createInboundOrder', body=body)
-            response = request.post_body('/salesOrder/createSalesOrder', body=body)
-            assert response['msg'] == '请求成功'
-        log.info('响应结果%s' % check)
-        return check
+        response = request.post_body('/salesOrder/createSalesOrder', body=body)
+        assert response['msg'] == '请求成功'
+        log.info('------提交生成销售单的入库单------')
+        log.info('响应结果%s' % response)
+        return response

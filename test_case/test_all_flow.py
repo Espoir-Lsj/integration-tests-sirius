@@ -24,7 +24,7 @@ def askChoice(text):
 
 class TestAll:
     # 调拨数量
-    transferQuantity = 2
+    transferQuantity = 4
     # 消耗数量
     consumeQuantity = 1  # 待验收数量=调拨数量-消耗数量
     # 实际验收数量
@@ -365,30 +365,29 @@ class TestAll:
             assert getList['msg'] == '请求成功'
             allocateInboundOrderId = getList['data']['allocateInboundOrderId']
         # 入库单验收, 实际验收数量比待验收数量少1
+        check_response = inboundOrder.check(allocateInboundOrderId, subNum=1)
+        #
+        # # 入库单验收, 实际验收数量和待验收数量相等
         # check_response = inboundOrder.check(allocateInboundOrderId, subNum=1)
-
-        # 入库单验收, 实际验收数量和待验收数量相等
-        check_response = inboundOrder.check(allocateInboundOrderId, subNum=0)
         assert check_response['msg'] == '请求成功'
 
-    @pytest.mark.待生成销售单
-    @pytest.mark.主流程
-    @pytest.mark.dependency(name='put_on_shelf', depends=["inbound_check"])
-    def test_11_put_on_shelf(self):
-        """"上架商品"""
-        log.info('------开始上架商品------')
-        if self.adhocOrderCode == '':
-            allocateInboundOrderCode = input("\n输入入库单id:")
-        else:
-            # 根据临调单号查询入库单id
-            getList = request.get(
-                # '/allocateInboundOrder/getDetailByCode?pageNum=0&pageSize=50&keyword=%s' % self.adhocOrderCode)
-                '/allocateInboundOrder/getDetailByOrderId?orderId=%s' % self.adhocOrderId)
-            assert getList['msg'] == '请求成功'
-            allocateInboundOrderCode = getList['data']['allocateInboundOrderCode']
-        putOn_response = putOnShelf.put_all(allocateInboundOrderCode)
-        assert putOn_response['msg'] == '请求成功'
-
+    # @pytest.mark.待生成销售单
+    # @pytest.mark.主流程
+    # @pytest.mark.dependency(name='put_on_shelf', depends=["inbound_check"])
+    # def test_11_put_on_shelf(self):
+    #     """"上架商品"""
+    #     log.info('------开始上架商品------')
+    #     if self.adhocOrderCode == '':
+    #         allocateInboundOrderCode = input("\n输入入库单id:")
+    #     else:
+    #         # 根据临调单号查询入库单id
+    #         getList = request.get(
+    #             # '/allocateInboundOrder/getDetailByCode?pageNum=0&pageSize=50&keyword=%s' % self.adhocOrderCode)
+    #             '/allocateInboundOrder/getDetailByOrderId?orderId=%s' % self.adhocOrderId)
+    #         assert getList['msg'] == '请求成功'
+    #         allocateInboundOrderCode = getList['data']['allocateInboundOrderCode']
+    #     putOn_response = putOnShelf.put_all(allocateInboundOrderCode)
+    #     assert putOn_response['msg'] == '请求成功'
 
     @pytest.mark.主流程
     @pytest.mark.dependency(name='check_sales_order', depends=["put_on_shelf"])
@@ -402,6 +401,9 @@ class TestAll:
             adhocOrderId = self.adhocOrderId
         # 生成销售单
         check_response = salesOrder.check(adhocOrderId, subNum=0)
+        # 生成销售单   subNum协商数量 跟 实际验收的差值  不为0 的话，说明消耗数量 和生成销售数量不匹配 无法生成销售单
+        # check_response = salesOrder.check(adhocOrderId, subNum=0)
+
         # assert check_response['msg'] == '请求成功'#data 返回的是[] 加断言 会报类型错误
 
     def test_14_get_detail(self):

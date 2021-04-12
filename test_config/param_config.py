@@ -15,7 +15,7 @@ supplierName02 = '嘉事（上海）国润医疗器械有限公司'
 # other variable
 
 # 有库存的物资id
-goodsId = 320
+goodsId = 250
 kitTemplateId = 3
 
 #订单类型

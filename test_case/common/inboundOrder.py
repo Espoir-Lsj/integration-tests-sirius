@@ -89,7 +89,7 @@ def check(allocateInboundOrderId, subNum=0,):
     body = {
         'allocateInboundOrderId': allocateInboundOrderId,
         'allocateInboundOrderDetailCheckBeanList': list,
-        'type':type
+        'type': type
     }
     log.info('传入的参数 %s' % body)
     check = request.put_body('/allocateInboundOrder/check', body)

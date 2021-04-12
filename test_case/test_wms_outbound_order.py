@@ -19,7 +19,7 @@ today_stamp = int(time.mktime(today.timetuple())) * 1000
 def createOutboundOrder():
     # 创建临调单
     response = adhocOrder.appCreateAdhocOrder(param_config.goodsId)
-    assert response['msg'] == '请求成功'
+    # assert response['msg'] == '请求成功'
     try:
         assert response['msg'] == '请求成功'
     except:
