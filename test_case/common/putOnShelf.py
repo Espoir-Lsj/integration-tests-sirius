@@ -32,6 +32,22 @@ def put_all(allocateInboundOrderCode):
     goodsList = []
     toolsList = []
     # 临调单 上架商品 只有物资 or 物资加工具包
+    # log.info('abddd:%s' % kitStockId)
+    # print('fffffffff:%s' % kitStockId)
+
+    # toolsList = putList['data']['toolsList'] = map(lambda x: {
+    #     "kitStockId": x["kitStockId"],
+    #     "storageLocationCode": x["storageLocationCode"],
+    # }, putList["data"]["toolsList"])
+    #
+    # goodsList =putList["data"]["goodsList"] = map(lambda x: {
+    #     "goodsId": x["goodsId"],
+    #     "goodsLotInfoId": x["goodsLotInfoId"],
+    #     "quantity": x["quantity"],
+    #     "storageLocationCode": x["storageLocationCode"],
+    # }, putList["data"]["goodsList"])
+
+
     if goodsId:
         i = 0
         while i < len(goodsId):
@@ -79,7 +95,7 @@ def put_all(allocateInboundOrderCode):
             "toolsList": toolsList
         }
         log.info("只上架工具包")
-    #临调单 没有物资上架
+    # 临调单 没有物资上架
     else:
         body = {
             "orderId": putId
