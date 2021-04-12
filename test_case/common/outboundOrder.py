@@ -13,10 +13,26 @@ today = datetime.date.today()
 today_stamp = int(time.mktime(today.timetuple())) * 1000
 
 
-def approval(keyword):
+# def delivery(id, deliveryDate=today_stamp, deliveryMode='DELIVERY', expressNo='12345678', logisticsCompany='顺丰'):
+#     body = {
+#         'logisticsCompany': logisticsCompany,
+#         'expressNo': expressNo,
+#         'deliveryDate': deliveryDate,
+#         'id': id,
+#         'deliveryMode': deliveryMode
+#     }
+#     response = request.put_body('/allocateOutboundOrder/delivery', body=body)
+#     try:
+#         response['msg'] == "请求成功"
+#     except:
+#         raise Exception(response['msg'], response['exMsg'])
+#     log.info('设置发货成功 %s' % response)
+
+
+def approval(adhocOrderCode):
     # 根据keyword查询列表详情
     getList = request.get(
-        '/allocateOutboundOrder/list?pageNum=0&pageSize=50&status=delivery_pending&status=pick_pending&keyword=%s' % keyword)
+        '/allocateOutboundOrder/list?pageNum=0&pageSize=20&keyword=%s' % adhocOrderCode)
     # 出库单id
     outboundOrderId = getList['data']['rows'][0]['id']
     # 提货方式
