@@ -101,7 +101,7 @@ class TestAccept1:
     def test_05(self):
         """拒绝临调单时没有传原因"""
         # 创建订单
-        response = adhocOrder.createAdhocOrder(goodsId=self.goodsId, goodsQuantity=999999999)
+        response = adhocOrder.createAdhocOrder(goodsId=self.goodsId, goodsQuantity=1)
         try:
             assert response['msg'] == '请求成功'
         except:
@@ -109,7 +109,7 @@ class TestAccept1:
         # 临调单id
         adhocOrderId = response['data']['id']
         # 拒绝临调单
-        response2 = request.put_body(self.url, body={'id': adhocOrderId, 'accept': False})
+        response2 = request.put_body(self.url, body={'id': adhocOrderId, 'reason': "no"})
         assert response2['msg'] == '请输入修改建议'
 
 
