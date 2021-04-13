@@ -118,6 +118,12 @@ class TestDeliveryAndApproval:
         response = approval(id=createOutboundOrder, deliveryDate=None)
         assert response['msg'] == '请输入发货日期'
 
+    def test_06(self, createOutboundOrder, setDelivery):
+        """二次提交出库单"""
+        response = approval(id=createOutboundOrder)
+        assert response['msg'] == '请求成功'
+        response1 = approval(id=createOutboundOrder)
+        assert response1['msg'] == '该订单状态不正确' #这里接口返回信息不是特别明确
 
 class TestDeliveryInfo:
     """调拨出库单发货信息"""
