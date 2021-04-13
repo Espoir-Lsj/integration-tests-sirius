@@ -755,11 +755,11 @@ class TestUpdateAddress:
         adhocOrderId = create['data']['id']
         log.info('生成的临调单id: %s' % adhocOrderId)
         # 接收临调单
-        accept = request.put_body('/adhocOrder/accept', body={'id': adhocOrderId, 'accept': True})
+        response = accept.check(adhocOrderId)
         try:
-            assert accept['msg'] == '请求成功'
+            assert response['msg'] == '请求成功'
         except:
-            raise Exception(accept['msg'], accept['exMsg'])
+            raise Exception(response['msg'], response['exMsg'])
         # 保存临调单id
         cls.adhocOrderId = adhocOrderId
 
