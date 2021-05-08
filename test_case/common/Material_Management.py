@@ -24,7 +24,7 @@ class Goods:
         self.type = Type
 
     # 通过关键字查询列表(物资、工具)
-    def getList(self, webKeyword=None, Type='material'):
+    def getList(self, webKeyword, Type='material'):
         """
 
         :param webKeyword: 关键字
@@ -106,7 +106,7 @@ class Goods:
 
     # 编辑物资 type = 'material'
     # 编辑工具 type = 'tool'
-    def edit_Goods(self, webKeyword, name=str(timeStamp), skuCode=timeStamp, goodsCategory=101,
+    def edit_Goods(self, id, name=str(timeStamp), skuCode=timeStamp, goodsCategory=101,
                    maintenanceCategory=126, manufacturerId=1, minGoodsUnit=23, origin='测试地址',
                    nearExpirationDate=5, std2012Category=373, storageConditions=100, model='333',
                    specification='222',
@@ -115,7 +115,7 @@ class Goods:
                    longEffect=False, registrationEndDate=fiveDaysAfter_stamp, registrationBeginDate=timeStamp,
                    registrationNum='123456'):
         url = '/goods/editGoods'
-        id = self.getList(webKeyword=webKeyword, Type=self.type)
+        # id = self.getList(webKeyword=webKeyword, Type=self.type)
         body = {
             "id": id,
             "name": name,
@@ -139,25 +139,44 @@ class Goods:
                 "registrationNum": registrationNum
             }]
         }
-        response1 = request.put_body(url, body)
+        response = request.put_body(url, body)
         try:
-            assert response1['msg'] == '请求成功'
+            assert response['msg'] == '请求成功'
         except Exception:
-            raise response1
+            raise response
 
     # 删除物资 type = 'material'
     # 删除工具 type = 'tool'
-    def delete_Goods(self, webKeyword):
+    def delete_Goods(self, id):
         url = '/goods/deleteGoods'
-        id = self.getList(webKeyword=webKeyword, Type=self.type)
+        # id = self.getList(webKeyword=webKeyword, Type=self.type)
         body = {
             'ids': [id]
         }
-        response1 = request.put_body(url, body)
+        response = request.put_body(url, body)
         try:
-            assert response1['msg'] == '请求成功'
+            assert response['msg'] == '请求成功'
         except Exception:
-            raise response1
+            raise response
+
+    # 编辑价格
+    def edit_price(self, id, type='purchase', price=None, discountRate=5000, purchasePrice=10000, taxRate=10000, ):
+        # 采购价 type = 'purchase'
+        # 临调家 type = 'adhoc'
+        url = '/goods/editPrice'
+        body = {
+            "id": id,
+            "type": type,
+            "price": price,  # 临调价
+            "discountRate": discountRate,  # 折扣率
+            "purchasePrice": purchasePrice,  # 采购价
+            "taxRate": taxRate  # 税率
+        }
+        response = request.put_body(url, body)
+        try:
+            assert response['msg'] == '请求成功'
+        except Exception:
+            raise response
 
 
 class KitTemplate:
@@ -200,7 +219,7 @@ class KitTemplate:
         return id
 
     # 创建工具包
-    def create_ToolsKit(self, goodsId=None, name=str(timeStamp), skuCode=timeStamp, remark='哈哈哈',
+    def create_ToolsKit(self, goodsId, name=str(timeStamp), skuCode=timeStamp, remark='哈哈哈',
                         toolsKitCategory=174, manufacturerId=1, goodsQuantity=1):
         url = '/kitTemplate/addToolsKit'
         body = {
@@ -219,11 +238,12 @@ class KitTemplate:
             assert response['msg'] == '请求成功'
         except Exception:
             raise response
+        return skuCode
 
     # 编辑工具包
-    def edit_ToolsKit(self, goodsId=None, toolKitName=timeStamp, skuCode=timeStamp, remark='哈哈哈', goodsQuantity=1,
+    def edit_ToolsKit(self, goodsId, kitTemplateId, skuCode=timeStamp, remark='哈哈哈', goodsQuantity=1,
                       kitCategory=1, kitTemplateName=str(timeStamp), manufacturerId=1):
-        kitTemplateId = self.get_KitTemplateList(toolKitName=toolKitName)
+        # kitTemplateId = self.get_KitTemplateList(toolKitName=toolKitName)
         url = '/kitTemplate/editToolsKit'
         body = {
             "skuCode": skuCode,
@@ -256,13 +276,29 @@ class KitTemplate:
         except Exception:
             raise response
 
+    # 设置工具包租用费
+    def edit_Price(self, id, price=1100):
+        url = '/kitTemplate/editPrice'
+        body = {
+            "id": id,
+            "price": price
+        }
+        response = request.put_body(url, body)
+        try:
+            assert response['msg'] == '请求成功'
+        except Exception:
+            raise response
+
 
 if __name__ == '__main__':
     # test = Goods('material')
     # # 物资
     # create = test.create_Goods()
-    # test.edit_Goods(create)
-    # test.delete_Goods(create)
+    # id = test.getList(create)
+    # test.edit_Goods(id)
+    # # test.delete_Goods(id)
+    # test.edit_price(id)
+    # test.edit_price(id, type='adhoc', price=666666)
     # # 工具
     # test = Goods('tool')
     # create = test.create_Goods()
@@ -271,6 +307,9 @@ if __name__ == '__main__':
 
     test = KitTemplate()
     ToolsId = test.get_ToolsList()
-    test.create_ToolsKit(goodsId=ToolsId)
-    test.edit_ToolsKit(goodsId=ToolsId)
-    test.delete_ToolsKit()
+    create = test.create_ToolsKit(ToolsId)
+    KitTemplateId = test.get_KitTemplateList(create)
+
+    test.edit_ToolsKit(ToolsId,KitTemplateId)
+    # test.delete_ToolsKit()
+    test.edit_Price(KitTemplateId, 98989)
