@@ -47,6 +47,23 @@ class Goods:
         id = response['data']['rows'][0]['id']
         return id
 
+    def get_goodsCategory(self):
+        url = '/category/getTree'
+        params = {
+            'pageNum': 0,
+            'pageSize': 50,
+            'parentCode': 'MATERIAL'
+        }
+        response = request.get_params(url, params)
+        try:
+            assert response['msg'] == '请求成功'
+        except Exception:
+            raise response
+        # 获取物资类别 id
+        goodsCategory = response['data']['childCategory'][0]['id']
+        return goodsCategory
+
+
     # 编辑 Di 码
     def edit_GoodsDi(self, di, id):
         url = '/goods/editGoodsDi'
@@ -129,7 +146,7 @@ class Goods:
             "model": model,
             "skuCode": skuCode,
             "specification": specification,
-            "imageSource": [imageSource],
+            "imageSource": imageSource,
             "std2012Category": std2012Category,
             "registrationUiBeanList": [{
                 "longEffect": longEffect,
@@ -222,9 +239,26 @@ class KitTemplate:
         id = response['data']['rows'][0]['id']
         return id
 
+    # 获取工具包类别
+    def get_toolsKitCategoryId(self):
+        url = '/category/getTree'
+        params = {
+            'pageNum': 0,
+            'pageSize': 50,
+            'parentCode': 'TOOLS_MATERIAL'
+        }
+        response = request.get_params(url, params)
+        try:
+            assert response['msg'] == '请求成功'
+        except Exception:
+            raise response
+        # 获取工具包类别 id
+        toolsKitCategory = response['data']['childCategory'][0]['id']
+        return toolsKitCategory
+
     # 创建工具包
     def create_ToolsKit(self, goodsId, name=str(timeStamp), skuCode=timeStamp, remark='哈哈哈',
-                        toolsKitCategory=174, manufacturerId=1, goodsQuantity=1):
+                        toolsKitCategory=None, manufacturerId=1, goodsQuantity=1):
         url = '/kitTemplate/addToolsKit'
         body = {
             "name": name,
@@ -269,8 +303,7 @@ class KitTemplate:
         return response
 
     # 删除工具包
-    def delete_ToolsKit(self, toolKitName=timeStamp):
-        kitTemplateId = self.get_KitTemplateList(toolKitName=toolKitName)
+    def delete_ToolsKit(self, kitTemplateId=None):
         url = '/kitTemplate/deleteKitTemplate'
         body = {
             "ids": [kitTemplateId]
