@@ -16,11 +16,12 @@ log = logger.Log()
 
 
 # 物资 工具接口
+# @pytest.mark.TestGoods
 class TestGoods:
     Id = None
     goodsCategory = None
 
-    @pytest.fixture(scope="class")
+    @pytest.fixture(scope="module")
     def create(self):
         log.info('------测试新增物资---------')
         test = Material_Management.Goods('material')
@@ -29,9 +30,6 @@ class TestGoods:
         Id = test.getList(timeStamp, 'material')
         TestGoods.Id = Id
         log.info('新增物资的ID：%s' % Id)
-        # return TestGoods.Id
-
-        # 创建商品接口异常
 
     #   创建物资接口异常
     def test_01(self):
@@ -69,15 +67,11 @@ class TestGoods:
         response = Material_Management.Goods('material').create_Goods(minGoodsUnit=None)
         assert response['msg'] == '请输入基本单位'
 
-    def test_08(self):
+    def test_08(self, create):
         """型号为空"""
-        response = Material_Management.Goods('material').create_Goods(model=None)
-        assert response['msg'] == '请输入型号'
-
-    def test_09(self):
-        """规格为空"""
-        response = Material_Management.Goods('material').create_Goods(specification=None)
-        assert response['msg'] == '请输入规格'
+        response = Material_Management.Goods('material').create_Goods(model=None, goodsCategory=self.goodsCategory,
+                                                                      specification=None, skuCode=timeStamp + 1)
+        assert response['msg'] == '请输入规格或型号'
 
     def test_10(self):
         """商品照片为空"""
@@ -109,24 +103,21 @@ class TestGoods:
         response = Material_Management.Goods('material').create_Goods(minGoodsUnit='kkk')
         assert response['msg'] == '请求参数异常'
 
-    def test_15(self):
+    def test_15(self, create):
         """skuCode重复"""
-        response = Material_Management.Goods('material').create_Goods()
-        response1 = Material_Management.Goods('material').create_Goods()
+        response = Material_Management.Goods('material').create_Goods(goodsCategory=self.goodsCategory)
+        response1 = Material_Management.Goods('material').create_Goods(goodsCategory=self.goodsCategory)
         assert response1['msg'] == '原厂编码已经存在'
 
-    def test_1501(self):
+    def test_16(self, create):
         """注册证有效时间小于失效时间"""
-        response = Material_Management.Goods('material').create_Goods(registrationEndDate=timeStamp,
-                                                                      registrationBeginDate=fiveDaysAfter_stamp)
-        assert response['msg'] == ''
+        response = Material_Management.Goods('material').create_Goods(skuCode=str(timeStamp + 1),
+                                                                      registrationEndDate=timeStamp,
+                                                                      registrationBeginDate=fiveDaysAfter_stamp,
+                                                                      goodsCategory=self.goodsCategory)
+        assert response['msg'] == '注册证已失效'
 
     #   编辑商品接口异常
-    def test_16(self, create):
-        """商品ID为空"""
-        response = Material_Management.Goods('material').edit_Goods(None)
-        assert response['msg'] == '商品不存在'
-
     def test_17(self, create):
         """商品名为空"""
         response = Material_Management.Goods('material').edit_Goods(self.Id, name=None)
@@ -163,14 +154,15 @@ class TestGoods:
         assert response['msg'] == '请选择基本单位'
 
     def test_23(self, create):
-        """型号为空"""
-        response = Material_Management.Goods('material').edit_Goods(self.Id, model=None)
-        assert response['msg'] == '请选择型号'
+        """规格 型号为空"""
+        response = Material_Management.Goods('material').edit_Goods(self.Id, model=None, specification=None)
+        assert response['msg'] == '请输入规格或型号'
 
-    def test_24(self, create):
-        """规格为空"""
-        response = Material_Management.Goods('material').edit_Goods(self.Id, specification=None)
-        assert response['msg'] == '请选择规格'
+    #
+    # def test_24(self, create):
+    #     """规格为空"""
+    #     response = Material_Management.Goods('material').edit_Goods(self.Id, specification=None)
+    #     assert response['msg'] == '请选择规格'
 
     def test_25(self, create):
         """商品照片为空"""
@@ -205,15 +197,15 @@ class TestGoods:
 
     def test_30(self, create):
         """skuCode重复"""
-        response = Material_Management.Goods('material').create_Goods(fiveDaysAfter_stamp)
-        response1 = Material_Management.Goods('material').edit_Goods(self.Id, skuCode=fiveDaysAfter_stamp)
-        assert response1['msg'] == '原厂编码已经存在'
+        response = Material_Management.Goods('material').create_Goods(fiveDaysAfter_stamp,
+                                                                      goodsCategory=self.goodsCategory)
+        assert response['msg'] == '原厂编码已经存在'
 
     def test_3001(self):
         """注册证有效时间小于失效时间"""
-        response = Material_Management.Goods('material').edit_Goods(registrationEndDate=timeStamp,
+        response = Material_Management.Goods('material').edit_Goods(self.Id, registrationEndDate=timeStamp,
                                                                     registrationBeginDate=fiveDaysAfter_stamp)
-        assert response['msg'] == ''
+        assert response['msg'] == '注册证已失效'
 
     # 编辑di码
     def test_31(self, create):
@@ -269,11 +261,13 @@ class TestGoods:
 
 
 # 新建工具包
+# @pytest.mark.TestKitTemplate
 class TestKitTemplate:
     toolsId = None
     goodsId = None
+    toolsKitCategory = None
 
-    @pytest.fixture(scope='class')
+    @pytest.fixture(scope="class")
     def create(self):
         TestKitTemplate.toolsKitCategory = Material_Management.KitTemplate().get_toolsKitCategoryId()
         TestKitTemplate.goodsId = Material_Management.KitTemplate().get_ToolsList()
@@ -283,10 +277,10 @@ class TestKitTemplate:
         TestKitTemplate.toolsId = Material_Management.KitTemplate().get_KitTemplateList(timeStamp)
 
     # 创建工具包接口异常
-    def test_01(self):
+    def test_01(self, create):
         """商品ID 为空"""
-        response = Material_Management.KitTemplate().create_ToolsKit(None)
-        assert response['msg'] == '参数异常，请刷新后重试"'
+        response = Material_Management.KitTemplate().create_ToolsKit(None, toolsKitCategory=self.toolsKitCategory)
+        assert response['msg'] == '参数异常，请刷新后重试'
 
     def test_02(self):
         """商品ID 错误"""
@@ -310,36 +304,39 @@ class TestKitTemplate:
 
     def test_06(self, create):
         """生成企业 为空"""
-        response = Material_Management.KitTemplate().create_ToolsKit(self.goodsId, manufacturerId=None)
+        response = Material_Management.KitTemplate().create_ToolsKit(self.goodsId, manufacturerId=None,
+                                                                     toolsKitCategory=self.toolsKitCategory)
         assert response['msg'] == '请选择生产企业'
 
     def test_07(self, create):
         """商品数量 为空"""
         response = Material_Management.KitTemplate().create_ToolsKit(self.goodsId, goodsQuantity=None,
-                                                                     skuCode=str(timeStamp + 1))
-        assert response['msg'] == '参数异常，请刷新后重试"'
+                                                                     skuCode=str(timeStamp + 1),
+                                                                     toolsKitCategory=self.toolsKitCategory)
+        assert response['msg'] == '参数异常，请刷新后重试'
 
-    def test_0701(self, create):
-        """工具包描述 为空"""
-        response = Material_Management.KitTemplate().create_ToolsKit(self.goodsId, remark=None,
-                                                                     skuCode=str(timeStamp + 1))
-        assert response['msg'] == ''
+    # def test_0701(self, create):
+    #     """工具包描述 为空"""
+    #     response = Material_Management.KitTemplate().create_ToolsKit(self.goodsId, remark=None,
+    #                                                                  skuCode=str(timeStamp + 1),
+    #                                                                  toolsKitCategory=self.toolsKitCategory)
+    #     assert response['msg'] == ''
 
     # 编辑工具包接口异常
     def test_08(self, create):
         """工具包ID为空"""
         response = Material_Management.KitTemplate().edit_ToolsKit(self.goodsId, None)
-        assert response['msg'] == '不能为null'
+        assert response['msg'] == '参数异常，请刷新后重试'
 
-    def test_09(self, create):
-        """商品ID为空"""
-        response = Material_Management.KitTemplate().edit_ToolsKit(None, self.toolsId)
-        assert response['msg'] == ''
-
-    def test_10(self, create):
-        """工具包数量为空"""
-        response = Material_Management.KitTemplate().edit_ToolsKit(self.goodsId, self.toolsId, goodsQuantity=None)
-        assert response['msg'] == ''
+    # def test_09(self, create):
+    #     """商品ID为空"""
+    #     response = Material_Management.KitTemplate().edit_ToolsKit(None, self.toolsId)
+    #     assert response['msg'] == '参数异常，请刷新后重试"'
+    #
+    # def test_10(self, create):
+    #     """工具包数量为空"""
+    #     response = Material_Management.KitTemplate().edit_ToolsKit(self.goodsId, self.toolsId, goodsQuantity=None)
+    #     assert response['msg'] == '参数异常，请刷新后重试"'
 
     def test_11(self, create):
         """工具包描述为空"""
@@ -365,12 +362,12 @@ class TestKitTemplate:
     def test_15(self, create):
         """工具包ID为空"""
         response = Material_Management.KitTemplate().edit_Price(None, 10000)
-        assert response['msg'] == ''
+        assert response['msg'] == '参数异常，请刷新后重试'
 
     def test_16(self, create):
         """工具包 租用费为空"""
         response = Material_Management.KitTemplate().edit_Price(self.toolsId, None)
-        assert response['msg'] == '不能为null'
+        assert response['msg'] == '请输入工具包租用费'
 
     def test_17(self, create):
         """工具包ID 错误"""

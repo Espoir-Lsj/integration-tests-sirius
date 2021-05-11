@@ -84,7 +84,7 @@ class Goods:
                      maintenanceCategory=126, manufacturerId=1, minGoodsUnit=23, origin='测试地址',
                      nearExpirationDate=5, std2012Category=373, storageConditions=100, model='333',
                      specification='222',
-                     imageSource='/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg',
+                     imageSource=['/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg'],
                      registrationImg='/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg',
                      longEffect=False, registrationEndDate=fiveDaysAfter_stamp, registrationBeginDate=timeStamp,
                      registrationNum='123456'):
@@ -104,7 +104,7 @@ class Goods:
                 "model": model,  # 型号
                 "skuCode": skuCode,  # 原厂编码 -- 不可重复
                 "specification": specification,  # 规格
-                "imageSource": [imageSource],  # 商品照片
+                "imageSource": imageSource,  # 商品照片
                 "createRegistrationInfoUiList": [{
                     "longEffect": longEffect,  # 是否长期有效
                     "registrationEndDate": registrationEndDate,  # 注册证失效日期
@@ -127,7 +127,7 @@ class Goods:
                    maintenanceCategory=126, manufacturerId=1, minGoodsUnit=23, origin='测试地址',
                    nearExpirationDate=5, std2012Category=373, storageConditions=100, model='333',
                    specification='222',
-                   imageSource='/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg',
+                   imageSource=['/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg'],
                    registrationImg='/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg',
                    longEffect=False, registrationEndDate=fiveDaysAfter_stamp, registrationBeginDate=timeStamp,
                    registrationNum='123456'):
