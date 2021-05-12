@@ -47,13 +47,22 @@ class Goods:
         id = response['data']['rows'][0]['id']
         return id
 
+    # 获取物资类别
     def get_goodsCategory(self):
         url = '/category/getTree'
-        params = {
-            'pageNum': 0,
-            'pageSize': 50,
-            'parentCode': 'MATERIAL'
-        }
+        if self.type == 'material':
+            params = {
+                'pageNum': 0,
+                'pageSize': 50,
+                'parentCode': 'MATERIAL'  # 工具是 TOOLS_MATERIAL
+            }
+        else:
+            params = {
+                'pageNum': 0,
+                'pageSize': 50,
+                'parentCode': 'TOOLS_MATERIAL'  # 工具是 TOOLS_MATERIAL
+            }
+
         response = request.get_params(url, params)
         try:
             assert response['msg'] == '请求成功'
@@ -79,14 +88,17 @@ class Goods:
 
     # 创建物资 type = 'material'
     # 创建工具 type = 'tool'
+
     def create_Goods(self, name=str(timeStamp), skuCode=timeStamp, goodsCategory=101,
                      maintenanceCategory=126, manufacturerId=1, minGoodsUnit=23, origin='测试地址',
                      nearExpirationDate=5, std2012Category=373, storageConditions=100, model='333',
                      specification='222',
-                     imageSource=['/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg'],
+                     imageSource=None,
                      registrationImg='/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg',
                      longEffect=False, registrationEndDate=fiveDaysAfter_stamp, registrationBeginDate=timeStamp,
                      registrationNum='123456'):
+        if imageSource is None:
+            imageSource = ['/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg']
         url = '/goods/createGoods'
         body = {
             "type": self.type,  # 物资
@@ -126,10 +138,12 @@ class Goods:
                    maintenanceCategory=126, manufacturerId=1, minGoodsUnit=23, origin='测试地址',
                    nearExpirationDate=5, std2012Category=373, storageConditions=100, model='333',
                    specification='222',
-                   imageSource=['/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg'],
+                   imageSource=None,
                    registrationImg='/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg',
                    longEffect=False, registrationEndDate=fiveDaysAfter_stamp, registrationBeginDate=timeStamp,
                    registrationNum='123456'):
+        if imageSource is None:
+            imageSource = ['/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg']
         url = '/goods/editGoods'
         # id = self.getList(webKeyword=webKeyword, Type=self.type)
         body = {
@@ -196,6 +210,21 @@ class Goods:
         # except Exception:
         #     raise response
         return response
+
+    def all(self, type='material'):
+        goodsCategory = Goods(type).get_goodsCategory()
+        # 创建商品
+        self.create_Goods(goodsCategory=goodsCategory)
+        # 获取商品ID
+        id = self.getList(timeStamp)
+        # 编辑商品
+        self.edit_Goods(id, goodsCategory=goodsCategory)
+        # 编辑di
+        self.edit_GoodsDi('12345678123456', id)
+        # 编辑价格
+        self.edit_price(id)
+        # 删除商品
+        self.delete_Goods(id)
 
 
 # 物资管理：工具包
@@ -328,7 +357,24 @@ class KitTemplate:
         #     raise response
         return response
 
+    def all(self):
+        # 获取物资类别
+        toolsKitCategory = self.get_toolsKitCategoryId()
+        # 获取工具包模版ID
+        goodsId = self.get_ToolsList()
+        # 创建工具包
+        self.create_ToolsKit(goodsId, toolsKitCategory=toolsKitCategory)
+        # 获取创建的工具包ID
+        kitTemplateId = self.get_KitTemplateList(timeStamp)
+        # 编辑工具包
+        self.edit_ToolsKit(goodsId, kitTemplateId=kitTemplateId, kitCategory=toolsKitCategory)
+        # 设置工具包租用费
+        self.edit_Price(kitTemplateId)
+        # 删除工具包
+        self.delete_ToolsKit(kitTemplateId)
 
+
+# 物资管理： 加工组包
 class PackagingOrder:
     # 获取加工组包列表
     def get_packagingOrderList(self):
@@ -443,12 +489,25 @@ class PackagingOrder:
         except Exception:
             raise response
 
+    #
+    def all(self):
+        # 获取仓库ID
+        warehouse = self.get_warehouse()
+        # 获取仓库下的工具包ID
+        templateIds = self.get_packagingFindTools(warehouse)
+        # 添加工具包
+        list = self.add_tools(templateIds,warehouse)
+        # print(list)
+        # 创建加工组包
+        self.create_tools(list[0], list[2], list[1], list[3], list[4], list[5])
+
 
 if __name__ == '__main__':
-    test = Goods('material')
+    test = PackagingOrder()
+    test.all()
     # 物资
-    create = test.create_Goods()
-    id = test.getList(timeStamp)
+    # create = test.create_Goods()
+    # id = test.getList(timeStamp)
     # test.edit_Goods(id)
     # # test.delete_Goods(id)
     # test.edit_price(id)
