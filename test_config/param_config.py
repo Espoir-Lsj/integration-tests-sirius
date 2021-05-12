@@ -4,21 +4,21 @@ api_url = 'http://192.168.10.254:9191/server/api/1.0'
 # 管理员帐号
 loginName = 'operatorAdmin'
 loginPassword = 'Aa888888'
-# 供应商帐号
+# 经销商账号
 supplierLoginName = 'phyl123'
 supplierLoginPassword = 'Aa123456'
 supplierName = '谱慧医疗'
-
-supplierLoginName02 = 'operatorAdmin'
+# 供应商帐号
+supplierLoginName02 = 'supplier'
 supplierLoginPassword02 = 'Aa888888'
-supplierName02 = '嘉事（上海）国润医疗器械有限公司'
+# supplierName02 = '嘉事（上海）国润医疗器械有限公司'
 # other variable
 
 # 有库存的物资id
 goodsId = 250
 kitTemplateId = 3
 
-#订单类型
+# 订单类型
 Ordertpye = 'adhoc'
 
 ######
