@@ -63,7 +63,6 @@ class Goods:
         goodsCategory = response['data']['childCategory'][0]['id']
         return goodsCategory
 
-
     # 编辑 Di 码
     def edit_GoodsDi(self, di, id):
         url = '/goods/editGoodsDi'
@@ -386,8 +385,6 @@ class PackagingOrder:
         """
         url = '/kitStock/findAvailableGoodsStockByTemplateId'
         params = {
-            'pageNum': 0,
-            'pageSize': 50,
             'templateIds': templateIds,
             'warehouseId': warehouseId
         }
@@ -407,12 +404,12 @@ class PackagingOrder:
             # print(goodsLotInfoIdList)
         kitTemplateId = response['data'][0]['id']
         kitTemplateName = response['data'][0]['templateName']
-        print(kitTemplateName)
-        return kitTemplateId, warehouseId, kitTemplateName, goodsList, goodsLotInfoIdList, goodsQuantityList
+        # print(kitTemplateName)
+        return kitTemplateId, kitTemplateName, warehouseId, goodsList, goodsLotInfoIdList, goodsQuantityList
 
     # 创建加工组包
-    def create(self, kitTemplateId=None, warehouseId=None, kitTemplateName=None,
-               goodsList=None, goodsLotInfoIdList=None, goodsQuantityList=None):
+    def create_tools(self, kitTemplateId=None, warehouseId=None, kitTemplateName=None,
+                     goodsList=None, goodsLotInfoIdList=None, goodsQuantityList=None):
         """
 
         :param kitTemplateId: 工具包ID
