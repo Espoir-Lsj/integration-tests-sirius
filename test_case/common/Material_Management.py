@@ -93,12 +93,10 @@ class Goods:
                      maintenanceCategory=126, manufacturerId=1, minGoodsUnit=23, origin='测试地址',
                      nearExpirationDate=5, std2012Category=373, storageConditions=100, model='333',
                      specification='222',
-                     imageSource=None,
+                     imageSource=['/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg'],
                      registrationImg='/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg',
                      longEffect=False, registrationEndDate=fiveDaysAfter_stamp, registrationBeginDate=timeStamp,
                      registrationNum='123456'):
-        if imageSource is None:
-            imageSource = ['/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg']
         url = '/goods/createGoods'
         body = {
             "type": self.type,  # 物资
@@ -138,12 +136,10 @@ class Goods:
                    maintenanceCategory=126, manufacturerId=1, minGoodsUnit=23, origin='测试地址',
                    nearExpirationDate=5, std2012Category=373, storageConditions=100, model='333',
                    specification='222',
-                   imageSource=None,
+                   imageSource=['/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg'],
                    registrationImg='/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg',
                    longEffect=False, registrationEndDate=fiveDaysAfter_stamp, registrationBeginDate=timeStamp,
                    registrationNum='123456'):
-        if imageSource is None:
-            imageSource = ['/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg']
         url = '/goods/editGoods'
         # id = self.getList(webKeyword=webKeyword, Type=self.type)
         body = {
@@ -364,14 +360,14 @@ class KitTemplate:
         goodsId = self.get_ToolsList()
         # 创建工具包
         self.create_ToolsKit(goodsId, toolsKitCategory=toolsKitCategory)
-        # 获取创建的工具包ID
-        kitTemplateId = self.get_KitTemplateList(timeStamp)
-        # 编辑工具包
-        self.edit_ToolsKit(goodsId, kitTemplateId=kitTemplateId, kitCategory=toolsKitCategory)
-        # 设置工具包租用费
-        self.edit_Price(kitTemplateId)
-        # 删除工具包
-        self.delete_ToolsKit(kitTemplateId)
+        # # 获取创建的工具包ID
+        # kitTemplateId = self.get_KitTemplateList(timeStamp)
+        # # 编辑工具包
+        # self.edit_ToolsKit(goodsId, kitTemplateId=kitTemplateId, kitCategory=toolsKitCategory)
+        # # 设置工具包租用费
+        # self.edit_Price(kitTemplateId)
+        # # 删除工具包
+        # self.delete_ToolsKit(kitTemplateId)
 
 
 # 物资管理： 加工组包
@@ -503,7 +499,7 @@ class PackagingOrder:
 
 
 if __name__ == '__main__':
-    test = PackagingOrder()
+    test = KitTemplate()
     test.all()
     # 物资
     # create = test.create_Goods()

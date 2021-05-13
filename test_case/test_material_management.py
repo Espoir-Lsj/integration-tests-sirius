@@ -93,7 +93,7 @@ class TestGoods:
     def test_10(self):
         """商品照片为空"""
         response = Material_Management.Goods('material').create_Goods(imageSource=None)
-        # assert response['msg'] == ''
+        assert response['msg'] == '请添加图片'
 
     @allure.title('注册证照为空')
     def test_11(self):
@@ -358,12 +358,13 @@ class TestKitTemplate:
 
     def test_03(self, create):
         """工具包名字 为空"""
-        response = Material_Management.KitTemplate().create_ToolsKit(self.toolsId, name=None)
+        response = Material_Management.KitTemplate().create_ToolsKit(self.toolsId, name=None,toolsKitCategory=self.toolsKitCategory)
         assert response['msg'] == '工具包名称不能为空'
 
     def test_04(self, create):
         """原厂编码为空"""
-        response = Material_Management.KitTemplate().create_ToolsKit(self.goodsId, skuCode=None)
+        response = Material_Management.KitTemplate().create_ToolsKit(self.goodsId, skuCode=None,
+                                                                     toolsKitCategory=self.toolsKitCategory)
         assert response['msg'] == '原厂编码不能为空'
 
     def test_05(self, create):
@@ -448,7 +449,7 @@ class TestKitTemplate:
         assert response['msg'] == '请求成功'
 
 
-@allure.story('加工组包')
+@allure.feature('加工组包')
 class TestPackagingOrder:
     templateIds = None
     warehouseId = None
@@ -467,7 +468,7 @@ class TestPackagingOrder:
 
     data = [
         ('正向流程', {'templateIds': 'templateIds', 'warehouseId': 'warehouseId'}, '请求成功'),
-        ('仓库未选择', {'templateIds': 'templateIds', 'warehouseId': None}, '所选工具包中的工具未找到，请刷新后重试'),
+        ('仓库未选择', {'templateIds': 'templateIds', 'warehouseId': None}, '参数异常，请刷新后重试'),
         ('工具包未选择', {'templateIds': None, 'warehouseId': 'warehouseId'}, '请选择工具包',)
     ]
 
@@ -475,7 +476,7 @@ class TestPackagingOrder:
     #        '仓库未选择',
     #        '工具包未选择'
     #        ]
-
+    @allure.story('添加工具')
     @allure.title('{title}')
     @pytest.mark.parametrize('title,case,expected', data)
     def test_add_tools(self, title, case, expected, get_allMsg):
@@ -496,7 +497,7 @@ class TestPackagingOrder:
         #           'goodsList': 'goodsList', 'goodsLotInfoIdList': 'goodsLotInfoIdList',
         #           'goodsQuantityList': 'goodsQuantityList'}, '请求成功'),
         # 这里有bug,仓库ID 乱传的话 system busy
-        ['工具包ID为空', {'kitTemplateId': None, 'kitTemplateName': 'kitTemplateName', 'warehouseId': None,
+        ['工具包ID为空', {'kitTemplateId': None, 'kitTemplateName': 'kitTemplateName', 'warehouseId': 'warehouseId',
                      'goodsList': 'goodsList', 'goodsLotInfoIdList': 'goodsLotInfoIdList',
                      'goodsQuantityList': 'goodsQuantityList'}, '参数异常，请刷新后重试'],
         ('仓库ID为空', {'kitTemplateId': 'kitTemplateId', 'kitTemplateName': 'kitTemplateName', 'warehouseId': None,
@@ -531,6 +532,7 @@ class TestPackagingOrder:
           'goodsQuantityList': [1111111111111111111]}, '请确定数量')
     ]
 
+    @allure.story('创建加工组包')
     @allure.title('{title}')
     @pytest.mark.parametrize('title,case,expected', data)
     def test_create_tools(self, title, case, expected, get_toolsInfo):
@@ -551,7 +553,7 @@ class TestPackagingOrder:
             "kitDetailUiBeans": [{
                 "goodsDetails": [],
                 "kitTemplateId": case['kitTemplateId'],
-                "kitTemplateName": case["kitTemplateId"],
+                "kitTemplateName": case["kitTemplateName"],
                 "serial": 1
             }],
             "warehouseId": case["warehouseId"]
