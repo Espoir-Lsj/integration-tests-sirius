@@ -2,6 +2,7 @@
 # @Time : 2021/5/10 1:35 下午 
 # @Author : lsj
 # @File : test_material_management.py
+# 物资管理case
 import time, datetime
 
 import allure
@@ -493,13 +494,9 @@ class TestPackagingOrder:
         assert response['msg'] == expected
 
     data = [
-        # ('正向流程', {'kitTemplateId': 'kitTemplateId', 'kitTemplateName': 'kitTemplateName', 'warehouseId': 'warehouseId',
-        #           'goodsList': 'goodsList', 'goodsLotInfoIdList': 'goodsLotInfoIdList',
-        #           'goodsQuantityList': 'goodsQuantityList'}, '请求成功'),
-        # 这里有bug,仓库ID 乱传的话 system busy
-        ['工具包ID为空', {'kitTemplateId': None, 'kitTemplateName': 'kitTemplateName', 'warehouseId': 'warehouseId',
+        ('工具包ID为空', {'kitTemplateId': None, 'kitTemplateName': 'kitTemplateName', 'warehouseId': 'warehouseId',
                      'goodsList': 'goodsList', 'goodsLotInfoIdList': 'goodsLotInfoIdList',
-                     'goodsQuantityList': 'goodsQuantityList'}, '参数异常，请刷新后重试'],
+                     'goodsQuantityList': 'goodsQuantityList'}, '参数异常，请刷新后重试'),
         ('仓库ID为空', {'kitTemplateId': 'kitTemplateId', 'kitTemplateName': 'kitTemplateName', 'warehouseId': None,
                     'goodsList': 'goodsList', 'goodsLotInfoIdList': 'goodsLotInfoIdList',
                     'goodsQuantityList': 'goodsQuantityList'}, '请选择仓库'),
