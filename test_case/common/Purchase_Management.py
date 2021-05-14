@@ -89,9 +89,10 @@ class AllocateOrder:
         kitStockId = response['data']['rows'][0]['id']
         return kitStockId
 
-    # body 分离
-    def push_body(self, Id=None, reasonCode=None, sourceWarehouseId=None, targetWarehouseId=None,
-                  goodsId=None, goodsLotInfoId=None, goodsQuantity=1, kitStockId=None, kitStockQuantity=1):
+    # 调拨单创建、编辑（编辑要传 ID）
+    def create(self, reasonCode=None, sourceWarehouseId=None, targetWarehouseId=None,
+               goodsId=None, goodsLotInfoId=None, goodsQuantity=1, kitStockId=None, kitStockQuantity=1, Id=None):
+        url = '/allocateOrder/create'
         body = {
             "baseOrderInfo": {
                 "id": Id,
@@ -111,12 +112,6 @@ class AllocateOrder:
                 "kitStockQuantity": kitStockQuantity
             }]
         }
-        return body
-
-    # 调拨单创建、编辑（编辑要传 ID）
-    def create(self, body):
-        url = '/allocateOrder/create'
-        body = body
         response = request.post_body(url, body)
         Id = response['data']['id']
         code = response['data']['code']
@@ -138,22 +133,13 @@ class AllocateOrder:
         :return:
         """
         url = '/allocateOrder/approve'
-        if not approve:
-            body = {
-                "approve": approve,
-                "id": Id,
-                "rejectReason": rejectReason
-            }
-        else:
-            body = {
-                "approve": approve,
-                "id": 103
-            }
+        body = {
+            "approve": approve,
+            "id": Id,
+            "rejectReason": rejectReason
+        }
         response = request.put_body(url, body)
-        try:
-            assert response['msg'] == '请求成功'
-        except Exception:
-            raise response
+        return response
 
     # 关闭订单
     def close(self, orderId):
@@ -165,6 +151,7 @@ class AllocateOrder:
         except Exception:
             raise response
 
+
     # 删除订单
     def remove(self, orderId):
         url = '/allocateOrder/remove?orderId=%s' % orderId
@@ -175,32 +162,30 @@ class AllocateOrder:
         except Exception:
             raise response
 
-    # # 主流程：创建调拨单
-    # def all(self):
-    #     # 调出仓、调入仓、调拨理由
-    #     reasonCode = self.get_allocate_reason()
-    #     sourceWarehouseId = self.get_out_warehouse()
-    #     targetWarehouseId = self.get_in_warehouse()
-    #
-    #     # 物资信息
-    #     goodsInfo = self.get_goodsInfo(sourceWarehouseId)
-    #     goodsId = goodsInfo[0]
-    #     goodsLotInfoId = goodsInfo[1]
-    #
-    #     # 工具包信息
-    #     kitStockId = self.get_kitStockId(sourceWarehouseId)
-    #
-    #     # 传body下来
-    #     body = self.push_body(reasonCode, sourceWarehouseId, targetWarehouseId, goodsId, goodsLotInfoId,
-    #                           kitStockId)
-    #
-    #     # 创建调拨单
-    #     body, Id, code = self.create(body)
+
+# 主流程：创建调拨单
+def all(self):
+    # 调出仓、调入仓、调拨理由
+    reasonCode = self.get_allocate_reason()
+    sourceWarehouseId = self.get_out_warehouse()
+    targetWarehouseId = self.get_in_warehouse()
+
+    # 物资信息
+    goodsInfo = self.get_goodsInfo(sourceWarehouseId)
+    goodsId = goodsInfo[0]
+    goodsLotInfoId = goodsInfo[1]
+
+    # 工具包信息
+    kitStockId = self.get_kitStockId(sourceWarehouseId)
+
+    # 创建调拨单
+    body, Id, code = self.create(reasonCode, sourceWarehouseId, targetWarehouseId, goodsId, goodsLotInfoId,
+                                 kitStockId)
 
 
 if __name__ == '__main__':
     test = AllocateOrder()
-    # test.all()
+    test.all()
     # test.approve(True)
     # test.close(115)
-    test.remove(112)
+    # test.remove(112)

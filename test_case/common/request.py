@@ -3,12 +3,14 @@
 # !/usr/bin/env python3
 # _*_ coding: utf-8 _*_
 import requests, json
-from test_config import param_config
+from test_config import param_config, yamlconfig
 from common import login, logger
 
 headers = login.headers
 api_url = param_config.api_url
 log = logger.Log()
+
+request_data = yamlconfig.timeid(file_yaml='request_data.yaml')
 
 
 def reValue(body, data):
@@ -68,6 +70,8 @@ def post_body(path, body):
     elif response['code'] == 0:
         log.info('----------请求成功---------- \n 请求地址：%s \n 传入参数：%s \n 响应内容：%s' % (
             path, json.dumps(body, ensure_ascii=False), json.dumps(response, ensure_ascii=False)))
+        if path not in request_data._get_yaml_element_info().keys():
+            request_data._set_yaml_time({path: body}, 'a')
     return response
 
 
@@ -142,6 +146,8 @@ def put_body(path, body):
     elif response['code'] == 0:
         log.info('----------请求成功---------- \n 请求地址：%s \n 传入参数：%s \n 响应内容：%s' % (
             path, json.dumps(body, ensure_ascii=False), json.dumps(response, ensure_ascii=False)))
+        if path not in request_data._get_yaml_element_info().keys():
+            request_data._set_yaml_time({path: body}, 'a')
     return response
 
 
@@ -155,4 +161,5 @@ def put(path):
         log.warning('----------接口报错---------- \n 请求地址：%s \n 响应内容：%s' % (path, json.dumps(response, ensure_ascii=False)))
     elif response['code'] == 0:
         log.info('----------请求成功---------- \n 请求地址：%s \n 响应内容：%s' % (path, json.dumps(response, ensure_ascii=False)))
+
     return response
