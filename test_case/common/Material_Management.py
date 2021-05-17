@@ -188,7 +188,8 @@ class Goods:
         return response
 
     # 编辑价格
-    def edit_price(self, id, type='purchase', price=None, discountRate=5000, purchasePrice=10000, taxRate=10000, ):
+    def edit_price(self, id, type='purchase', price=None, discountRate=5000.01, purchasePrice=10000.02,
+                   taxRate=10000.03, ):
         # 采购价 type = 'purchase'
         # 临调家 type = 'adhoc'
         url = '/goods/editPrice'
@@ -492,7 +493,7 @@ class PackagingOrder:
         # 获取仓库下的工具包ID
         templateIds = self.get_packagingFindTools(warehouse)
         # 添加工具包
-        list = self.add_tools(templateIds,warehouse)
+        list = self.add_tools(templateIds, warehouse)
         # print(list)
         # 创建加工组包
         self.create_tools(list[0], list[2], list[1], list[3], list[4], list[5])

@@ -151,50 +151,50 @@ class TestGoods:
                                                                       goodsCategory=self.goodsCategory)
         assert response['msg'] == '注册证已失效'
 
-    @allure.title('Edit商品名为空')
+    @allure.title('Edit：商品名为空')
     #   编辑商品接口异常
     def test_17(self, create):
         """商品名为空"""
         response = Material_Management.Goods('material').edit_Goods(self.Id, name=None)
         assert response['msg'] == '请输入物资名称'
 
-    @allure.title('Edit原厂编码为空')
+    @allure.title('Edit：原厂编码为空')
     def test_18(self, create):
         """原厂编码为空"""
         response = Material_Management.Goods('material').edit_Goods(self.Id, skuCode=None)
         assert response['msg'] == '请选择原厂编码'
 
-    @allure.title('Edit物资类别为空')
+    @allure.title('Edit：物资类别为空')
     def test_19(self, create):
         """物资类别为空"""
         response = Material_Management.Goods('material').edit_Goods(self.Id, goodsCategory=None)
         assert response['msg'] == '请选择耗材类型'
 
-    @allure.title('Edit养护类型为空')
+    @allure.title('Edit：养护类型为空')
     def test_20(self, create):
         """养护类型为空"""
         response = Material_Management.Goods('material').edit_Goods(self.Id, maintenanceCategory=None)
         assert response['msg'] == '请输入养护类别'
 
-    @allure.title('Edit生产企业为空')
+    @allure.title('Edit：生产企业为空')
     def test_21(self, create):
         """生产企业为空"""
         response = Material_Management.Goods('material').edit_Goods(self.Id, manufacturerId=None)
         assert response['msg'] == '请输入生产企业'
 
-    @allure.title('Edit产地为空')
+    @allure.title('Edit：产地为空')
     def test_2101(self, create):
         """产地为空"""
         response = Material_Management.Goods('material').edit_Goods(self.Id, origin=None)
         assert response['msg'] == '请输入商品产地'
 
-    @allure.title('Edit基本单位为空')
+    @allure.title('Edit基：本单位为空')
     def test_22(self, create):
         """基本单位为空"""
         response = Material_Management.Goods('material').edit_Goods(self.Id, minGoodsUnit=None)
         assert response['msg'] == '请选择基本单位'
 
-    @allure.title('Edit规格 /型号为空')
+    @allure.title('Edit：规格 /型号为空')
     def test_23(self, create):
         """规格 /型号为空"""
         response = Material_Management.Goods('material').edit_Goods(self.Id, model=None, specification=None)
@@ -206,58 +206,58 @@ class TestGoods:
     #     response = Material_Management.Goods('material').edit_Goods(self.Id, specification=None)
     #     assert response['msg'] == '请选择规格'
 
-    @allure.title('Edit商品照片为空')
+    @allure.title('Edit：商品照片为空')
     def test_25(self, create):
         """商品照片为空"""
         response = Material_Management.Goods('material').edit_Goods(self.Id, imageSource=None
                                                                     , goodsCategory=self.goodsCategory)
         assert response['msg'] == '请选择上传图片'
 
-    @allure.title('Edit注册证照为空')
+    @allure.title('Edit：注册证照为空')
     def test_26(self, create):
         """注册证照为空"""
         response = Material_Management.Goods('material').edit_Goods(self.Id, registrationImg=None)
         assert response['msg'] == '请上传注册证照'
 
-    @allure.title('Edit注册证号为空')
+    @allure.title('Edit：注册证号为空')
     def test_27(self, create):
         """注册证号为空"""
         response = Material_Management.Goods('material').edit_Goods(self.Id, registrationNum=None)
         assert response['msg'] == '请输入注册证号'
 
-    @allure.title('Edit存储条件为空')
+    @allure.title('Edit：存储条件为空')
     def test_28(self, create):
         """存储条件为空"""
         response = Material_Management.Goods('material').edit_Goods(self.Id, storageConditions=None)
         assert response['msg'] == '请选择存储条件'
 
-    @allure.title('Edit商品分类 为空')
+    @allure.title('Edit：商品分类 为空')
     def test_29(self, create):
         """商品分类 为空"""
         response = Material_Management.Goods('material').edit_Goods(self.Id, std2012Category=None)
         assert response['msg'] == '请选择商品分类'
 
-    @allure.title('Edit参数异常')
+    @allure.title('Edit：参数异常')
     def test_2901(self, create):
         """ 参数异常"""
         response = Material_Management.Goods('material').edit_Goods('sss')
         assert response['msg'] == '请求参数异常'
 
-    @allure.title('EditskuCode重复')
+    @allure.title('Edit：skuCode重复')
     def test_30(self, create):
         """skuCode重复"""
         response = Material_Management.Goods('material').create_Goods(fiveDaysAfter_stamp,
                                                                       goodsCategory=self.goodsCategory)
         assert response['msg'] == '原厂编码已经存在'
 
-    @allure.title('Edit注册证失效日期小于于生效日期')
+    @allure.title('Edit：注册证失效日期小于于生效日期')
     def test_3001(self):
         """注册证生效日期不能大于失效日期"""
         response = Material_Management.Goods('material').edit_Goods(self.Id, registrationEndDate=timeStamp,
                                                                     registrationBeginDate=fiveDaysAfter_stamp)
         assert response['msg'] == '注册证生效日期不能大于失效日期'
 
-    @allure.title('Edit注册证已失效')
+    @allure.title('Edit：注册证已失效')
     def test_3002(self, create):
         """注册证已失效"""
         response = Material_Management.Goods('material').edit_Goods(self.Id, registrationEndDate=yesterday_stamp,
@@ -320,6 +320,12 @@ class TestGoods:
         """请求参数异常"""
         response = Material_Management.Goods('material').edit_price(self.Id, type='adhoc', price='ss')
         assert response['msg'] == '请求参数异常'
+
+    @allure.title('price:商品不存在')
+    def test_46(self, create):
+        """请求参数异常"""
+        response = Material_Management.Goods('material').edit_price(99999999999, type='adhoc', price='0')
+        assert response['msg'] == '未找到该物资，请刷新后重试'
 
     @allure.title('删除物资')
     def test_47(self, create):
