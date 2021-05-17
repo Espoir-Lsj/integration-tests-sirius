@@ -8,7 +8,9 @@ import time, datetime
 import allure
 import pytest
 
-from common import Purchase_Management, logger, request, tes
+from common import Purchase_Management, logger, request
+
+from test_config.yamlconfig import timeid
 
 timeStamp = int(time.time() * 1000)
 today = datetime.date.today()
@@ -16,56 +18,82 @@ yesterday = today - datetime.timedelta(days=1)
 yesterday_stamp = int(time.mktime(yesterday.timetuple())) * 1000
 fiveDaysAfter = today + datetime.timedelta(days=5)
 fiveDaysAfter_stamp = int(time.mktime(fiveDaysAfter.timetuple())) * 1000
+context = str('1').zfill(500)
 log = logger.Log()
 
 
 # 采购管理：调拨单
+@allure.feature('采购管理')
+@allure.story('调拨单')
 class TestAllocateOrder:
-
-    @pytest.fixture(scope="module")
-    def get_data(self):
-        # 获取所有需要的参数
-        test = Purchase_Management.AllocateOrder()
-        global reasonCode, sourceWarehouseId, targetWarehouseId, goodsId, goodsLotInfoId, kitStockId, \
-            goodsQuantity, kitStockQuantity
-        reasonCode = test.get_allocate_reason()
-        sourceWarehouseId = test.get_out_warehouse()
-        targetWarehouseId = test.get_in_warehouse()
-        goodsInfo = test.get_goodsInfo(sourceWarehouseId)
-        goodsId = goodsInfo[0]
-        goodsLotInfoId = goodsInfo[1]
-        kitStockId = test.get_kitStockId(sourceWarehouseId)
-        goodsQuantity = 1
-        kitStockQuantity = 1
-
-    @pytest.fixture()
-    def get_body(self, get_data):
-        body = Purchase_Management.AllocateOrder().push_body(reasonCode, sourceWarehouseId, targetWarehouseId, goodsId,
-                                                             goodsLotInfoId, kitStockId,
-                                                             goodsQuantity, kitStockQuantity)
-        yield body
-
     data = [('调拨理由为空', {'reasonCode': None}, '请选择调拨理由'),
             ('来源仓库空', {'sourceWarehouseId': None}, '请选择来源仓库'),
-            ('来源仓库错误', {'targetWarehouseId': 'aa'}, ''),
-            # ('收货仓库错误', {'targetWarehouseId': 'aa'}, '请选择目标仓库'),
-            # ('收货仓库错误', {'targetWarehouseId': 'aa'}, ''),
-            # ('商品ID为空', {'goodsId': None}, ''),
-            # ('商品数量为空', {'goodsQuantity': None}, '请输入商品数量'),
-            # ('商品数量过大', {'goodsQuantity': 999999999999}, ''),
-            # ('商品信息为空', {'goodsLotInfoId': None}, ''),
-            # ('工具包ID为空', {'kitStockId': None}, ''),
-            # ('工具包数量为空', {'kitStockId': None}, '请输入工具包数量'),
-            # ('工具包数量过大', {'kitStockQuantity': 99999999999999}, '')
+            ('来源仓库错误', {'targetWarehouseId': 'aa'}, '请求参数异常'),
+            ('收货仓库为空', {'targetWarehouseId': None}, '请选择目标仓库'),
+            ('收货仓库错误', {'targetWarehouseId': 9999999}, '请求参数异常'),
+            ('商品ID为空', {'goodsId': None}, ''),
+            ('商品数量为空', {'goodsQuantity': None}, '请输入商品数量'),
+            ('商品数量过大', {'goodsQuantity': 999999999999}, '商品数量超出限制'),
+            ('商品信息为空', {'goodsLotInfoId': None}, '参数异常'),
+            ('工具包数量过大', {'kitStockQuantity': 99999999999999}, '工具包数量超出限制')
             ]
 
     @pytest.mark.parametrize('title,case,expected', data)
     @allure.title('{title}')
-    def test_create(self, title, case, expected, get_body):
+    def test_create(self, title, case, expected, AllocateOrder_get_Id):
         url = '/allocateOrder/create'
-        body = get_body
+        body = timeid(file_yaml='request_data.yaml')._get_yaml_element_info()[url]
         body = request.reValue(body, case)
         response = request.post_body(url, body)
         assert response['msg'] == expected
 
-    # def test_02(self):
+    @allure.title('编辑未驳回订单')
+    def test_edit(self, AllocateOrder_get_Id):
+        url = '/allocateOrder/create'
+        body = timeid(file_yaml='request_data.yaml')._get_yaml_element_info()[url]
+        body = request.reValue(body, {'id': AllocateOrder_get_Id})
+        response = request.post_body(url, body)
+        assert response['msg'] == '只能修改驳回的订单'
+
+    data = [
+        ('调拨单ID为空', {'id': None}, '请选择调拨单'),
+        ('审核建议为空', {'approve': None}, '请选择审核或者驳回调拨单'),
+        ('驳回理由为空', {'approve': False, 'rejectReason': None}, '请输入修改建议'),
+        ('驳回理由超长', {'approve': False, 'rejectReason': context}, '拒绝原因超出长度限制'),
+    ]
+
+    @pytest.mark.parametrize('title,case,expected', data)
+    @allure.title('{title}')
+    def test_approve(self, title, case, expected, AllocateOrder_get_Id):
+        url = '/allocateOrder/approve'
+        body = {
+            "approve": None,
+            "id": AllocateOrder_get_Id,
+            "rejectReason": None
+        }
+        body = request.reValue(body, case)
+        response = request.put_body(url, body)
+        assert response['msg'] == expected
+
+    @allure.title('删除未关闭订单')
+    def test_remove_01(self, AllocateOrder_get_Id):
+        url = '/allocateOrder/remove?orderId=%s' % AllocateOrder_get_Id
+        response = request.delete(url)
+        assert response['msg'] == '订单状态为已关闭时才能删除'
+
+    data = [
+        ('重复关闭订单', '订单状态为待接收或待修改时才能关闭')
+    ]
+
+    @pytest.mark.parametrize('title,expected', data)
+    @allure.title('{title}')
+    def test_close(self, title, expected, AllocateOrder_close):
+        url = '/allocateOrder/close?orderId=%s' % AllocateOrder_close
+        response = request.put(url)
+        assert response['msg'] == expected
+
+    @allure.title('重复删除订单')
+    def test_remove_02(self, AllocateOrder_remove):
+        url = '/allocateOrder/remove?orderId=%s' % AllocateOrder_remove
+        response = request.delete(url)
+        assert response['msg'] == '未查询到该调拨订单，请刷新重试'

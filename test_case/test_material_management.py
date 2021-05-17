@@ -21,6 +21,7 @@ log = logger.Log()
 
 # 物资 工具接口
 # @pytest.mark.TestGoods
+@allure.feature('物资管理')
 @allure.story('创建物资')
 class TestGoods:
     Id = None
@@ -336,6 +337,7 @@ class TestGoods:
 
 # 新建工具包
 # @pytest.mark.TestKitTemplate
+@allure.feature('物资管理')
 @allure.story('创建工具包')
 class TestKitTemplate:
     toolsId = None
@@ -365,7 +367,8 @@ class TestKitTemplate:
 
     def test_03(self, create):
         """工具包名字 为空"""
-        response = Material_Management.KitTemplate().create_ToolsKit(self.toolsId, name=None,toolsKitCategory=self.toolsKitCategory)
+        response = Material_Management.KitTemplate().create_ToolsKit(self.toolsId, name=None,
+                                                                     toolsKitCategory=self.toolsKitCategory)
         assert response['msg'] == '工具包名称不能为空'
 
     def test_04(self, create):
@@ -456,7 +459,8 @@ class TestKitTemplate:
         assert response['msg'] == '请求成功'
 
 
-@allure.feature('加工组包')
+@allure.feature('物资管理')
+@allure.story('加工组包')
 class TestPackagingOrder:
     templateIds = None
     warehouseId = None
