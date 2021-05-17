@@ -151,7 +151,6 @@ class AllocateOrder:
         except Exception:
             raise response
 
-
     # 删除订单
     def remove(self, orderId):
         url = '/allocateOrder/remove?orderId=%s' % orderId
@@ -162,25 +161,28 @@ class AllocateOrder:
         except Exception:
             raise response
 
+    # 主流程：创建调拨单
+    def all(self):
 
-# 主流程：创建调拨单
-def all(self):
-    # 调出仓、调入仓、调拨理由
-    reasonCode = self.get_allocate_reason()
-    sourceWarehouseId = self.get_out_warehouse()
-    targetWarehouseId = self.get_in_warehouse()
+        # 调出仓、调入仓、调拨理由
+        reasonCode = self.get_allocate_reason()
 
-    # 物资信息
-    goodsInfo = self.get_goodsInfo(sourceWarehouseId)
-    goodsId = goodsInfo[0]
-    goodsLotInfoId = goodsInfo[1]
+        sourceWarehouseId = self.get_out_warehouse()
+        targetWarehouseId = self.get_in_warehouse()
 
-    # 工具包信息
-    kitStockId = self.get_kitStockId(sourceWarehouseId)
+        # 物资信息
+        goodsInfo = self.get_goodsInfo(sourceWarehouseId)
+        goodsId = goodsInfo[0]
+        goodsLotInfoId = goodsInfo[1]
 
-    # 创建调拨单
-    body, Id, code = self.create(reasonCode, sourceWarehouseId, targetWarehouseId, goodsId, goodsLotInfoId,
-                                 kitStockId)
+        # 工具包信息
+        kitStockId = self.get_kitStockId(sourceWarehouseId)
+
+        # 创建调拨单
+        Id, code = self.create(reasonCode, sourceWarehouseId, targetWarehouseId, goodsId, goodsLotInfoId,
+                               kitStockId)
+        # 拒绝调拨单
+        self.approve(Id)
 
 
 if __name__ == '__main__':

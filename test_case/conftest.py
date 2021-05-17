@@ -146,8 +146,8 @@ def AllocateOrder_get_data(res_data):
     kitStockQuantity = 1
 
 
-@pytest.fixture(scope="class")
 # 获取调拨单id
+@pytest.fixture(scope="class")
 def AllocateOrder_get_Id(AllocateOrder_get_data):
     response = Purchase_Management.AllocateOrder().create(reasonCode, sourceWarehouseId, targetWarehouseId, goodsId,
                                                           goodsLotInfoId, kitStockId,
@@ -156,17 +156,25 @@ def AllocateOrder_get_Id(AllocateOrder_get_data):
     yield Id
 
 
+# 审核调拨单
 @pytest.fixture(scope="class")
 def AllocateOrder_approve(AllocateOrder_get_Id):
-    response = Purchase_Management.AllocateOrder().approve(Id=AllocateOrder_get_Id)
+    Purchase_Management.AllocateOrder().approve(Id=AllocateOrder_get_Id)
     yield AllocateOrder_get_Id
 
 
+# 关闭调拨单
 @pytest.fixture(scope="class")
 def AllocateOrder_close(AllocateOrder_approve):
-    response = Purchase_Management.AllocateOrder().close(AllocateOrder_approve)
+    Purchase_Management.AllocateOrder().close(AllocateOrder_approve)
     yield AllocateOrder_approve
 
+
+# 删除调拨单
+@pytest.fixture(scope="class")
+def AllocateOrder_remove(AllocateOrder_close):
+    Purchase_Management.AllocateOrder().remove(AllocateOrder_close)
+    yield AllocateOrder_close
 
 def pytest_collection_modifyitems(items):
     """

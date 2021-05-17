@@ -1,0 +1,16 @@
+url: body
+/allocateOrder/create:
+  baseOrderInfo:
+    id: null
+    reason: ''
+    reasonCode: warehouse_replenishment
+    sourceWarehouseId: 6
+    targetWarehouseId: 8
+  goodsDetailUiBeans:
+  - goodsId: 288
+    goodsLotInfoId: 101
+    goodsQuantity: 253
+  toolKitDetailUiBeans:
+  - kitStockId: 1
+    kitStockQuantity: 1
+  toolsDetailUiBeans: []
