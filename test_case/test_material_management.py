@@ -9,6 +9,7 @@ import allure
 import pytest
 
 from common import Material_Management, logger, request
+from test_config.yamlconfig import timeid
 
 timeStamp = int(time.time() * 1000)
 today = datetime.date.today()
@@ -21,6 +22,7 @@ log = logger.Log()
 
 # 物资 工具接口
 # @pytest.mark.TestGoods
+@pytest.mark.usefixtures('res_data')
 @allure.feature('物资管理')
 @allure.story('创建物资')
 class TestGoods:
@@ -337,6 +339,7 @@ class TestGoods:
 
 # 新建工具包
 # @pytest.mark.TestKitTemplate
+@pytest.mark.usefixtures('res_data')
 @allure.feature('物资管理')
 @allure.story('创建工具包')
 class TestKitTemplate:
@@ -459,6 +462,7 @@ class TestKitTemplate:
         assert response['msg'] == '请求成功'
 
 
+@pytest.mark.usefixtures('res_data')
 @allure.feature('物资管理')
 @allure.story('加工组包')
 class TestPackagingOrder:
@@ -503,78 +507,42 @@ class TestPackagingOrder:
         response = request.get_params(url, params)
         assert response['msg'] == expected
 
+    @allure.story('创建加工组包')
+    @pytest.fixture(scope='class')
+    def get_create_tools(self):
+        test = Material_Management.PackagingOrder()
+        warehouseId = test.get_warehouse()
+        templateIds = test.get_packagingFindTools(warehouseId)
+        infoList = test.add_tools(templateIds, warehouseId)
+        kitTemplateId = infoList[0]
+        kitTemplateName = infoList[1]
+        warehouseId = infoList[2]
+        goodsList = infoList[3]
+        goodsLotInfoIdList = infoList[4]
+        goodsQuantityList = infoList[5]
+        response = test.create_tools(kitTemplateId=kitTemplateId, warehouseId=warehouseId,
+                                     kitTemplateName=kitTemplateName, goodsList=goodsList,
+                                     goodsLotInfoIdList=goodsLotInfoIdList, goodsQuantityList=goodsQuantityList)
+
     data = [
-        ('工具包ID为空', {'kitTemplateId': None, 'kitTemplateName': 'kitTemplateName', 'warehouseId': 'warehouseId',
-                     'goodsList': 'goodsList', 'goodsLotInfoIdList': 'goodsLotInfoIdList',
-                     'goodsQuantityList': 'goodsQuantityList'}, '参数异常，请刷新后重试'),
-        ('仓库ID为空', {'kitTemplateId': 'kitTemplateId', 'kitTemplateName': 'kitTemplateName', 'warehouseId': None,
-                    'goodsList': 'goodsList', 'goodsLotInfoIdList': 'goodsLotInfoIdList',
-                    'goodsQuantityList': 'goodsQuantityList'}, '请选择仓库'),
-        ('仓库ID错误', {'kitTemplateId': 'kitTemplateId', 'kitTemplateName': 'kitTemplateName', 'warehouseId': 9990,
-                    'goodsList': 'goodsList', 'goodsLotInfoIdList': 'goodsLotInfoIdList',
-                    'goodsQuantityList': 'goodsQuantityList'}, '当前用户不能在该仓库创建加工单'),
-        ('商品列表为空',
-         {'kitTemplateId': 'kitTemplateId', 'kitTemplateName': 'kitTemplateName', 'warehouseId': 'warehouseId',
-          'goodsList': [], 'goodsLotInfoIdList': 'goodsLotInfoIdList',
-          'goodsQuantityList': 'goodsQuantityList'}, '参数异常'),
-        ('商品错误',
-         {'kitTemplateId': 'kitTemplateId', 'kitTemplateName': 'kitTemplateName', 'warehouseId': 'warehouseId',
-          'goodsList': [1], 'goodsLotInfoIdList': 'goodsLotInfoIdList',
-          'goodsQuantityList': 'goodsQuantityList'}, '不一致'),
-        ('商品LotInfo为空',
-         {'kitTemplateId': 'kitTemplateId', 'kitTemplateName': 'kitTemplateName', 'warehouseId': 'warehouseId',
-          'goodsList': 'goodsList', 'goodsLotInfoIdList': [],
-          'goodsQuantityList': 'goodsQuantityList'}, '参数异常'),
-        ('商品LotInfo错误',
-         {'kitTemplateId': 'kitTemplateId', 'kitTemplateName': 'kitTemplateName', 'warehouseId': 'warehouseId',
-          'goodsList': 'goodsList', 'goodsLotInfoIdList': [1],
-          'goodsQuantityList': 'goodsQuantityList'}, '数量不一致，请确定数量'),
-        ('商品数量为空',
-         {'kitTemplateId': 'kitTemplateId', 'kitTemplateName': 'kitTemplateName', 'warehouseId': 'warehouseId',
-          'goodsList': 'goodsList', 'goodsLotInfoIdList': 'goodsLotInfoIdList',
-          'goodsQuantityList': []}, '参数异常'),
-        ('商品数量错误',
-         {'kitTemplateId': 'kitTemplateId', 'kitTemplateName': 'kitTemplateName', 'warehouseId': 'warehouseId',
-          'goodsList': 'goodsList', 'goodsLotInfoIdList': 'goodsLotInfoIdList',
-          'goodsQuantityList': [1111111111111111111]}, '请确定数量')
+
+        ('商品数量错误', {'goodsDetails': [{
+            "goodsId": 11,
+            "goodsLotInfoId": 88,
+            "goodsQuantity": 2
+        }]}, '数量不一致，请确定数量'),
+        ('仓库为空', {'warehouseId': None}, '请选择仓库'),
+        ('仓库错误', {'warehouseId': 999999}, '当前用户不能在该仓库创建加工单'),
+
     ]
 
-    @allure.story('创建加工组包')
-    @allure.title('{title}')
     @pytest.mark.parametrize('title,case,expected', data)
-    def test_create_tools(self, title, case, expected, get_toolsInfo):
-        if case['kitTemplateId'] == 'kitTemplateId':
-            case['kitTemplateId'] = get_toolsInfo[0]
-        if case['kitTemplateName'] == 'kitTemplateName':
-            case['kitTemplateName'] = get_toolsInfo[1]
-        if case['warehouseId'] == 'warehouseId':
-            case['warehouseId'] = get_toolsInfo[2]
-        if case['goodsList'] == 'goodsList':
-            case['goodsList'] = get_toolsInfo[3]
-        if case['goodsLotInfoIdList'] == 'goodsLotInfoIdList':
-            case['goodsLotInfoIdList'] = get_toolsInfo[4]
-        if case['goodsQuantityList'] == 'goodsQuantityList':
-            case['goodsQuantityList'] = get_toolsInfo[5]
+    def test_create_tools(self, title, case, expected, get_create_tools):
         url = '/packagingOrder/create'
-        body = {
-            "kitDetailUiBeans": [{
-                "goodsDetails": [],
-                "kitTemplateId": case['kitTemplateId'],
-                "kitTemplateName": case["kitTemplateName"],
-                "serial": 1
-            }],
-            "warehouseId": case["warehouseId"]
-        }
-        for x, y, z in zip(case['goodsList'], case["goodsLotInfoIdList"], case["goodsQuantityList"]):
-            goodsDetail = {
-                "goodsId": x,
-                "goodsLotInfoId": y,
-                "goodsQuantity": z
-            }
-            body['kitDetailUiBeans'][0]['goodsDetails'].append(goodsDetail)
-        response = request.post_body(url, body)
-        assert expected in response['msg']
-
-    #
-    # def test_01(self):
-    #     return
+        body = timeid(file_yaml='request_data.yaml')._get_yaml_element_info()[url]
+        body = request.reValue(body, case)
+        response = request.post_body01(url, body)
+        if title == '商品数量错误':
+            assert expected in response['msg']
+        else:
+            assert response['msg'] == expected

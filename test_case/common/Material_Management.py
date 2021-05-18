@@ -414,7 +414,7 @@ class PackagingOrder:
         except Exception:
             raise response
         for i in response['data']['rows']:
-            if i['templateName'] == '万能的工具包1':
+            if i['templateName'] == '钢板支架工具包':
                 templateIds = i['id']
                 return templateIds
 
@@ -480,7 +480,7 @@ class PackagingOrder:
                 "goodsQuantity": z
             }
             body['kitDetailUiBeans'][0]['goodsDetails'].append(goodsDetail)
-        response = request.post_body(url, body)
+        response = request.post_body01(url, body)
         try:
             assert response['msg'] == '请求成功'
         except Exception:
