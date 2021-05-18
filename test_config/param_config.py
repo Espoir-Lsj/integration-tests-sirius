@@ -5,8 +5,8 @@ api_url = 'http://192.168.10.254:9191/server/api/1.0'
 loginName = 'operatorAdmin'
 loginPassword = 'Aa888888'
 # 经销商账号
-supplierLoginName = 'phyl123'
-supplierLoginPassword = 'Aa123456'
+supplierLoginName = 'dealer'
+supplierLoginPassword = 'Aa888888'
 supplierName = '谱慧医疗'
 # 供应商帐号
 supplierLoginName02 = 'supplier'
