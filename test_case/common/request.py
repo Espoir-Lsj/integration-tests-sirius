@@ -7,12 +7,14 @@ from test_config import param_config, yamlconfig
 from common import login, logger
 
 headers = login.headers
+headers1 = login.headers
 api_url = param_config.api_url
 log = logger.Log()
 
 request_data = yamlconfig.timeid(file_yaml='request_data.yaml')
 
 
+# 替换参数
 def reValue(body, data):
     for i in body.keys():
         if type(body[i]) is str:
@@ -23,7 +25,6 @@ def reValue(body, data):
             for j in body[i]:
                 if type(j) is dict:
                     reValue(j, data)
-
         if i in data.keys():
             body[i] = data[i]
     return body
@@ -59,6 +60,24 @@ def get(path):
 
 def post_body(path, body):
     r = requests.post(api_url + path, headers=headers, json=body, verify=False)
+    response = r.json()
+    assert (r.status_code == 200)
+    if response['code'] == 2:
+        log.error('----------系统错误---------- \n 请求地址：%s \n 传入参数：%s \n 响应内容：%s' % (
+            path, json.dumps(body, ensure_ascii=False), json.dumps(response, ensure_ascii=False)))
+    elif response['code'] == 1:
+        log.warning('----------接口报错---------- \n 请求地址：%s \n 传入参数：%s \n 响应内容：%s' % (
+            path, json.dumps(body, ensure_ascii=False), json.dumps(response, ensure_ascii=False)))
+    elif response['code'] == 0:
+        log.info('----------请求成功---------- \n 请求地址：%s \n 传入参数：%s \n 响应内容：%s' % (
+            path, json.dumps(body, ensure_ascii=False), json.dumps(response, ensure_ascii=False)))
+        if path not in request_data._get_yaml_element_info().keys():
+            request_data._set_yaml_time({path: body}, 'a')
+    return response
+
+
+def post_body01(path, body):
+    r = requests.post(api_url + path, headers=headers1, json=body, verify=False)
     response = r.json()
     assert (r.status_code == 200)
     if response['code'] == 2:

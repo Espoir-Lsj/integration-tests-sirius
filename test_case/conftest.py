@@ -5,10 +5,7 @@
 
 import pytest, jsonpath
 from common import request, logger, Purchase_Management
-from test_base_role import createRole, createRoleType
-from test_base_user import createUser
-from test_config import param_config
-from test_base_department import createDept
+
 from test_config.yamlconfig import timeid
 
 log = logger.Log()
@@ -129,7 +126,7 @@ def res_data():
 
 
 @pytest.fixture(scope="class")
-# 调拨单
+# 调拨单：获取参数
 def AllocateOrder_get_data(res_data):
     # 获取所有需要的参数
     test = Purchase_Management.AllocateOrder()
@@ -146,35 +143,43 @@ def AllocateOrder_get_data(res_data):
     kitStockQuantity = 1
 
 
-# 获取调拨单id
+# 调拨单：获取调拨单id
 @pytest.fixture(scope="class")
 def AllocateOrder_get_Id(AllocateOrder_get_data):
-    response = Purchase_Management.AllocateOrder().create(reasonCode, sourceWarehouseId, targetWarehouseId, goodsId,
-                                                          goodsLotInfoId, kitStockId,
-                                                          goodsQuantity, kitStockQuantity)
+    response = Purchase_Management.AllocateOrder().create(reasonCode=reasonCode, sourceWarehouseId=sourceWarehouseId,
+                                                          targetWarehouseId=targetWarehouseId, goodsId=goodsId,
+                                                          goodsLotInfoId=goodsLotInfoId, kitStockId=kitStockId,
+                                                          goodsQuantity=goodsQuantity,
+                                                          kitStockQuantity=kitStockQuantity)
     Id = response[0]
     yield Id
 
 
-# 审核调拨单
+# 调拨单：审核调拨单
 @pytest.fixture(scope="class")
 def AllocateOrder_approve(AllocateOrder_get_Id):
     Purchase_Management.AllocateOrder().approve(Id=AllocateOrder_get_Id)
     yield AllocateOrder_get_Id
 
 
-# 关闭调拨单
+# 调拨单：关闭调拨单
 @pytest.fixture(scope="class")
 def AllocateOrder_close(AllocateOrder_approve):
     Purchase_Management.AllocateOrder().close(AllocateOrder_approve)
     yield AllocateOrder_approve
 
 
-# 删除调拨单
+# 调拨单：删除调拨单
 @pytest.fixture(scope="class")
 def AllocateOrder_remove(AllocateOrder_close):
     Purchase_Management.AllocateOrder().remove(AllocateOrder_close)
     yield AllocateOrder_close
+
+
+@pytest.fixture(scope='class')
+# 临调单：获取必要参数
+
+
 
 def pytest_collection_modifyitems(items):
     """
