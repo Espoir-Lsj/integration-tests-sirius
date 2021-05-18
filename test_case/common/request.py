@@ -54,7 +54,20 @@ def get(path):
     elif response['code'] == 1:
         log.warning('----------接口报错---------- \n 请求地址：%s \n 响应内容：%s' % (path, json.dumps(response, ensure_ascii=False)))
     elif response['code'] == 0:
-        log.info('----------请求成功---------- \n 请求地址：%s ' % (path))
+        log.info('----------请求成功---------- \n 请求地址：%s ' % path)
+    return response
+
+
+def get01(path):
+    r = requests.get(api_url + path, headers=headers1, verify=False)
+    response = r.json()
+    assert (r.status_code == 200)
+    if response['code'] == 2:
+        log.error('----------系统错误---------- \n 请求地址：%s \n 响应内容：%s' % (path, json.dumps(response, ensure_ascii=False)))
+    elif response['code'] == 1:
+        log.warning('----------接口报错---------- \n 请求地址：%s \n 响应内容：%s' % (path, json.dumps(response, ensure_ascii=False)))
+    elif response['code'] == 0:
+        log.info('----------请求成功---------- \n 请求地址：%s ' % path)
     return response
 
 
@@ -154,6 +167,23 @@ def delete(path):
 
 def put_body(path, body):
     r = requests.put(api_url + path, headers=headers, data=json.dumps(body), verify=False)
+    response = r.json()
+    assert (r.status_code == 200)
+    if response['code'] == 2:
+        log.error('----------系统错误---------- \n 请求地址：%s \n 传入参数：%s \n 响应内容：%s' % (
+            path, json.dumps(body, ensure_ascii=False), json.dumps(response, ensure_ascii=False)))
+    elif response['code'] == 1:
+        log.warning('----------接口报错---------- \n 请求地址：%s \n 传入参数：%s \n 响应内容：%s' % (
+            path, json.dumps(body, ensure_ascii=False), json.dumps(response, ensure_ascii=False)))
+    elif response['code'] == 0:
+        log.info('----------请求成功---------- \n 请求地址：%s \n 传入参数：%s \n 响应内容：%s' % (
+            path, json.dumps(body, ensure_ascii=False), json.dumps(response, ensure_ascii=False)))
+        if path not in request_data._get_yaml_element_info().keys():
+            request_data._set_yaml_time({path: body}, 'a')
+    return response
+
+def put_body01(path, body):
+    r = requests.put(api_url + path, headers=headers1, data=json.dumps(body), verify=False)
     response = r.json()
     assert (r.status_code == 200)
     if response['code'] == 2:

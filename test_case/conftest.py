@@ -189,6 +189,7 @@ def AdhocOrder_get_data():
         goodsSupplierId, kitTemplateId, toolsSupplierId, AdhocOrdergoodsQuantity, \
         toolsQuantity, hospitalName, contactName, contactPhone, receivingName, surgeon, deliveryMode
     test = Order_Management.AdhocOrder()
+    # 品牌
     manufacturerId = test.get_manufacturerId()
     # 默认地址
     addressId = test.get_addressId()

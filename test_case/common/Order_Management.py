@@ -141,7 +141,7 @@ class AdhocOrder:
             body['toolsDetailUiBeans'].append(toolsDetailUiBeans)
         if deliveryMode == 'DELIVERY':
             del body['consignorName'], body['consignorPhone'], body['receivingIdCard'], body['powerOfAttorney']
-        response = request.post_body01(url, body)
+        response = request.post_body(url, body)
         try:
             response['msg'] == '请求成功'
         except Exception:
@@ -179,4 +179,4 @@ class AdhocOrder:
 if __name__ == '__main__':
     test = AdhocOrder()
     # test.adhocOrder_create()
-    test.all()
+    test.get_manufacturerId()

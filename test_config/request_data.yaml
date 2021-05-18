@@ -1,14 +1,16 @@
 url: body
-/packagingOrder/create:
-  kitDetailUiBeans:
-  - goodsDetails:
-    - goodsId: 276
-      goodsLotInfoId: 13
-      goodsQuantity: 10
-    - goodsId: 292
-      goodsLotInfoId: 75
-      goodsQuantity: 10
-    kitTemplateId: 21
-    kitTemplateName: 钢板支架工具包
-    serial: 1
-  warehouseId: 6
+/allocateOrder/create:
+  baseOrderInfo:
+    id: null
+    reason: ''
+    reasonCode: warehouse_replenishment
+    sourceWarehouseId: 6
+    targetWarehouseId: 7
+  goodsDetailUiBeans:
+  - goodsId: 288
+    goodsLotInfoId: 101
+    goodsQuantity: 1
+  toolKitDetailUiBeans:
+  - kitStockId: 253
+    kitStockQuantity: 1
+  toolsDetailUiBeans: []

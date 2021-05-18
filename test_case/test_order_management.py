@@ -59,5 +59,5 @@ class TestAdhocOrder:
         url = '/adhocOrder/create'
         body = timeid(file_yaml='request_data.yaml')._get_yaml_element_info()[url]
         body = request.reValue(body, case)
-        response = request.post_body01(url, body)
+        response = request.post_body(url, body)
         assert response['msg'] == expected

@@ -31,8 +31,8 @@ class TestAllocateOrder:
             ('来源仓库空', {'sourceWarehouseId': None}, '请选择来源仓库'),
             ('来源仓库错误', {'targetWarehouseId': 'aa'}, '请求参数异常'),
             ('收货仓库为空', {'targetWarehouseId': None}, '请选择目标仓库'),
-            ('收货仓库错误', {'targetWarehouseId': 9999999}, '请求参数异常'),
-            ('商品ID为空', {'goodsId': None}, ''),
+            # ('收货仓库错误', {'targetWarehouseId': 9999999}, '请求参数异常'),
+            # ('商品ID为空', {'goodsId': None}, ''),
             ('商品数量为空', {'goodsQuantity': None}, '请输入商品数量'),
             ('商品数量过大', {'goodsQuantity': 999999999999}, '商品数量超出限制'),
             ('商品信息为空', {'goodsLotInfoId': None}, '参数异常'),
@@ -57,10 +57,10 @@ class TestAllocateOrder:
         assert response['msg'] == '只能修改驳回的订单'
 
     data = [
-        ('调拨单ID为空', {'id': None}, '请选择调拨单'),
-        ('审核建议为空', {'approve': None}, '请选择审核或者驳回调拨单'),
-        ('驳回理由为空', {'approve': False, 'rejectReason': None}, '请输入修改建议'),
-        ('驳回理由超长', {'approve': False, 'rejectReason': context}, '拒绝原因超出长度限制'),
+        ('经销商：调拨单ID为空', {'id': None}, '请选择审核或者驳回调拨单'),
+        ('经销商：审核建议为空', {'approve': None}, '请选择审核或者驳回调拨单'),
+        ('经销商：驳回理由为空', {'approve': False, 'rejectReason': None}, '当前用户不可接单'),
+        ('经销商：驳回理由超长', {'approve': False, 'rejectReason': context}, '拒绝原因超出长度限制'),
     ]
 
     @pytest.mark.parametrize('title,case,expected', data)
@@ -74,6 +74,26 @@ class TestAllocateOrder:
         }
         body = request.reValue(body, case)
         response = request.put_body(url, body)
+        assert response['msg'] == expected
+
+    data = [
+        ('供应商：调拨单ID为空', {'id': None}, '请选择调拨单'),
+        ('供应商：审核建议为空', {'approve': None}, '请选择审核或者驳回调拨单'),
+        ('供应商：驳回理由为空', {'approve': False, 'rejectReason': None}, '请输入修改建议'),
+        ('供应商：驳回理由超长', {'approve': False, 'rejectReason': context}, '拒绝原因超出长度限制'),
+    ]
+
+    @pytest.mark.parametrize('title,case,expected', data)
+    @allure.title('{title}')
+    def test_approve01(self, title, case, expected, AllocateOrder_get_Id):
+        url = '/allocateOrder/approve'
+        body = {
+            "approve": None,
+            "id": AllocateOrder_get_Id,
+            "rejectReason": None
+        }
+        body = request.reValue(body, case)
+        response = request.put_body01(url, body)
         assert response['msg'] == expected
 
     @allure.title('删除未关闭订单')

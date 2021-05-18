@@ -507,7 +507,6 @@ class TestPackagingOrder:
         response = request.get_params(url, params)
         assert response['msg'] == expected
 
-    @allure.story('创建加工组包')
     @pytest.fixture(scope='class')
     def get_create_tools(self):
         test = Material_Management.PackagingOrder()
@@ -536,6 +535,7 @@ class TestPackagingOrder:
 
     ]
 
+    @allure.story('创建加工组包')
     @pytest.mark.parametrize('title,case,expected', data)
     def test_create_tools(self, title, case, expected, get_create_tools):
         url = '/packagingOrder/create'

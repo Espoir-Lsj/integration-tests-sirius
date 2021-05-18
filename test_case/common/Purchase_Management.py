@@ -4,7 +4,8 @@
 # @File : Purchase_Management.py
 # 采购管理
 import time, datetime
-
+import requests
+import json
 from common import request
 
 timeStamp = int(time.time() * 1000)
@@ -15,11 +16,10 @@ fiveDaysAfter_stamp = int(time.mktime(fiveDaysAfter.timetuple())) * 1000
 
 # 采购管理：调拨单
 class AllocateOrder:
-
     # 获取出库仓ID
     def get_out_warehouse(self):
         url = '/warehouse/getUserRelationWarehouse'
-        response = request.get(url)
+        response = request.get01(url)
         try:
             assert response['msg'] == '请求成功'
         except Exception:
@@ -33,21 +33,20 @@ class AllocateOrder:
     # 获取入库仓ID
     def get_in_warehouse(self):
         url = '/warehouse/getUserRelationWarehouse'
-        response = request.get(url)
+        response = request.get01(url)
         try:
             assert response['msg'] == '请求成功'
         except Exception:
             raise response
-        # 目前有库存的是丽都仓
         for i in response['data']:
-            if i['warehouseName'] == '天空一号仓':
+            if i['warehouseName'] == '思南路二楼':
                 targetWarehouseId = i['id']
                 return targetWarehouseId
 
     # 获取调拨理由
     def get_allocate_reason(self):
         url = '/dictionary/getByType/allocate_reason'
-        response = request.get(url)
+        response = request.get01(url)
         try:
             assert response['msg'] == '请求成功'
         except Exception:
@@ -187,7 +186,8 @@ class AllocateOrder:
 
 if __name__ == '__main__':
     test = AllocateOrder()
-    test.all()
+    a = test.get_out_warehouse()
+    print(a)
     # test.approve(True)
     # test.close(115)
     # test.remove(112)
