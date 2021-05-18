@@ -7,7 +7,7 @@ from test_config import param_config, yamlconfig
 from common import login, logger
 
 headers = login.headers
-headers1 = login.headers
+headers1 = login.headers1
 api_url = param_config.api_url
 log = logger.Log()
 

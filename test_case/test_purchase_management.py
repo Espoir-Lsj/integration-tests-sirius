@@ -25,6 +25,7 @@ log = logger.Log()
 # 采购管理：调拨单
 @allure.feature('采购管理')
 @allure.story('调拨单')
+@pytest.mark.usefixtures('res_data')
 class TestAllocateOrder:
     data = [('调拨理由为空', {'reasonCode': None}, '请选择调拨理由'),
             ('来源仓库空', {'sourceWarehouseId': None}, '请选择来源仓库'),

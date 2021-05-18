@@ -4,12 +4,12 @@
 # _*_ coding: utf-8 _*_
 
 import pytest, jsonpath
-from common import request, logger, Purchase_Management
+import time, datetime
+from common import request, logger, Purchase_Management, Order_Management, login
 
 from test_config.yamlconfig import timeid
 
 log = logger.Log()
-
 
 #
 # # 获取权限列表,并返回所有权限id(数组)
@@ -119,6 +119,12 @@ log = logger.Log()
 #             id = ids[i]
 #             return id
 #         i += 1
+supplierId = login.supplierId
+timeStamp = int(time.time() * 1000)
+today = datetime.date.today()
+fiveDaysAfter = today + datetime.timedelta(days=5)
+fiveDaysAfter_stamp = int(time.mktime(fiveDaysAfter.timetuple())) * 1000
+
 
 @pytest.fixture(scope='class')
 def res_data():
@@ -127,7 +133,7 @@ def res_data():
 
 @pytest.fixture(scope="class")
 # 调拨单：获取参数
-def AllocateOrder_get_data(res_data):
+def AllocateOrder_get_data():
     # 获取所有需要的参数
     test = Purchase_Management.AllocateOrder()
     global reasonCode, sourceWarehouseId, targetWarehouseId, goodsId, goodsLotInfoId, kitStockId, \
@@ -178,7 +184,56 @@ def AllocateOrder_remove(AllocateOrder_close):
 
 @pytest.fixture(scope='class')
 # 临调单：获取必要参数
+def AdhocOrder_get_data():
+    global manufacturerId, addressId, ageGroup, procedureSite, AdhocOrdergoodsId, \
+        goodsSupplierId, kitTemplateId, toolsSupplierId, AdhocOrdergoodsQuantity, \
+        toolsQuantity, hospitalName, contactName, contactPhone, receivingName, surgeon, deliveryMode
+    test = Order_Management.AdhocOrder()
+    manufacturerId = test.get_manufacturerId()
+    # 默认地址
+    addressId = test.get_addressId()
+    # 年龄段
+    ageGroup = test.get_ageGroup()
+    # 手术部位
+    procedureSite = test.get_procedureSite()
+    # 商品信息
+    goodsInfo = test.get_goodsInfo()
+    AdhocOrdergoodsId = goodsInfo[0]
+    goodsSupplierId = goodsInfo[1]
+    # 工具包信息
+    toolsInfo = test.get_toolsInfo()
+    kitTemplateId = toolsInfo[0]
+    toolsSupplierId = toolsInfo[1]
+    AdhocOrdergoodsQuantity = 1
+    toolsQuantity = 1
+    hospitalName = '测试医院'
+    contactName = "订单联系人"
+    contactPhone = "13333333333"
+    receivingName = "收件人"
+    surgeon = '主刀医生'
+    deliveryMode = 'SELF_PIKE_UP'
 
+
+# 临调单：创建临调单
+@pytest.fixture(scope='class')
+def AdhocOrder_get_id(AdhocOrder_get_data):
+    response = Order_Management.AdhocOrder().adhocOrder_create(procedureSite=procedureSite,
+                                                               manufacturerId=manufacturerId,
+                                                               ageGroup=ageGroup, addressId=addressId,
+                                                               supplierId=supplierId,
+                                                               goodsId=AdhocOrdergoodsId,
+                                                               goodsQuantity=AdhocOrdergoodsQuantity,
+                                                               goodsSupplierId=goodsSupplierId,
+                                                               kitTemplateId=kitTemplateId,
+                                                               toolsQuantity=toolsQuantity,
+                                                               toolsSupplierId=toolsSupplierId,
+                                                               hospitalName=hospitalName,
+                                                               contactName=contactName,
+                                                               contactPhone=contactPhone,
+                                                               receivingName=receivingName,
+                                                               deliveryMode=deliveryMode
+                                                               )
+    return response
 
 
 def pytest_collection_modifyitems(items):
