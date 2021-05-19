@@ -195,7 +195,7 @@ def edit_order(id, goodsId=320, goodsQuantity=1, kitTemplateId=None, ageGroup='a
             "hospitalName": hospitalName,
             "id": id,
             "manufacturerId": manufacturerId,
-            # "payOnDelivery": false,
+            # "payOnDelivery": False,
             "postcode": postcode,
             "powerOfAttorney": powerOfAttorney,
             "procedureSite": [siteId],

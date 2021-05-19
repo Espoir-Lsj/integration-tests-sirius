@@ -9,7 +9,7 @@ import allure
 import pytest
 
 from common import Material_Management, logger, request
-from test_config.yamlconfig import timeid
+from test_config.yamlconfig import timeid, body_data
 
 timeStamp = int(time.time() * 1000)
 today = datetime.date.today()
@@ -539,7 +539,7 @@ class TestPackagingOrder:
     @pytest.mark.parametrize('title,case,expected', data)
     def test_create_tools(self, title, case, expected, get_create_tools):
         url = '/packagingOrder/create'
-        body = timeid(file_yaml='request_data.yaml')._get_yaml_element_info()[url]
+        body = eval(str(body_data[url].copy()))
         body = request.reValue(body, case)
         response = request.post_body01(url, body)
         if title == '商品数量错误':

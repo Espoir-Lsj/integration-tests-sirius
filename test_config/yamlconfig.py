@@ -1,4 +1,5 @@
 # coding=gbk
+import collections
 import os
 import yaml, time, pprint
 
@@ -61,6 +62,11 @@ class timeid():
             }
         }
 
+    def body_data(self):
+        return collections.defaultdict()
+
+
+body_data = timeid().body_data()
 
 # elements=ElementdataYamlUtils().get_yaml_element_info(yaml_path)
 

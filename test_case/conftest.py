@@ -7,7 +7,7 @@ import pytest, jsonpath
 import time, datetime
 from common import request, logger, Purchase_Management, Order_Management, login
 
-from test_config.yamlconfig import timeid
+from test_config.yamlconfig import timeid, body_data
 
 log = logger.Log()
 
@@ -126,9 +126,14 @@ fiveDaysAfter = today + datetime.timedelta(days=5)
 fiveDaysAfter_stamp = int(time.mktime(fiveDaysAfter.timetuple())) * 1000
 
 
+# @pytest.fixture(scope='class')
+# def res_data():
+#     timeid(file_yaml='request_data.yaml')._set_yaml_time({'url': 'body'}, 'w')
+
 @pytest.fixture(scope='class')
 def res_data():
-    timeid(file_yaml='request_data.yaml')._set_yaml_time({'url': 'body'}, 'w')
+    yield
+    body_data.clear()
 
 
 @pytest.fixture(scope="class")

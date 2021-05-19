@@ -10,7 +10,7 @@ import pytest
 
 from common import Purchase_Management, logger, request
 
-from test_config.yamlconfig import timeid
+from test_config.yamlconfig import timeid, body_data
 
 timeStamp = int(time.time() * 1000)
 today = datetime.date.today()
@@ -43,7 +43,7 @@ class TestAllocateOrder:
     @allure.title('{title}')
     def test_create(self, title, case, expected, AllocateOrder_get_Id):
         url = '/allocateOrder/create'
-        body = timeid(file_yaml='request_data.yaml')._get_yaml_element_info()[url]
+        body = eval(str(body_data[url].copy()))
         body = request.reValue(body, case)
         response = request.post_body(url, body)
         assert response['msg'] == expected
@@ -51,7 +51,7 @@ class TestAllocateOrder:
     @allure.title('编辑未驳回订单')
     def test_edit(self, AllocateOrder_get_Id):
         url = '/allocateOrder/create'
-        body = timeid(file_yaml='request_data.yaml')._get_yaml_element_info()[url]
+        body = eval(str(body_data[url].copy()))
         body = request.reValue(body, {'id': AllocateOrder_get_Id})
         response = request.post_body(url, body)
         assert response['msg'] == '只能修改驳回的订单'

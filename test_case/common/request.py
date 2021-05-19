@@ -84,8 +84,7 @@ def post_body(path, body):
     elif response['code'] == 0:
         log.info('----------请求成功---------- \n 请求地址：%s \n 传入参数：%s \n 响应内容：%s' % (
             path, json.dumps(body, ensure_ascii=False), json.dumps(response, ensure_ascii=False)))
-        if path not in request_data._get_yaml_element_info().keys():
-            request_data._set_yaml_time({path: body}, 'a')
+        yamlconfig.body_data.setdefault(path, body)
     return response
 
 
@@ -102,8 +101,7 @@ def post_body01(path, body):
     elif response['code'] == 0:
         log.info('----------请求成功---------- \n 请求地址：%s \n 传入参数：%s \n 响应内容：%s' % (
             path, json.dumps(body, ensure_ascii=False), json.dumps(response, ensure_ascii=False)))
-        if path not in request_data._get_yaml_element_info().keys():
-            request_data._set_yaml_time({path: body}, 'a')
+        yamlconfig.body_data.setdefault(path, body)
     return response
 
 
@@ -178,8 +176,7 @@ def put_body(path, body):
     elif response['code'] == 0:
         log.info('----------请求成功---------- \n 请求地址：%s \n 传入参数：%s \n 响应内容：%s' % (
             path, json.dumps(body, ensure_ascii=False), json.dumps(response, ensure_ascii=False)))
-        if path not in request_data._get_yaml_element_info().keys():
-            request_data._set_yaml_time({path: body}, 'a')
+        yamlconfig.body_data.setdefault(path, body)
     return response
 
 def put_body01(path, body):
@@ -195,8 +192,7 @@ def put_body01(path, body):
     elif response['code'] == 0:
         log.info('----------请求成功---------- \n 请求地址：%s \n 传入参数：%s \n 响应内容：%s' % (
             path, json.dumps(body, ensure_ascii=False), json.dumps(response, ensure_ascii=False)))
-        if path not in request_data._get_yaml_element_info().keys():
-            request_data._set_yaml_time({path: body}, 'a')
+        yamlconfig.body_data.setdefault(path, body)
     return response
 
 

@@ -6,7 +6,7 @@
 import allure, pytest, time, datetime
 from common import Order_Management, logger, request
 
-from test_config.yamlconfig import timeid
+from test_config.yamlconfig import timeid, body_data
 
 timeStamp = int(time.time() * 1000)
 today = datetime.date.today()
@@ -16,7 +16,7 @@ fiveDaysAfter = today + datetime.timedelta(days=5)
 fiveDaysAfter_stamp = int(time.mktime(fiveDaysAfter.timetuple())) * 1000
 context = str('1').zfill(5000)
 log = logger.Log()
-longName = '主治医师主治医师主治医师主治医师主治医师主治医师主治医师主治医师主治医师主治医师主治医师主治医师主治医师'
+longName = '主治医师' * 30
 
 
 # 订单管理：临调订单
@@ -57,7 +57,7 @@ class TestAdhocOrder:
     @allure.title('{title}')
     def test_create(self, title, case, expected, AdhocOrder_get_id):
         url = '/adhocOrder/create'
-        body = timeid(file_yaml='request_data.yaml')._get_yaml_element_info()[url]
+        body = eval(str(body_data[url].copy()))
         body = request.reValue(body, case)
         response = request.post_body(url, body)
         assert response['msg'] == expected

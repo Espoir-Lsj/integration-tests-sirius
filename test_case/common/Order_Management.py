@@ -179,4 +179,4 @@ class AdhocOrder:
 if __name__ == '__main__':
     test = AdhocOrder()
     # test.adhocOrder_create()
-    test.get_manufacturerId()
+    test.all()
