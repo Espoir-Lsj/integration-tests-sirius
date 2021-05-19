@@ -5,6 +5,7 @@
 import requests, json
 from test_config import param_config, yamlconfig
 from common import login, logger
+from test_config.yamlconfig import body_data
 
 headers = login.headers
 headers1 = login.headers1
@@ -15,16 +16,25 @@ request_data = yamlconfig.timeid(file_yaml='request_data.yaml')
 
 
 # 替换参数
-def reValue(body, data):
+
+def body_replace(url, data=None):
+    body = yamlconfig.timeid()
+
+    if data is None:
+        return body._get_body(url)
+    return body._body_replace(body._get_body(url), data)
+
+
+def reValue_01(body, data):
     for i in body.keys():
         if type(body[i]) is str:
             pass
         elif type(body[i]) is dict:
-            reValue(body[i], data)
+            reValue_01(body[i], data)
         elif type(body[i]) is list:
             for j in body[i]:
                 if type(j) is dict:
-                    reValue(j, data)
+                    reValue_01(j, data)
         if i in data.keys():
             body[i] = data[i]
     return body
@@ -178,6 +188,7 @@ def put_body(path, body):
             path, json.dumps(body, ensure_ascii=False), json.dumps(response, ensure_ascii=False)))
         yamlconfig.body_data.setdefault(path, body)
     return response
+
 
 def put_body01(path, body):
     r = requests.put(api_url + path, headers=headers1, data=json.dumps(body), verify=False)

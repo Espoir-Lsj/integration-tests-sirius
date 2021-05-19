@@ -3,6 +3,8 @@ import collections
 import os
 import yaml, time, pprint
 
+from common import request
+
 
 class timeid():
     def __init__(self, file_yaml='config.yaml'):
@@ -65,14 +67,65 @@ class timeid():
     def body_data(self):
         return collections.defaultdict()
 
+    def _get_body(self, path):
+        body = eval(str(body_data[path].copy()))
+        return body
+
+    def _body_replace(self, body, data):
+        for i in body.keys():
+            if type(body[i]) is str:
+                pass
+            elif type(body[i]) is dict:
+                self._body_replace(body[i], data)
+            elif type(body[i]) is list:
+                for j in body[i]:
+                    if type(j) is dict:
+                        self._body_replace(j, data)
+
+            if i in data.keys():
+                body[i] = data[i]
+        return body
+
 
 body_data = timeid().body_data()
 
 # elements=ElementdataYamlUtils().get_yaml_element_info(yaml_path)
 
 if __name__ == '__main__':
-    # pprint.pprint(timeid().id())
-    # timeid(file_yaml='request_data.yaml')._set_yaml_time({1:2},'a')
-    # url = '/api/admin/goodsTypes/1.0/add'
-    # pprint.pprint(timeid(file_yaml='request_data.yaml')._get_yaml_element_info()[url])
-    timeid(file_yaml='request_data.yaml')._set_yaml_time({'url': 'body'}, 'w')
+    body = {
+        "toolsDetailUiBeans": [{
+            "kitTemplateId": 23,
+            "quantity": 1,
+            "supplierId": 3
+        }],
+        "goodsDetailUiBeans": [{
+            "goodsId": 294,
+            "quantity": 1,
+            "supplierId": 8
+        }],
+        "orderUiBean": {
+            "hospitalName": "\u6d4b\u8bd5\u533b\u9662",
+            "procedureSite": [95],
+            "surgeon": "\u4e3b\u5200\u533b\u751f",
+            "procedureTime": 1621423780357,
+            "expectReturnTime": 1621785600000,
+            "contactName": "\u8ba2\u5355\u8054\u7cfb\u4eba",
+            "contactPhone": "13333333333",
+            "manufacturerId": 1,
+            "salesPerson": "\u9500\u552e\u4eba\u5458",
+            "gender": "FEMALE",
+            "ageGroup": "TEENAGERS",
+            "deliveryMode": "SELF_PIKE_UP",
+            "payOnDelivery": True,
+            "receivingName": "\u6536\u4ef6\u4eba",
+            "consignorName": "\u63d0\u8d27\u4eba",
+            "consignorPhone": "13212345567",
+            "receivingIdCard": "421322199811044619",
+            "powerOfAttorney": "http://192.168.10.254:9191/server/file/2021/05/17/5b15b54d-de1f-4aab-ab5b-ffe6bc5a6998/base64Test.jpg",
+            "addressId": 305,
+            "supplierId": 1
+        }
+    }
+    case = {'goodsId': None}
+    a =timeid()._body_replace(body,case)
+    print(a)
