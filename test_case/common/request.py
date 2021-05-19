@@ -5,7 +5,6 @@
 import requests, json
 from test_config import param_config, yamlconfig
 from common import login, logger
-from test_config.yamlconfig import body_data
 
 headers = login.headers
 headers1 = login.headers1

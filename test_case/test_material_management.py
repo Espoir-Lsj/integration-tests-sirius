@@ -9,7 +9,6 @@ import allure
 import pytest
 
 from common import Material_Management, logger, request
-from test_config.yamlconfig import timeid, body_data
 
 timeStamp = int(time.time() * 1000)
 today = datetime.date.today()

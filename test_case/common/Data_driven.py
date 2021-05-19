@@ -2,6 +2,8 @@
 # @Time : 2021/5/19 6:28 下午 
 # @Author : lsj
 # @File : Data_driven.py
+import os
+
 import xlrd
 from xlrd import xldate_as_tuple
 import datetime
@@ -12,11 +14,13 @@ xlrd中单元格的数据类型
 成我们想要的数据类型
 0 empty,1 string, 2 number, 3 date, 4 boolean, 5 error
 '''
+testCase_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))),'test_config','test.xls')
+print(testCase_dir)
 
 
 class ExcelData():
     # 初始化方法
-    def __init__(self, data_path, sheetname):
+    def __init__(self, sheetname, data_path=testCase_dir):
         # 定义一个属性接收文件路径
         self.data_path = data_path
         # 定义一个属性接收工作表名称
@@ -67,11 +71,13 @@ class ExcelData():
         # return sheet_data
 
     def getData(self, url):
+        self.readExcel()
         data = []
         datas = self.readExcel()
         for dict in datas:
             if url in dict.values():
-                parameter = (str(dict['url']) + '.' + str(dict['title']) + '.' + (dict['case']) + '.' + dict['expected'])
+                parameter = (
+                        str(dict['url']) + '.' + str(dict['title']) + '.' + (dict['case']) + '.' + dict['expected'])
                 # print(a)
                 parmlist = parameter.split(".")
                 eval(parmlist[2])
@@ -82,11 +88,11 @@ class ExcelData():
         return data
 
 
-if __name__ == '__main__':
-    data_path = "test.xls"
-    sheetname = "Sheet1"
-    url = '/adhocOrder/create'
-    get_data = ExcelData(data_path, sheetname)
-    datas = get_data.readExcel()
-    data = get_data.getData(url)
-    print(data)
+# if __name__ == '__main__':
+    # data_path = "../../test_config/test.xls"
+    # sheetname = "Sheet1"
+    # url = '/adhocOrder/create'
+    # get_data = ExcelData(data_path, sheetname)
+    # datas = get_data.readExcel()
+    # data = get_data.getData(url)
+    # print(data)
