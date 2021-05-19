@@ -43,17 +43,18 @@ class TestAllocateOrder:
     @allure.title('{title}')
     def test_create(self, title, case, expected, AllocateOrder_get_Id):
         url = '/allocateOrder/create'
-        body = eval(str(body_data[url].copy()))
-        body = request.reValue(body, case)
+        body = request.body_replace(url, case)
         response = request.post_body(url, body)
         assert response['msg'] == expected
 
     @allure.title('编辑未驳回订单')
     def test_edit(self, AllocateOrder_get_Id):
         url = '/allocateOrder/create'
-        body = eval(str(body_data[url].copy()))
-        body = request.reValue(body, {'id': AllocateOrder_get_Id})
-        response = request.post_body(url, body)
+        case = {'id': AllocateOrder_get_Id}
+        response = request.post_body(url, request.reValue(url, case))
+        # body = eval(str(body_data[url].copy()))
+        # body = request.reValue(body, {'id': AllocateOrder_get_Id})
+        # response = request.post_body(url, body)
         assert response['msg'] == '只能修改驳回的订单'
 
     data = [
@@ -72,7 +73,7 @@ class TestAllocateOrder:
             "id": AllocateOrder_get_Id,
             "rejectReason": None
         }
-        body = request.reValue(body, case)
+        body = request.reValue_01(body, case)
         response = request.put_body(url, body)
         assert response['msg'] == expected
 
@@ -92,7 +93,7 @@ class TestAllocateOrder:
             "id": AllocateOrder_get_Id,
             "rejectReason": None
         }
-        body = request.reValue(body, case)
+        body = request.reValue_01(body, case)
         response = request.put_body01(url, body)
         assert response['msg'] == expected
 

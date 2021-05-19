@@ -539,9 +539,8 @@ class TestPackagingOrder:
     @pytest.mark.parametrize('title,case,expected', data)
     def test_create_tools(self, title, case, expected, get_create_tools):
         url = '/packagingOrder/create'
-        body = eval(str(body_data[url].copy()))
-        body = request.reValue(body, case)
-        response = request.post_body01(url, body)
+        body = request.body_replace(url, case)
+        response = request.post_body(url, body)
         if title == '商品数量错误':
             assert expected in response['msg']
         else:
