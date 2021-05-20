@@ -1,0 +1,4 @@
+url,request_type,title,case,expected
+/adhocOrder/create,post,物资id为空,{'goodsId': 112111},请输入商品id
+/adhocOrder/create,post,物资ID错误,None,"商品不存在,请刷新重试"
+a,1,2,3,4
