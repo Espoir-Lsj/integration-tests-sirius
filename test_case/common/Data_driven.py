@@ -2,7 +2,7 @@
 # @Time : 2021/5/19 6:28 下午 
 # @Author : lsj
 # @File : Data_driven.py
-import os
+import os, pandas
 
 import xlrd
 from xlrd import xldate_as_tuple
@@ -16,6 +16,7 @@ xlrd中单元格的数据类型
 '''
 testCase_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'test_config', 'test.xls')
 print(testCase_dir)
+csv_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'test_config', 'test.csv')
 
 
 class ExcelData:
@@ -86,11 +87,34 @@ class ExcelData:
                 data.append(end)
         return data
 
-# if __name__ == '__main__':
-# data_path = "../../test_config/test.xls"
-# sheetname = "Sheet1"
-# url = '/adhocOrder/create'
-# get_data = ExcelData(data_path, sheetname)
-# datas = get_data.readExcel()
-# data = get_data.getData(url)
-# print(data)
+
+class CsvData:
+    def get_csv(self, url):
+        data = pandas.read_csv(csv_dir)
+        # print(data)
+        # print(data.loc[data['url']=='/adhocOrder/create'])
+        data = data.values.tolist()
+        datas = []
+        for i in data:
+            if i[0] == url:
+                title = i[2]
+                case1 = i[3]
+                expected = i[4]
+                ddt = url + '.' + title + '.' + case1 + '.' + expected
+                all = ddt.split(".")
+                # print(all)
+                end = tuple(all)
+                datas.append(end)
+        # print(datas)
+        return datas
+
+
+if __name__ == '__main__':
+    # sheetname = "Sheet1"
+    # url = '/adhocOrder/create'
+    # get_data = ExcelData(sheetname)
+    # datas = get_data.readExcel()
+    # data = get_data.getData(url)
+    # print(data)
+    datas = CsvData().get_csv('/adhocOrder/create')
+    print(datas)
