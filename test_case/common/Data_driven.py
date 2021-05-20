@@ -37,8 +37,7 @@ class ExcelData():
         self.rowNum = self.table.nrows
         # 获取工作表的有效列数
         self.colNum = self.table.ncols
-        # url
-        # self.url = url
+
 
     # 定义一个读取excel表的方法
     def readExcel(self):
@@ -71,6 +70,7 @@ class ExcelData():
         # return sheet_data
 
     def getData(self, url):
+        # 将读取的数据组装
         self.readExcel()
         data = []
         datas = self.readExcel()
