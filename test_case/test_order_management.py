@@ -5,8 +5,7 @@
 
 
 import allure, pytest, time, datetime
-from test_case.common import Order_Management, logger, request
-from common.Data_driven import ExcelData
+from test_case.common import Order_Management, logger, request, Data_driven
 
 from test_config.yamlconfig import timeid, body_data
 
@@ -22,7 +21,9 @@ longName = '主治医师' * 30
 
 sheetname = "Sheet1"
 # url = '/adhocOrder/create'
-get_data = ExcelData(sheetname)
+get_data = Data_driven.ExcelData(sheetname)
+get_datas = Data_driven.CsvData()
+
 
 # 订单管理：临调订单
 @allure.feature('订单管理')
@@ -65,15 +66,23 @@ class TestAdhocOrder:
     #     response = request.post_body(url, body)
     #     assert response['msg'] == expected
 
-    data = get_data.getData('/adhocOrder/create')
+    # data = get_data.getData('/adhocOrder/create')
 
     # data = [('/adhocOrder/create', '物资id为空', "{'goodsId': None}", '请输入商品id')]
+    data = get_datas.get_csv('/adhocOrder/create')
+
     @pytest.mark.parametrize('url,title,case,expected', data)
     @allure.title('{title}')
     def test_create(self, url, title, case, expected, AdhocOrder_get_id):
+        url = '/adhocOrder/create'
         body = request.body_replace(url, eval(case))
         response = request.post_body(url, body)
         assert response['msg'] == expected
+
+    # def test_create(self, url, title, case, expected, AdhocOrder_get_id):
+    #     body = request.body_replace(url, eval(case))
+    #     response = request.post_body(url, body)
+    #     assert response['msg'] == expected
 # print(case)
 # # response = request.post_body(url, body)
 # # assert response['msg'] == expected

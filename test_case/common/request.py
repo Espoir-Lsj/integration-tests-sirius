@@ -4,18 +4,15 @@
 # _*_ coding: utf-8 _*_
 import requests, json
 from test_config import param_config, yamlconfig
-from common import login, logger
+from test_case.common import login, logger
 
 headers = login.headers
 headers1 = login.headers1
 api_url = param_config.api_url
 log = logger.Log()
 
-request_data = yamlconfig.timeid(file_yaml='request_data.yaml')
-
 
 # 替换参数
-
 def body_replace(url, data=None):
     body = yamlconfig.timeid()
 

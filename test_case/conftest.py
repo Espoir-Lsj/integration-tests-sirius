@@ -5,7 +5,7 @@
 
 import pytest, jsonpath
 import time, datetime
-from common import Purchase_Management, Order_Management, login
+from test_case.common import Purchase_Management, Order_Management, login
 
 from test_config.yamlconfig import timeid, body_data
 
