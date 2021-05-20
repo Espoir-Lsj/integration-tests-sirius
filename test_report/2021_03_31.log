@@ -1,0 +1,418 @@
+[2021-03-31 11:58:15,085] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-03-31 11:58:15,312] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-03-31 11:58:15,406] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-03-31 11:58:19,939] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/adhocOrder/create 
+ 传入参数：{"toolsDetailUiBeans": [], "goodsDetailUiBeans": [{"goodsId": 20538, "quantity": 1, "supplierId": 2}], "orderUiBean": {"ageGroup": "adult", "gender": "male", "supplierId": 2, "hospitalName": "测试", "procedureSite": [100], "surgeon": "曹秀兰", "procedureTime": 1617206400000, "expectReturnTime": 1617292800000, "postcode": "154918", "contactName": "测试", "contactPhone": "14790817731", "manufacturerId": 1, "salesPerson": "屈艳", "deliveryMode": "SELF_PIKE_UP", "receivingName": "任宁", "receivingIdCard": null, "receivingPhone": "13423625773", "districtCode": 110101000000, "receivingAddress": "新疆维吾尔自治区惠州县友好陈路i座 299199"}} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": {"id": 126, "code": "AH_20210331_0001"}}
+[2021-03-31 11:58:19,940] - logger.py] - INFO: 生成的临调单id: 126
+[2021-03-31 11:58:20,354] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/adhocOrder/accept 
+ 传入参数：{"id": 126, "accept": false} 
+ 响应内容：{"code": 1, "msg": "请输入修改建议", "exMsg": null, "data": null}
+[2021-03-31 11:59:04,712] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-03-31 11:59:04,789] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-03-31 11:59:05,066] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-03-31 11:59:06,050] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/adhocOrder/create 
+ 传入参数：{"toolsDetailUiBeans": [], "goodsDetailUiBeans": [{"goodsId": 20538, "quantity": 1, "supplierId": 2}], "orderUiBean": {"ageGroup": "adult", "gender": "male", "supplierId": 2, "hospitalName": "测试", "procedureSite": [100], "surgeon": "卢东", "procedureTime": 1617206400000, "expectReturnTime": 1617292800000, "postcode": "103207", "contactName": "测试", "contactPhone": "18515259739", "manufacturerId": 1, "salesPerson": "朱淑兰", "deliveryMode": "SELF_PIKE_UP", "receivingName": "葛阳", "receivingIdCard": null, "receivingPhone": "18747925832", "districtCode": 110101000000, "receivingAddress": "台湾省兰州县浔阳长沙路G座 768010"}} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": {"id": 127, "code": "AH_20210331_0002"}}
+[2021-03-31 11:59:06,051] - logger.py] - INFO: 生成的临调单id: 127
+[2021-03-31 11:59:06,961] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/adhocOrder/accept 
+ 传入参数：{"id": 127, "accept": false} 
+ 响应内容：{"code": 1, "msg": "请输入修改建议", "exMsg": null, "data": null}
+[2021-03-31 11:59:41,156] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-03-31 11:59:41,216] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-03-31 11:59:41,261] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-03-31 11:59:41,513] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/adhocOrder/create 
+ 传入参数：{"toolsDetailUiBeans": [], "goodsDetailUiBeans": [{"goodsId": 20538, "quantity": 1, "supplierId": 2}], "orderUiBean": {"ageGroup": "adult", "gender": "male", "supplierId": 2, "hospitalName": "测试", "procedureSite": [100], "surgeon": "曹秀珍", "procedureTime": 1617206400000, "expectReturnTime": 1617292800000, "postcode": "226762", "contactName": "测试", "contactPhone": "13441959260", "manufacturerId": 1, "salesPerson": "张淑英", "deliveryMode": "SELF_PIKE_UP", "receivingName": "彭建国", "receivingIdCard": null, "receivingPhone": "18225534118", "districtCode": 110101000000, "receivingAddress": "海南省楠市长寿伊路o座 570965"}} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": {"id": 128, "code": "AH_20210331_0003"}}
+[2021-03-31 11:59:41,514] - logger.py] - INFO: 生成的临调单id: 128
+[2021-03-31 11:59:41,661] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/adhocOrder/accept 
+ 传入参数：{"id": 128, "accept": false} 
+ 响应内容：{"code": 1, "msg": "请输入修改建议", "exMsg": null, "data": null}
+[2021-03-31 12:01:04,033] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-03-31 12:01:04,100] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-03-31 12:01:04,192] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-03-31 12:01:04,392] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/adhocOrder/create 
+ 传入参数：{"toolsDetailUiBeans": [], "goodsDetailUiBeans": [{"goodsId": 20538, "quantity": 1, "supplierId": 2}], "orderUiBean": {"ageGroup": "adult", "gender": "male", "supplierId": 2, "hospitalName": "测试", "procedureSite": [100], "surgeon": "张军", "procedureTime": 1617206400000, "expectReturnTime": 1617292800000, "postcode": "602383", "contactName": "测试", "contactPhone": "13450098361", "manufacturerId": 1, "salesPerson": "李杨", "deliveryMode": "SELF_PIKE_UP", "receivingName": "凌英", "receivingIdCard": null, "receivingPhone": "18019094095", "districtCode": 110101000000, "receivingAddress": "河南省台北县西峰潘街c座 115580"}} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": {"id": 129, "code": "AH_20210331_0004"}}
+[2021-03-31 12:01:04,394] - logger.py] - INFO: 生成的临调单id: 129
+[2021-03-31 12:01:04,483] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/adhocOrder/accept 
+ 传入参数：{"id": 129, "accept": false} 
+ 响应内容：{"code": 1, "msg": "请输入修改建议", "exMsg": null, "data": null}
+[2021-03-31 17:05:12,738] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-03-31 17:05:12,847] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-03-31 17:05:12,922] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-03-31 17:05:13,273] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/adhocOrder/findList?pageNum=0&pageSize=50 
+[2021-03-31 17:05:13,278] - logger.py] - INFO: ------开始创建临调单------
+[2021-03-31 17:05:13,349] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-03-31 17:05:13,419] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-03-31 17:05:13,517] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-03-31 17:05:13,666] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/findListByMainMaterial?pageNum=0&pageSize=50&manufacturerId=1 
+[2021-03-31 17:05:13,871] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/adhocOrder/getAddress?id= 
+ 响应内容：{"code": 1, "msg": "请求参数异常", "exMsg": null, "data": null}
+[2021-03-31 17:05:13,873] - logger.py] - INFO: {'code': 1, 'msg': '请求参数异常', 'exMsg': None, 'data': None}
+[2021-03-31 17:05:13,937] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/adhocOrder/getDetail?orderId= 
+ 响应内容：{"code": 1, "msg": "请求参数异常", "exMsg": null, "data": null}
+[2021-03-31 17:05:13,938] - logger.py] - INFO: {'code': 1, 'msg': '请求参数异常', 'exMsg': None, 'data': None}
+[2021-03-31 17:05:14,152] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/adhocOrder/accept 
+ 传入参数：{"id": "", "accept": false, "reason": "refuse"} 
+ 响应内容：{"code": 1, "msg": "请选择临调单", "exMsg": null, "data": null}
+[2021-03-31 17:05:14,153] - logger.py] - INFO: {'code': 1, 'msg': '请选择临调单', 'exMsg': None, 'data': None}
+[2021-03-31 17:05:14,244] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/adhocOrder/getDetail?orderId= 
+ 响应内容：{"code": 1, "msg": "请求参数异常", "exMsg": null, "data": null}
+[2021-03-31 17:05:14,259] - logger.py] - INFO: ------接收临调单------
+[2021-03-31 17:05:14,286] - logger.py] - INFO: ------拣货------
+[2021-03-31 17:05:14,309] - logger.py] - INFO: ------出库，发货审核------
+[2021-03-31 17:05:14,332] - logger.py] - INFO: ------回库，提交入库单------
+[2021-03-31 17:05:14,356] - logger.py] - INFO: ------入库单开始验收------
+[2021-03-31 17:05:14,379] - logger.py] - INFO: ------开始上架------
+[2021-03-31 17:05:14,425] - logger.py] - INFO: ------开始生成销售单------
+[2021-03-31 17:09:03,939] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-03-31 17:09:04,028] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-03-31 17:09:04,094] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-03-31 17:09:04,440] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/adhocOrder/findList?pageNum=0&pageSize=50 
+[2021-03-31 17:09:04,444] - logger.py] - INFO: ------开始创建临调单------
+[2021-03-31 17:09:04,501] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-03-31 17:09:04,556] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-03-31 17:09:04,621] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-03-31 17:09:04,734] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/findListByMainMaterial?pageNum=0&pageSize=50&manufacturerId=1 
+[2021-03-31 17:09:04,943] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/adhocOrder/getAddress?id= 
+ 响应内容：{"code": 1, "msg": "请求参数异常", "exMsg": null, "data": null}
+[2021-03-31 17:09:04,945] - logger.py] - INFO: {'code': 1, 'msg': '请求参数异常', 'exMsg': None, 'data': None}
+[2021-03-31 17:09:05,010] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/adhocOrder/getDetail?orderId= 
+ 响应内容：{"code": 1, "msg": "请求参数异常", "exMsg": null, "data": null}
+[2021-03-31 17:09:05,011] - logger.py] - INFO: {'code': 1, 'msg': '请求参数异常', 'exMsg': None, 'data': None}
+[2021-03-31 17:09:05,090] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/adhocOrder/accept 
+ 传入参数：{"id": "", "accept": false, "reason": "refuse"} 
+ 响应内容：{"code": 1, "msg": "请选择临调单", "exMsg": null, "data": null}
+[2021-03-31 17:09:05,091] - logger.py] - INFO: {'code': 1, 'msg': '请选择临调单', 'exMsg': None, 'data': None}
+[2021-03-31 17:09:05,177] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/adhocOrder/getDetail?orderId= 
+ 响应内容：{"code": 1, "msg": "请求参数异常", "exMsg": null, "data": null}
+[2021-03-31 17:09:05,194] - logger.py] - INFO: ------接收临调单------
+[2021-03-31 17:09:05,219] - logger.py] - INFO: ------拣货------
+[2021-03-31 17:09:05,241] - logger.py] - INFO: ------出库，发货审核------
+[2021-03-31 17:09:05,261] - logger.py] - INFO: ------回库，提交入库单------
+[2021-03-31 17:09:05,282] - logger.py] - INFO: ------入库单开始验收------
+[2021-03-31 17:09:05,303] - logger.py] - INFO: ------开始上架------
+[2021-03-31 17:09:05,333] - logger.py] - INFO: ------开始生成销售单------
+[2021-03-31 17:10:08,280] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-03-31 17:10:08,334] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-03-31 17:10:08,395] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-03-31 17:10:08,734] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/adhocOrder/findList?pageNum=0&pageSize=50 
+[2021-03-31 17:11:19,208] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-03-31 17:11:19,284] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-03-31 17:11:19,345] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-03-31 17:11:19,542] - logger.py] - INFO: ------开始创建临调单------
+[2021-03-31 17:11:19,606] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-03-31 17:11:19,669] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-03-31 17:11:19,732] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-03-31 17:11:19,862] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/findListByMainMaterial?pageNum=0&pageSize=50&manufacturerId=1 
+[2021-03-31 17:22:52,184] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-03-31 17:22:52,252] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-03-31 17:22:52,319] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-03-31 17:22:52,550] - logger.py] - INFO: ------开始创建临调单------
+[2021-03-31 17:22:52,609] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-03-31 17:22:52,739] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-03-31 17:22:52,809] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-03-31 17:22:52,922] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/findListByMainMaterial?pageNum=0&pageSize=50&manufacturerId=1 
+[2021-03-31 17:30:29,587] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-03-31 17:30:29,685] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-03-31 17:30:29,739] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-03-31 17:30:39,815] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-03-31 17:30:39,949] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-03-31 17:30:40,001] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-03-31 17:30:40,199] - logger.py] - INFO: ------开始创建临调单------
+[2021-03-31 17:30:40,264] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-03-31 17:30:40,323] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-03-31 17:30:40,380] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-03-31 17:30:40,696] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/findListByMainMaterial?pageNum=0&pageSize=50&manufacturerId=1 
+[2021-03-31 17:30:45,458] - logger.py] - INFO: 传入的参数 {'toolsDetailUiBeans': [], 'goodsDetailUiBeans': [{'goodsId': 20538, 'quantity': 3, 'supplierId': 8}], 'orderUiBean': {'ageGroup': 'adult', 'gender': 'male', 'supplierId': 8, 'hospitalName': '测试', 'procedureSite': [95], 'surgeon': '曹红', 'procedureTime': 1617206400000, 'expectReturnTime': 1617292800000, 'postcode': '729414', 'contactName': '本单勿动谢谢', 'contactPhone': '15013634424', 'manufacturerId': 1, 'deliveryMode': 'SELF_PIKE_UP', 'receivingName': '王洁', 'receivingIdCard': '45022619700728342X', 'receivingPhone': '13553299837', 'districtCode': 110101000000, 'receivingAddress': '贵州省宁德市孝南方路j座 482339', 'powerOfAttorney': '123', 'consignorName': '陈慧', 'consignorPhone': '13256928967'}}
+[2021-03-31 17:30:45,637] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/adhocOrder/appCreate 
+ 传入参数：{"toolsDetailUiBeans": [], "goodsDetailUiBeans": [{"goodsId": 20538, "quantity": 3, "supplierId": 8}], "orderUiBean": {"ageGroup": "adult", "gender": "male", "supplierId": 8, "hospitalName": "测试", "procedureSite": [95], "surgeon": "曹红", "procedureTime": 1617206400000, "expectReturnTime": 1617292800000, "postcode": "729414", "contactName": "本单勿动谢谢", "contactPhone": "15013634424", "manufacturerId": 1, "deliveryMode": "SELF_PIKE_UP", "receivingName": "王洁", "receivingIdCard": "45022619700728342X", "receivingPhone": "13553299837", "districtCode": 110101000000, "receivingAddress": "贵州省宁德市孝南方路j座 482339", "powerOfAttorney": "123", "consignorName": "陈慧", "consignorPhone": "13256928967"}} 
+ 响应内容：{"code": 1, "msg": "商品不存在,请刷新重试", "exMsg": null, "data": null}
+[2021-03-31 17:39:37,655] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-03-31 17:39:37,724] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-03-31 17:39:37,786] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-03-31 17:39:38,005] - logger.py] - INFO: ------开始创建临调单------
+[2021-03-31 17:39:38,060] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-03-31 17:39:38,112] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-03-31 17:39:38,170] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-03-31 17:39:38,346] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/findListByMainMaterial?pageNum=0&pageSize=50&manufacturerId=1 
+[2021-03-31 17:39:41,225] - logger.py] - INFO: 传入的参数 {'toolsDetailUiBeans': [], 'goodsDetailUiBeans': [{'goodsId': 243, 'quantity': 3, 'supplierId': 8}], 'orderUiBean': {'ageGroup': 'adult', 'gender': 'male', 'supplierId': 8, 'hospitalName': '测试', 'procedureSite': [95], 'surgeon': '洪玉梅', 'procedureTime': 1617206400000, 'expectReturnTime': 1617292800000, 'postcode': '733068', 'contactName': '本单勿动谢谢', 'contactPhone': '18736714315', 'manufacturerId': 1, 'deliveryMode': 'SELF_PIKE_UP', 'receivingName': '郑淑兰', 'receivingIdCard': '542421195708068486', 'receivingPhone': '13115915835', 'districtCode': 110101000000, 'receivingAddress': '黑龙江省涛市金平陈路o座 745227', 'powerOfAttorney': '123', 'consignorName': '郭莉', 'consignorPhone': '18897656845'}}
+[2021-03-31 17:39:41,339] - logger.py] - ERROR: ----------系统错误---------- 
+ 请求地址：/adhocOrder/appCreate 
+ 传入参数：{"toolsDetailUiBeans": [], "goodsDetailUiBeans": [{"goodsId": 243, "quantity": 3, "supplierId": 8}], "orderUiBean": {"ageGroup": "adult", "gender": "male", "supplierId": 8, "hospitalName": "测试", "procedureSite": [95], "surgeon": "洪玉梅", "procedureTime": 1617206400000, "expectReturnTime": 1617292800000, "postcode": "733068", "contactName": "本单勿动谢谢", "contactPhone": "18736714315", "manufacturerId": 1, "deliveryMode": "SELF_PIKE_UP", "receivingName": "郑淑兰", "receivingIdCard": "542421195708068486", "receivingPhone": "13115915835", "districtCode": 110101000000, "receivingAddress": "黑龙江省涛市金平陈路o座 745227", "powerOfAttorney": "123", "consignorName": "郭莉", "consignorPhone": "18897656845"}} 
+ 响应内容：{"code": 2, "msg": "System busy, please try again later.", "exMsg": null, "data": null}
+[2021-03-31 17:39:59,516] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-03-31 17:39:59,581] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-03-31 17:39:59,646] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-03-31 17:39:59,824] - logger.py] - INFO: ------开始创建临调单------
+[2021-03-31 17:39:59,884] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-03-31 17:39:59,963] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-03-31 17:40:00,053] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-03-31 17:40:00,186] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/findListByMainMaterial?pageNum=0&pageSize=50&manufacturerId=1 
+[2021-03-31 17:40:02,062] - logger.py] - INFO: 传入的参数 {'toolsDetailUiBeans': [], 'goodsDetailUiBeans': [{'goodsId': 243, 'quantity': 3, 'supplierId': 8}], 'orderUiBean': {'ageGroup': 'adult', 'gender': 'male', 'supplierId': 8, 'hospitalName': '测试', 'procedureSite': [95], 'surgeon': '郭建军', 'procedureTime': 1617206400000, 'expectReturnTime': 1617292800000, 'postcode': '884575', 'contactName': '本单勿动谢谢', 'contactPhone': '15271583103', 'manufacturerId': 1, 'deliveryMode': 'SELF_PIKE_UP', 'receivingName': '刘洋', 'receivingIdCard': '320684195807242869', 'receivingPhone': '18689574144', 'districtCode': 110101000000, 'receivingAddress': '西藏自治区玉珍市白云张路f座 161103', 'powerOfAttorney': '123', 'consignorName': '覃波', 'consignorPhone': '13038792357'}}
+[2021-03-31 17:40:02,168] - logger.py] - ERROR: ----------系统错误---------- 
+ 请求地址：/adhocOrder/appCreate 
+ 传入参数：{"toolsDetailUiBeans": [], "goodsDetailUiBeans": [{"goodsId": 243, "quantity": 3, "supplierId": 8}], "orderUiBean": {"ageGroup": "adult", "gender": "male", "supplierId": 8, "hospitalName": "测试", "procedureSite": [95], "surgeon": "郭建军", "procedureTime": 1617206400000, "expectReturnTime": 1617292800000, "postcode": "884575", "contactName": "本单勿动谢谢", "contactPhone": "15271583103", "manufacturerId": 1, "deliveryMode": "SELF_PIKE_UP", "receivingName": "刘洋", "receivingIdCard": "320684195807242869", "receivingPhone": "18689574144", "districtCode": 110101000000, "receivingAddress": "西藏自治区玉珍市白云张路f座 161103", "powerOfAttorney": "123", "consignorName": "覃波", "consignorPhone": "13038792357"}} 
+ 响应内容：{"code": 2, "msg": "System busy, please try again later.", "exMsg": null, "data": null}
+[2021-03-31 17:45:31,888] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-03-31 17:45:31,952] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-03-31 17:45:32,006] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-03-31 17:45:32,222] - logger.py] - INFO: ------开始创建临调单------
+[2021-03-31 17:45:32,279] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-03-31 17:45:32,339] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-03-31 17:45:32,416] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-03-31 17:45:32,520] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/findListByMainMaterial?pageNum=0&pageSize=50&manufacturerId=1 
+[2021-03-31 17:45:34,437] - logger.py] - INFO: 传入的参数 {'toolsDetailUiBeans': [], 'goodsDetailUiBeans': [{'goodsId': 243, 'quantity': 3, 'supplierId': 8}], 'orderUiBean': {'ageGroup': 'adult', 'gender': 'male', 'supplierId': 8, 'hospitalName': '测试', 'procedureSite': [95], 'surgeon': '曹华', 'procedureTime': 1617206400000, 'expectReturnTime': 1617292800000, 'postcode': '284184', 'contactName': '本单勿动谢谢', 'contactPhone': '15554651833', 'manufacturerId': 1, 'deliveryMode': 'SELF_PIKE_UP', 'receivingName': '刘霞', 'receivingIdCard': '620701194209256954', 'receivingPhone': '18882121350', 'districtCode': 110101000000, 'receivingAddress': '湖南省南宁市东丽太原路e座 608449', 'powerOfAttorney': '123', 'consignorName': '张慧', 'consignorPhone': '13240870250'}}
+[2021-03-31 17:45:34,601] - logger.py] - ERROR: ----------系统错误---------- 
+ 请求地址：/adhocOrder/appCreate 
+ 传入参数：{"toolsDetailUiBeans": [], "goodsDetailUiBeans": [{"goodsId": 243, "quantity": 3, "supplierId": 8}], "orderUiBean": {"ageGroup": "adult", "gender": "male", "supplierId": 8, "hospitalName": "测试", "procedureSite": [95], "surgeon": "曹华", "procedureTime": 1617206400000, "expectReturnTime": 1617292800000, "postcode": "284184", "contactName": "本单勿动谢谢", "contactPhone": "15554651833", "manufacturerId": 1, "deliveryMode": "SELF_PIKE_UP", "receivingName": "刘霞", "receivingIdCard": "620701194209256954", "receivingPhone": "18882121350", "districtCode": 110101000000, "receivingAddress": "湖南省南宁市东丽太原路e座 608449", "powerOfAttorney": "123", "consignorName": "张慧", "consignorPhone": "13240870250"}} 
+ 响应内容：{"code": 2, "msg": "System busy, please try again later.", "exMsg": null, "data": null}
+[2021-03-31 17:52:11,624] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-03-31 17:52:11,717] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-03-31 17:52:11,798] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-03-31 17:52:11,984] - logger.py] - INFO: ------开始创建临调单------
+[2021-03-31 17:52:12,132] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-03-31 17:52:12,235] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-03-31 17:52:12,322] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-03-31 17:52:12,716] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/findListByMainMaterial?pageNum=0&pageSize=50&manufacturerId=1 
+[2021-03-31 17:52:18,209] - logger.py] - INFO: 传入的参数 {'toolsDetailUiBeans': [], 'goodsDetailUiBeans': [{'goodsId': 243, 'quantity': 3, 'supplierId': 8}], 'orderUiBean': {'ageGroup': 'adult', 'gender': 'male', 'supplierId': 8, 'hospitalName': '测试', 'procedureSite': [95], 'surgeon': '周飞', 'procedureTime': 1617206400000, 'expectReturnTime': 1617292800000, 'postcode': '232603', 'contactName': '本单勿动谢谢', 'contactPhone': '13314489082', 'manufacturerId': 1, 'deliveryMode': 'SELF_PIKE_UP', 'receivingName': '曾龙', 'receivingIdCard': '431202195707094344', 'receivingPhone': '15104154136', 'districtCode': 110101000000, 'receivingAddress': '台湾省东莞县和平朱街I座 767504', 'powerOfAttorney': '123', 'consignorName': '陈坤', 'consignorPhone': '18199888592'}}
+[2021-03-31 17:52:18,983] - logger.py] - ERROR: ----------系统错误---------- 
+ 请求地址：/adhocOrder/appCreate 
+ 传入参数：{"toolsDetailUiBeans": [], "goodsDetailUiBeans": [{"goodsId": 243, "quantity": 3, "supplierId": 8}], "orderUiBean": {"ageGroup": "adult", "gender": "male", "supplierId": 8, "hospitalName": "测试", "procedureSite": [95], "surgeon": "周飞", "procedureTime": 1617206400000, "expectReturnTime": 1617292800000, "postcode": "232603", "contactName": "本单勿动谢谢", "contactPhone": "13314489082", "manufacturerId": 1, "deliveryMode": "SELF_PIKE_UP", "receivingName": "曾龙", "receivingIdCard": "431202195707094344", "receivingPhone": "15104154136", "districtCode": 110101000000, "receivingAddress": "台湾省东莞县和平朱街I座 767504", "powerOfAttorney": "123", "consignorName": "陈坤", "consignorPhone": "18199888592"}} 
+ 响应内容：{"code": 2, "msg": "System busy, please try again later.", "exMsg": null, "data": null}
+[2021-03-31 19:01:18,822] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-03-31 19:01:18,892] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-03-31 19:01:18,964] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-03-31 19:01:19,172] - logger.py] - INFO: ------开始创建临调单------
+[2021-03-31 19:01:19,248] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-03-31 19:01:19,342] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-03-31 19:01:19,402] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-03-31 19:01:19,535] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/findListByMainMaterial?pageNum=0&pageSize=50&manufacturerId=1 
+[2021-03-31 19:01:21,400] - logger.py] - INFO: 传入的参数 {'toolsDetailUiBeans': [], 'goodsDetailUiBeans': [{'goodsId': 243, 'quantity': 3, 'supplierId': 8}], 'orderUiBean': {'ageGroup': 'adult', 'gender': 'male', 'supplierId': 8, 'hospitalName': '测试', 'procedureSite': [95], 'surgeon': '乔莉', 'procedureTime': 1617206400000, 'expectReturnTime': 1617292800000, 'postcode': '942457', 'contactName': '本单勿动谢谢', 'contactPhone': '15502447593', 'manufacturerId': 1, 'deliveryMode': 'SELF_PIKE_UP', 'receivingName': '吴斌', 'receivingIdCard': '330100198210135332', 'receivingPhone': '18962578985', 'districtCode': 110101000000, 'receivingAddress': '江西省潜江市金平李街A座 945792', 'powerOfAttorney': '123', 'consignorName': '王洋', 'consignorPhone': '13033991506'}}
+[2021-03-31 19:01:21,791] - logger.py] - ERROR: ----------系统错误---------- 
+ 请求地址：/adhocOrder/appCreate 
+ 传入参数：{"toolsDetailUiBeans": [], "goodsDetailUiBeans": [{"goodsId": 243, "quantity": 3, "supplierId": 8}], "orderUiBean": {"ageGroup": "adult", "gender": "male", "supplierId": 8, "hospitalName": "测试", "procedureSite": [95], "surgeon": "乔莉", "procedureTime": 1617206400000, "expectReturnTime": 1617292800000, "postcode": "942457", "contactName": "本单勿动谢谢", "contactPhone": "15502447593", "manufacturerId": 1, "deliveryMode": "SELF_PIKE_UP", "receivingName": "吴斌", "receivingIdCard": "330100198210135332", "receivingPhone": "18962578985", "districtCode": 110101000000, "receivingAddress": "江西省潜江市金平李街A座 945792", "powerOfAttorney": "123", "consignorName": "王洋", "consignorPhone": "13033991506"}} 
+ 响应内容：{"code": 2, "msg": "System busy, please try again later.", "exMsg": null, "data": null}
+[2021-03-31 19:34:54,229] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-03-31 19:34:54,364] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-03-31 19:34:54,458] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-03-31 19:34:54,688] - logger.py] - INFO: ------开始创建临调单------
+[2021-03-31 19:34:54,770] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-03-31 19:34:54,924] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-03-31 19:34:55,026] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-03-31 19:34:55,273] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/findListByMainMaterial?pageNum=0&pageSize=50&manufacturerId=1 
+[2021-03-31 19:34:57,125] - logger.py] - INFO: 传入的参数 {'toolsDetailUiBeans': [], 'goodsDetailUiBeans': [{'goodsId': 243, 'quantity': 3, 'supplierId': 8}], 'orderUiBean': {'ageGroup': 'adult', 'gender': 'male', 'supplierId': 8, 'hospitalName': '测试', 'procedureSite': [95], 'surgeon': '胡建', 'procedureTime': 1617206400000, 'expectReturnTime': 1617292800000, 'postcode': '234566', 'contactName': '本单勿动谢谢', 'contactPhone': '15381072365', 'manufacturerId': 1, 'deliveryMode': 'SELF_PIKE_UP', 'receivingName': '牛丽', 'receivingIdCard': '150782198510082774', 'receivingPhone': '15512238825', 'districtCode': 110101000000, 'receivingAddress': '河北省娜市城北石家庄街n座 534333', 'powerOfAttorney': '123', 'consignorName': '刘小红', 'consignorPhone': '13313092552'}}
+[2021-03-31 19:34:57,283] - logger.py] - ERROR: ----------系统错误---------- 
+ 请求地址：/adhocOrder/appCreate 
+ 传入参数：{"toolsDetailUiBeans": [], "goodsDetailUiBeans": [{"goodsId": 243, "quantity": 3, "supplierId": 8}], "orderUiBean": {"ageGroup": "adult", "gender": "male", "supplierId": 8, "hospitalName": "测试", "procedureSite": [95], "surgeon": "胡建", "procedureTime": 1617206400000, "expectReturnTime": 1617292800000, "postcode": "234566", "contactName": "本单勿动谢谢", "contactPhone": "15381072365", "manufacturerId": 1, "deliveryMode": "SELF_PIKE_UP", "receivingName": "牛丽", "receivingIdCard": "150782198510082774", "receivingPhone": "15512238825", "districtCode": 110101000000, "receivingAddress": "河北省娜市城北石家庄街n座 534333", "powerOfAttorney": "123", "consignorName": "刘小红", "consignorPhone": "13313092552"}} 
+ 响应内容：{"code": 2, "msg": "System busy, please try again later.", "exMsg": null, "data": null}
+[2021-03-31 19:37:26,167] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-03-31 19:37:26,269] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-03-31 19:37:26,341] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-03-31 19:37:26,573] - logger.py] - INFO: ------开始创建临调单------
+[2021-03-31 19:37:26,631] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-03-31 19:37:26,688] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-03-31 19:37:26,743] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-03-31 19:37:26,832] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/findListByMainMaterial?pageNum=0&pageSize=50&manufacturerId=1 
+[2021-03-31 19:37:28,954] - logger.py] - INFO: 传入的参数 {'toolsDetailUiBeans': [], 'goodsDetailUiBeans': [{'goodsId': 243, 'quantity': 3, 'supplierId': 8}], 'orderUiBean': {'ageGroup': 'adult', 'gender': 'male', 'supplierId': 8, 'hospitalName': '测试', 'procedureSite': [95], 'surgeon': '赵秀华', 'procedureTime': 1617206400000, 'expectReturnTime': 1617292800000, 'postcode': '500767', 'contactName': '本单勿动谢谢', 'contactPhone': '14568442872', 'manufacturerId': 1, 'deliveryMode': 'SELF_PIKE_UP', 'receivingName': '张凤兰', 'receivingIdCard': '210902194612225702', 'receivingPhone': '15931956737', 'districtCode': 110101000000, 'receivingAddress': '内蒙古自治区兵市静安郑州街f座 787676', 'powerOfAttorney': '123', 'consignorName': '郝俊', 'consignorPhone': '15536826247'}}
+[2021-03-31 19:37:29,380] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/adhocOrder/appCreate 
+ 传入参数：{"toolsDetailUiBeans": [], "goodsDetailUiBeans": [{"goodsId": 243, "quantity": 3, "supplierId": 8}], "orderUiBean": {"ageGroup": "adult", "gender": "male", "supplierId": 8, "hospitalName": "测试", "procedureSite": [95], "surgeon": "赵秀华", "procedureTime": 1617206400000, "expectReturnTime": 1617292800000, "postcode": "500767", "contactName": "本单勿动谢谢", "contactPhone": "14568442872", "manufacturerId": 1, "deliveryMode": "SELF_PIKE_UP", "receivingName": "张凤兰", "receivingIdCard": "210902194612225702", "receivingPhone": "15931956737", "districtCode": 110101000000, "receivingAddress": "内蒙古自治区兵市静安郑州街f座 787676", "powerOfAttorney": "123", "consignorName": "郝俊", "consignorPhone": "15536826247"}} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": {"id": 589, "code": "AH_20210331_0001"}}
+[2021-03-31 19:37:29,381] - logger.py] - INFO: 生成的临调单id: 589
+[2021-03-31 19:37:29,382] - logger.py] - INFO: 生成的临调单code: AH_20210331_0001
+[2021-03-31 19:42:40,978] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-03-31 19:42:41,101] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-03-31 19:42:41,188] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-03-31 19:43:06,587] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-03-31 19:43:06,689] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-03-31 19:43:06,822] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-03-31 19:43:07,016] - logger.py] - INFO: ------接收临调单------
+[2021-03-31 19:43:09,998] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/adhocOrder/accept 
+ 传入参数：{"id": "589", "accept": true} 
+ 响应内容：{"code": 1, "msg": "请填写临调单详情", "exMsg": null, "data": null}
+[2021-03-31 19:56:48,651] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-03-31 19:56:48,728] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-03-31 19:56:48,794] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-03-31 19:56:48,989] - logger.py] - INFO: ------接收临调单------
+[2021-03-31 19:56:55,648] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/adhocOrder/accept 
+ 传入参数：{"accept": true, "detail": [{"goodsDetailUiBeans": [{"goodsId": 243, "quantity": 3, "supplierId": null}], "warehouseId": null}], "id": "589"} 
+ 响应内容：{"code": 1, "msg": "请选择收货方式", "exMsg": null, "data": null}
+[2021-03-31 19:59:18,892] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-03-31 19:59:18,945] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-03-31 19:59:19,015] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-03-31 19:59:19,259] - logger.py] - INFO: ------接收临调单------
+[2021-03-31 19:59:22,300] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/adhocOrder/accept 
+ 传入参数：{"accept": true, "detail": [{"goodsDetailUiBeans": [{"goodsId": 243, "quantity": 3, "supplierId": null}], "warehouseId": null}], "id": "589"} 
+ 响应内容：{"code": 1, "msg": "请选择收货方式", "exMsg": null, "data": null}
+[2021-03-31 20:19:43,800] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-03-31 20:19:43,857] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-03-31 20:19:43,936] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-03-31 20:19:44,147] - logger.py] - INFO: ------接收临调单------
+[2021-03-31 20:19:47,184] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/adhocOrder/accept 
+ 传入参数：{"accept": true, "detail": [{"goodsDetailUiBeans": [{"goodsId": 243, "quantity": 3, "supplierId": null}], "warehouseId": null}], "id": "589", "deliveryMode": "DELIVERY"} 
+ 响应内容：{"code": 1, "msg": "请选择临调单仓库", "exMsg": null, "data": null}
+[2021-03-31 20:20:00,031] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-03-31 20:20:00,096] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-03-31 20:20:00,147] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-03-31 20:20:00,330] - logger.py] - INFO: ------接收临调单------
+[2021-03-31 20:20:03,303] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/adhocOrder/accept 
+ 传入参数：{"accept": true, "detail": [{"goodsDetailUiBeans": [{"goodsId": 243, "quantity": 3, "supplierId": 3}], "warehouseId": 6}], "id": "589", "deliveryMode": "DELIVERY"} 
+ 响应内容：{"code": 1, "msg": "请选择收货方式", "exMsg": null, "data": null}
+[2021-03-31 20:20:38,842] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-03-31 20:20:38,917] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-03-31 20:20:38,975] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-03-31 20:20:39,215] - logger.py] - INFO: ------接收临调单------
+[2021-03-31 20:20:41,497] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/adhocOrder/accept 
+ 传入参数：{"accept": true, "detail": [{"goodsDetailUiBeans": [{"goodsId": 243, "quantity": 3, "supplierId": 3}], "warehouseId": 6}], "id": "589", "deliveryMode": "DELIVERY"} 
+ 响应内容：{"code": 1, "msg": "请选择收货方式", "exMsg": null, "data": null}

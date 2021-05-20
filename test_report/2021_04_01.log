@@ -1,0 +1,481 @@
+[2021-04-01 09:09:57,112] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-04-01 09:09:57,193] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-04-01 09:09:57,304] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-04-01 09:09:57,538] - logger.py] - INFO: ------接收临调单------
+[2021-04-01 09:10:01,000] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/adhocOrder/accept 
+ 传入参数：{"accept": true, "detail": [{"goodsDetailUiBeans": [{"goodsId": 243, "quantity": 3, "supplierId": 3}], "warehouseId": 6}], "id": "589", "deliveryMode": "DELIVERY"} 
+ 响应内容：{"code": 1, "msg": "请选择收货方式", "exMsg": null, "data": null}
+[2021-04-01 09:43:38,925] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-04-01 09:43:39,054] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-04-01 09:43:39,197] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-04-01 09:43:39,420] - logger.py] - INFO: ------接收临调单------
+[2021-04-01 09:43:43,176] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/adhocOrder/accept 
+ 传入参数：{"detail": [{"deliveryMode": "DELIVERY", "goodsDetailUiBeans": [{"goodsId": 243, "quantity": 3}], "toolsDetailUiBeans": [{"kitTemplateId": null, "quantity": null}], "warehouseId": 6}], "id": "589"} 
+ 响应内容：{"code": 1, "msg": "请输入工具包数量", "exMsg": null, "data": null}
+[2021-04-01 09:43:58,986] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-04-01 09:43:59,178] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-04-01 09:43:59,257] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-04-01 09:43:59,461] - logger.py] - INFO: ------接收临调单------
+[2021-04-01 09:44:02,649] - logger.py] - ERROR: ----------系统错误---------- 
+ 请求地址：/adhocOrder/accept 
+ 传入参数：{"detail": [{"deliveryMode": "DELIVERY", "goodsDetailUiBeans": [{"goodsId": 243, "quantity": 3}], "warehouseId": 6}], "id": "589"} 
+ 响应内容：{"code": 2, "msg": "System busy, please try again later.", "exMsg": null, "data": null}
+[2021-04-01 09:53:29,511] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-04-01 09:53:29,614] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-04-01 09:53:29,732] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-04-01 09:53:29,969] - logger.py] - INFO: ------接收临调单------
+[2021-04-01 09:53:32,927] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/adhocOrder/accept 
+ 传入参数：{"detail": [{"deliveryMode": "DELIVERY", "goodsDetailUiBeans": [{"goodsId": 243, "quantity": 3}]}], "id": "589"} 
+ 响应内容：{"code": 1, "msg": "请选择临调单仓库", "exMsg": null, "data": null}
+[2021-04-01 09:53:51,515] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-04-01 09:53:51,607] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-04-01 09:53:51,733] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-04-01 09:53:51,975] - logger.py] - INFO: ------接收临调单------
+[2021-04-01 09:53:55,146] - logger.py] - ERROR: ----------系统错误---------- 
+ 请求地址：/adhocOrder/accept 
+ 传入参数：{"detail": [{"deliveryMode": "DELIVERY", "goodsDetailUiBeans": [{"goodsId": 243, "quantity": 3}], "warehouseId": 6}], "id": "589"} 
+ 响应内容：{"code": 2, "msg": "System busy, please try again later.", "exMsg": null, "data": null}
+[2021-04-01 10:06:51,798] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-04-01 10:06:51,936] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-04-01 10:06:52,025] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-04-01 10:06:52,217] - logger.py] - INFO: ------开始创建临调单------
+[2021-04-01 10:06:52,294] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-04-01 10:06:52,343] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-04-01 10:06:52,442] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-04-01 10:06:52,743] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/findListByMainMaterial?pageNum=0&pageSize=50&manufacturerId=1 
+[2021-04-01 10:06:54,654] - logger.py] - INFO: 传入的参数 {'toolsDetailUiBeans': [], 'goodsDetailUiBeans': [{'goodsId': 243, 'quantity': 3, 'supplierId': 8}], 'orderUiBean': {'ageGroup': 'adult', 'gender': 'male', 'supplierId': 8, 'hospitalName': '测试', 'procedureSite': [95], 'surgeon': '刘飞', 'procedureTime': 1617292800000, 'expectReturnTime': 1617379200000, 'postcode': '462471', 'contactName': '本单勿动谢谢', 'contactPhone': '18931313254', 'manufacturerId': 1, 'deliveryMode': 'SELF_PIKE_UP', 'receivingName': '陈兰英', 'receivingIdCard': '510114196102011634', 'receivingPhone': '18203173815', 'districtCode': 110101000000, 'receivingAddress': '宁夏回族自治区帆县永川潮州街H座 622921', 'powerOfAttorney': '123', 'consignorName': '罗桂芳', 'consignorPhone': '13194771129'}}
+[2021-04-01 10:06:54,994] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/adhocOrder/appCreate 
+ 传入参数：{"toolsDetailUiBeans": [], "goodsDetailUiBeans": [{"goodsId": 243, "quantity": 3, "supplierId": 8}], "orderUiBean": {"ageGroup": "adult", "gender": "male", "supplierId": 8, "hospitalName": "测试", "procedureSite": [95], "surgeon": "刘飞", "procedureTime": 1617292800000, "expectReturnTime": 1617379200000, "postcode": "462471", "contactName": "本单勿动谢谢", "contactPhone": "18931313254", "manufacturerId": 1, "deliveryMode": "SELF_PIKE_UP", "receivingName": "陈兰英", "receivingIdCard": "510114196102011634", "receivingPhone": "18203173815", "districtCode": 110101000000, "receivingAddress": "宁夏回族自治区帆县永川潮州街H座 622921", "powerOfAttorney": "123", "consignorName": "罗桂芳", "consignorPhone": "13194771129"}} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": {"id": 590, "code": "AH_20210401_0001"}}
+[2021-04-01 10:06:54,995] - logger.py] - INFO: 生成的临调单id: 590
+[2021-04-01 10:06:54,995] - logger.py] - INFO: 生成的临调单code: AH_20210401_0001
+[2021-04-01 10:09:02,232] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-04-01 10:09:02,390] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-04-01 10:09:02,479] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-04-01 10:09:02,770] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/adhocOrder/reject 
+ 传入参数：{"id": "", "accept": false, "reason": "refuse"} 
+ 响应内容：{"code": 1, "msg": "请选择临调单", "exMsg": null, "data": null}
+[2021-04-01 10:09:02,771] - logger.py] - INFO: {'code': 1, 'msg': '请选择临调单', 'exMsg': None, 'data': None}
+[2021-04-01 10:10:53,504] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-04-01 10:10:53,696] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-04-01 10:10:53,812] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-04-01 10:10:54,224] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/adhocOrder/reject 
+ 传入参数：{"id": 590, "accept": false, "reason": "refuse"} 
+ 响应内容：{"code": 1, "msg": "该临调单已处理，请勿重复操作", "exMsg": null, "data": null}
+[2021-04-01 10:10:54,224] - logger.py] - INFO: {'code': 1, 'msg': '该临调单已处理，请勿重复操作', 'exMsg': None, 'data': None}
+[2021-04-01 10:11:32,140] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-04-01 10:11:32,262] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-04-01 10:11:32,390] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-04-01 10:11:32,735] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/adhocOrder/reject 
+ 传入参数：{"id": "", "accept": false, "reason": "refuse"} 
+ 响应内容：{"code": 1, "msg": "请选择临调单", "exMsg": null, "data": null}
+[2021-04-01 10:11:32,736] - logger.py] - INFO: {'code': 1, 'msg': '请选择临调单', 'exMsg': None, 'data': None}
+[2021-04-01 10:12:35,562] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-04-01 10:12:35,682] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-04-01 10:12:35,796] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-04-01 10:12:36,275] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/adhocOrder/reject 
+ 传入参数：{"id": "", "accept": false, "reason": "refuse"} 
+ 响应内容：{"code": 1, "msg": "请选择临调单", "exMsg": null, "data": null}
+[2021-04-01 10:12:36,277] - logger.py] - INFO: {'code': 1, 'msg': '请选择临调单', 'exMsg': None, 'data': None}
+[2021-04-01 10:15:17,515] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-04-01 10:15:17,639] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-04-01 10:15:17,842] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-04-01 10:15:18,049] - logger.py] - INFO: ------开始创建临调单------
+[2021-04-01 10:15:18,201] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-04-01 10:15:18,320] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-04-01 10:15:18,440] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-04-01 10:15:18,565] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/findListByMainMaterial?pageNum=0&pageSize=50&manufacturerId=1 
+[2021-04-01 10:15:20,235] - logger.py] - INFO: 传入的参数 {'toolsDetailUiBeans': [], 'goodsDetailUiBeans': [{'goodsId': 243, 'quantity': 3, 'supplierId': 8}], 'orderUiBean': {'ageGroup': 'adult', 'gender': 'male', 'supplierId': 8, 'hospitalName': '测试', 'procedureSite': [95], 'surgeon': '朱杨', 'procedureTime': 1617292800000, 'expectReturnTime': 1617379200000, 'postcode': '550530', 'contactName': '本单勿动谢谢', 'contactPhone': '15605170038', 'manufacturerId': 1, 'deliveryMode': 'SELF_PIKE_UP', 'receivingName': '陈刚', 'receivingIdCard': '451302200003084597', 'receivingPhone': '13416874796', 'districtCode': 110101000000, 'receivingAddress': '西藏自治区嘉禾市房山关路F座 406903', 'powerOfAttorney': '123', 'consignorName': '高晶', 'consignorPhone': '18559418070'}}
+[2021-04-01 10:15:20,386] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/adhocOrder/appCreate 
+ 传入参数：{"toolsDetailUiBeans": [], "goodsDetailUiBeans": [{"goodsId": 243, "quantity": 3, "supplierId": 8}], "orderUiBean": {"ageGroup": "adult", "gender": "male", "supplierId": 8, "hospitalName": "测试", "procedureSite": [95], "surgeon": "朱杨", "procedureTime": 1617292800000, "expectReturnTime": 1617379200000, "postcode": "550530", "contactName": "本单勿动谢谢", "contactPhone": "15605170038", "manufacturerId": 1, "deliveryMode": "SELF_PIKE_UP", "receivingName": "陈刚", "receivingIdCard": "451302200003084597", "receivingPhone": "13416874796", "districtCode": 110101000000, "receivingAddress": "西藏自治区嘉禾市房山关路F座 406903", "powerOfAttorney": "123", "consignorName": "高晶", "consignorPhone": "18559418070"}} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": {"id": 591, "code": "AH_20210401_0002"}}
+[2021-04-01 10:15:20,387] - logger.py] - INFO: 生成的临调单id: 591
+[2021-04-01 10:15:20,387] - logger.py] - INFO: 生成的临调单code: AH_20210401_0002
+[2021-04-01 10:16:00,454] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-04-01 10:16:00,666] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-04-01 10:16:00,768] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-04-01 10:16:01,288] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/adhocOrder/reject 
+ 传入参数：{"id": "", "accept": false, "reason": "refuse"} 
+ 响应内容：{"code": 1, "msg": "请选择临调单", "exMsg": null, "data": null}
+[2021-04-01 10:16:01,289] - logger.py] - INFO: {'code': 1, 'msg': '请选择临调单', 'exMsg': None, 'data': None}
+[2021-04-01 10:18:16,815] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-04-01 10:18:17,007] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-04-01 10:18:17,177] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-04-01 10:19:20,298] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-04-01 10:19:20,399] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-04-01 10:19:20,523] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-04-01 10:19:20,813] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/adhocOrder/reject 
+ 传入参数：{"id": "", "accept": false, "reason": "refuse"} 
+ 响应内容：{"code": 1, "msg": "请选择临调单", "exMsg": null, "data": null}
+[2021-04-01 10:19:20,814] - logger.py] - INFO: {'code': 1, 'msg': '请选择临调单', 'exMsg': None, 'data': None}
+[2021-04-01 10:19:34,990] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-04-01 10:19:35,161] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-04-01 10:19:35,306] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-04-01 10:19:35,708] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/adhocOrder/getAddress?id= 
+ 响应内容：{"code": 1, "msg": "请求参数异常", "exMsg": null, "data": null}
+[2021-04-01 10:19:35,709] - logger.py] - INFO: {'code': 1, 'msg': '请求参数异常', 'exMsg': None, 'data': None}
+[2021-04-01 10:19:35,759] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/adhocOrder/getDetail?orderId= 
+ 响应内容：{"code": 1, "msg": "请求参数异常", "exMsg": null, "data": null}
+[2021-04-01 10:19:35,760] - logger.py] - INFO: {'code': 1, 'msg': '请求参数异常', 'exMsg': None, 'data': None}
+[2021-04-01 10:20:38,492] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-04-01 10:20:38,591] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-04-01 10:20:38,646] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-04-01 10:21:20,644] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-04-01 10:21:20,746] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-04-01 10:21:20,950] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-04-01 10:21:21,301] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/adhocOrder/reject 
+ 传入参数：{"id": "", "accept": false, "reason": "refuse"} 
+ 响应内容：{"code": 1, "msg": "请选择临调单", "exMsg": null, "data": null}
+[2021-04-01 10:21:21,302] - logger.py] - INFO: {'code': 1, 'msg': '请选择临调单', 'exMsg': None, 'data': None}
+[2021-04-01 10:23:48,583] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-04-01 10:23:48,669] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-04-01 10:23:48,726] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-04-01 10:23:49,263] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/adhocOrder/findList?pageNum=0&pageSize=50 
+[2021-04-01 10:23:49,267] - logger.py] - INFO: ------开始创建临调单------
+[2021-04-01 10:23:49,390] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-04-01 10:23:49,479] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-04-01 10:23:49,535] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-04-01 10:23:49,695] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/findListByMainMaterial?pageNum=0&pageSize=50&manufacturerId=1 
+[2021-04-01 10:23:49,934] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/adhocOrder/getAddress?id= 
+ 响应内容：{"code": 1, "msg": "请求参数异常", "exMsg": null, "data": null}
+[2021-04-01 10:23:49,935] - logger.py] - INFO: {'code': 1, 'msg': '请求参数异常', 'exMsg': None, 'data': None}
+[2021-04-01 10:23:50,020] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/adhocOrder/getDetail?orderId= 
+ 响应内容：{"code": 1, "msg": "请求参数异常", "exMsg": null, "data": null}
+[2021-04-01 10:23:50,021] - logger.py] - INFO: {'code': 1, 'msg': '请求参数异常', 'exMsg': None, 'data': None}
+[2021-04-01 10:23:50,108] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/adhocOrder/reject 
+ 传入参数：{"id": "", "accept": false, "reason": "refuse"} 
+ 响应内容：{"code": 1, "msg": "请选择临调单", "exMsg": null, "data": null}
+[2021-04-01 10:23:50,108] - logger.py] - INFO: {'code': 1, 'msg': '请选择临调单', 'exMsg': None, 'data': None}
+[2021-04-01 10:23:50,198] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/adhocOrder/getDetail?orderId= 
+ 响应内容：{"code": 1, "msg": "请求参数异常", "exMsg": null, "data": null}
+[2021-04-01 10:23:50,210] - logger.py] - INFO: ------接收临调单------
+[2021-04-01 10:23:50,236] - logger.py] - INFO: ------拣货------
+[2021-04-01 10:23:50,260] - logger.py] - INFO: ------出库，发货审核------
+[2021-04-01 10:23:50,285] - logger.py] - INFO: ------回库，提交入库单------
+[2021-04-01 10:23:50,309] - logger.py] - INFO: ------入库单开始验收------
+[2021-04-01 10:23:50,333] - logger.py] - INFO: ------开始上架------
+[2021-04-01 10:23:50,379] - logger.py] - INFO: ------开始生成销售单------
+[2021-04-01 10:25:52,474] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-04-01 10:25:52,564] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-04-01 10:25:52,636] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-04-01 10:25:52,824] - logger.py] - INFO: ------开始创建临调单------
+[2021-04-01 10:25:52,986] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-04-01 10:25:53,105] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-04-01 10:25:53,196] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-04-01 10:25:53,325] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/findListByMainMaterial?pageNum=0&pageSize=50&manufacturerId=1 
+[2021-04-01 10:25:56,108] - logger.py] - INFO: 传入的参数 {'toolsDetailUiBeans': [], 'goodsDetailUiBeans': [{'goodsId': 243, 'quantity': 3, 'supplierId': 8}], 'orderUiBean': {'ageGroup': 'adult', 'gender': 'male', 'supplierId': 8, 'hospitalName': '测试', 'procedureSite': [95], 'surgeon': '杨凤兰', 'procedureTime': 1617292800000, 'expectReturnTime': 1617379200000, 'postcode': '846604', 'contactName': '本单勿动谢谢', 'contactPhone': '15964124464', 'manufacturerId': 1, 'deliveryMode': 'SELF_PIKE_UP', 'receivingName': '卢莹', 'receivingIdCard': '610426196305124968', 'receivingPhone': '13281928799', 'districtCode': 110101000000, 'receivingAddress': '广西壮族自治区建军市城北昆明路U座 902083', 'powerOfAttorney': '123', 'consignorName': '赖欣', 'consignorPhone': '13454611161'}}
+[2021-04-01 10:25:56,281] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/adhocOrder/appCreate 
+ 传入参数：{"toolsDetailUiBeans": [], "goodsDetailUiBeans": [{"goodsId": 243, "quantity": 3, "supplierId": 8}], "orderUiBean": {"ageGroup": "adult", "gender": "male", "supplierId": 8, "hospitalName": "测试", "procedureSite": [95], "surgeon": "杨凤兰", "procedureTime": 1617292800000, "expectReturnTime": 1617379200000, "postcode": "846604", "contactName": "本单勿动谢谢", "contactPhone": "15964124464", "manufacturerId": 1, "deliveryMode": "SELF_PIKE_UP", "receivingName": "卢莹", "receivingIdCard": "610426196305124968", "receivingPhone": "13281928799", "districtCode": 110101000000, "receivingAddress": "广西壮族自治区建军市城北昆明路U座 902083", "powerOfAttorney": "123", "consignorName": "赖欣", "consignorPhone": "13454611161"}} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": {"id": 592, "code": "AH_20210401_0003"}}
+[2021-04-01 10:25:56,282] - logger.py] - INFO: 生成的临调单id: 592
+[2021-04-01 10:25:56,283] - logger.py] - INFO: 生成的临调单code: AH_20210401_0003
+[2021-04-01 10:25:56,387] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/adhocOrder/reject 
+ 传入参数：{"id": 592, "accept": false, "reason": "refuse"} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-04-01 10:25:56,388] - logger.py] - INFO: {'code': 0, 'msg': '请求成功', 'exMsg': None, 'data': None}
+[2021-04-01 10:25:56,634] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/adhocOrder/getDetail?orderId=592 
+[2021-04-01 10:25:56,706] - logger.py] - INFO: ------接收临调单------
+[2021-04-01 10:25:56,865] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/adhocOrder/accept 
+ 传入参数：{"detail": [{"deliveryMode": "DELIVERY", "goodsDetailUiBeans": [{"goodsId": 243, "quantity": 3}], "warehouseId": 6}], "id": 592} 
+ 响应内容：{"code": 1, "msg": "该临调单已处理，请勿重复操作", "exMsg": null, "data": null}
+[2021-04-01 10:25:56,902] - logger.py] - INFO: ------拣货------
+[2021-04-01 10:27:14,819] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-04-01 10:27:14,956] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-04-01 10:27:15,046] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-04-01 10:27:15,383] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/adhocOrder/findList?pageNum=0&pageSize=50 
+[2021-04-01 10:27:15,386] - logger.py] - INFO: ------开始创建临调单------
+[2021-04-01 10:27:15,475] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-04-01 10:27:16,063] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-04-01 10:27:16,330] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-04-01 10:27:16,551] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/findListByMainMaterial?pageNum=0&pageSize=50&manufacturerId=1 
+[2021-04-01 10:27:16,794] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/adhocOrder/getAddress?id= 
+ 响应内容：{"code": 1, "msg": "请求参数异常", "exMsg": null, "data": null}
+[2021-04-01 10:27:16,796] - logger.py] - INFO: {'code': 1, 'msg': '请求参数异常', 'exMsg': None, 'data': None}
+[2021-04-01 10:27:16,889] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/adhocOrder/getDetail?orderId= 
+ 响应内容：{"code": 1, "msg": "请求参数异常", "exMsg": null, "data": null}
+[2021-04-01 10:27:16,890] - logger.py] - INFO: {'code': 1, 'msg': '请求参数异常', 'exMsg': None, 'data': None}
+[2021-04-01 10:27:17,076] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/adhocOrder/reject 
+ 传入参数：{"id": "", "accept": false, "reason": "refuse"} 
+ 响应内容：{"code": 1, "msg": "请选择临调单", "exMsg": null, "data": null}
+[2021-04-01 10:27:17,077] - logger.py] - INFO: {'code': 1, 'msg': '请选择临调单', 'exMsg': None, 'data': None}
+[2021-04-01 10:27:17,286] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/adhocOrder/getDetail?orderId= 
+ 响应内容：{"code": 1, "msg": "请求参数异常", "exMsg": null, "data": null}
+[2021-04-01 10:27:17,303] - logger.py] - INFO: ------接收临调单------
+[2021-04-01 10:27:17,330] - logger.py] - INFO: ------拣货------
+[2021-04-01 10:27:17,352] - logger.py] - INFO: ------出库，发货审核------
+[2021-04-01 10:27:17,374] - logger.py] - INFO: ------回库，提交入库单------
+[2021-04-01 10:27:17,398] - logger.py] - INFO: ------入库单开始验收------
+[2021-04-01 10:27:17,420] - logger.py] - INFO: ------开始上架------
+[2021-04-01 10:27:17,451] - logger.py] - INFO: ------开始生成销售单------
+[2021-04-01 10:28:51,412] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-04-01 10:28:51,495] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-04-01 10:28:51,628] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-04-01 10:28:51,984] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-04-01 10:28:52,087] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-04-01 10:28:52,260] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-04-01 10:28:52,318] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-04-01 10:28:52,613] - logger.py] - INFO: {'code': 1, 'msg': '用户名或者密码错误', 'exMsg': None, 'data': None}
+[2021-04-01 10:28:52,706] - logger.py] - INFO: {'code': 1, 'msg': '用户已被禁用，请联系管理员', 'exMsg': None, 'data': None}
+[2021-04-01 10:29:07,436] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-04-01 10:29:07,555] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-04-01 10:29:07,663] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-04-01 10:29:08,013] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-04-01 10:29:08,161] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-04-01 10:29:08,280] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-04-01 10:29:08,404] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-04-01 10:29:08,744] - logger.py] - INFO: {'code': 1, 'msg': '用户名或者密码错误', 'exMsg': None, 'data': None}
+[2021-04-01 10:29:08,809] - logger.py] - INFO: {'code': 1, 'msg': '用户已被禁用，请联系管理员', 'exMsg': None, 'data': None}
+[2021-04-01 10:38:27,391] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-04-01 10:38:27,453] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-04-01 10:38:27,576] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-04-01 10:38:27,906] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/adhocOrder/reject 
+ 传入参数：{"id": 591, "accept": false, "reason": "refuse"} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-04-01 10:38:27,907] - logger.py] - INFO: {'code': 0, 'msg': '请求成功', 'exMsg': None, 'data': None}
+[2021-04-01 10:38:34,909] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-04-01 10:38:34,966] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-04-01 10:38:35,017] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-04-01 10:38:35,287] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/adhocOrder/reject 
+ 传入参数：{"id": 591, "accept": false, "reason": "refuse"} 
+ 响应内容：{"code": 1, "msg": "该临调单已处理，请勿重复操作", "exMsg": null, "data": null}
+[2021-04-01 10:38:35,288] - logger.py] - INFO: {'code': 1, 'msg': '该临调单已处理，请勿重复操作', 'exMsg': None, 'data': None}
+[2021-04-01 11:11:34,528] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-04-01 11:11:34,617] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-04-01 11:11:34,701] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-04-01 11:11:34,951] - logger.py] - INFO: ------拣货------
+[2021-04-01 11:11:37,411] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/pickOrder/detail/408 
+ 响应内容：{"code": 1, "msg": "拣货单不存在", "exMsg": null, "data": null}
+[2021-04-01 11:16:27,393] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-04-01 11:16:27,513] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-04-01 11:16:27,565] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-04-01 11:16:27,786] - logger.py] - INFO: ------拣货------
+[2021-04-01 11:16:39,439] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/pickOrder/detail/307 
+[2021-04-01 11:16:39,590] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/gs1Decode?code=011604898141505117741208106069538 
+[2021-04-01 11:16:39,591] - logger.py] - INFO: 物资ID_243拣货完成
+[2021-04-01 11:16:39,592] - logger.py] - INFO: 工具包TID_20201126_0284拣货完成
+[2021-04-01 11:16:39,703] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/pickOrder/pickFinished 
+ 传入参数：{"pickOrderId": "307", "imagePath": ["/file/2020/11/16/ac110bd6-ff1f-41ed-b645-a570a8c34df9/提货委托书.jpg"]} 
+ 响应内容：{"code": 1, "msg": "该拣货单已完成请勿重复操作", "exMsg": null, "data": null}
+[2021-04-01 11:16:39,703] - logger.py] - INFO: 拣货单完成 {'code': 1, 'msg': '该拣货单已完成请勿重复操作', 'exMsg': None, 'data': None}
+[2021-04-01 11:21:38,531] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-04-01 11:21:38,603] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-04-01 11:21:38,654] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-04-01 11:21:38,877] - logger.py] - INFO: ------拣货------
+[2021-04-01 11:21:41,118] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/pickOrder/detail/309 
+[2021-04-01 11:21:41,214] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/gs1Decode?code=011604898141505117741208106069538 
+[2021-04-01 11:21:41,369] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/pickOrder/picking 
+ 传入参数：{"goodsId": 243, "lotNum": "6069538", "pickOrderId": "309", "serialNumber": null, "storageLocationId": 6} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-04-01 11:21:41,510] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/pickOrder/picking 
+ 传入参数：{"goodsId": 243, "lotNum": "6069538", "pickOrderId": "309", "serialNumber": null, "storageLocationId": 6} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-04-01 11:21:41,672] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/pickOrder/picking 
+ 传入参数：{"goodsId": 243, "lotNum": "6069538", "pickOrderId": "309", "serialNumber": null, "storageLocationId": 6} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-04-01 11:21:41,673] - logger.py] - INFO: 物资ID_243拣货完成
+[2021-04-01 11:21:41,751] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/pickOrder/pickFinished 
+ 传入参数：{"pickOrderId": "309", "imagePath": ["/file/2020/11/16/ac110bd6-ff1f-41ed-b645-a570a8c34df9/提货委托书.jpg"]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-04-01 11:21:41,752] - logger.py] - INFO: 拣货单完成 {'code': 0, 'msg': '请求成功', 'exMsg': None, 'data': None}
+[2021-04-01 13:54:47,079] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-04-01 13:54:47,168] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-04-01 13:54:47,265] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-04-01 13:54:47,466] - logger.py] - INFO: ------开始创建临调单------
+[2021-04-01 13:54:47,529] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-04-01 13:54:47,624] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-04-01 13:54:47,709] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-04-01 13:54:47,889] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/findListByMainMaterial?pageNum=0&pageSize=50&manufacturerId=1 
+[2021-04-01 13:54:49,900] - logger.py] - INFO: 传入的参数 {'toolsDetailUiBeans': [], 'goodsDetailUiBeans': [{'goodsId': 243, 'quantity': 3, 'supplierId': 8}], 'orderUiBean': {'ageGroup': 'adult', 'gender': 'male', 'supplierId': 8, 'hospitalName': '测试', 'procedureSite': [95], 'surgeon': '赵瑜', 'procedureTime': 1617292800000, 'expectReturnTime': 1617379200000, 'postcode': '875586', 'contactName': '本单勿动谢谢', 'contactPhone': '15809306025', 'manufacturerId': 1, 'deliveryMode': 'SELF_PIKE_UP', 'receivingName': '王波', 'receivingIdCard': '130722198110177387', 'receivingPhone': '13817121047', 'districtCode': 110101000000, 'receivingAddress': '浙江省明市孝南潮州街Y座 869482', 'powerOfAttorney': '123', 'consignorName': '向秀云', 'consignorPhone': '18838980202'}}
+[2021-04-01 13:54:50,142] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/adhocOrder/appCreate 
+ 传入参数：{"toolsDetailUiBeans": [], "goodsDetailUiBeans": [{"goodsId": 243, "quantity": 3, "supplierId": 8}], "orderUiBean": {"ageGroup": "adult", "gender": "male", "supplierId": 8, "hospitalName": "测试", "procedureSite": [95], "surgeon": "赵瑜", "procedureTime": 1617292800000, "expectReturnTime": 1617379200000, "postcode": "875586", "contactName": "本单勿动谢谢", "contactPhone": "15809306025", "manufacturerId": 1, "deliveryMode": "SELF_PIKE_UP", "receivingName": "王波", "receivingIdCard": "130722198110177387", "receivingPhone": "13817121047", "districtCode": 110101000000, "receivingAddress": "浙江省明市孝南潮州街Y座 869482", "powerOfAttorney": "123", "consignorName": "向秀云", "consignorPhone": "18838980202"}} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": {"id": 593, "code": "AH_20210401_0004"}}
+[2021-04-01 13:54:50,142] - logger.py] - INFO: 生成的临调单id: 593
+[2021-04-01 13:54:50,142] - logger.py] - INFO: 生成的临调单code: AH_20210401_0004
+[2021-04-01 15:01:10,463] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-04-01 15:01:10,510] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-04-01 15:01:10,612] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-04-01 15:01:10,844] - logger.py] - INFO: ------拣货------
+[2021-04-01 15:01:18,728] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/pickOrder/detail/600 
+ 响应内容：{"code": 1, "msg": "拣货单不存在", "exMsg": null, "data": null}
+[2021-04-01 15:07:47,508] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/supplier/dropDownSupplierList 
+[2021-04-01 15:07:47,666] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/procedure_site 
+[2021-04-01 15:07:47,792] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/manufacturer/allBrands 
+[2021-04-01 15:07:48,050] - logger.py] - INFO: ------拣货------
+[2021-04-01 15:07:51,523] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/pickOrder/detail/310 
+[2021-04-01 15:07:51,627] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/gs1Decode?code=011604898141505117741208106069538 
+[2021-04-01 15:07:51,754] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/pickOrder/picking 
+ 传入参数：{"goodsId": 243, "lotNum": "6069538", "pickOrderId": "310", "serialNumber": null, "storageLocationId": 6} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-04-01 15:07:51,755] - logger.py] - INFO: 物资ID_243拣货完成
+[2021-04-01 15:07:51,869] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/pickOrder/pickFinished 
+ 传入参数：{"pickOrderId": "310", "imagePath": ["/file/2020/11/16/ac110bd6-ff1f-41ed-b645-a570a8c34df9/提货委托书.jpg"]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-04-01 15:07:51,870] - logger.py] - INFO: 拣货单完成 {'code': 0, 'msg': '请求成功', 'exMsg': None, 'data': None}

@@ -1,0 +1,1043 @@
+[2021-05-08 11:13:30,499] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material"}
+[2021-05-08 11:14:50,608] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": null}
+[2021-05-08 11:21:01,209] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": null}
+[2021-05-08 11:22:26,849] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": "a"}
+[2021-05-08 11:23:15,344] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": "a"}
+[2021-05-08 11:31:56,564] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": null}
+[2021-05-08 11:57:57,801] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": null}
+[2021-05-08 11:58:03,941] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": null}
+[2021-05-08 13:25:34,286] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": 1620451534.0914571, "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 123, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1621055660012, "registrationBeginDate": 1620450860012, "registrationImg": "/file/2021/05/08/829c7c4f-c8da-4c0e-ad81-376902fb5e6b/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 13:28:35,370] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": 1620451715265, "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 123, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1621055660012, "registrationBeginDate": 1620450860012, "registrationImg": "/file/2021/05/08/829c7c4f-c8da-4c0e-ad81-376902fb5e6b/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 1, "msg": "原厂编码已经存在", "exMsg": null, "data": null}
+[2021-05-08 13:29:59,316] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620451799242, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1621055660012, "registrationBeginDate": 1620450860012, "registrationImg": "/file/2021/05/08/829c7c4f-c8da-4c0e-ad81-376902fb5e6b/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 1, "msg": "请填写商品名称", "exMsg": null, "data": null}
+[2021-05-08 13:39:08,895] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": 1620452348770, "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 123, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1621055660012, "registrationBeginDate": 1620450860012, "registrationImg": "/file/2021/05/08/829c7c4f-c8da-4c0e-ad81-376902fb5e6b/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 1, "msg": "原厂编码已经存在", "exMsg": null, "data": null}
+[2021-05-08 13:42:12,235] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "leek", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620452532112, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1621055660012, "registrationBeginDate": 1620450860012, "registrationImg": "/file/2021/05/08/829c7c4f-c8da-4c0e-ad81-376902fb5e6b/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 13:43:22,050] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620452601952", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620452601952, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1621055660012, "registrationBeginDate": 1620450860012, "registrationImg": "/file/2021/05/08/829c7c4f-c8da-4c0e-ad81-376902fb5e6b/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 13:47:41,747] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620452861506", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 9, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1621055660012, "registrationBeginDate": 1620450860012, "registrationImg": "/file/2021/05/08/829c7c4f-c8da-4c0e-ad81-376902fb5e6b/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 13:54:41,830] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620453281673", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620453281673, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1621055660012, "registrationBeginDate": 1620450860012, "registrationImg": "/file/2021/05/08/829c7c4f-c8da-4c0e-ad81-376902fb5e6b/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 13:55:21,386] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620453321273", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620453321273, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1621055660012, "registrationBeginDate": 1620450860012, "registrationImg": "/file/2021/05/08/829c7c4f-c8da-4c0e-ad81-376902fb5e6b/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 13:55:21,478] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": 1620453321273}
+[2021-05-08 13:56:30,667] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620453390541", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620453390541, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1621055660012, "registrationBeginDate": 1620450860012, "registrationImg": "/file/2021/05/08/829c7c4f-c8da-4c0e-ad81-376902fb5e6b/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 13:56:30,745] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": 1620453390541}
+[2021-05-08 13:56:51,315] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620453411218", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620453411218, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1621055660012, "registrationBeginDate": 1620450860012, "registrationImg": "/file/2021/05/08/829c7c4f-c8da-4c0e-ad81-376902fb5e6b/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 13:56:51,384] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": 1620453411218}
+[2021-05-08 13:57:07,110] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620453426985", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620453426985, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1621055660012, "registrationBeginDate": 1620450860012, "registrationImg": "/file/2021/05/08/829c7c4f-c8da-4c0e-ad81-376902fb5e6b/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 13:57:07,191] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": 1620453426985}
+[2021-05-08 13:57:26,722] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620453446534", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620453446534, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1621055660012, "registrationBeginDate": 1620450860012, "registrationImg": "/file/2021/05/08/829c7c4f-c8da-4c0e-ad81-376902fb5e6b/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 13:57:32,674] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": 1620453446534}
+[2021-05-08 13:58:32,330] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620453512226", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620453512226, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1621055660012, "registrationBeginDate": 1620450860012, "registrationImg": "/file/2021/05/08/829c7c4f-c8da-4c0e-ad81-376902fb5e6b/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 13:58:32,418] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": 1620453512226}
+[2021-05-08 14:09:30,649] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620454170492", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620454170492, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1621055660012, "registrationBeginDate": 1620450860012, "registrationImg": "/file/2021/05/08/829c7c4f-c8da-4c0e-ad81-376902fb5e6b/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 14:09:30,740] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": 1620454170492}
+[2021-05-08 14:09:30,864] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/editGoods 
+ 传入参数：{"id": 10301, "name": "1620453512226", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "storageConditions": 100, "nearExpirationDate": 5, "origin": "测试地址", "model": "333", "skuCode": "1620453512226", "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "std2012Category": 373, "registrationUiBeanList": [{"longEffect": false, "registrationBeginDate": 1620450860012, "registrationEndDate": 1621055660012, "registrationImg": "/file/2021/05/08/829c7c4f-c8da-4c0e-ad81-376902fb5e6b/base64Test.jpeg", "registrationNum": "123456"}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 14:09:30,948] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": 1620454170492}
+[2021-05-08 14:10:44,853] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620454244732", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620454244732, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1621055660012, "registrationBeginDate": 1620450860012, "registrationImg": "/file/2021/05/08/829c7c4f-c8da-4c0e-ad81-376902fb5e6b/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 14:10:44,943] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": 1620454244732}
+[2021-05-08 14:10:45,062] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/goods/editGoods 
+ 传入参数：{"id": 10303, "name": "1620453512226", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "storageConditions": 100, "nearExpirationDate": 5, "origin": "测试地址", "model": "333", "skuCode": "1620453512226", "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "std2012Category": 373, "registrationUiBeanList": [{"longEffect": false, "registrationBeginDate": 1620450860012, "registrationEndDate": 1621055660012, "registrationImg": "/file/2021/05/08/829c7c4f-c8da-4c0e-ad81-376902fb5e6b/base64Test.jpeg", "registrationNum": "123456"}]} 
+ 响应内容：{"code": 1, "msg": "原厂编码已经存在", "exMsg": null, "data": null}
+[2021-05-08 14:10:45,151] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": 1620454244732}
+[2021-05-08 14:10:45,212] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/goods/deleteGoods 
+ 传入参数：{"ids": 10303} 
+ 响应内容：{"code": 1, "msg": "请求参数异常", "exMsg": null, "data": null}
+[2021-05-08 14:11:26,450] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620454286342", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620454286342, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1621055660012, "registrationBeginDate": 1620450860012, "registrationImg": "/file/2021/05/08/829c7c4f-c8da-4c0e-ad81-376902fb5e6b/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 14:11:26,531] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": 1620454286342}
+[2021-05-08 14:11:26,600] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/goods/editGoods 
+ 传入参数：{"id": 10305, "name": "1620453512226", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "storageConditions": 100, "nearExpirationDate": 5, "origin": "测试地址", "model": "333", "skuCode": "1620453512226", "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "std2012Category": 373, "registrationUiBeanList": [{"longEffect": false, "registrationBeginDate": 1620450860012, "registrationEndDate": 1621055660012, "registrationImg": "/file/2021/05/08/829c7c4f-c8da-4c0e-ad81-376902fb5e6b/base64Test.jpeg", "registrationNum": "123456"}]} 
+ 响应内容：{"code": 1, "msg": "原厂编码已经存在", "exMsg": null, "data": null}
+[2021-05-08 14:11:26,678] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": 1620454286342}
+[2021-05-08 14:11:26,735] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/deleteGoods 
+ 传入参数：{"ids": [10305]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 14:12:54,646] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620454374531", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620454374531, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1621055660012, "registrationBeginDate": 1620450860012, "registrationImg": "/file/2021/05/08/829c7c4f-c8da-4c0e-ad81-376902fb5e6b/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 14:12:54,728] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": 1620454374531}
+[2021-05-08 14:12:54,821] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/goods/editGoods 
+ 传入参数：{"id": 10307, "name": "1620453512226", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "storageConditions": 100, "nearExpirationDate": 5, "origin": "测试地址", "model": "333", "skuCode": "1620453512226", "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "std2012Category": 373, "registrationUiBeanList": [{"longEffect": false, "registrationBeginDate": 1620450860012, "registrationEndDate": 1621055660012, "registrationImg": "/file/2021/05/08/829c7c4f-c8da-4c0e-ad81-376902fb5e6b/base64Test.jpeg", "registrationNum": "123456"}]} 
+ 响应内容：{"code": 1, "msg": "原厂编码已经存在", "exMsg": null, "data": null}
+[2021-05-08 14:14:03,784] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620454443602", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620454443602, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1621055660012, "registrationBeginDate": 1620450860012, "registrationImg": "/file/2021/05/08/829c7c4f-c8da-4c0e-ad81-376902fb5e6b/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 14:14:03,851] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": 1620454443602}
+[2021-05-08 14:14:03,930] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/goods/editGoods 
+ 传入参数：{"id": 10309, "name": "1620453512226", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "storageConditions": 100, "nearExpirationDate": 5, "origin": "测试地址", "model": "333", "skuCode": "1620453512226", "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "std2012Category": 373, "registrationUiBeanList": [{"longEffect": false, "registrationBeginDate": 1620450860012, "registrationEndDate": 1621055660012, "registrationImg": "/file/2021/05/08/829c7c4f-c8da-4c0e-ad81-376902fb5e6b/base64Test.jpeg", "registrationNum": "123456"}]} 
+ 响应内容：{"code": 1, "msg": "原厂编码已经存在", "exMsg": null, "data": null}
+[2021-05-08 14:14:56,307] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620454496130", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620454496130, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1621055660012, "registrationBeginDate": 1620450860012, "registrationImg": "/file/2021/05/08/829c7c4f-c8da-4c0e-ad81-376902fb5e6b/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 14:15:08,649] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620454508536", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620454508536, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1621055660012, "registrationBeginDate": 1620450860012, "registrationImg": "/file/2021/05/08/829c7c4f-c8da-4c0e-ad81-376902fb5e6b/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 14:15:08,784] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": 1620454508536}
+[2021-05-08 14:15:08,858] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/goods/editGoods 
+ 传入参数：{"id": 10313, "name": "1620453512226", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "storageConditions": 100, "nearExpirationDate": 5, "origin": "测试地址", "model": "333", "skuCode": "1620453512226", "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "std2012Category": 373, "registrationUiBeanList": [{"longEffect": false, "registrationBeginDate": 1620450860012, "registrationEndDate": 1621055660012, "registrationImg": "/file/2021/05/08/829c7c4f-c8da-4c0e-ad81-376902fb5e6b/base64Test.jpeg", "registrationNum": "123456"}]} 
+ 响应内容：{"code": 1, "msg": "原厂编码已经存在", "exMsg": null, "data": null}
+[2021-05-08 14:16:10,901] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620454570786", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620454570786, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1621055660012, "registrationBeginDate": 1620450860012, "registrationImg": "/file/2021/05/08/829c7c4f-c8da-4c0e-ad81-376902fb5e6b/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 14:16:10,981] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": 1620454570786}
+[2021-05-08 14:16:11,083] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/editGoods 
+ 传入参数：{"id": 10315, "name": "1620453512226", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "storageConditions": 100, "nearExpirationDate": 5, "origin": "测试地址", "model": "333", "skuCode": 1620454570786, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "std2012Category": 373, "registrationUiBeanList": [{"longEffect": false, "registrationBeginDate": 1620450860012, "registrationEndDate": 1621055660012, "registrationImg": "/file/2021/05/08/829c7c4f-c8da-4c0e-ad81-376902fb5e6b/base64Test.jpeg", "registrationNum": "123456"}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 14:16:28,289] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620454588117", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620454588117, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1621055660012, "registrationBeginDate": 1620450860012, "registrationImg": "/file/2021/05/08/829c7c4f-c8da-4c0e-ad81-376902fb5e6b/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 14:16:28,420] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": 1620454588117}
+[2021-05-08 14:16:28,549] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/editGoods 
+ 传入参数：{"id": 10317, "name": "1620453512226", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "storageConditions": 100, "nearExpirationDate": 5, "origin": "测试地址", "model": "333", "skuCode": 1620454588117, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "std2012Category": 373, "registrationUiBeanList": [{"longEffect": false, "registrationBeginDate": 1620450860012, "registrationEndDate": 1621055660012, "registrationImg": "/file/2021/05/08/829c7c4f-c8da-4c0e-ad81-376902fb5e6b/base64Test.jpeg", "registrationNum": "123456"}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 14:16:28,672] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": 1620454588117}
+[2021-05-08 14:16:28,749] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/deleteGoods 
+ 传入参数：{"ids": [10317]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 14:35:51,647] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620455751466", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620455751466, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1620835200000, "registrationBeginDate": 1620455751466, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 14:37:33,376] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620455853235", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620455853235, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1620835200000, "registrationBeginDate": 1620455853235, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 14:37:33,547] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": 1620455853235}
+[2021-05-08 14:37:33,602] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/goods/editGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620455853235", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620455853235, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1620835200000, "registrationBeginDate": 1620455853235, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 1, "msg": "请选择规格", "exMsg": null, "data": null}
+[2021-05-08 14:38:51,856] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620455931730", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620455931730, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1620835200000, "registrationBeginDate": 1620455931730, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 14:38:51,925] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": 1620455931730}
+[2021-05-08 14:38:51,970] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/goods/editGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620455931730", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620455931730, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1620835200000, "registrationBeginDate": 1620455931730, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 1, "msg": "请选择型号", "exMsg": null, "data": null}
+[2021-05-08 14:42:29,307] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620456149084", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620456149084, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1620835200000, "registrationBeginDate": 1620456149084, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 14:42:29,408] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": 1620456149084}
+[2021-05-08 14:42:29,472] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/goods/editGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620456149084", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620456149084, "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"specification": "222", "longEffect": false, "registrationEndDate": 1620835200000, "registrationBeginDate": 1620456149084, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 1, "msg": "请填写注册信息", "exMsg": null, "data": null}
+[2021-05-08 14:44:37,366] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620456277125", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620456277125, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1620835200000, "registrationBeginDate": 1620456277125, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 14:44:37,442] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": 1620456277125}
+[2021-05-08 14:44:37,532] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/goods/editGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620456277125", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620456277125, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1620835200000, "registrationBeginDate": 1620456277125, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 1, "msg": "请选择上传图片", "exMsg": null, "data": null}
+[2021-05-08 14:47:41,784] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620456461685", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620456461685, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1620835200000, "registrationBeginDate": 1620456461685, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 14:47:41,869] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": 1620456461685}
+[2021-05-08 14:47:41,977] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/editGoods 
+ 传入参数：{"id": 10329, "name": "1620456461685", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "storageConditions": 100, "nearExpirationDate": 5, "origin": "测试地址", "model": "333", "skuCode": 1620456461685, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "std2012Category": 373, "registrationUiBeanList": [{"longEffect": false, "registrationBeginDate": 1620456461685, "registrationEndDate": 1620835200000, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 14:56:53,070] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620457012826", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620457012826, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1620835200000, "registrationBeginDate": 1620457012826, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 14:56:53,148] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": 1620457012826}
+[2021-05-08 14:56:53,265] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/editGoods 
+ 传入参数：{"id": 10331, "name": "1620457012826", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "storageConditions": 100, "nearExpirationDate": 5, "origin": "测试地址", "model": "333", "skuCode": 1620457012826, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "std2012Category": 373, "registrationUiBeanList": [{"longEffect": false, "registrationBeginDate": 1620457012826, "registrationEndDate": 1620835200000, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 15:24:21,171] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "tool", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620458661023", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620458661023, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1620835200000, "registrationBeginDate": 1620458661023, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 15:24:21,242] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "tool", "webKeyword": 1620458661023}
+[2021-05-08 15:24:21,348] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/editGoods 
+ 传入参数：{"id": 10335, "name": "1620458661023", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "storageConditions": 100, "nearExpirationDate": 5, "origin": "测试地址", "model": "333", "skuCode": 1620458661023, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "std2012Category": 373, "registrationUiBeanList": [{"longEffect": false, "registrationBeginDate": 1620458661023, "registrationEndDate": 1620835200000, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 15:25:47,212] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620458747102", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620458747102, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1620835200000, "registrationBeginDate": 1620458747102, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 15:25:47,293] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": 1620458747102}
+[2021-05-08 15:25:47,379] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/editGoods 
+ 传入参数：{"id": 10337, "name": "1620458747102", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "storageConditions": 100, "nearExpirationDate": 5, "origin": "测试地址", "model": "333", "skuCode": 1620458747102, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "std2012Category": 373, "registrationUiBeanList": [{"longEffect": false, "registrationBeginDate": 1620458747102, "registrationEndDate": 1620835200000, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 15:32:06,422] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620459126270", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620459126270, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1620835200000, "registrationBeginDate": 1620459126270, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 15:32:06,687] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": 1620459126270}
+[2021-05-08 15:32:07,066] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/editGoods 
+ 传入参数：{"id": 10339, "name": "1620459126270", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "storageConditions": 100, "nearExpirationDate": 5, "origin": "测试地址", "model": "333", "skuCode": 1620459126270, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "std2012Category": 373, "registrationUiBeanList": [{"longEffect": false, "registrationBeginDate": 1620459126270, "registrationEndDate": 1620835200000, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 15:32:07,147] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": 1620459126270}
+[2021-05-08 15:32:07,232] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/deleteGoods 
+ 传入参数：{"ids": [10339]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 15:32:07,321] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "tool", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620459126270", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620459126270, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1620835200000, "registrationBeginDate": 1620459126270, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 15:32:07,432] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "tool", "webKeyword": 1620459126270}
+[2021-05-08 15:32:07,528] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/editGoods 
+ 传入参数：{"id": 10341, "name": "1620459126270", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "storageConditions": 100, "nearExpirationDate": 5, "origin": "测试地址", "model": "333", "skuCode": 1620459126270, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "std2012Category": 373, "registrationUiBeanList": [{"longEffect": false, "registrationBeginDate": 1620459126270, "registrationEndDate": 1620835200000, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 15:32:07,589] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": 1620459126270}
+[2021-05-08 15:33:54,892] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620459234800", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620459234800, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1620835200000, "registrationBeginDate": 1620459234800, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 15:33:54,977] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": 1620459234800}
+[2021-05-08 15:33:55,071] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/editGoods 
+ 传入参数：{"id": 10343, "name": "1620459234800", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "storageConditions": 100, "nearExpirationDate": 5, "origin": "测试地址", "model": "333", "skuCode": 1620459234800, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "std2012Category": 373, "registrationUiBeanList": [{"longEffect": false, "registrationBeginDate": 1620459234800, "registrationEndDate": 1620835200000, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 15:33:55,152] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": 1620459234800}
+[2021-05-08 15:33:55,207] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/deleteGoods 
+ 传入参数：{"ids": [10343]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 15:33:55,288] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "tool", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620459234800", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620459234800, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1620835200000, "registrationBeginDate": 1620459234800, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 15:33:55,371] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "tool", "webKeyword": 1620459234800}
+[2021-05-08 15:33:55,463] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/editGoods 
+ 传入参数：{"id": 10345, "name": "1620459234800", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "storageConditions": 100, "nearExpirationDate": 5, "origin": "测试地址", "model": "333", "skuCode": 1620459234800, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "std2012Category": 373, "registrationUiBeanList": [{"longEffect": false, "registrationBeginDate": 1620459234800, "registrationEndDate": 1620835200000, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 15:33:55,531] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": 1620459234800}
+[2021-05-08 15:34:47,813] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620459287709", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620459287709, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1620835200000, "registrationBeginDate": 1620459287709, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 15:34:47,884] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": 1620459287709}
+[2021-05-08 15:34:47,974] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/editGoods 
+ 传入参数：{"id": 10347, "name": "1620459287709", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "storageConditions": 100, "nearExpirationDate": 5, "origin": "测试地址", "model": "333", "skuCode": 1620459287709, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "std2012Category": 373, "registrationUiBeanList": [{"longEffect": false, "registrationBeginDate": 1620459287709, "registrationEndDate": 1620835200000, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 15:34:48,039] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": 1620459287709}
+[2021-05-08 15:34:48,097] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/deleteGoods 
+ 传入参数：{"ids": [10347]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 15:34:48,189] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "tool", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620459287709", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620459287709, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1620835200000, "registrationBeginDate": 1620459287709, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 15:34:48,259] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "tool", "webKeyword": 1620459287709}
+[2021-05-08 15:34:48,353] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/editGoods 
+ 传入参数：{"id": 10349, "name": "1620459287709", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "storageConditions": 100, "nearExpirationDate": 5, "origin": "测试地址", "model": "333", "skuCode": 1620459287709, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "std2012Category": 373, "registrationUiBeanList": [{"longEffect": false, "registrationBeginDate": 1620459287709, "registrationEndDate": 1620835200000, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 15:34:48,448] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": 1620459287709}
+[2021-05-08 15:36:26,647] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620459386560", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620459386560, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1620835200000, "registrationBeginDate": 1620459386560, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 15:36:26,729] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": 1620459386560}
+[2021-05-08 15:36:26,815] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/editGoods 
+ 传入参数：{"id": 10351, "name": "1620459386560", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "storageConditions": 100, "nearExpirationDate": 5, "origin": "测试地址", "model": "333", "skuCode": 1620459386560, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "std2012Category": 373, "registrationUiBeanList": [{"longEffect": false, "registrationBeginDate": 1620459386560, "registrationEndDate": 1620835200000, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 15:36:26,881] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": 1620459386560}
+[2021-05-08 15:36:26,933] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/deleteGoods 
+ 传入参数：{"ids": [10351]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 15:36:27,012] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "tool", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620459386560", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620459386560, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1620835200000, "registrationBeginDate": 1620459386560, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 15:36:27,083] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "tool", "webKeyword": 1620459386560}
+[2021-05-08 15:36:27,181] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/editGoods 
+ 传入参数：{"id": 10353, "name": "1620459386560", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "storageConditions": 100, "nearExpirationDate": 5, "origin": "测试地址", "model": "333", "skuCode": 1620459386560, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "std2012Category": 373, "registrationUiBeanList": [{"longEffect": false, "registrationBeginDate": 1620459386560, "registrationEndDate": 1620835200000, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 15:36:27,247] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "tool", "webKeyword": 1620459386560}
+[2021-05-08 15:36:27,340] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/deleteGoods 
+ 传入参数：{"ids": [10353]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 15:52:25,561] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620460345434", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620460345434, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1620835200000, "registrationBeginDate": 1620460345434, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 15:54:49,733] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620460489564", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620460489564, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1620835200000, "registrationBeginDate": 1620460489564, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 15:54:49,823] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": 1620460489564}
+[2021-05-08 15:54:49,922] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/editGoods 
+ 传入参数：{"id": 10357, "name": "1620460489564", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "storageConditions": 100, "nearExpirationDate": 5, "origin": "测试地址", "model": "333", "skuCode": 1620460489564, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "std2012Category": 373, "registrationUiBeanList": [{"longEffect": false, "registrationBeginDate": 1620460489564, "registrationEndDate": 1620835200000, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 15:54:50,011] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": 1620460489564}
+[2021-05-08 15:54:50,062] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/deleteGoods 
+ 传入参数：{"ids": [10357]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 15:54:50,158] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "tool", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620460489564", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620460489564, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1620835200000, "registrationBeginDate": 1620460489564, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 15:54:50,251] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "tool", "webKeyword": 1620460489564}
+[2021-05-08 15:54:50,354] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/editGoods 
+ 传入参数：{"id": 10359, "name": "1620460489564", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "storageConditions": 100, "nearExpirationDate": 5, "origin": "测试地址", "model": "333", "skuCode": 1620460489564, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "std2012Category": 373, "registrationUiBeanList": [{"longEffect": false, "registrationBeginDate": 1620460489564, "registrationEndDate": 1620835200000, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 15:54:50,426] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "tool", "webKeyword": 1620460489564}
+[2021-05-08 15:54:50,487] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/deleteGoods 
+ 传入参数：{"ids": [10359]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 16:14:24,079] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620461663937", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620461663937, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1620835200000, "registrationBeginDate": 1620461663937, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 16:14:53,815] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620461693717", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620461693717, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1620835200000, "registrationBeginDate": 1620461693717, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 16:14:53,889] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": 1620461693717}
+[2021-05-08 16:14:53,973] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/editGoods 
+ 传入参数：{"id": 10363, "name": "1620461693717", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "storageConditions": 100, "nearExpirationDate": 5, "origin": "测试地址", "model": "333", "skuCode": 1620461693717, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "std2012Category": 373, "registrationUiBeanList": [{"longEffect": false, "registrationBeginDate": 1620461693717, "registrationEndDate": 1620835200000, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 16:14:54,040] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": 1620461693717}
+[2021-05-08 16:14:54,097] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/deleteGoods 
+ 传入参数：{"ids": [10363]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 16:15:29,934] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620461729816", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620461729816, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1620835200000, "registrationBeginDate": 1620461729816, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 16:15:30,021] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": 1620461729816}
+[2021-05-08 16:15:30,103] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/editGoods 
+ 传入参数：{"id": 10365, "name": "1620461729816", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "storageConditions": 100, "nearExpirationDate": 5, "origin": "测试地址", "model": "333", "skuCode": 1620461729816, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "std2012Category": 373, "registrationUiBeanList": [{"longEffect": false, "registrationBeginDate": 1620461729816, "registrationEndDate": 1620835200000, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 16:15:30,195] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": 1620461729816}
+[2021-05-08 16:15:30,249] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/deleteGoods 
+ 传入参数：{"ids": [10365]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 16:15:30,330] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "tool", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620461729816", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620461729816, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1620835200000, "registrationBeginDate": 1620461729816, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 16:15:30,405] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "tool", "webKeyword": 1620461729816}
+[2021-05-08 16:15:30,505] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/editGoods 
+ 传入参数：{"id": 10367, "name": "1620461729816", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "storageConditions": 100, "nearExpirationDate": 5, "origin": "测试地址", "model": "333", "skuCode": 1620461729816, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "std2012Category": 373, "registrationUiBeanList": [{"longEffect": false, "registrationBeginDate": 1620461729816, "registrationEndDate": 1620835200000, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 16:15:30,575] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "tool", "webKeyword": 1620461729816}
+[2021-05-08 16:15:30,643] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/deleteGoods 
+ 传入参数：{"ids": [10367]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 16:47:29,566] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/queryToolsKitList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "toolKitName": "万能的工具包1"}
+[2021-05-08 16:57:15,488] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/queryToolsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50}
+[2021-05-08 17:18:08,447] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/queryToolsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50}
+[2021-05-08 17:18:08,514] - logger.py] - ERROR: ----------系统错误---------- 
+ 请求地址：/kitTemplate/addToolsKit 
+ 传入参数：{"name": "1620465488350", "skuCode": 1620465488350, "toolsKitCategory": 174, "manufacturerId": 1, "remark": "哈哈哈", "toolsDetails": [{"goodsId": 10349, "goodsQuantity": 1}]} 
+ 响应内容：{"code": 2, "msg": "System busy, please try again later.", "exMsg": null, "data": null}
+[2021-05-08 17:18:59,745] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/queryToolsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50}
+[2021-05-08 17:18:59,810] - logger.py] - ERROR: ----------系统错误---------- 
+ 请求地址：/kitTemplate/addToolsKit 
+ 传入参数：{"name": "1620465539644", "skuCode": 1620465539644, "toolsKitCategory": 174, "manufacturerId": 1, "remark": "哈哈哈", "toolsDetails": [{"goodsId": 10349, "goodsQuantity": 1}]} 
+ 响应内容：{"code": 2, "msg": "System busy, please try again later.", "exMsg": null, "data": null}
+[2021-05-08 17:20:46,414] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/queryToolsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50}
+[2021-05-08 17:20:46,495] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/addToolsKit 
+ 传入参数：{"name": "1620465646336", "skuCode": 1620465646336, "toolsKitCategory": 174, "manufacturerId": 1, "remark": "哈哈哈", "toolsDetails": [{"goodsId": 10349, "goodsQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 17:21:02,748] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/queryToolsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50}
+[2021-05-08 17:21:02,822] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/addToolsKit 
+ 传入参数：{"name": "1620465662657", "skuCode": 1620465662657, "toolsKitCategory": 174, "manufacturerId": 1, "remark": "哈哈哈", "toolsDetails": [{"goodsId": 10349, "goodsQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 17:52:33,815] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/queryToolsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50}
+[2021-05-08 17:52:33,906] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/addToolsKit 
+ 传入参数：{"name": "1620467553721", "skuCode": 1620467553721, "toolsKitCategory": 174, "manufacturerId": 1, "remark": "哈哈哈", "toolsDetails": [{"goodsId": 10349, "goodsQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 17:52:33,980] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/queryToolsKitList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "toolKitName": 1620467553721}
+[2021-05-08 17:52:34,038] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/kitTemplate/editToolsKit 
+ 传入参数：{"skuCode": 1620467553721, "remark": "哈哈哈", "manufacturerId": 1, "toolsDetails": [{"goodsId": 10349, "goodsQuantity": 1}], "kitCategory": 1, "kitTemplateId": 35, "kitTemplateName": "1620467553721"} 
+ 响应内容：{"code": 1, "msg": "请求方式错误", "exMsg": null, "data": null}
+[2021-05-08 17:53:10,201] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/queryToolsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50}
+[2021-05-08 17:53:10,272] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/addToolsKit 
+ 传入参数：{"name": "1620467590108", "skuCode": 1620467590108, "toolsKitCategory": 174, "manufacturerId": 1, "remark": "哈哈哈", "toolsDetails": [{"goodsId": 10349, "goodsQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 17:53:10,336] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/queryToolsKitList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "toolKitName": 1620467590108}
+[2021-05-08 17:53:10,410] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/editToolsKit 
+ 传入参数：{"skuCode": 1620467590108, "remark": "哈哈哈", "manufacturerId": 1, "toolsDetails": [{"goodsId": 10349, "goodsQuantity": 1}], "kitCategory": 1, "kitTemplateId": 37, "kitTemplateName": "1620467590108"} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 17:55:29,435] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/queryToolsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50}
+[2021-05-08 17:55:29,537] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/addToolsKit 
+ 传入参数：{"name": "1620467729341", "skuCode": 1620467729341, "toolsKitCategory": 174, "manufacturerId": 1, "remark": "哈哈哈", "toolsDetails": [{"goodsId": 10349, "goodsQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 17:55:29,597] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/queryToolsKitList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "toolKitName": 1620467729341}
+[2021-05-08 17:55:29,663] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/editToolsKit 
+ 传入参数：{"skuCode": 1620467729341, "remark": "哈哈哈", "manufacturerId": 1, "toolsDetails": [{"goodsId": 10349, "goodsQuantity": 1}], "kitCategory": 1, "kitTemplateId": 39, "kitTemplateName": "1620467729341"} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 17:55:29,718] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/queryToolsKitList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "toolKitName": 1620467729341}
+[2021-05-08 17:55:29,773] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/deleteKitTemplate 
+ 传入参数：{"ids": [39]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:21:30,916] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620469290766", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620469290766, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1620835200000, "registrationBeginDate": 1620469290766, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:21:31,004] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": 1620469290766}
+[2021-05-08 18:21:31,102] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/editGoods 
+ 传入参数：{"id": 10369, "name": "1620469290766", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "storageConditions": 100, "nearExpirationDate": 5, "origin": "测试地址", "model": "333", "skuCode": 1620469290766, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "std2012Category": 373, "registrationUiBeanList": [{"longEffect": false, "registrationBeginDate": 1620469290766, "registrationEndDate": 1620835200000, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:21:31,159] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/deleteGoods 
+ 传入参数：{"ids": [10369]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:22:35,197] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/queryToolsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50}
+[2021-05-08 18:22:35,277] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/addToolsKit 
+ 传入参数：{"name": "1620469355101", "skuCode": 1620469355101, "toolsKitCategory": 174, "manufacturerId": 1, "remark": "哈哈哈", "toolsDetails": [{"goodsId": 10349, "goodsQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:22:35,332] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/queryToolsKitList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "toolKitName": 1620469355101}
+[2021-05-08 18:22:35,404] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/editToolsKit 
+ 传入参数：{"skuCode": 1620469355101, "remark": "哈哈哈", "manufacturerId": 1, "toolsDetails": [{"goodsId": 10349, "goodsQuantity": 1}], "kitCategory": 1, "kitTemplateId": 41, "kitTemplateName": "1620469355101"} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:22:35,467] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/queryToolsKitList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "toolKitName": 1620469355101}
+[2021-05-08 18:22:35,555] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/deleteKitTemplate 
+ 传入参数：{"ids": [41]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:26:48,579] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620469608470", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620469608470, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1620835200000, "registrationBeginDate": 1620469608470, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:26:48,691] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": 1620469608470}
+[2021-05-08 18:26:48,801] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/editGoods 
+ 传入参数：{"id": 10371, "name": "1620469608470", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "storageConditions": 100, "nearExpirationDate": 5, "origin": "测试地址", "model": "333", "skuCode": 1620469608470, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "std2012Category": 373, "registrationUiBeanList": [{"longEffect": false, "registrationBeginDate": 1620469608470, "registrationEndDate": 1620835200000, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:26:48,860] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/deleteGoods 
+ 传入参数：{"ids": [10371]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:27:28,360] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620469648272", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620469648272, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1620835200000, "registrationBeginDate": 1620469648272, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:27:28,435] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": 1620469648272}
+[2021-05-08 18:27:28,532] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/editGoods 
+ 传入参数：{"id": 10373, "name": "1620469648272", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "storageConditions": 100, "nearExpirationDate": 5, "origin": "测试地址", "model": "333", "skuCode": 1620469648272, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "std2012Category": 373, "registrationUiBeanList": [{"longEffect": false, "registrationBeginDate": 1620469648272, "registrationEndDate": 1620835200000, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:27:28,617] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": 1620469648272}
+[2021-05-08 18:27:28,683] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/editGoodsDi 
+ 传入参数：{"di": 10373, "id": 10373} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:27:53,404] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620469673321", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620469673321, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1620835200000, "registrationBeginDate": 1620469673321, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:27:53,500] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": 1620469673321}
+[2021-05-08 18:27:53,588] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/editGoods 
+ 传入参数：{"id": 10375, "name": "1620469673321", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "storageConditions": 100, "nearExpirationDate": 5, "origin": "测试地址", "model": "333", "skuCode": 1620469673321, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "std2012Category": 373, "registrationUiBeanList": [{"longEffect": false, "registrationBeginDate": 1620469673321, "registrationEndDate": 1620835200000, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:27:53,681] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/editPrice 
+ 传入参数：{"id": 10375, "type": "purchase", "price": null, "discountRate": 5000, "purchasePrice": 10000, "taxRate": 10000} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:30:45,135] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620469845042", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620469845042, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1620835200000, "registrationBeginDate": 1620469845042, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:30:45,199] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": 1620469845042}
+[2021-05-08 18:30:45,269] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/editGoods 
+ 传入参数：{"id": 10377, "name": "1620469845042", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "storageConditions": 100, "nearExpirationDate": 5, "origin": "测试地址", "model": "333", "skuCode": 1620469845042, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "std2012Category": 373, "registrationUiBeanList": [{"longEffect": false, "registrationBeginDate": 1620469845042, "registrationEndDate": 1620835200000, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:30:45,336] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/editPrice 
+ 传入参数：{"id": 10377, "type": "purchase", "price": 10, "discountRate": 5000, "purchasePrice": 10000, "taxRate": 10000} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:31:09,426] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620469869348", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620469869348, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1620835200000, "registrationBeginDate": 1620469869348, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:31:09,489] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": 1620469869348}
+[2021-05-08 18:31:09,581] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/editGoods 
+ 传入参数：{"id": 10379, "name": "1620469869348", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "storageConditions": 100, "nearExpirationDate": 5, "origin": "测试地址", "model": "333", "skuCode": 1620469869348, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "std2012Category": 373, "registrationUiBeanList": [{"longEffect": false, "registrationBeginDate": 1620469869348, "registrationEndDate": 1620835200000, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:31:09,633] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/editPrice 
+ 传入参数：{"id": 10379, "type": "purchase", "price": 10000, "discountRate": 5000, "purchasePrice": 10000, "taxRate": 10000} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:31:57,093] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620469916989", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620469916989, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1620835200000, "registrationBeginDate": 1620469916989, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:31:57,162] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": 1620469916989}
+[2021-05-08 18:31:57,252] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/editGoods 
+ 传入参数：{"id": 10381, "name": "1620469916989", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "storageConditions": 100, "nearExpirationDate": 5, "origin": "测试地址", "model": "333", "skuCode": 1620469916989, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "std2012Category": 373, "registrationUiBeanList": [{"longEffect": false, "registrationBeginDate": 1620469916989, "registrationEndDate": 1620835200000, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:31:57,334] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/editPrice 
+ 传入参数：{"id": 10381, "type": "purchase", "price": null, "discountRate": 5000, "purchasePrice": 10000, "taxRate": 10000} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:32:19,983] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620469939888", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620469939888, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1620835200000, "registrationBeginDate": 1620469939888, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:32:20,060] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": 1620469939888}
+[2021-05-08 18:32:20,150] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/editGoods 
+ 传入参数：{"id": 10383, "name": "1620469939888", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "storageConditions": 100, "nearExpirationDate": 5, "origin": "测试地址", "model": "333", "skuCode": 1620469939888, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "std2012Category": 373, "registrationUiBeanList": [{"longEffect": false, "registrationBeginDate": 1620469939888, "registrationEndDate": 1620835200000, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:32:20,244] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/editPrice 
+ 传入参数：{"id": 10383, "type": "purchase", "price": 999, "discountRate": 5000, "purchasePrice": 10000, "taxRate": 10000} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:32:33,686] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620469953593", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620469953593, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1620835200000, "registrationBeginDate": 1620469953593, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:32:33,768] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": 1620469953593}
+[2021-05-08 18:32:33,861] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/editGoods 
+ 传入参数：{"id": 10385, "name": "1620469953593", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "storageConditions": 100, "nearExpirationDate": 5, "origin": "测试地址", "model": "333", "skuCode": 1620469953593, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "std2012Category": 373, "registrationUiBeanList": [{"longEffect": false, "registrationBeginDate": 1620469953593, "registrationEndDate": 1620835200000, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:32:33,927] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/editPrice 
+ 传入参数：{"id": 10385, "type": "purchase", "price": 999999, "discountRate": 5000, "purchasePrice": 10000, "taxRate": 10000} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:32:58,248] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620469978147", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620469978147, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1620835200000, "registrationBeginDate": 1620469978147, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:32:58,315] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": 1620469978147}
+[2021-05-08 18:32:58,409] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/editGoods 
+ 传入参数：{"id": 10387, "name": "1620469978147", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "storageConditions": 100, "nearExpirationDate": 5, "origin": "测试地址", "model": "333", "skuCode": 1620469978147, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "std2012Category": 373, "registrationUiBeanList": [{"longEffect": false, "registrationBeginDate": 1620469978147, "registrationEndDate": 1620835200000, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:32:58,496] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/editPrice 
+ 传入参数：{"id": 10387, "type": "purchase", "price": null, "discountRate": 5000, "purchasePrice": 10000, "taxRate": 10000} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:32:58,555] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/editPrice 
+ 传入参数：{"id": 10387, "type": "purchase", "price": 999998, "discountRate": 5000, "purchasePrice": 10000, "taxRate": 10000} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:35:05,186] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620470105084", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620470105084, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1620835200000, "registrationBeginDate": 1620470105084, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:35:05,252] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": 1620470105084}
+[2021-05-08 18:35:05,360] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/editGoods 
+ 传入参数：{"id": 10389, "name": "1620470105084", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "storageConditions": 100, "nearExpirationDate": 5, "origin": "测试地址", "model": "333", "skuCode": 1620470105084, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "std2012Category": 373, "registrationUiBeanList": [{"longEffect": false, "registrationBeginDate": 1620470105084, "registrationEndDate": 1620835200000, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:35:05,420] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/editPrice 
+ 传入参数：{"id": 10389, "type": "purchase", "price": null, "discountRate": 5000, "purchasePrice": 10000, "taxRate": 10000} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:35:05,493] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/editPrice 
+ 传入参数：{"id": 10389, "type": "adhoc", "price": 666666, "discountRate": 5000, "purchasePrice": 10000, "taxRate": 10000} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:39:12,295] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/queryToolsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50}
+[2021-05-08 18:39:12,380] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/addToolsKit 
+ 传入参数：{"name": "1620470352177", "skuCode": 1620470352177, "toolsKitCategory": 174, "manufacturerId": 1, "remark": "哈哈哈", "toolsDetails": [{"goodsId": 10349, "goodsQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:39:12,449] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/queryToolsKitList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "toolKitName": 1620470352177}
+[2021-05-08 18:39:12,558] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/editToolsKit 
+ 传入参数：{"skuCode": 1620470352177, "remark": "哈哈哈", "manufacturerId": 1, "toolsDetails": [{"goodsId": 10349, "goodsQuantity": 1}], "kitCategory": 1, "kitTemplateId": 43, "kitTemplateName": "1620470352177"} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:39:12,615] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/editPrice 
+ 传入参数：{"id": 10349, "price": 1100} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:41:35,170] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/queryToolsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50}
+[2021-05-08 18:41:35,261] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/addToolsKit 
+ 传入参数：{"name": "1620470495071", "skuCode": 1620470495071, "toolsKitCategory": 174, "manufacturerId": 1, "remark": "哈哈哈", "toolsDetails": [{"goodsId": 10349, "goodsQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:41:35,331] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/queryToolsKitList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "toolKitName": 1620470495071}
+[2021-05-08 18:41:35,405] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/editToolsKit 
+ 传入参数：{"skuCode": 1620470495071, "remark": "哈哈哈", "manufacturerId": 1, "toolsDetails": [{"goodsId": 10349, "goodsQuantity": 1}], "kitCategory": 1, "kitTemplateId": 45, "kitTemplateName": "1620470495071"} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:41:35,453] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/queryToolsKitList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "toolKitName": "1620470495071"}
+[2021-05-08 18:41:35,519] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/editPrice 
+ 传入参数：{"id": 10349, "price": 98989} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:42:37,844] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/queryToolsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50}
+[2021-05-08 18:42:37,920] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/addToolsKit 
+ 传入参数：{"name": "1620470557737", "skuCode": 1620470557737, "toolsKitCategory": 174, "manufacturerId": 1, "remark": "哈哈哈", "toolsDetails": [{"goodsId": 10349, "goodsQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:42:37,967] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/queryToolsKitList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "toolKitName": 1620470557737}
+[2021-05-08 18:42:38,044] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/editToolsKit 
+ 传入参数：{"skuCode": 1620470557737, "remark": "哈哈哈", "manufacturerId": 1, "toolsDetails": [{"goodsId": 10349, "goodsQuantity": 1}], "kitCategory": 1, "kitTemplateId": 47, "kitTemplateName": "1620470557737"} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:42:38,092] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/queryToolsKitList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "toolKitName": 1620470557737}
+[2021-05-08 18:42:38,145] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/editPrice 
+ 传入参数：{"id": 10349, "price": 98989} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:43:12,870] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/queryToolsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50}
+[2021-05-08 18:43:12,930] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/addToolsKit 
+ 传入参数：{"name": "1620470592765", "skuCode": 1620470592765, "toolsKitCategory": 174, "manufacturerId": 1, "remark": "哈哈哈", "toolsDetails": [{"goodsId": 10349, "goodsQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:43:12,971] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/queryToolsKitList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "toolKitName": 1620470592765}
+[2021-05-08 18:43:13,041] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/editToolsKit 
+ 传入参数：{"skuCode": 1620470592765, "remark": "哈哈哈", "manufacturerId": 1, "toolsDetails": [{"goodsId": 10349, "goodsQuantity": 1}], "kitCategory": 1, "kitTemplateId": 49, "kitTemplateName": "1620470592765"} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:43:13,100] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/queryToolsKitList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "toolKitName": 1620470592765}
+[2021-05-08 18:43:13,154] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/editPrice 
+ 传入参数：{"id": 49, "price": 98989} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:45:52,429] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/queryToolsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50}
+[2021-05-08 18:45:52,520] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/addToolsKit 
+ 传入参数：{"name": "1620470752334", "skuCode": 1620470752334, "toolsKitCategory": 174, "manufacturerId": 1, "remark": "哈哈哈", "toolsDetails": [{"goodsId": 10349, "goodsQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:45:52,580] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/queryToolsKitList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "toolKitName": 1620470752334}
+[2021-05-08 18:46:16,899] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/queryToolsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50}
+[2021-05-08 18:46:16,996] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/addToolsKit 
+ 传入参数：{"name": "1620470776768", "skuCode": 1620470776768, "toolsKitCategory": 174, "manufacturerId": 1, "remark": "哈哈哈", "toolsDetails": [{"goodsId": 10349, "goodsQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:46:17,098] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/queryToolsKitList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "toolKitName": 1620470776768}
+[2021-05-08 18:47:25,314] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/queryToolsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50}
+[2021-05-08 18:47:25,392] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/addToolsKit 
+ 传入参数：{"name": "1620470845217", "skuCode": 1620470845217, "toolsKitCategory": 174, "manufacturerId": 1, "remark": "哈哈哈", "toolsDetails": [{"goodsId": 10349, "goodsQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:47:25,445] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/queryToolsKitList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "toolKitName": 1620470845217}
+[2021-05-08 18:47:25,522] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/editToolsKit 
+ 传入参数：{"skuCode": 1620470845217, "remark": "哈哈哈", "manufacturerId": 1, "toolsDetails": [{"goodsId": 10349, "goodsQuantity": 1}], "kitCategory": 1, "kitTemplateId": 55, "kitTemplateName": "1620470845217"} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:47:25,606] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/queryToolsKitList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "toolKitName": 1620470845217}
+[2021-05-08 18:47:25,690] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/editPrice 
+ 传入参数：{"id": 55, "price": 98989} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:49:12,602] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/queryToolsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50}
+[2021-05-08 18:49:12,677] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/addToolsKit 
+ 传入参数：{"name": "1620470952510", "skuCode": 1620470952510, "toolsKitCategory": 174, "manufacturerId": 1, "remark": "哈哈哈", "toolsDetails": [{"goodsId": 10349, "goodsQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:49:12,722] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/queryToolsKitList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "toolKitName": 1620470952510}
+[2021-05-08 18:51:21,527] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/queryToolsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50}
+[2021-05-08 18:51:21,595] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/addToolsKit 
+ 传入参数：{"name": "1620471081450", "skuCode": 1620471081450, "toolsKitCategory": 174, "manufacturerId": 1, "remark": "哈哈哈", "toolsDetails": [{"goodsId": 10349, "goodsQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:51:21,655] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/queryToolsKitList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "toolKitName": 1620471081450}
+[2021-05-08 18:54:48,017] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/editToolsKit 
+ 传入参数：{"skuCode": 1620471287943, "remark": "哈哈哈", "manufacturerId": 1, "toolsDetails": [{"goodsId": 10349, "goodsQuantity": 1}], "kitCategory": 1, "kitTemplateId": 59, "kitTemplateName": "1620471287943"} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:55:30,654] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/queryToolsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50}
+[2021-05-08 18:55:30,720] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/addToolsKit 
+ 传入参数：{"name": "1620471330569", "skuCode": 1620471330569, "toolsKitCategory": 174, "manufacturerId": 1, "remark": "哈哈哈", "toolsDetails": [{"goodsId": 10349, "goodsQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:55:30,778] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/queryToolsKitList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "toolKitName": 1620471330569}
+[2021-05-08 18:55:30,855] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/editToolsKit 
+ 传入参数：{"skuCode": 1620471330569, "remark": "哈哈哈", "manufacturerId": 1, "toolsDetails": [{"goodsId": 10349, "goodsQuantity": 1}], "kitCategory": 1, "kitTemplateId": 61, "kitTemplateName": "1620471330569"} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:55:30,936] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/editPrice 
+ 传入参数：{"id": 61, "price": 98989} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:56:20,819] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/queryToolsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50}
+[2021-05-08 18:56:20,885] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/addToolsKit 
+ 传入参数：{"name": "1620471380732", "skuCode": 1620471380732, "toolsKitCategory": 174, "manufacturerId": 1, "remark": "哈哈哈", "toolsDetails": [{"goodsId": 10349, "goodsQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:56:20,956] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/queryToolsKitList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "toolKitName": 1620471380732}
+[2021-05-08 18:56:21,027] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/editToolsKit 
+ 传入参数：{"skuCode": 1620471380732, "remark": "哈哈哈", "manufacturerId": 1, "toolsDetails": [{"goodsId": 10349, "goodsQuantity": 1}], "kitCategory": 1, "kitTemplateId": 63, "kitTemplateName": "1620471380732"} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 18:56:21,079] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/editPrice 
+ 传入参数：{"id": 63, "price": 98989} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 19:17:36,392] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/queryToolsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50}
+[2021-05-08 19:17:36,464] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/addToolsKit 
+ 传入参数：{"name": "1620472656302", "skuCode": 1620472656302, "toolsKitCategory": 174, "manufacturerId": 1, "remark": "哈哈哈", "toolsDetails": [{"goodsId": 10349, "goodsQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 19:17:36,522] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/queryToolsKitList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "toolKitName": 1620472656302}
+[2021-05-08 19:17:36,587] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/editToolsKit 
+ 传入参数：{"skuCode": 1620472656302, "remark": "哈哈哈", "manufacturerId": 1, "toolsDetails": [{"goodsId": 10349, "goodsQuantity": 1}], "kitCategory": 1, "kitTemplateId": 65, "kitTemplateName": "1620472656302"} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 19:17:36,665] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/editPrice 
+ 传入参数：{"id": 65, "price": 98989} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 19:56:57,722] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/queryToolsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50}
+[2021-05-08 19:57:16,626] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/queryToolsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50}
+[2021-05-08 19:57:16,719] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/queryToolsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50}
+[2021-05-08 19:57:16,807] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/addToolsKit 
+ 传入参数：{"name": "1620475036499", "skuCode": 1620475036499, "toolsKitCategory": 174, "manufacturerId": 1, "remark": "哈哈哈", "toolsDetails": [{"goodsId": 10349, "goodsQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 19:59:37,545] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/queryToolsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50}
+[2021-05-08 19:59:37,648] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/addToolsKit 
+ 传入参数：{"name": "1620475177448", "skuCode": 1620475177448, "toolsKitCategory": 174, "manufacturerId": 1, "remark": "哈哈哈", "toolsDetails": [{"goodsId": 10349, "goodsQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-08 20:00:32,976] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/queryToolsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50}
+[2021-05-08 20:00:33,056] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/addToolsKit 
+ 传入参数：{"name": "1620475232880", "skuCode": 1620475232880, "toolsKitCategory": 174, "manufacturerId": 1, "remark": "哈哈哈", "toolsDetails": [{"goodsId": 10349, "goodsQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}

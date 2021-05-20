@@ -1,0 +1,1488 @@
+[2021-05-14 10:01:27,325] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/allocate_reason 
+[2021-05-14 10:01:27,410] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 10:01:27,478] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 10:01:27,588] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goodsStock/findAllocateGoodsStockList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 10:01:27,857] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitStock/findKitStockListByAllocate 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 10:01:27,930] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"reasonCode": null, "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 1, "msg": "请选择调拨理由", "exMsg": null, "data": null}
+[2021-05-14 10:01:27,995] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": null, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 1, "msg": "请选择来源仓库", "exMsg": null, "data": null}
+[2021-05-14 10:01:28,059] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": "aa"}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 1, "msg": "请求参数异常", "exMsg": null, "data": null}
+[2021-05-14 10:01:28,196] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": "aa"}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 1, "msg": "请求参数异常", "exMsg": null, "data": null}
+[2021-05-14 10:01:28,271] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": "aa"}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 1, "msg": "请求参数异常", "exMsg": null, "data": null}
+[2021-05-14 10:01:28,451] - logger.py] - ERROR: ----------系统错误---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": null, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 2, "msg": "System busy, please try again later.", "exMsg": null, "data": null}
+[2021-05-14 10:01:28,523] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": null}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 1, "msg": "请输入商品数量", "exMsg": null, "data": null}
+[2021-05-14 10:01:28,678] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 999999999999}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": {"id": 87, "code": "ALO_20210514_0002"}}
+[2021-05-14 10:01:28,763] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": null, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 1, "msg": "参数异常", "exMsg": null, "data": null}
+[2021-05-14 10:01:28,912] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": null, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": {"id": 88, "code": "ALO_20210514_0003"}}
+[2021-05-14 10:01:29,024] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": null, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": {"id": 89, "code": "ALO_20210514_0004"}}
+[2021-05-14 10:01:29,107] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 99999999999999}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": {"id": 90, "code": "ALO_20210514_0005"}}
+[2021-05-14 10:02:48,360] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/allocate_reason 
+[2021-05-14 10:02:48,433] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 10:02:48,506] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 10:02:48,653] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goodsStock/findAllocateGoodsStockList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 10:02:48,888] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitStock/findKitStockListByAllocate 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 10:02:48,953] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"reasonCode": null, "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 1, "msg": "请选择调拨理由", "exMsg": null, "data": null}
+[2021-05-14 10:02:49,065] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": null, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 1, "msg": "请选择来源仓库", "exMsg": null, "data": null}
+[2021-05-14 10:02:49,152] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": "aa"}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 1, "msg": "请求参数异常", "exMsg": null, "data": null}
+[2021-05-14 10:02:49,213] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": null}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 1, "msg": "请选择目标仓库", "exMsg": null, "data": null}
+[2021-05-14 10:02:49,291] - logger.py] - ERROR: ----------系统错误---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 9999999}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 2, "msg": "System busy, please try again later.", "exMsg": null, "data": null}
+[2021-05-14 10:02:49,471] - logger.py] - ERROR: ----------系统错误---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": null, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 2, "msg": "System busy, please try again later.", "exMsg": null, "data": null}
+[2021-05-14 10:02:49,565] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": null}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 1, "msg": "请输入商品数量", "exMsg": null, "data": null}
+[2021-05-14 10:02:49,652] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 999999999999}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": {"id": 93, "code": "ALO_20210514_0008"}}
+[2021-05-14 10:02:49,734] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": null, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 1, "msg": "参数异常", "exMsg": null, "data": null}
+[2021-05-14 10:02:49,808] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": null, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": {"id": 94, "code": "ALO_20210514_0009"}}
+[2021-05-14 10:02:49,889] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": null, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": {"id": 95, "code": "ALO_20210514_0010"}}
+[2021-05-14 10:02:49,970] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 99999999999999}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": {"id": 96, "code": "ALO_20210514_0011"}}
+[2021-05-14 10:03:49,240] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/allocate_reason 
+[2021-05-14 10:03:49,288] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 10:03:49,352] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 10:03:49,459] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goodsStock/findAllocateGoodsStockList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 10:03:49,672] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitStock/findKitStockListByAllocate 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 10:03:49,733] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"reasonCode": null, "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 1, "msg": "请选择调拨理由", "exMsg": null, "data": null}
+[2021-05-14 10:03:49,823] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": null, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 1, "msg": "请选择来源仓库", "exMsg": null, "data": null}
+[2021-05-14 10:03:49,891] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": "aa"}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 1, "msg": "请求参数异常", "exMsg": null, "data": null}
+[2021-05-14 10:03:49,935] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": null}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 1, "msg": "请选择目标仓库", "exMsg": null, "data": null}
+[2021-05-14 10:03:50,037] - logger.py] - ERROR: ----------系统错误---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 9999999}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 2, "msg": "System busy, please try again later.", "exMsg": null, "data": null}
+[2021-05-14 10:03:50,216] - logger.py] - ERROR: ----------系统错误---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": null, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 2, "msg": "System busy, please try again later.", "exMsg": null, "data": null}
+[2021-05-14 10:03:50,298] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": null}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 1, "msg": "请输入商品数量", "exMsg": null, "data": null}
+[2021-05-14 10:03:50,405] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 999999999999}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": {"id": 99, "code": "ALO_20210514_0014"}}
+[2021-05-14 10:03:50,464] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": null, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 1, "msg": "参数异常", "exMsg": null, "data": null}
+[2021-05-14 10:03:50,548] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": null, "kitStockQuantity": 9999999}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": {"id": 100, "code": "ALO_20210514_0015"}}
+[2021-05-14 10:03:50,624] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": null, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": {"id": 101, "code": "ALO_20210514_0016"}}
+[2021-05-14 10:03:50,695] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 99999999999999}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": {"id": 102, "code": "ALO_20210514_0017"}}
+[2021-05-14 10:31:32,185] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/approve 
+ 传入参数：{"approve": false, "id": 103, "rejectReason": "不通过"} 
+ 响应内容：{"code": 1, "msg": "请求方式错误", "exMsg": null, "data": null}
+[2021-05-14 10:31:55,434] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/approve 
+ 传入参数：{"approve": false, "id": 103, "rejectReason": "不通过"} 
+ 响应内容：{"code": 1, "msg": "该订单已处理，请勿重复操作", "exMsg": null, "data": null}
+[2021-05-14 10:33:15,004] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/approve 
+ 传入参数：{"approve": false, "id": 103, "rejectReason": "不通过"} 
+ 响应内容：{"code": 1, "msg": "该订单已处理，请勿重复操作", "exMsg": null, "data": null}
+[2021-05-14 10:33:44,953] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/approve 
+ 传入参数：{"approve": false, "id": 103} 
+ 响应内容：{"code": 1, "msg": "该订单已处理，请勿重复操作", "exMsg": null, "data": null}
+[2021-05-14 10:37:06,913] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/approve 
+ 传入参数：{"approve": false, "id": 103, "rejectReason": "不通过"} 
+ 响应内容：{"code": 1, "msg": "该订单已处理，请勿重复操作", "exMsg": null, "data": null}
+[2021-05-14 11:04:03,215] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/close 
+ 传入参数：{"orderId": 115} 
+ 响应内容：{"code": 1, "msg": "请求参数异常", "exMsg": null, "data": null}
+[2021-05-14 11:05:32,100] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/close?orderId=115 
+ 响应内容：{"code": 1, "msg": "订单状态为待接收或待修改时才能关闭", "exMsg": null, "data": null}
+[2021-05-14 11:07:05,330] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/close?orderId=114 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-14 11:07:28,494] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/close?orderId=113 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-14 11:08:08,655] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/remove?orderId=113 
+ 响应内容：{"code": 1, "msg": "请求方式错误", "exMsg": null, "data": null}
+[2021-05-14 11:08:36,114] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/remove?orderId=113 
+ 响应内容：{"code": 1, "msg": "未查询到该调拨订单，请刷新重试", "exMsg": null, "data": null}
+[2021-05-14 11:09:06,374] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/remove?orderId=112 
+ 响应内容：{"code": 1, "msg": "订单状态为已关闭时才能删除", "exMsg": null, "data": null}
+[2021-05-14 13:39:46,108] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/allocate_reason 
+[2021-05-14 13:39:46,177] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 13:39:46,221] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 13:39:46,376] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goodsStock/findAllocateGoodsStockList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 13:39:46,616] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitStock/findKitStockListByAllocate 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 13:39:46,670] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": "warehouse_replenishment", "reasonCode": null, "reason": "", "sourceWarehouseId": 8, "targetWarehouseId": 288}, "goodsDetailUiBeans": [{"goodsId": 101, "goodsLotInfoId": 253, "goodsQuantity": 1}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 1, "msg": "请求参数异常", "exMsg": null, "data": null}
+[2021-05-14 13:39:46,825] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": "warehouse_replenishment", "reasonCode": 6, "reason": "", "sourceWarehouseId": null, "targetWarehouseId": 288}, "goodsDetailUiBeans": [{"goodsId": 101, "goodsLotInfoId": 253, "goodsQuantity": 1}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 1, "msg": "请求参数异常", "exMsg": null, "data": null}
+[2021-05-14 13:39:46,917] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": "warehouse_replenishment", "reasonCode": 6, "reason": "", "sourceWarehouseId": 8, "targetWarehouseId": "aa"}, "goodsDetailUiBeans": [{"goodsId": 101, "goodsLotInfoId": 253, "goodsQuantity": 1}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 1, "msg": "请求参数异常", "exMsg": null, "data": null}
+[2021-05-14 13:39:46,987] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": "warehouse_replenishment", "reasonCode": 6, "reason": "", "sourceWarehouseId": 8, "targetWarehouseId": null}, "goodsDetailUiBeans": [{"goodsId": 101, "goodsLotInfoId": 253, "goodsQuantity": 1}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 1, "msg": "请求参数异常", "exMsg": null, "data": null}
+[2021-05-14 13:39:47,050] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": "warehouse_replenishment", "reasonCode": 6, "reason": "", "sourceWarehouseId": 8, "targetWarehouseId": 9999999}, "goodsDetailUiBeans": [{"goodsId": 101, "goodsLotInfoId": 253, "goodsQuantity": 1}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 1, "msg": "请求参数异常", "exMsg": null, "data": null}
+[2021-05-14 13:39:47,119] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": "warehouse_replenishment", "reasonCode": 6, "reason": "", "sourceWarehouseId": 8, "targetWarehouseId": 288}, "goodsDetailUiBeans": [{"goodsId": null, "goodsLotInfoId": 253, "goodsQuantity": 1}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 1, "msg": "请求参数异常", "exMsg": null, "data": null}
+[2021-05-14 13:39:47,173] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": "warehouse_replenishment", "reasonCode": 6, "reason": "", "sourceWarehouseId": 8, "targetWarehouseId": 288}, "goodsDetailUiBeans": [{"goodsId": 101, "goodsLotInfoId": 253, "goodsQuantity": null}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 1, "msg": "请求参数异常", "exMsg": null, "data": null}
+[2021-05-14 13:39:47,242] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": "warehouse_replenishment", "reasonCode": 6, "reason": "", "sourceWarehouseId": 8, "targetWarehouseId": 288}, "goodsDetailUiBeans": [{"goodsId": 101, "goodsLotInfoId": 253, "goodsQuantity": 999999999999}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 1, "msg": "请求参数异常", "exMsg": null, "data": null}
+[2021-05-14 13:39:47,292] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": "warehouse_replenishment", "reasonCode": 6, "reason": "", "sourceWarehouseId": 8, "targetWarehouseId": 288}, "goodsDetailUiBeans": [{"goodsId": 101, "goodsLotInfoId": null, "goodsQuantity": 1}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 1, "msg": "请求参数异常", "exMsg": null, "data": null}
+[2021-05-14 13:39:47,363] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": "warehouse_replenishment", "reasonCode": 6, "reason": "", "sourceWarehouseId": 8, "targetWarehouseId": 288}, "goodsDetailUiBeans": [{"goodsId": 101, "goodsLotInfoId": 253, "goodsQuantity": 1}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 99999999999999}]} 
+ 响应内容：{"code": 1, "msg": "请求参数异常", "exMsg": null, "data": null}
+[2021-05-14 13:42:19,777] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/allocate_reason 
+[2021-05-14 13:42:19,847] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 13:42:19,908] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 13:42:20,041] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goodsStock/findAllocateGoodsStockList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 13:42:20,287] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitStock/findKitStockListByAllocate 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 13:42:20,352] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reasonCode": null, "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 1, "msg": "请选择调拨理由", "exMsg": null, "data": null}
+[2021-05-14 13:42:20,400] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": null, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 1, "msg": "请选择来源仓库", "exMsg": null, "data": null}
+[2021-05-14 13:42:20,442] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": "aa"}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 1, "msg": "请求参数异常", "exMsg": null, "data": null}
+[2021-05-14 13:42:20,493] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": null}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 1, "msg": "请选择目标仓库", "exMsg": null, "data": null}
+[2021-05-14 13:42:20,581] - logger.py] - ERROR: ----------系统错误---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 9999999}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 2, "msg": "System busy, please try again later.", "exMsg": null, "data": null}
+[2021-05-14 13:42:20,750] - logger.py] - ERROR: ----------系统错误---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": null, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 2, "msg": "System busy, please try again later.", "exMsg": null, "data": null}
+[2021-05-14 13:42:20,811] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": null}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 1, "msg": "请输入商品数量", "exMsg": null, "data": null}
+[2021-05-14 13:42:20,897] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 999999999999}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": {"id": 118, "code": "ALO_20210514_0033"}}
+[2021-05-14 13:42:20,973] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": null, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 1, "msg": "参数异常", "exMsg": null, "data": null}
+[2021-05-14 13:42:21,070] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 99999999999999}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": {"id": 119, "code": "ALO_20210514_0034"}}
+[2021-05-14 13:49:30,947] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/allocate_reason 
+[2021-05-14 13:49:31,022] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 13:49:31,080] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 13:49:31,185] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goodsStock/findAllocateGoodsStockList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 13:49:31,398] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitStock/findKitStockListByAllocate 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 13:49:31,483] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": {"id": 120, "code": "ALO_20210514_0035"}}
+[2021-05-14 13:49:31,553] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/approve 
+ 传入参数：{"approve": false, "id": 120, "rejectReason": "不通过"} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-14 13:49:48,654] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/allocate_reason 
+[2021-05-14 13:49:48,714] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 13:49:48,776] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 13:49:48,881] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goodsStock/findAllocateGoodsStockList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 13:49:49,057] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitStock/findKitStockListByAllocate 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 13:49:49,110] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reasonCode": null, "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 1, "msg": "请选择调拨理由", "exMsg": null, "data": null}
+[2021-05-14 13:49:49,180] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reasonCode": null, "reason": "", "sourceWarehouseId": null, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 1, "msg": "请选择调拨理由", "exMsg": null, "data": null}
+[2021-05-14 13:49:49,332] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reasonCode": null, "reason": "", "sourceWarehouseId": null, "targetWarehouseId": "aa"}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 1, "msg": "请求参数异常", "exMsg": null, "data": null}
+[2021-05-14 13:49:49,371] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reasonCode": null, "reason": "", "sourceWarehouseId": null, "targetWarehouseId": null}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 1, "msg": "请选择来源仓库", "exMsg": null, "data": null}
+[2021-05-14 13:49:49,421] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reasonCode": null, "reason": "", "sourceWarehouseId": null, "targetWarehouseId": 9999999}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 1, "msg": "请选择调拨理由", "exMsg": null, "data": null}
+[2021-05-14 13:49:49,487] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reasonCode": null, "reason": "", "sourceWarehouseId": null, "targetWarehouseId": 9999999}, "goodsDetailUiBeans": [{"goodsId": null, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 1, "msg": "请选择来源仓库", "exMsg": null, "data": null}
+[2021-05-14 13:49:49,543] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reasonCode": null, "reason": "", "sourceWarehouseId": null, "targetWarehouseId": 9999999}, "goodsDetailUiBeans": [{"goodsId": null, "goodsLotInfoId": 101, "goodsQuantity": null}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 1, "msg": "请选择来源仓库", "exMsg": null, "data": null}
+[2021-05-14 13:49:49,608] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reasonCode": null, "reason": "", "sourceWarehouseId": null, "targetWarehouseId": 9999999}, "goodsDetailUiBeans": [{"goodsId": null, "goodsLotInfoId": 101, "goodsQuantity": 999999999999}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 1, "msg": "请选择来源仓库", "exMsg": null, "data": null}
+[2021-05-14 13:49:49,684] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reasonCode": null, "reason": "", "sourceWarehouseId": null, "targetWarehouseId": 9999999}, "goodsDetailUiBeans": [{"goodsId": null, "goodsLotInfoId": null, "goodsQuantity": 999999999999}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 1, "msg": "请选择调拨理由", "exMsg": null, "data": null}
+[2021-05-14 13:49:49,742] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reasonCode": null, "reason": "", "sourceWarehouseId": null, "targetWarehouseId": 9999999}, "goodsDetailUiBeans": [{"goodsId": null, "goodsLotInfoId": null, "goodsQuantity": 999999999999}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 99999999999999}]} 
+ 响应内容：{"code": 1, "msg": "请选择调拨理由", "exMsg": null, "data": null}
+[2021-05-14 13:56:04,238] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reasonCode": null, "reason": "", "sourceWarehouseId": null, "targetWarehouseId": null}, "goodsDetailUiBeans": [{"goodsId": null, "goodsLotInfoId": null, "goodsQuantity": 1}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": null, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 1, "msg": "请选择目标仓库", "exMsg": null, "data": null}
+[2021-05-14 14:00:16,510] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/allocate_reason 
+[2021-05-14 14:00:16,556] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 14:00:16,618] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 14:00:16,726] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goodsStock/findAllocateGoodsStockList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 14:00:16,931] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitStock/findKitStockListByAllocate 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 14:01:08,892] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/allocate_reason 
+[2021-05-14 14:01:08,937] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 14:01:08,986] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 14:01:09,101] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goodsStock/findAllocateGoodsStockList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 14:01:09,313] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitStock/findKitStockListByAllocate 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 14:01:21,727] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/allocate_reason 
+[2021-05-14 14:01:21,820] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 14:01:21,873] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 14:01:22,006] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goodsStock/findAllocateGoodsStockList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 14:01:22,203] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitStock/findKitStockListByAllocate 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 14:01:22,287] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": {"id": 121, "code": "ALO_20210514_0036"}}
+[2021-05-14 14:01:22,376] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/approve 
+ 传入参数：{"approve": false, "id": 121, "rejectReason": "不通过"} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-14 14:10:49,661] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/allocate_reason 
+[2021-05-14 14:10:49,724] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 14:10:49,774] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 14:10:49,885] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goodsStock/findAllocateGoodsStockList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 14:10:50,079] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitStock/findKitStockListByAllocate 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 14:23:19,303] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/allocate_reason 
+[2021-05-14 14:23:19,353] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 14:23:19,412] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 14:23:19,522] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goodsStock/findAllocateGoodsStockList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 14:23:19,739] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitStock/findKitStockListByAllocate 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 14:23:19,843] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": {"id": 122, "code": "ALO_20210514_0037"}}
+[2021-05-14 14:23:19,903] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reason": "", "reasonCode": null, "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}], "toolsDetailUiBeans": []} 
+ 响应内容：{"code": 1, "msg": "请选择调拨理由", "exMsg": null, "data": null}
+[2021-05-14 14:23:19,962] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reason": "", "reasonCode": "warehouse_replenishment", "sourceWarehouseId": null, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}], "toolsDetailUiBeans": []} 
+ 响应内容：{"code": 1, "msg": "请选择来源仓库", "exMsg": null, "data": null}
+[2021-05-14 14:23:20,033] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reason": "", "reasonCode": "warehouse_replenishment", "sourceWarehouseId": 6, "targetWarehouseId": "aa"}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}], "toolsDetailUiBeans": []} 
+ 响应内容：{"code": 1, "msg": "请求参数异常", "exMsg": null, "data": null}
+[2021-05-14 14:23:20,078] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reason": "", "reasonCode": "warehouse_replenishment", "sourceWarehouseId": 6, "targetWarehouseId": null}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}], "toolsDetailUiBeans": []} 
+ 响应内容：{"code": 1, "msg": "请选择目标仓库", "exMsg": null, "data": null}
+[2021-05-14 14:23:20,178] - logger.py] - ERROR: ----------系统错误---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reason": "", "reasonCode": "warehouse_replenishment", "sourceWarehouseId": 6, "targetWarehouseId": 9999999}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}], "toolsDetailUiBeans": []} 
+ 响应内容：{"code": 2, "msg": "System busy, please try again later.", "exMsg": null, "data": null}
+[2021-05-14 14:23:20,353] - logger.py] - ERROR: ----------系统错误---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reason": "", "reasonCode": "warehouse_replenishment", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": null, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}], "toolsDetailUiBeans": []} 
+ 响应内容：{"code": 2, "msg": "System busy, please try again later.", "exMsg": null, "data": null}
+[2021-05-14 14:23:20,424] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reason": "", "reasonCode": "warehouse_replenishment", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": null}], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}], "toolsDetailUiBeans": []} 
+ 响应内容：{"code": 1, "msg": "请输入商品数量", "exMsg": null, "data": null}
+[2021-05-14 14:23:20,512] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reason": "", "reasonCode": "warehouse_replenishment", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 999999999999}], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}], "toolsDetailUiBeans": []} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": {"id": 125, "code": "ALO_20210514_0040"}}
+[2021-05-14 14:23:20,590] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reason": "", "reasonCode": "warehouse_replenishment", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": null, "goodsQuantity": 253}], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}], "toolsDetailUiBeans": []} 
+ 响应内容：{"code": 1, "msg": "参数异常", "exMsg": null, "data": null}
+[2021-05-14 14:23:20,680] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reason": "", "reasonCode": "warehouse_replenishment", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 99999999999999}], "toolsDetailUiBeans": []} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": {"id": 126, "code": "ALO_20210514_0041"}}
+[2021-05-14 14:44:46,474] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/allocate_reason 
+[2021-05-14 14:44:46,537] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 14:44:46,596] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 14:44:46,738] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goodsStock/findAllocateGoodsStockList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 14:44:46,944] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitStock/findKitStockListByAllocate 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 14:45:39,824] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/allocate_reason 
+[2021-05-14 14:45:39,869] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 14:45:39,928] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 14:45:40,032] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goodsStock/findAllocateGoodsStockList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 14:45:40,200] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitStock/findKitStockListByAllocate 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 14:45:40,284] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": {"id": 127, "code": "ALO_20210514_0042"}}
+[2021-05-14 14:45:40,350] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reason": "", "reasonCode": null, "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}], "toolsDetailUiBeans": []} 
+ 响应内容：{"code": 1, "msg": "请选择调拨理由", "exMsg": null, "data": null}
+[2021-05-14 14:45:40,398] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reason": "", "reasonCode": "warehouse_replenishment", "sourceWarehouseId": null, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}], "toolsDetailUiBeans": []} 
+ 响应内容：{"code": 1, "msg": "请选择来源仓库", "exMsg": null, "data": null}
+[2021-05-14 14:45:40,460] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reason": "", "reasonCode": "warehouse_replenishment", "sourceWarehouseId": 6, "targetWarehouseId": "aa"}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}], "toolsDetailUiBeans": []} 
+ 响应内容：{"code": 1, "msg": "请求参数异常", "exMsg": null, "data": null}
+[2021-05-14 14:45:40,510] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reason": "", "reasonCode": "warehouse_replenishment", "sourceWarehouseId": 6, "targetWarehouseId": null}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}], "toolsDetailUiBeans": []} 
+ 响应内容：{"code": 1, "msg": "请选择目标仓库", "exMsg": null, "data": null}
+[2021-05-14 14:45:40,596] - logger.py] - ERROR: ----------系统错误---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reason": "", "reasonCode": "warehouse_replenishment", "sourceWarehouseId": 6, "targetWarehouseId": 9999999}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}], "toolsDetailUiBeans": []} 
+ 响应内容：{"code": 2, "msg": "System busy, please try again later.", "exMsg": null, "data": null}
+[2021-05-14 14:45:40,771] - logger.py] - ERROR: ----------系统错误---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reason": "", "reasonCode": "warehouse_replenishment", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": null, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}], "toolsDetailUiBeans": []} 
+ 响应内容：{"code": 2, "msg": "System busy, please try again later.", "exMsg": null, "data": null}
+[2021-05-14 14:45:40,841] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reason": "", "reasonCode": "warehouse_replenishment", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": null}], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}], "toolsDetailUiBeans": []} 
+ 响应内容：{"code": 1, "msg": "请输入商品数量", "exMsg": null, "data": null}
+[2021-05-14 14:45:40,936] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reason": "", "reasonCode": "warehouse_replenishment", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 999999999999}], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}], "toolsDetailUiBeans": []} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": {"id": 130, "code": "ALO_20210514_0045"}}
+[2021-05-14 14:45:41,001] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reason": "", "reasonCode": "warehouse_replenishment", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": null, "goodsQuantity": 253}], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}], "toolsDetailUiBeans": []} 
+ 响应内容：{"code": 1, "msg": "参数异常", "exMsg": null, "data": null}
+[2021-05-14 14:45:41,103] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reason": "", "reasonCode": "warehouse_replenishment", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 99999999999999}], "toolsDetailUiBeans": []} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": {"id": 131, "code": "ALO_20210514_0046"}}
+[2021-05-14 15:01:28,254] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/allocate_reason 
+[2021-05-14 15:01:28,307] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 15:01:28,367] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 15:01:28,477] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goodsStock/findAllocateGoodsStockList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 15:01:28,726] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitStock/findKitStockListByAllocate 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 15:01:28,809] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": {"id": 132, "code": "ALO_20210514_0047"}}
+[2021-05-14 15:05:30,027] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/allocate_reason 
+[2021-05-14 15:05:30,074] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 15:05:30,124] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 15:05:30,229] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goodsStock/findAllocateGoodsStockList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 15:05:30,396] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitStock/findKitStockListByAllocate 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 15:05:30,476] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": {"id": 133, "code": "ALO_20210514_0048"}}
+[2021-05-14 15:05:30,544] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/approve 
+ 传入参数：{"approve": 133, "id": 103} 
+ 响应内容：{"code": 1, "msg": "该订单已处理，请勿重复操作", "exMsg": null, "data": null}
+[2021-05-14 15:05:48,570] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/allocate_reason 
+[2021-05-14 15:05:48,612] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 15:05:48,668] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 15:05:48,777] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goodsStock/findAllocateGoodsStockList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 15:05:48,986] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitStock/findKitStockListByAllocate 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 15:05:49,055] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": {"id": 134, "code": "ALO_20210514_0049"}}
+[2021-05-14 15:05:49,110] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/approve 
+ 传入参数：{"approve": 134, "id": 103} 
+ 响应内容：{"code": 1, "msg": "该订单已处理，请勿重复操作", "exMsg": null, "data": null}
+[2021-05-14 15:10:27,870] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/allocate_reason 
+[2021-05-14 15:10:27,936] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 15:10:28,103] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 15:10:28,211] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goodsStock/findAllocateGoodsStockList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 15:10:28,460] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitStock/findKitStockListByAllocate 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 15:10:28,556] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": {"id": 135, "code": "ALO_20210514_0050"}}
+[2021-05-14 15:10:28,613] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/approve 
+ 传入参数：{"approve": null, "id": 135, "rejectReason": "不通过"} 
+ 响应内容：{"code": 1, "msg": "请选择审核或者驳回调拨单", "exMsg": null, "data": null}
+[2021-05-14 15:10:55,768] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/allocate_reason 
+[2021-05-14 15:10:55,841] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 15:10:55,902] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 15:10:56,030] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goodsStock/findAllocateGoodsStockList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 15:10:56,252] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitStock/findKitStockListByAllocate 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 15:10:56,332] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": {"id": 136, "code": "ALO_20210514_0051"}}
+[2021-05-14 15:10:56,397] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/approve 
+ 传入参数：{"approve": null, "id": 136, "rejectReason": "不通过"} 
+ 响应内容：{"code": 1, "msg": "请选择审核或者驳回调拨单", "exMsg": null, "data": null}
+[2021-05-14 15:11:25,117] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/allocate_reason 
+[2021-05-14 15:11:25,167] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 15:11:25,229] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 15:11:25,351] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goodsStock/findAllocateGoodsStockList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 15:11:25,572] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitStock/findKitStockListByAllocate 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 15:11:25,788] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": {"id": 137, "code": "ALO_20210514_0052"}}
+[2021-05-14 15:11:25,859] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/approve 
+ 传入参数：{"approve": null, "id": 137, "rejectReason": "不通过"} 
+ 响应内容：{"code": 1, "msg": "请选择审核或者驳回调拨单", "exMsg": null, "data": null}
+[2021-05-14 15:12:21,187] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/allocate_reason 
+[2021-05-14 15:12:21,337] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 15:12:21,412] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 15:12:21,512] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goodsStock/findAllocateGoodsStockList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 15:12:21,708] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitStock/findKitStockListByAllocate 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 15:12:21,780] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": {"id": 138, "code": "ALO_20210514_0053"}}
+[2021-05-14 15:12:21,821] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/approve 
+ 传入参数：{"approve": null, "id": 138, "rejectReason": "不通过"} 
+ 响应内容：{"code": 1, "msg": "请选择审核或者驳回调拨单", "exMsg": null, "data": null}
+[2021-05-14 15:13:30,903] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/allocate_reason 
+[2021-05-14 15:13:30,962] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 15:13:31,014] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 15:13:31,114] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goodsStock/findAllocateGoodsStockList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 15:13:31,322] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitStock/findKitStockListByAllocate 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 15:13:31,411] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": {"id": 139, "code": "ALO_20210514_0054"}}
+[2021-05-14 15:13:31,467] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/approve 
+ 传入参数：{"approve": null, "id": 139, "rejectReason": "不通过"} 
+ 响应内容：{"code": 1, "msg": "请选择审核或者驳回调拨单", "exMsg": null, "data": null}
+[2021-05-14 15:14:48,905] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/allocate_reason 
+[2021-05-14 15:14:48,958] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 15:14:49,011] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 15:14:49,141] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goodsStock/findAllocateGoodsStockList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 15:14:49,328] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitStock/findKitStockListByAllocate 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 15:14:49,429] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": {"id": 140, "code": "ALO_20210514_0055"}}
+[2021-05-14 15:14:49,484] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/approve 
+ 传入参数：{"approve": null, "id": 140, "rejectReason": "不通过"} 
+ 响应内容：{"code": 1, "msg": "请选择审核或者驳回调拨单", "exMsg": null, "data": null}
+[2021-05-14 15:15:56,723] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/allocate_reason 
+[2021-05-14 15:15:56,767] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 15:15:56,819] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 15:15:56,973] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goodsStock/findAllocateGoodsStockList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 15:15:57,165] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitStock/findKitStockListByAllocate 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 15:15:57,247] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": {"id": 141, "code": "ALO_20210514_0056"}}
+[2021-05-14 15:15:57,293] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/approve 
+ 传入参数：{"approve": null, "id": 141, "rejectReason": "不通过"} 
+ 响应内容：{"code": 1, "msg": "请选择审核或者驳回调拨单", "exMsg": null, "data": null}
+[2021-05-14 15:25:32,633] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/allocate_reason 
+[2021-05-14 15:25:32,690] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 15:25:32,745] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 15:25:32,895] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goodsStock/findAllocateGoodsStockList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 15:25:33,163] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitStock/findKitStockListByAllocate 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 15:25:33,270] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": {"id": 142, "code": "ALO_20210514_0057"}}
+[2021-05-14 15:25:33,714] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/approve 
+ 传入参数：{"approve": false, "id": 142, "rejectReason": "不通过"} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-14 15:25:34,260] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/approve 
+ 传入参数：{"approve": null, "id": 142, "rejectReason": null} 
+ 响应内容：{"code": 1, "msg": "请选择审核或者驳回调拨单", "exMsg": null, "data": null}
+[2021-05-14 15:26:29,665] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/allocate_reason 
+[2021-05-14 15:26:29,793] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 15:26:29,844] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 15:26:30,036] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goodsStock/findAllocateGoodsStockList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 15:26:30,328] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitStock/findKitStockListByAllocate 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 15:26:30,411] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": {"id": 143, "code": "ALO_20210514_0058"}}
+[2021-05-14 15:26:30,638] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/approve 
+ 传入参数：{"approve": null, "id": 143, "rejectReason": null} 
+ 响应内容：{"code": 1, "msg": "请选择审核或者驳回调拨单", "exMsg": null, "data": null}
+[2021-05-14 15:26:53,758] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/allocate_reason 
+[2021-05-14 15:26:53,796] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 15:26:53,852] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 15:26:53,946] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goodsStock/findAllocateGoodsStockList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 15:26:54,736] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitStock/findKitStockListByAllocate 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 15:26:54,812] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": {"id": 144, "code": "ALO_20210514_0059"}}
+[2021-05-14 15:26:54,878] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/approve 
+ 传入参数：{"approve": null, "id": 144, "rejectReason": null} 
+ 响应内容：{"code": 1, "msg": "请选择审核或者驳回调拨单", "exMsg": null, "data": null}
+[2021-05-14 15:29:19,244] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/allocate_reason 
+[2021-05-14 15:29:19,440] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 15:29:19,503] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 15:29:19,631] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goodsStock/findAllocateGoodsStockList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 15:29:19,862] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitStock/findKitStockListByAllocate 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 15:29:19,958] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": {"id": 145, "code": "ALO_20210514_0060"}}
+[2021-05-14 15:29:20,011] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/approve 
+ 传入参数：{"approve": null, "id": 145, "rejectReason": null} 
+ 响应内容：{"code": 1, "msg": "请选择审核或者驳回调拨单", "exMsg": null, "data": null}
+[2021-05-14 15:29:20,215] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/approve 
+ 传入参数：{"approve": null, "id": 145, "rejectReason": null} 
+ 响应内容：{"code": 1, "msg": "请选择审核或者驳回调拨单", "exMsg": null, "data": null}
+[2021-05-14 15:29:54,648] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/allocate_reason 
+[2021-05-14 15:29:54,702] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 15:29:54,746] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 15:29:54,850] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goodsStock/findAllocateGoodsStockList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 15:29:55,046] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitStock/findKitStockListByAllocate 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 15:29:55,108] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": {"id": 146, "code": "ALO_20210514_0061"}}
+[2021-05-14 15:29:55,153] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/approve 
+ 传入参数：{"approve": null, "id": 146, "rejectReason": null} 
+ 响应内容：{"code": 1, "msg": "请选择审核或者驳回调拨单", "exMsg": null, "data": null}
+[2021-05-14 15:29:55,212] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/approve 
+ 传入参数：{"approve": false, "id": 146, "rejectReason": null} 
+ 响应内容：{"code": 1, "msg": "请输入修改建议", "exMsg": null, "data": null}
+[2021-05-14 15:50:31,026] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/allocate_reason 
+[2021-05-14 15:50:31,080] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 15:50:31,164] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 15:50:31,284] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goodsStock/findAllocateGoodsStockList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 15:50:31,819] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitStock/findKitStockListByAllocate 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 15:50:31,950] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": {"id": 147, "code": "ALO_20210514_0062"}}
+[2021-05-14 15:50:32,017] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/approve 
+ 传入参数：{"approve": null, "id": null, "rejectReason": null} 
+ 响应内容：{"code": 1, "msg": "请选择审核或者驳回调拨单", "exMsg": null, "data": null}
+[2021-05-14 15:50:32,083] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/approve 
+ 传入参数：{"approve": null, "id": 147, "rejectReason": null} 
+ 响应内容：{"code": 1, "msg": "请选择审核或者驳回调拨单", "exMsg": null, "data": null}
+[2021-05-14 15:50:32,160] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/approve 
+ 传入参数：{"approve": false, "id": 147, "rejectReason": null} 
+ 响应内容：{"code": 1, "msg": "请输入修改建议", "exMsg": null, "data": null}
+[2021-05-14 15:51:40,787] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/allocate_reason 
+[2021-05-14 15:51:40,842] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 15:51:40,903] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 15:51:40,998] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goodsStock/findAllocateGoodsStockList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 15:51:41,182] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitStock/findKitStockListByAllocate 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 15:51:41,279] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": {"id": 148, "code": "ALO_20210514_0063"}}
+[2021-05-14 15:51:41,335] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/approve 
+ 传入参数：{"approve": false, "id": 148, "rejectReason": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001"} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-14 15:51:54,920] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/allocate_reason 
+[2021-05-14 15:51:54,984] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 15:51:55,092] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 15:51:55,366] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goodsStock/findAllocateGoodsStockList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 15:51:55,624] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitStock/findKitStockListByAllocate 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 15:51:55,702] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": {"id": 149, "code": "ALO_20210514_0064"}}
+[2021-05-14 15:51:55,748] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/approve 
+ 传入参数：{"approve": false, "id": 149, "rejectReason": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001"} 
+ 响应内容：{"code": 1, "msg": "拒绝原因超出长度限制", "exMsg": null, "data": null}
+[2021-05-14 15:52:07,124] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/allocate_reason 
+[2021-05-14 15:52:07,172] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 15:52:07,219] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 15:52:07,323] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goodsStock/findAllocateGoodsStockList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 15:52:07,527] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitStock/findKitStockListByAllocate 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 15:52:07,610] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": {"id": 150, "code": "ALO_20210514_0065"}}
+[2021-05-14 15:52:07,651] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/approve 
+ 传入参数：{"approve": false, "id": 150, "rejectReason": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001"} 
+ 响应内容：{"code": 1, "msg": "拒绝原因超出长度限制", "exMsg": null, "data": null}
+[2021-05-14 16:04:25,106] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/allocate_reason 
+[2021-05-14 16:04:25,189] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 16:04:25,257] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 16:04:25,465] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goodsStock/findAllocateGoodsStockList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 16:04:25,669] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitStock/findKitStockListByAllocate 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 16:04:25,770] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": {"id": 151, "code": "ALO_20210514_0066"}}
+[2021-05-14 16:04:25,838] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/approve 
+ 传入参数：{"approve": false, "id": 151, "rejectReason": "不通过"} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-14 16:04:25,910] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/close?orderId=151 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-14 16:04:26,004] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/close?orderId=151 
+ 响应内容：{"code": 1, "msg": "订单状态为待接收或待修改时才能关闭", "exMsg": null, "data": null}
+[2021-05-14 16:04:26,070] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/close?orderId=151 
+ 响应内容：{"code": 1, "msg": "订单状态为待接收或待修改时才能关闭", "exMsg": null, "data": null}
+[2021-05-14 16:04:26,130] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/close?orderId=151 
+ 响应内容：{"code": 1, "msg": "订单状态为待接收或待修改时才能关闭", "exMsg": null, "data": null}
+[2021-05-14 16:05:05,227] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/allocate_reason 
+[2021-05-14 16:05:05,382] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 16:05:05,463] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 16:05:05,577] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goodsStock/findAllocateGoodsStockList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 16:05:05,782] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitStock/findKitStockListByAllocate 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 16:05:05,856] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": {"id": 152, "code": "ALO_20210514_0067"}}
+[2021-05-14 16:05:05,932] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/approve 
+ 传入参数：{"approve": false, "id": 152, "rejectReason": "不通过"} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-14 16:05:06,011] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/close?orderId=152 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-14 16:05:44,514] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/allocate_reason 
+[2021-05-14 16:05:44,572] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 16:05:44,624] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 16:05:44,731] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goodsStock/findAllocateGoodsStockList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 16:05:44,908] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitStock/findKitStockListByAllocate 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 16:05:44,996] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": {"id": 153, "code": "ALO_20210514_0068"}}
+[2021-05-14 16:05:45,055] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/approve 
+ 传入参数：{"approve": false, "id": 153, "rejectReason": "不通过"} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-14 16:05:45,119] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/close?orderId={1} 
+ 响应内容：{"code": 1, "msg": "请求参数异常", "exMsg": null, "data": null}
+[2021-05-14 16:07:45,027] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/allocate_reason 
+[2021-05-14 16:07:45,090] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 16:07:45,145] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 16:07:45,246] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goodsStock/findAllocateGoodsStockList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 16:07:45,477] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitStock/findKitStockListByAllocate 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 16:07:45,594] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": {"id": 154, "code": "ALO_20210514_0069"}}
+[2021-05-14 16:07:45,670] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/approve 
+ 传入参数：{"approve": false, "id": 154, "rejectReason": "不通过"} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-14 16:07:45,745] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/close?orderId=3 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-14 16:11:06,048] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/allocate_reason 
+[2021-05-14 16:11:06,105] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 16:11:06,153] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 16:11:06,263] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goodsStock/findAllocateGoodsStockList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 16:11:06,488] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitStock/findKitStockListByAllocate 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 16:11:06,576] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": {"id": 155, "code": "ALO_20210514_0070"}}
+[2021-05-14 16:11:06,653] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/approve 
+ 传入参数：{"approve": false, "id": 155, "rejectReason": "不通过"} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-14 16:11:06,701] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/close?orderId=155 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-14 16:11:37,583] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/allocate_reason 
+[2021-05-14 16:11:37,649] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 16:11:37,703] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 16:11:37,838] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goodsStock/findAllocateGoodsStockList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 16:11:38,005] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitStock/findKitStockListByAllocate 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 16:11:38,118] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": {"id": 156, "code": "ALO_20210514_0071"}}
+[2021-05-14 16:11:38,172] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/approve 
+ 传入参数：{"approve": false, "id": 156, "rejectReason": "不通过"} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-14 16:11:38,260] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/close?orderId=156 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-14 16:15:09,903] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/dictionary/getByType/allocate_reason 
+[2021-05-14 16:15:09,997] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 16:15:10,085] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getUserRelationWarehouse 
+[2021-05-14 16:15:10,212] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goodsStock/findAllocateGoodsStockList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 16:15:10,650] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitStock/findKitStockListByAllocate 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 16:15:10,726] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/create 
+ 传入参数：{"baseOrderInfo": {"id": null, "reasonCode": "warehouse_replenishment", "reason": "", "sourceWarehouseId": 6, "targetWarehouseId": 8}, "goodsDetailUiBeans": [{"goodsId": 288, "goodsLotInfoId": 101, "goodsQuantity": 253}], "toolsDetailUiBeans": [], "toolKitDetailUiBeans": [{"kitStockId": 1, "kitStockQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": {"id": 157, "code": "ALO_20210514_0072"}}
+[2021-05-14 16:15:10,812] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/approve 
+ 传入参数：{"approve": false, "id": 157, "rejectReason": "不通过"} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-14 16:15:10,877] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/allocateOrder/close?orderId=157 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-14 16:15:10,944] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/close?orderId=157 
+ 响应内容：{"code": 1, "msg": "订单状态为待接收或待修改时才能关闭", "exMsg": null, "data": null}
+[2021-05-14 17:03:42,551] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/remove?orderId=a 
+ 响应内容：{"code": 1, "msg": "请求参数异常", "exMsg": null, "data": null}
+[2021-05-14 17:03:52,709] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/remove?orderId=a 
+ 响应内容：{"code": 1, "msg": "请求参数异常", "exMsg": null, "data": null}
+[2021-05-14 17:04:10,969] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/allocateOrder/remove?orderId=a 
+ 响应内容：{"code": 1, "msg": "请求参数异常", "exMsg": null, "data": null}
+[2021-05-14 17:33:41,622] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": null, "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620984821213, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1621353600000, "registrationBeginDate": 1620984821213, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 1, "msg": "请填写商品名称", "exMsg": null, "data": null}
+[2021-05-14 17:33:41,697] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620984821213", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": null, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1621353600000, "registrationBeginDate": 1620984821213, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 1, "msg": "请输入原厂编码", "exMsg": null, "data": null}
+[2021-05-14 17:33:41,794] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": null, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620984821213", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620984821213, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1621353600000, "registrationBeginDate": 1620984821213, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 1, "msg": "请选择耗材类型", "exMsg": null, "data": null}
+[2021-05-14 17:33:42,007] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": null, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620984821213", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620984821213, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1621353600000, "registrationBeginDate": 1620984821213, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 1, "msg": "请选择养护类别", "exMsg": null, "data": null}
+[2021-05-14 17:33:42,096] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": null, "minGoodsUnit": 23, "name": "1620984821213", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620984821213, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1621353600000, "registrationBeginDate": 1620984821213, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 1, "msg": "请选择生产企业", "exMsg": null, "data": null}
+[2021-05-14 17:33:42,160] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620984821213", "origin": null, "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620984821213, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1621353600000, "registrationBeginDate": 1620984821213, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 1, "msg": "请填写商品产地", "exMsg": null, "data": null}
+[2021-05-14 17:33:42,222] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": null, "name": "1620984821213", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620984821213, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1621353600000, "registrationBeginDate": 1620984821213, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 1, "msg": "请输入基本单位", "exMsg": null, "data": null}
+[2021-05-14 17:33:42,226] - logger.py] - INFO: ------测试新增物资---------
+[2021-05-14 17:33:42,360] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/category/getTree 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "parentCode": "MATERIAL"}
+[2021-05-14 17:33:42,713] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 229, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": 1620984821214, "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620984821213, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1621353600000, "registrationBeginDate": 1620984821213, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-14 17:33:42,931] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryGoodsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "type": "material", "webKeyword": 1620984821214}
+[2021-05-14 17:33:42,932] - logger.py] - INFO: 新增物资的ID：11290
+[2021-05-14 17:33:43,043] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 229, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620984821213", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": null, "skuCode": 1620984821215, "specification": null, "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1621353600000, "registrationBeginDate": 1620984821213, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 1, "msg": "请输入规格或型号", "exMsg": null, "data": null}
+[2021-05-14 17:33:43,099] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620984821213", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620984821213, "specification": "222", "imageSource": null, "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1621353600000, "registrationBeginDate": 1620984821213, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 1, "msg": "请添加图片", "exMsg": null, "data": null}
+[2021-05-14 17:33:43,148] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620984821213", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620984821213, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1621353600000, "registrationBeginDate": 1620984821213, "registrationImg": null, "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 1, "msg": "请上传注册证照", "exMsg": null, "data": null}
+[2021-05-14 17:33:43,226] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620984821213", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620984821213, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1621353600000, "registrationBeginDate": 1620984821213, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": null}]}]} 
+ 响应内容：{"code": 1, "msg": "请输入注册证号", "exMsg": null, "data": null}
+[2021-05-14 17:33:43,281] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620984821213", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": null, "specificationList": [{"model": "333", "skuCode": 1620984821213, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1621353600000, "registrationBeginDate": 1620984821213, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 1, "msg": "请选择存储条件", "exMsg": null, "data": null}
+[2021-05-14 17:33:43,363] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620984821213", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": null, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620984821213, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1621353600000, "registrationBeginDate": 1620984821213, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 1, "msg": "请选择物资分类", "exMsg": null, "data": null}
+[2021-05-14 17:33:43,417] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": "kkk", "name": "1620984821213", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620984821213, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1621353600000, "registrationBeginDate": 1620984821213, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 1, "msg": "请求参数异常", "exMsg": null, "data": null}
+[2021-05-14 17:33:43,496] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 229, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620984821213", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620984821213, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1621353600000, "registrationBeginDate": 1620984821213, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 1, "msg": "原厂编码已经存在", "exMsg": null, "data": null}
+[2021-05-14 17:33:43,580] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 229, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620984821213", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620984821213, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1621353600000, "registrationBeginDate": 1620984821213, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 1, "msg": "原厂编码已经存在", "exMsg": null, "data": null}
+[2021-05-14 17:33:43,740] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 229, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620984821213", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": "1620984821215", "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1620984821214, "registrationBeginDate": 1621353600000, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 1, "msg": "注册证生效日期不能大于失效日期", "exMsg": null, "data": null}
+[2021-05-14 17:33:43,835] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 229, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": "1620984821213", "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": "1620984821215", "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1620835200000, "registrationBeginDate": 1620835200000, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 1, "msg": "注册证已失效", "exMsg": null, "data": null}
+[2021-05-14 17:33:43,918] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/goods/editGoods 
+ 传入参数：{"id": 11290, "name": null, "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "storageConditions": 100, "nearExpirationDate": 5, "origin": "测试地址", "model": "333", "skuCode": 1620984821213, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "std2012Category": 373, "registrationUiBeanList": [{"longEffect": false, "registrationBeginDate": 1620984821213, "registrationEndDate": 1621353600000, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]} 
+ 响应内容：{"code": 1, "msg": "请输入物资名称", "exMsg": null, "data": null}
+[2021-05-14 17:33:43,974] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/goods/editGoods 
+ 传入参数：{"id": 11290, "name": "1620984821213", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "storageConditions": 100, "nearExpirationDate": 5, "origin": "测试地址", "model": "333", "skuCode": null, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "std2012Category": 373, "registrationUiBeanList": [{"longEffect": false, "registrationBeginDate": 1620984821213, "registrationEndDate": 1621353600000, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]} 
+ 响应内容：{"code": 1, "msg": "请选择原厂编码", "exMsg": null, "data": null}
+[2021-05-14 17:33:44,025] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/goods/editGoods 
+ 传入参数：{"id": 11290, "name": "1620984821213", "goodsCategory": null, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "storageConditions": 100, "nearExpirationDate": 5, "origin": "测试地址", "model": "333", "skuCode": 1620984821213, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "std2012Category": 373, "registrationUiBeanList": [{"longEffect": false, "registrationBeginDate": 1620984821213, "registrationEndDate": 1621353600000, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]} 
+ 响应内容：{"code": 1, "msg": "请选择耗材类型", "exMsg": null, "data": null}
+[2021-05-14 17:33:44,092] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/goods/editGoods 
+ 传入参数：{"id": 11290, "name": "1620984821213", "goodsCategory": 101, "maintenanceCategory": null, "manufacturerId": 1, "minGoodsUnit": 23, "storageConditions": 100, "nearExpirationDate": 5, "origin": "测试地址", "model": "333", "skuCode": 1620984821213, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "std2012Category": 373, "registrationUiBeanList": [{"longEffect": false, "registrationBeginDate": 1620984821213, "registrationEndDate": 1621353600000, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]} 
+ 响应内容：{"code": 1, "msg": "请输入养护类别", "exMsg": null, "data": null}
+[2021-05-14 17:33:44,180] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/goods/editGoods 
+ 传入参数：{"id": 11290, "name": "1620984821213", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": null, "minGoodsUnit": 23, "storageConditions": 100, "nearExpirationDate": 5, "origin": "测试地址", "model": "333", "skuCode": 1620984821213, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "std2012Category": 373, "registrationUiBeanList": [{"longEffect": false, "registrationBeginDate": 1620984821213, "registrationEndDate": 1621353600000, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]} 
+ 响应内容：{"code": 1, "msg": "请输入生产企业", "exMsg": null, "data": null}
+[2021-05-14 17:33:44,259] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/goods/editGoods 
+ 传入参数：{"id": 11290, "name": "1620984821213", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "storageConditions": 100, "nearExpirationDate": 5, "origin": null, "model": "333", "skuCode": 1620984821213, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "std2012Category": 373, "registrationUiBeanList": [{"longEffect": false, "registrationBeginDate": 1620984821213, "registrationEndDate": 1621353600000, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]} 
+ 响应内容：{"code": 1, "msg": "请输入商品产地", "exMsg": null, "data": null}
+[2021-05-14 17:33:44,378] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/goods/editGoods 
+ 传入参数：{"id": 11290, "name": "1620984821213", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": null, "storageConditions": 100, "nearExpirationDate": 5, "origin": "测试地址", "model": "333", "skuCode": 1620984821213, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "std2012Category": 373, "registrationUiBeanList": [{"longEffect": false, "registrationBeginDate": 1620984821213, "registrationEndDate": 1621353600000, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]} 
+ 响应内容：{"code": 1, "msg": "请选择基本单位", "exMsg": null, "data": null}
+[2021-05-14 17:33:44,475] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/goods/editGoods 
+ 传入参数：{"id": 11290, "name": "1620984821213", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "storageConditions": 100, "nearExpirationDate": 5, "origin": "测试地址", "model": null, "skuCode": 1620984821213, "specification": null, "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "std2012Category": 373, "registrationUiBeanList": [{"longEffect": false, "registrationBeginDate": 1620984821213, "registrationEndDate": 1621353600000, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]} 
+ 响应内容：{"code": 1, "msg": "请输入规格或型号", "exMsg": null, "data": null}
+[2021-05-14 17:33:44,551] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/goods/editGoods 
+ 传入参数：{"id": 11290, "name": "1620984821213", "goodsCategory": 229, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "storageConditions": 100, "nearExpirationDate": 5, "origin": "测试地址", "model": "333", "skuCode": 1620984821213, "specification": "222", "imageSource": null, "std2012Category": 373, "registrationUiBeanList": [{"longEffect": false, "registrationBeginDate": 1620984821213, "registrationEndDate": 1621353600000, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]} 
+ 响应内容：{"code": 1, "msg": "请选择上传图片", "exMsg": null, "data": null}
+[2021-05-14 17:33:44,627] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/goods/editGoods 
+ 传入参数：{"id": 11290, "name": "1620984821213", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "storageConditions": 100, "nearExpirationDate": 5, "origin": "测试地址", "model": "333", "skuCode": 1620984821213, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "std2012Category": 373, "registrationUiBeanList": [{"longEffect": false, "registrationBeginDate": 1620984821213, "registrationEndDate": 1621353600000, "registrationImg": null, "registrationNum": "123456"}]} 
+ 响应内容：{"code": 1, "msg": "请上传注册证照", "exMsg": null, "data": null}
+[2021-05-14 17:33:44,687] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/goods/editGoods 
+ 传入参数：{"id": 11290, "name": "1620984821213", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "storageConditions": 100, "nearExpirationDate": 5, "origin": "测试地址", "model": "333", "skuCode": 1620984821213, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "std2012Category": 373, "registrationUiBeanList": [{"longEffect": false, "registrationBeginDate": 1620984821213, "registrationEndDate": 1621353600000, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": null}]} 
+ 响应内容：{"code": 1, "msg": "请输入注册证号", "exMsg": null, "data": null}
+[2021-05-14 17:33:44,754] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/goods/editGoods 
+ 传入参数：{"id": 11290, "name": "1620984821213", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "storageConditions": null, "nearExpirationDate": 5, "origin": "测试地址", "model": "333", "skuCode": 1620984821213, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "std2012Category": 373, "registrationUiBeanList": [{"longEffect": false, "registrationBeginDate": 1620984821213, "registrationEndDate": 1621353600000, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]} 
+ 响应内容：{"code": 1, "msg": "请选择存储条件", "exMsg": null, "data": null}
+[2021-05-14 17:33:44,821] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/goods/editGoods 
+ 传入参数：{"id": 11290, "name": "1620984821213", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "storageConditions": 100, "nearExpirationDate": 5, "origin": "测试地址", "model": "333", "skuCode": 1620984821213, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "std2012Category": null, "registrationUiBeanList": [{"longEffect": false, "registrationBeginDate": 1620984821213, "registrationEndDate": 1621353600000, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]} 
+ 响应内容：{"code": 1, "msg": "请选择商品分类", "exMsg": null, "data": null}
+[2021-05-14 17:33:44,882] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/goods/editGoods 
+ 传入参数：{"id": "sss", "name": "1620984821213", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "storageConditions": 100, "nearExpirationDate": 5, "origin": "测试地址", "model": "333", "skuCode": 1620984821213, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "std2012Category": 373, "registrationUiBeanList": [{"longEffect": false, "registrationBeginDate": 1620984821213, "registrationEndDate": 1621353600000, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]} 
+ 响应内容：{"code": 1, "msg": "请求参数异常", "exMsg": null, "data": null}
+[2021-05-14 17:33:44,971] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/goods/createGoods 
+ 传入参数：{"type": "material", "goodsCategory": 229, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "name": 1621353600000, "origin": "测试地址", "nearExpirationDate": 5, "std2012Category": 373, "storageConditions": 100, "specificationList": [{"model": "333", "skuCode": 1620984821213, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "createRegistrationInfoUiList": [{"longEffect": false, "registrationEndDate": 1621353600000, "registrationBeginDate": 1620984821213, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]}]} 
+ 响应内容：{"code": 1, "msg": "原厂编码已经存在", "exMsg": null, "data": null}
+[2021-05-14 17:33:45,056] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/goods/editGoods 
+ 传入参数：{"id": 11290, "name": "1620984821213", "goodsCategory": 101, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "storageConditions": 100, "nearExpirationDate": 5, "origin": "测试地址", "model": "333", "skuCode": 1620984821213, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "std2012Category": 373, "registrationUiBeanList": [{"longEffect": false, "registrationBeginDate": 1621353600000, "registrationEndDate": 1620984821214, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]} 
+ 响应内容：{"code": 1, "msg": "注册证生效日期不能大于失效日期", "exMsg": null, "data": null}
+[2021-05-14 17:33:45,174] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/goods/editGoods 
+ 传入参数：{"id": 11290, "name": "1620984821213", "goodsCategory": 229, "maintenanceCategory": 126, "manufacturerId": 1, "minGoodsUnit": 23, "storageConditions": 100, "nearExpirationDate": 5, "origin": "测试地址", "model": "333", "skuCode": 1620984821213, "specification": "222", "imageSource": ["/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg"], "std2012Category": 373, "registrationUiBeanList": [{"longEffect": false, "registrationBeginDate": 1620835200000, "registrationEndDate": 1620835200000, "registrationImg": "/file/2021/05/08/699fac64-f246-44c2-b6d9-95fbca00b716/base64Test.jpeg", "registrationNum": "123456"}]} 
+ 响应内容：{"code": 1, "msg": "注册证已失效", "exMsg": null, "data": null}
+[2021-05-14 17:33:45,336] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/goods/editGoodsDi 
+ 传入参数：{"di": null, "id": 11290} 
+ 响应内容：{"code": 1, "msg": "请填写物资di码", "exMsg": null, "data": null}
+[2021-05-14 17:33:45,393] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/goods/editGoodsDi 
+ 传入参数：{"di": 1, "id": 11290} 
+ 响应内容：{"code": 1, "msg": "DI码长度异常，必须为14位", "exMsg": null, "data": null}
+[2021-05-14 17:33:45,450] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/goods/editGoodsDi 
+ 传入参数：{"di": 12345671234567, "id": null} 
+ 响应内容：{"code": 1, "msg": "请选择要编辑的物资", "exMsg": null, "data": null}
+[2021-05-14 17:33:45,514] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/goods/editPrice 
+ 传入参数：{"id": null, "type": "purchase", "price": null, "discountRate": 5000, "purchasePrice": 10000, "taxRate": 10000} 
+ 响应内容：{"code": 1, "msg": "请填写商品id", "exMsg": null, "data": null}
+[2021-05-14 17:33:45,609] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/goods/editPrice 
+ 传入参数：{"id": 11290, "type": "purchase", "price": null, "discountRate": 0, "purchasePrice": 10000, "taxRate": 10000} 
+ 响应内容：{"code": 1, "msg": "折扣率不能为空或小于0", "exMsg": null, "data": null}
+[2021-05-14 17:33:45,719] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/goods/editPrice 
+ 传入参数：{"id": 11290, "type": "purchase", "price": null, "discountRate": 5000, "purchasePrice": 10000, "taxRate": 0} 
+ 响应内容：{"code": 1, "msg": "税率不能为空或小于0", "exMsg": null, "data": null}
+[2021-05-14 17:33:45,812] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/goods/editPrice 
+ 传入参数：{"id": 11290, "type": "purchase", "price": null, "discountRate": 5000, "purchasePrice": 0, "taxRate": 10000} 
+ 响应内容：{"code": 1, "msg": "采购价格不能为空或小于0", "exMsg": null, "data": null}
+[2021-05-14 17:33:45,927] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/goods/editPrice 
+ 传入参数：{"id": 11290, "type": "adhoc", "price": 0, "discountRate": 5000, "purchasePrice": 10000, "taxRate": 10000} 
+ 响应内容：{"code": 1, "msg": "临调价格不能小于0", "exMsg": null, "data": null}
+[2021-05-14 17:33:45,977] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/goods/editPrice 
+ 传入参数：{"id": 11290, "type": "adhoc", "price": "ss", "discountRate": 5000, "purchasePrice": 10000, "taxRate": 10000} 
+ 响应内容：{"code": 1, "msg": "请求参数异常", "exMsg": null, "data": null}
+[2021-05-14 17:33:46,054] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/deleteGoods 
+ 传入参数：{"ids": [11290]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-14 17:33:46,127] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/category/getTree 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "parentCode": "TOOLS_MATERIAL"}
+[2021-05-14 17:33:46,262] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/queryToolsList 
+ 传入参数：{"pageNum": 0, "pageSize": 50}
+[2021-05-14 17:33:46,408] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/addToolsKit 
+ 传入参数：{"name": 1620984821214, "skuCode": 1620984821213, "toolsKitCategory": 231, "manufacturerId": 1, "remark": "哈哈哈", "toolsDetails": [{"goodsId": 10884, "goodsQuantity": 1}]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-14 17:33:46,526] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/queryToolsKitList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "toolKitName": 1620984821214}
+[2021-05-14 17:33:46,589] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/kitTemplate/addToolsKit 
+ 传入参数：{"name": "1620984821213", "skuCode": 1620984821213, "toolsKitCategory": 231, "manufacturerId": 1, "remark": "哈哈哈", "toolsDetails": [{"goodsId": null, "goodsQuantity": 1}]} 
+ 响应内容：{"code": 1, "msg": "参数异常，请刷新后重试", "exMsg": null, "data": null}
+[2021-05-14 17:33:46,638] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/kitTemplate/addToolsKit 
+ 传入参数：{"name": "1620984821213", "skuCode": 1620984821213, "toolsKitCategory": null, "manufacturerId": 1, "remark": "哈哈哈", "toolsDetails": [{"goodsId": "None", "goodsQuantity": 1}]} 
+ 响应内容：{"code": 1, "msg": "请求参数异常", "exMsg": null, "data": null}
+[2021-05-14 17:33:46,686] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/kitTemplate/addToolsKit 
+ 传入参数：{"name": null, "skuCode": 1620984821213, "toolsKitCategory": 231, "manufacturerId": 1, "remark": "哈哈哈", "toolsDetails": [{"goodsId": 467, "goodsQuantity": 1}]} 
+ 响应内容：{"code": 1, "msg": "工具包名称不能为空", "exMsg": null, "data": null}
+[2021-05-14 17:33:46,753] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/kitTemplate/addToolsKit 
+ 传入参数：{"name": "1620984821213", "skuCode": null, "toolsKitCategory": 231, "manufacturerId": 1, "remark": "哈哈哈", "toolsDetails": [{"goodsId": 10884, "goodsQuantity": 1}]} 
+ 响应内容：{"code": 1, "msg": "原厂编码不能为空", "exMsg": null, "data": null}
+[2021-05-14 17:33:46,811] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/kitTemplate/addToolsKit 
+ 传入参数：{"name": "1620984821213", "skuCode": 1620984821213, "toolsKitCategory": null, "manufacturerId": 1, "remark": "哈哈哈", "toolsDetails": [{"goodsId": 10884, "goodsQuantity": 1}]} 
+ 响应内容：{"code": 1, "msg": "请选择工具包类型", "exMsg": null, "data": null}
+[2021-05-14 17:33:46,864] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/kitTemplate/addToolsKit 
+ 传入参数：{"name": "1620984821213", "skuCode": 1620984821213, "toolsKitCategory": 231, "manufacturerId": null, "remark": "哈哈哈", "toolsDetails": [{"goodsId": 10884, "goodsQuantity": 1}]} 
+ 响应内容：{"code": 1, "msg": "请选择生产企业", "exMsg": null, "data": null}
+[2021-05-14 17:33:46,907] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/kitTemplate/addToolsKit 
+ 传入参数：{"name": "1620984821213", "skuCode": "1620984821215", "toolsKitCategory": 231, "manufacturerId": 1, "remark": "哈哈哈", "toolsDetails": [{"goodsId": 10884, "goodsQuantity": null}]} 
+ 响应内容：{"code": 1, "msg": "参数异常，请刷新后重试", "exMsg": null, "data": null}
+[2021-05-14 17:33:46,980] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/kitTemplate/editToolsKit 
+ 传入参数：{"skuCode": 1620984821213, "remark": "哈哈哈", "manufacturerId": 1, "toolsDetails": [{"goodsId": 10884, "goodsQuantity": 1}], "kitCategory": 1, "kitTemplateId": null, "kitTemplateName": "1620984821213"} 
+ 响应内容：{"code": 1, "msg": "参数异常，请刷新后重试", "exMsg": null, "data": null}
+[2021-05-14 17:33:47,034] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/kitTemplate/editToolsKit 
+ 传入参数：{"skuCode": 1620984821213, "remark": null, "manufacturerId": 1, "toolsDetails": [{"goodsId": 10884, "goodsQuantity": 1}], "kitCategory": 1, "kitTemplateId": 467, "kitTemplateName": "1620984821213"} 
+ 响应内容：{"code": 1, "msg": "请填写工具包描述", "exMsg": null, "data": null}
+[2021-05-14 17:33:47,109] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/kitTemplate/editToolsKit 
+ 传入参数：{"skuCode": 1620984821213, "remark": "哈哈哈", "manufacturerId": null, "toolsDetails": [{"goodsId": 10884, "goodsQuantity": 1}], "kitCategory": 1, "kitTemplateId": 467, "kitTemplateName": "1620984821213"} 
+ 响应内容：{"code": 1, "msg": "请选择生产企业", "exMsg": null, "data": null}
+[2021-05-14 17:33:47,180] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/kitTemplate/editToolsKit 
+ 传入参数：{"skuCode": 1620984821213, "remark": "哈哈哈", "manufacturerId": 1, "toolsDetails": [{"goodsId": 10884, "goodsQuantity": 1}], "kitCategory": null, "kitTemplateId": 467, "kitTemplateName": "1620984821213"} 
+ 响应内容：{"code": 1, "msg": "请选择工具包类型", "exMsg": null, "data": null}
+[2021-05-14 17:33:47,242] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/kitTemplate/editToolsKit 
+ 传入参数：{"skuCode": 1620984821213, "remark": "哈哈哈", "manufacturerId": 1, "toolsDetails": [{"goodsId": 10884, "goodsQuantity": 1}], "kitCategory": 1, "kitTemplateId": 467, "kitTemplateName": null} 
+ 响应内容：{"code": 1, "msg": "请填写工具包名称", "exMsg": null, "data": null}
+[2021-05-14 17:33:47,327] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/kitTemplate/editPrice 
+ 传入参数：{"id": null, "price": 10000} 
+ 响应内容：{"code": 1, "msg": "参数异常，请刷新后重试", "exMsg": null, "data": null}
+[2021-05-14 17:33:47,380] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/kitTemplate/editPrice 
+ 传入参数：{"id": 467, "price": null} 
+ 响应内容：{"code": 1, "msg": "请输入工具包租用费", "exMsg": null, "data": null}
+[2021-05-14 17:33:47,430] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/kitTemplate/editPrice 
+ 传入参数：{"id": "self.toolsId", "price": 100} 
+ 响应内容：{"code": 1, "msg": "请求参数异常", "exMsg": null, "data": null}
+[2021-05-14 17:33:47,502] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/deleteKitTemplate 
+ 传入参数：{"ids": [467]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
+[2021-05-14 17:33:47,577] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/warehouse/getAll 
+[2021-05-14 17:33:47,681] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitTemplate/packagingFindToolsKitList 
+ 传入参数：{"pageNum": 0, "pageSize": 50, "warehouseId": 6}
+[2021-05-14 17:33:47,828] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitStock/findAvailableGoodsStockByTemplateId 
+ 传入参数：{"templateIds": 28, "warehouseId": 6}
+[2021-05-14 17:33:47,921] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/kitStock/findAvailableGoodsStockByTemplateId 
+ 传入参数：{"templateIds": 28, "warehouseId": null} 
+ 响应内容：{"code": 1, "msg": "参数异常，请刷新后重试", "exMsg": null, "data": null}
+[2021-05-14 17:33:47,982] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/kitStock/findAvailableGoodsStockByTemplateId 
+ 传入参数：{"templateIds": null, "warehouseId": 6} 
+ 响应内容：{"code": 1, "msg": "请选择工具包", "exMsg": null, "data": null}
+[2021-05-14 17:33:48,089] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/kitStock/findAvailableGoodsStockByTemplateId 
+ 传入参数：{"templateIds": 28, "warehouseId": 6}
+[2021-05-14 17:33:48,185] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/packagingOrder/create 
+ 传入参数：{"kitDetailUiBeans": [{"goodsDetails": [{"goodsId": 340, "goodsLotInfoId": 88, "goodsQuantity": 2}, {"goodsId": 341, "goodsLotInfoId": 86, "goodsQuantity": 2}], "kitTemplateId": null, "kitTemplateName": "万能的工具包1", "serial": 1}], "warehouseId": 6} 
+ 响应内容：{"code": 1, "msg": "参数异常，请刷新后重试", "exMsg": null, "data": null}
+[2021-05-14 17:33:48,253] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/packagingOrder/create 
+ 传入参数：{"kitDetailUiBeans": [{"goodsDetails": [{"goodsId": 340, "goodsLotInfoId": 88, "goodsQuantity": 2}, {"goodsId": 341, "goodsLotInfoId": 86, "goodsQuantity": 2}], "kitTemplateId": 28, "kitTemplateName": "万能的工具包1", "serial": 1}], "warehouseId": null} 
+ 响应内容：{"code": 1, "msg": "请选择仓库", "exMsg": null, "data": null}
+[2021-05-14 17:33:48,326] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/packagingOrder/create 
+ 传入参数：{"kitDetailUiBeans": [{"goodsDetails": [{"goodsId": 340, "goodsLotInfoId": 88, "goodsQuantity": 2}, {"goodsId": 341, "goodsLotInfoId": 86, "goodsQuantity": 2}], "kitTemplateId": 28, "kitTemplateName": "万能的工具包1", "serial": 1}], "warehouseId": 9990} 
+ 响应内容：{"code": 1, "msg": "当前用户不能在该仓库创建加工单", "exMsg": null, "data": null}
+[2021-05-14 17:33:48,375] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/packagingOrder/create 
+ 传入参数：{"kitDetailUiBeans": [{"goodsDetails": [], "kitTemplateId": 28, "kitTemplateName": "万能的工具包1", "serial": 1}], "warehouseId": 6} 
+ 响应内容：{"code": 1, "msg": "参数异常", "exMsg": null, "data": null}
+[2021-05-14 17:33:48,478] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/packagingOrder/create 
+ 传入参数：{"kitDetailUiBeans": [{"goodsDetails": [{"goodsId": 1, "goodsLotInfoId": 88, "goodsQuantity": 2}], "kitTemplateId": 28, "kitTemplateName": "万能的工具包1", "serial": 1}], "warehouseId": 6} 
+ 响应内容：{"code": 1, "msg": "工具包中【万能的工具包1】的物资【3.5低切迹骨盆复位器械盒底层托盘】数量不一致，请确定数量", "exMsg": null, "data": null}
+[2021-05-14 17:33:48,538] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/packagingOrder/create 
+ 传入参数：{"kitDetailUiBeans": [{"goodsDetails": [], "kitTemplateId": 28, "kitTemplateName": "万能的工具包1", "serial": 1}], "warehouseId": 6} 
+ 响应内容：{"code": 1, "msg": "参数异常", "exMsg": null, "data": null}
+[2021-05-14 17:33:48,615] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/packagingOrder/create 
+ 传入参数：{"kitDetailUiBeans": [{"goodsDetails": [{"goodsId": 340, "goodsLotInfoId": 1, "goodsQuantity": 2}], "kitTemplateId": 28, "kitTemplateName": "万能的工具包1", "serial": 1}], "warehouseId": 6} 
+ 响应内容：{"code": 1, "msg": "工具包中【万能的工具包1】的物资【2层器械盒】数量不一致，请确定数量", "exMsg": null, "data": null}
+[2021-05-14 17:33:48,683] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/packagingOrder/create 
+ 传入参数：{"kitDetailUiBeans": [{"goodsDetails": [], "kitTemplateId": 28, "kitTemplateName": "万能的工具包1", "serial": 1}], "warehouseId": 6} 
+ 响应内容：{"code": 1, "msg": "参数异常", "exMsg": null, "data": null}
+[2021-05-14 17:33:48,782] - logger.py] - WARNING: ----------接口报错---------- 
+ 请求地址：/packagingOrder/create 
+ 传入参数：{"kitDetailUiBeans": [{"goodsDetails": [{"goodsId": 340, "goodsLotInfoId": 88, "goodsQuantity": 1111111111111111111}], "kitTemplateId": 28, "kitTemplateName": "万能的工具包1", "serial": 1}], "warehouseId": 6} 
+ 响应内容：{"code": 1, "msg": "工具包中【万能的工具包1】的物资【3.5低切迹骨盆复位器械盒底层托盘】数量不一致，请确定数量", "exMsg": null, "data": null}
+[2021-05-14 17:33:48,862] - logger.py] - INFO: ----------请求成功---------- 
+ 请求地址：/goods/deleteGoods 
+ 传入参数：{"ids": [11290]} 
+ 响应内容：{"code": 0, "msg": "请求成功", "exMsg": null, "data": null}
