@@ -4,7 +4,7 @@
 # @File : Order_Management.py
 import time, datetime
 from faker import Faker
-from common import request, login
+import request, login
 
 faker = Faker(locale='zh_CN')
 

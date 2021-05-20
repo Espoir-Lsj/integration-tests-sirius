@@ -8,7 +8,7 @@ import time, datetime
 import allure
 import pytest
 
-from common import Purchase_Management, logger, request
+from test_case.common import Purchase_Management, logger, request
 
 from test_config.yamlconfig import timeid, body_data
 

@@ -5,7 +5,7 @@
 
 
 import allure, pytest, time, datetime
-from common import Order_Management, logger, request
+from test_case.common import Order_Management, logger, request
 from common.Data_driven import ExcelData
 
 from test_config.yamlconfig import timeid, body_data

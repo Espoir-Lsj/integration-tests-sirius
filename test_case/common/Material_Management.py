@@ -5,7 +5,7 @@
 # 物资管理
 import time, datetime
 
-from common import request
+import request
 
 timeStamp = int(time.time() * 1000)
 today = datetime.date.today()

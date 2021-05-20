@@ -6,7 +6,7 @@
 import time, datetime
 import requests
 import json
-from common import request
+import request
 
 timeStamp = int(time.time() * 1000)
 today = datetime.date.today()

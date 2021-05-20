@@ -14,11 +14,11 @@ xlrd中单元格的数据类型
 成我们想要的数据类型
 0 empty,1 string, 2 number, 3 date, 4 boolean, 5 error
 '''
-testCase_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))),'test_config','test.xls')
+testCase_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'test_config', 'test.xls')
 print(testCase_dir)
 
 
-class ExcelData():
+class ExcelData:
     # 初始化方法
     def __init__(self, sheetname, data_path=testCase_dir):
         # 定义一个属性接收文件路径
@@ -37,7 +37,6 @@ class ExcelData():
         self.rowNum = self.table.nrows
         # 获取工作表的有效列数
         self.colNum = self.table.ncols
-
 
     # 定义一个读取excel表的方法
     def readExcel(self):
@@ -87,12 +86,11 @@ class ExcelData():
                 data.append(end)
         return data
 
-
 # if __name__ == '__main__':
-    # data_path = "../../test_config/test.xls"
-    # sheetname = "Sheet1"
-    # url = '/adhocOrder/create'
-    # get_data = ExcelData(data_path, sheetname)
-    # datas = get_data.readExcel()
-    # data = get_data.getData(url)
-    # print(data)
+# data_path = "../../test_config/test.xls"
+# sheetname = "Sheet1"
+# url = '/adhocOrder/create'
+# get_data = ExcelData(data_path, sheetname)
+# datas = get_data.readExcel()
+# data = get_data.getData(url)
+# print(data)
