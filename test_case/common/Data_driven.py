@@ -91,11 +91,10 @@ class ExcelData:
 class CsvData:
     def get_csv(self, url):
         data = pandas.read_csv(csv_dir)
-        # print(data)
-        # print(data.loc[data['url']=='/adhocOrder/create'])
         data = data.values.tolist()
         datas = []
         for i in data:
+            url = '/adhocOrder/create'
             if i[0] == url:
                 title = i[2]
                 case1 = i[3]
@@ -105,7 +104,7 @@ class CsvData:
                 # print(all)
                 end = tuple(all)
                 datas.append(end)
-        # print(datas)
+        print(datas)
         return datas
 
 
