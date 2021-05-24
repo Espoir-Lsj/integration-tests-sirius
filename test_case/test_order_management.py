@@ -85,7 +85,7 @@ class TestAdhocOrder:
     @pytest.mark.parametrize('url1,title,case,expected', data)
     @allure.story('临调订单——接收临调单')
     @allure.title('{title}')
-    def test_accept(self, url1, title, case, expected, AdhocOrder_get_id01, AdhocOrder_accept):
+    def test_accept01(self, url1, title, case, expected, AdhocOrder_get_id01, AdhocOrder_accept):
         url = '/adhocOrder/accept'
         body = request.body_replace(url, case)
         body['id'] = AdhocOrder_get_id01
