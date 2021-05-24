@@ -5,7 +5,7 @@
 
 import requests, urllib3
 from test_config import param_config
-from common import logger
+from test_case.common import logger
 
 urllib3.disable_warnings()
 log = logger.Log()
@@ -43,7 +43,7 @@ def login(loginName, loginPassword, platform='TEST'):
         return r.json()
 
 
-# 获取自身ID 经销商/供应商 ID    当前用作取 经销商ID
+# 获取自身ID 经销商/供应商 ID    供应商id 供应商token
 def get_supplierId(loginName, loginPassword, platform='TEST'):
     global supplierId, headers1
     payload = {

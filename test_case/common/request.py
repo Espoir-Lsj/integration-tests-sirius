@@ -77,6 +77,7 @@ def get01(path):
     return response
 
 
+# 供应商
 def post_body(path, body):
     r = requests.post(api_url + path, headers=headers, json=body, verify=False)
     response = r.json()
@@ -94,6 +95,7 @@ def post_body(path, body):
     return response
 
 
+# 经销商
 def post_body01(path, body):
     r = requests.post(api_url + path, headers=headers1, json=body, verify=False)
     response = r.json()

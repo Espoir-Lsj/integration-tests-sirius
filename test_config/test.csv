@@ -1,2 +1,8 @@
-url,request_type,title,case,expected
-11111,post,物资id为空,{'goodsId': 112111},请输入商品id
+url,request_type,title,case,expected,模块,功能
+/supplier/addReceivingAddress,post,收件人名字为空,{"receivingName": None},请输入正确的收货人姓名,订单管理,临调订单——创建默认地址
+/supplier/addReceivingAddress,post,收件人名字为空,{"receivingName": '主治医师' * 30},收货人姓名长度超出限制,订单管理,临调订单——创建默认地址
+/supplier/addReceivingAddress,post,手机号为空,{"receivingPhone": None},请输入正确的手机号码,订单管理,临调订单——创建默认地址
+/supplier/addReceivingAddress,post,收货地区为空,{"districtCode": None},请填写收货地区,订单管理,临调订单——创建默认地址
+/supplier/addReceivingAddress,post,收货地区为空,{"districtCode": 110101000000111},收货地址区域不存在,订单管理,临调订单——创建默认地址
+/supplier/addReceivingAddress,post,详细地址为空,{"receivingAddress": None},请填写收货地址,订单管理,临调订单——创建默认地址
+/supplier/addReceivingAddress,post,详细地址为空,{"receivingAddress": '主治医师' * 30},收货地址长度超出限制,订单管理,临调订单——创建默认地址

@@ -51,10 +51,9 @@ class TestAllocateOrder:
     def test_edit(self, AllocateOrder_get_Id):
         url = '/allocateOrder/create'
         case = {'id': AllocateOrder_get_Id}
-        response = request.post_body(url, request.reValue(url, case))
-        # body = eval(str(body_data[url].copy()))
-        # body = request.reValue(body, {'id': AllocateOrder_get_Id})
-        # response = request.post_body(url, body)
+        body = request.body_replace(url, case)
+        print(body)
+        response = request.post_body(url, body)
         assert response['msg'] == '只能修改驳回的订单'
 
     data = [

@@ -94,7 +94,6 @@ class CsvData:
         data = data.values.tolist()
         datas = []
         for i in data:
-            url = '/adhocOrder/create'
             if i[0] == url:
                 title = i[2]
                 case1 = i[3]
@@ -115,5 +114,5 @@ if __name__ == '__main__':
     # datas = get_data.readExcel()
     # data = get_data.getData(url)
     # print(data)
-    datas = CsvData().get_csv('/adhocOrder/create')
+    datas = CsvData().get_csv('/supplier/addReceivingAddress')
     print(datas)
