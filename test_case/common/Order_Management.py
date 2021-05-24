@@ -13,6 +13,7 @@ today = datetime.date.today()
 fiveDaysAfter = today + datetime.timedelta(days=5)
 fiveDaysAfter_stamp = int(time.mktime(fiveDaysAfter.timetuple())) * 1000
 supplierId = login.supplierId
+dealerId = login.dealerId
 
 
 # 订单管理：临调订单
@@ -63,9 +64,21 @@ class AdhocOrder:
         }
         response = request.post_body(url, body)
 
+    def update_default_address(self, id=None):
+        url = '/supplier/updateReceivingAddress'
+        body = {
+            "receivingName": "收件人",
+            "receivingPhone": "13333333338",
+            "districtCode": 110101000000,  # 地址代码
+            "receivingAddress": "详情地址",
+            "id": id
+        }
+        response = request.put_body(url, body)
+        return response
+
     # 获取默认地址ID
     def get_addressId(self):
-        url = '/supplier/getReceivingAddress?dealerId=%s' % supplierId
+        url = '/supplier/getReceivingAddress?dealerId=%s' % dealerId
         response = request.get(url)
         try:
             response['msg'] == '请求成功'
@@ -73,6 +86,16 @@ class AdhocOrder:
             raise response
         addressId = response['data'][0]['id']
         return addressId
+
+    # 获取仓库ID
+    def get_warehouse(self):
+        url = '/warehouse/getActualWarehouse'
+        response = request.get(url)
+        data = response['data']
+        for i in data:
+            if i['name'] == '丽都仓':
+                warehouseId = i['id']
+                return warehouseId
 
     # 获取商品信息
     def get_goodsInfo(self):
@@ -148,6 +171,27 @@ class AdhocOrder:
             raise response
         return response
 
+    # 接收临调单
+    def adhocOrder_accept(self, goodsId=None, Gquantity=None, kitTemplateId=None, Kquantity=None, warehouseId=None,
+                          id=None):
+        url = '/adhocOrder/accept'
+        body = {
+            "detail": [{
+                "deliveryMode": "SELF_PIKE_UP",
+                "goodsDetailUiBeans": [{
+                    "goodsId": goodsId,
+                    "quantity": Gquantity
+                }],
+                "toolsDetailUiBeans": [{
+                    "kitTemplateId": kitTemplateId,
+                    "quantity": Kquantity
+                }],
+                "warehouseId": warehouseId
+            }],
+            "id": id
+        }
+        response = request.put_body01(url, body)
+
     # 关闭临调单
     def adhocOrder_close(self, adhocOrderId):
         url = '/adhocOrder/close'
@@ -189,4 +233,4 @@ class AdhocOrder:
 if __name__ == '__main__':
     test = AdhocOrder()
     # test.adhocOrder_create()
-    test.all()
+    test.get_warehouse()

@@ -57,7 +57,7 @@ class AllocateOrder:
 
     # 获取调出仓的物资信息
     def get_goodsInfo(self, sourceWarehouseId):
-        url = '/goodsStock/findAllocateGoodsStockList'
+        url = '/stockBaseData/findAllocateGoodsStockList'
         params = {
             'pageNum': 0,
             'pageSize': 50,
@@ -74,7 +74,7 @@ class AllocateOrder:
 
     # 获取调出仓的工具包信息
     def get_kitStockId(self, sourceWarehouseId):
-        url = '/kitStock/findKitStockListByAllocate'
+        url = '/stockBaseData/findKitStockListByAllocate'
         params = {
             'pageNum': 0,
             'pageSize': 50,

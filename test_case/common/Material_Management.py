@@ -250,7 +250,7 @@ class KitTemplate:
 
     # 获取工具包模版列表
     def get_ToolsList(self):
-        url = '/goods/queryToolsList'
+        url = '/formBaseData/queryToolsList'
         params = {
             'pageNum': 0,
             'pageSize': 50
@@ -402,7 +402,7 @@ class PackagingOrder:
 
     # 获取仓库下的工具包列表
     def get_packagingFindTools(self, warehouseId):
-        url = '/kitTemplate/packagingFindToolsKitList'
+        url = '/formBaseData/packagingFindToolsKitList'
         params = {
             'pageNum': 0,
             'pageSize': 50,
@@ -426,7 +426,7 @@ class PackagingOrder:
         :param warehouseId: 仓库ID
         :return:
         """
-        url = '/kitStock/findAvailableGoodsStockByTemplateId'
+        url = '/stockBaseData/findAvailableGoodsStockByTemplateId'
         params = {
             'templateIds': templateIds,
             'warehouseId': warehouseId
