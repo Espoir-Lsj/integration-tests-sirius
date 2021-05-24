@@ -74,7 +74,10 @@ class TestAllocateOrder:
         }
         body = request.reValue_01(body, case)
         response = request.put_body(url, body)
-        assert response['msg'] == expected
+        if title == '经销商：调拨单ID为空' or title == '经销商：审核建议为空':
+            assert '请选择' in response['msg']
+        else:
+            assert response['msg'] == expected
 
     data = [
         ('供应商：调拨单ID为空', {'id': None}, '请选择调拨单'),
@@ -94,7 +97,10 @@ class TestAllocateOrder:
         }
         body = request.reValue_01(body, case)
         response = request.put_body01(url, body)
-        assert response['msg'] == expected
+        if title == '供应商：调拨单ID为空' or title == '供应商：审核建议为空':
+            assert '请选择' in response['msg']
+        else:
+            assert response['msg'] == expected
 
     @allure.title('删除未关闭订单')
     def test_remove_01(self, AllocateOrder_get_Id):

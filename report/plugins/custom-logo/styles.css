@@ -1,0 +1,6 @@
+.side-nav__brand {
+  background: url('custom1-logo.svg') no-repeat left center !important;
+  margin-left: 45px;
+  height: 80px;
+  background-size: contain!important 
+}
