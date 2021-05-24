@@ -131,7 +131,14 @@ def AdhocOrder_get_id(AdhocOrder_get_data):
                                                                receivingName=receivingName,
                                                                deliveryMode=deliveryMode
                                                                )
-    return response
+    yield response['data']['id']
+    # Order_Management.AdhocOrder().adhocOrder_close(response['data']['id'])
+
+
+# 临调单 添加默认收货地址
+@pytest.fixture(scope='class')
+def AdhocOrder_add_address():
+    response = Order_Management.AdhocOrder().add_default_address()
 
 
 def pytest_collection_modifyitems(items):
