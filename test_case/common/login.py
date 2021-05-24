@@ -18,11 +18,12 @@ loginPassword1 = param_config.supplierLoginPassword02
 
 headers = {}
 supplierId = None
+dealerId = None
 headers1 = {}
 
 
 def login(loginName, loginPassword, platform='TEST'):
-    global headers
+    global headers, dealerId
     payload = {
         'loginPassword': loginPassword,
         'loginName': loginName,
@@ -30,6 +31,7 @@ def login(loginName, loginPassword, platform='TEST'):
     }
     r = requests.post(api_url + '/auth/login', json=payload, verify=False)
     assert r.status_code == 200
+    dealerId = r.json()['data']['companyId']
     if r.json()['msg'] == '请求成功':
         token = r.headers['X-AUTH-TOKEN']
         # headers
@@ -37,7 +39,7 @@ def login(loginName, loginPassword, platform='TEST'):
             'Content-Type': 'application/json',
             'X-AUTH-TOKEN': token
         }
-        return headers
+        return dealerId, headers
     else:
         log.info(r.json())
         return r.json()
@@ -67,5 +69,6 @@ def get_supplierId(loginName, loginPassword, platform='TEST'):
 
 
 login(loginName, loginPassword)
+print(dealerId)
 get_supplierId(loginName1, loginPassword1)
-# print(supplierId)
+print(supplierId)

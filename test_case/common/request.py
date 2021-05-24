@@ -22,6 +22,7 @@ def body_replace(url, data=None):
 
 
 def reValue_01(body, data):
+    data = eval(data)
     for i in body.keys():
         if type(body[i]) is str:
             pass

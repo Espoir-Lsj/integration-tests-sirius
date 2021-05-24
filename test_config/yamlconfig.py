@@ -72,6 +72,7 @@ class timeid():
         return body
 
     def _body_replace(self, body, data):
+        data = eval(data)
         for i in body.keys():
             if type(body[i]) is str:
                 pass
