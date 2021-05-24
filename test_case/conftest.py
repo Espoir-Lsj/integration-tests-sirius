@@ -84,7 +84,7 @@ def AllocateOrder_remove(AllocateOrder_close):
 def AdhocOrder_get_data():
     global manufacturerId, addressId, ageGroup, procedureSite, AdhocOrdergoodsId, \
         goodsSupplierId, kitTemplateId, toolsSupplierId, AdhocOrdergoodsQuantity, \
-        toolsQuantity, hospitalName, contactName, contactPhone, receivingName, surgeon, deliveryMode
+        toolsQuantity, hospitalName, contactName, contactPhone, receivingName, surgeon, deliveryMode, warehouseId
     test = Order_Management.AdhocOrder()
     # 品牌
     manufacturerId = test.get_manufacturerId()
@@ -110,6 +110,7 @@ def AdhocOrder_get_data():
     receivingName = "收件人"
     surgeon = '主刀医生'
     deliveryMode = 'SELF_PIKE_UP'
+    warehouseId = test.get_warehouse()
 
 
 # 临调单：创建临调单
@@ -135,10 +136,32 @@ def AdhocOrder_get_id(AdhocOrder_get_data):
     # Order_Management.AdhocOrder().adhocOrder_close(response['data']['id'])
 
 
+# 临调单：接收临调单
+@pytest.fixture(scope='class')
+def AdhocOrder_accept(AdhocOrder_get_id, AdhocOrder_get_data):
+    response = Order_Management.AdhocOrder().adhocOrder_accept(id=AdhocOrder_get_id, goodsId=AdhocOrdergoodsId,
+                                                               Gquantity=AdhocOrdergoodsQuantity,
+                                                               kitTemplateId=kitTemplateId,
+                                                               Kquantity=toolsQuantity, warehouseId=warehouseId)
+
+
 # 临调单 添加默认收货地址
 @pytest.fixture(scope='class')
 def AdhocOrder_add_address():
     response = Order_Management.AdhocOrder().add_default_address()
+
+
+# 临调单 查找默认地址id
+@pytest.fixture(scope='class')
+def AdhocOrder_get_addressId():
+    addressId = Order_Management.AdhocOrder().get_addressId()
+    yield addressId
+
+
+# 临调单 修改默认收货地址
+@pytest.fixture(scope='class')
+def AdhocOrder_update_address(AdhocOrder_get_addressId):
+    response = Order_Management.AdhocOrder().update_default_address(id=AdhocOrder_get_addressId)
 
 
 def pytest_collection_modifyitems(items):

@@ -1,7 +1,4 @@
-# __author:"zonglr"
-# date:2020/6/10
-# !/usr/bin/env python3
-# _*_ coding: utf-8 _*_
+
 import requests, json
 from test_config import param_config, yamlconfig
 from test_case.common import login, logger
@@ -22,7 +19,8 @@ def body_replace(url, data=None):
 
 
 def reValue_01(body, data):
-    data = eval(data)
+    if type(data) is not dict:
+        data = eval(data)
     for i in body.keys():
         if type(body[i]) is str:
             pass
@@ -199,6 +197,7 @@ def put_body01(path, body):
     elif response['code'] == 1:
         log.warning('----------接口报错---------- \n 请求地址：%s \n 传入参数：%s \n 响应内容：%s' % (
             path, json.dumps(body, ensure_ascii=False), json.dumps(response, ensure_ascii=False)))
+        # yamlconfig.body_data.setdefault(path, body)
     elif response['code'] == 0:
         log.info('----------请求成功---------- \n 请求地址：%s \n 传入参数：%s \n 响应内容：%s' % (
             path, json.dumps(body, ensure_ascii=False), json.dumps(response, ensure_ascii=False)))

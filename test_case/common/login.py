@@ -69,6 +69,6 @@ def get_supplierId(loginName, loginPassword, platform='TEST'):
 
 
 login(loginName, loginPassword)
-print(dealerId)
+# print(dealerId)
 get_supplierId(loginName1, loginPassword1)
-print(supplierId)
+# print(supplierId)

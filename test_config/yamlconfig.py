@@ -3,6 +3,7 @@ import collections
 import os
 import yaml, time, pprint
 
+
 # from common import request
 
 
@@ -72,7 +73,8 @@ class timeid():
         return body
 
     def _body_replace(self, body, data):
-        data = eval(data)
+        if type(data) is not dict:
+            data = eval(data)
         for i in body.keys():
             if type(body[i]) is str:
                 pass
@@ -128,5 +130,5 @@ if __name__ == '__main__':
         }
     }
     case = {'goodsId': None}
-    a =timeid()._body_replace(body,case)
+    a = timeid()._body_replace(body, case)
     print(a)
