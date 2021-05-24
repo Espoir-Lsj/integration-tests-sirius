@@ -146,6 +146,16 @@ class AdhocOrder:
             response['msg'] == '请求成功'
         except Exception:
             raise response
+        return response
+
+    # 关闭临调单
+    def adhocOrder_close(self, adhocOrderId):
+        url = '/adhocOrder/close'
+        response = request.put_body01(url, adhocOrderId)
+        try:
+            assert response['msg'] == '请求成功'
+        except Exception:
+            raise response
 
     def all(self):
         # 品牌
