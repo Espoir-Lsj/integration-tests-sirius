@@ -57,7 +57,7 @@ class TestAllocateOrder:
         assert response['msg'] == '只能修改驳回的订单'
 
     data = [
-        ('经销商：调拨单ID为空', {'id': None}, '请选择审核或者驳回调拨单'),
+        ('经销商：调拨单ID为空', {'id': None}, '请选择调拨单'),
         ('经销商：审核建议为空', {'approve': None}, '请选择审核或者驳回调拨单'),
         ('经销商：驳回理由为空', {'approve': False, 'rejectReason': None}, '当前用户不可接单'),
         ('经销商：驳回理由超长', {'approve': False, 'rejectReason': context}, '拒绝原因超出长度限制'),

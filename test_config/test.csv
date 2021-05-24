@@ -6,3 +6,24 @@ url,request_type,title,case,expected,模块,功能
 /supplier/addReceivingAddress,post,收货地区为空,{"districtCode": 110101000000111},收货地址区域不存在,订单管理,临调订单——创建默认地址
 /supplier/addReceivingAddress,post,详细地址为空,{"receivingAddress": None},请填写收货地址,订单管理,临调订单——创建默认地址
 /supplier/addReceivingAddress,post,详细地址为空,{"receivingAddress": '主治医师' * 30},收货地址长度超出限制,订单管理,临调订单——创建默认地址
+/supplier/updateReceivingAddress,post,收件人名字为空,{"receivingName": None},请输入正确的收货人姓名,订单管理,临调订单——修改默认地址
+/supplier/updateReceivingAddress,post,收件人名字为空,{"receivingName": '主治医师' * 30},收货人姓名长度超出限制,订单管理,临调订单——修改默认地址
+/supplier/updateReceivingAddress,post,手机号为空,{"receivingPhone": None},请输入正确的手机号码,订单管理,临调订单——修改默认地址
+/supplier/updateReceivingAddress,post,收货地区为空,{"districtCode": None},请填写收货地区,订单管理,临调订单——修改默认地址
+/supplier/updateReceivingAddress,post,收货地区为空,{"districtCode": 110101000000111},收货地址区域不存在,订单管理,临调订单——修改默认地址
+/supplier/updateReceivingAddress,post,详细地址为空,{"receivingAddress": None},请填写收货地址,订单管理,临调订单——修改默认地址
+/supplier/updateReceivingAddress,post,详细地址为空,{"receivingAddress": '主治医师' * 30},收货地址长度超出限制,订单管理,临调订单——修改默认地址
+/supplier/updateReceivingAddress,post,地址ID为空,{"id": None},请选择id,订单管理,临调订单——修改默认地址
+/supplier/updateReceivingAddress,post,地址ID错误,{"id": 9999},地址不存在,订单管理,临调订单——修改默认地址
+/adhocOrder/accept,put,id错误,{"id": 9999},未查询到该临调订单，请刷新重试,订单管理,临调订单——接收临调单
+/adhocOrder/accept,put,商品ID为空,{"goodsId": None},请输入商品id,订单管理,临调订单——接收临调单
+/adhocOrder/accept,put,商品数量为空,{"quantity": None},请输入商品数量,订单管理,临调订单——接收临调单
+/adhocOrder/accept,put,套包数量为空,{"quantity": None},请输入套包数量,订单管理,临调订单——接收临调单
+/adhocOrder/accept,put,套包数量为空,{"quantity": None},请输入套包数量,订单管理,临调订单——接收临调单
+/adhocOrder/accept,put,套包ID为空,{"kitTemplateId": None},请输入套包id,订单管理,临调订单——接收临调单
+/adhocOrder/accept,put,仓库为空,{"warehouseId": None},请选择临调单仓库,订单管理,临调订单——接收临调单
+/adhocOrder/accept,put,订单ID为空,{"id": None},请选择临调单,订单管理,临调订单——接收临调单
+/adhocOrder/accept,put,收货方式为空,{"deliveryMode": None},请选择收货方式,订单管理,临调订单——接收临调单
+/adhocOrder/accept,put,重复接收订单,{"quantity": 1},该临调单已处理，请勿重复操作,订单管理,临调订单——接收临调单
+,,,,,,
+,,,,,,

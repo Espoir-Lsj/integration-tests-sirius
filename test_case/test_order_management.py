@@ -5,7 +5,7 @@
 
 
 import allure, pytest, time, datetime
-from test_case.common import Order_Management, logger, request, Data_driven
+from test_case.common import Order_Management, logger, request, Data_driven, login
 
 from test_config.yamlconfig import timeid, body_data
 
@@ -23,11 +23,12 @@ sheetname = "Sheet1"
 # url = '/adhocOrder/create'
 get_data = Data_driven.ExcelData(sheetname)
 get_datas = Data_driven.CsvData()
+supplierId = login.supplierId
 
 
 # 订单管理：临调订单
 @allure.feature('订单管理')
-@allure.story('临调订单——创建')
+@allure.story('临调订单——创建临调单')
 @pytest.mark.usefixtures('res_data')
 class TestAdhocOrder:
     data = [('物资id为空', {'goodsId': None}, '请输入商品id'),
@@ -66,12 +67,56 @@ class TestAdhocOrder:
         response = request.post_body(url, body)
         assert response['msg'] == expected
 
+    data = get_datas.get_csv('/adhocOrder/accept')
+
+    @pytest.mark.parametrize('url,title,case,expected', data)
+    @allure.story('临调订单——接收临调单')
+    @allure.title('{title}')
+    def test_accept(self, url, title, case, expected, AdhocOrder_accept):
+        body = request.body_replace(url, case)
+        response = request.put_body01(url, body)
+        if title == '商品数量为空' or title == '套包数量为空':
+            assert '请输入' in response['msg']
+        else:
+            assert response['msg'] == expected
+
     data = get_datas.get_csv('/supplier/addReceivingAddress')
 
     @pytest.mark.parametrize('url,title,case,expected', data)
+    @allure.story('临调订单——创建默认地址')
     @allure.title('{title}')
     def test_addReceivingAddress(self, url, title, case, expected, AdhocOrder_add_address):
-        body = request.body_replace(url, eval(case))
+        body = request.body_replace(url, case)
         response = request.post_body(url, body)
         assert response['msg'] == expected
 
+    data = get_datas.get_csv('/supplier/updateReceivingAddress')
+
+    @pytest.mark.parametrize('url,title,case,expected', data)
+    @allure.story('临调订单——修改默认地址')
+    @allure.title('{title}')
+    def test_updateReceivingAddress(self, url, title, case, expected, AdhocOrder_update_address):
+        body = request.body_replace(url, case)
+        response = request.put_body(url, body)
+        assert response['msg'] == expected
+
+    @allure.title('经销商修改供应商地址')
+    def test_updateReceivingAddress01(self):
+        addressId = request.get('/supplier/getReceivingAddress?dealerId=%s' % supplierId)['data'][0]['id']
+        response = Order_Management.AdhocOrder().update_default_address(id=addressId)
+        assert response['msg'] == '不可操作其他经销商数据'
+
+    data = [('id为空', {'id': None}, 'id不能为空'),
+            ('id为空', {'id': 99990099}, '地址不存在')]
+
+    @pytest.mark.parametrize('title,case,expected', data)
+    @allure.story('临调订单——设置默认地址')
+    @allure.title('{title}')
+    def test_setDefaultAddress(self, title, case, expected):
+        url = '/supplier/setDefaultReceivingAddress'
+        body = {
+            'id': None
+        }
+        body = request.reValue_01(body, case)
+        response = request.put_body(url, body)
+        assert response['msg'] == expected
