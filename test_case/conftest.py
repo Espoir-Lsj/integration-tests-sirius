@@ -136,6 +136,28 @@ def AdhocOrder_get_id(AdhocOrder_get_data):
     # Order_Management.AdhocOrder().adhocOrder_close(response['data']['id'])
 
 
+@pytest.fixture(scope='class')
+def AdhocOrder_get_id01(AdhocOrder_get_data):
+    response = Order_Management.AdhocOrder().adhocOrder_create(procedureSite=procedureSite,
+                                                               manufacturerId=manufacturerId,
+                                                               ageGroup=ageGroup, addressId=addressId,
+                                                               supplierId=supplierId,
+                                                               goodsId=AdhocOrdergoodsId,
+                                                               goodsQuantity=AdhocOrdergoodsQuantity,
+                                                               goodsSupplierId=goodsSupplierId,
+                                                               kitTemplateId=kitTemplateId,
+                                                               toolsQuantity=toolsQuantity,
+                                                               toolsSupplierId=toolsSupplierId,
+                                                               hospitalName=hospitalName,
+                                                               contactName=contactName,
+                                                               contactPhone=contactPhone,
+                                                               receivingName=receivingName,
+                                                               deliveryMode=deliveryMode
+                                                               )
+    yield response['data']['id']
+    # Order_Management.AdhocOrder().adhocOrder_close(response['data']['id'])
+
+
 # 临调单：接收临调单
 @pytest.fixture(scope='class')
 def AdhocOrder_accept(AdhocOrder_get_id, AdhocOrder_get_data):

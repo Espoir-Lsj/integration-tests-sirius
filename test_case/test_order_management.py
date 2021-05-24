@@ -80,6 +80,20 @@ class TestAdhocOrder:
         else:
             assert response['msg'] == expected
 
+    data = get_datas.get_csv('/adhocOrder/accept1')
+
+    @pytest.mark.parametrize('url1,title,case,expected', data)
+    @allure.story('临调订单——接收临调单')
+    @allure.title('{title}')
+    def test_accept(self, url1, title, case, expected, AdhocOrder_get_id01, AdhocOrder_accept):
+        url = '/adhocOrder/accept'
+        body = request.body_replace(url, case)
+        body['id'] = AdhocOrder_get_id01
+        print(body)
+        body['detail'][0]['toolsDetailUiBeans'][0]['quantity'] = 99999
+        response = request.put_body01(url, body)
+        assert response['msg'] == expected
+
     data = get_datas.get_csv('/supplier/addReceivingAddress')
 
     @pytest.mark.parametrize('url,title,case,expected', data)
