@@ -33,5 +33,29 @@ url,request_type,title,case,expected,模块,功能
 /adhocOrder/reject,put,拒绝原因过长,{"reason":  '主治医师' * 100},拒绝原因超出长度限制,订单管理,临调订单——拒绝临调单
 /adhocOrder/reject,put,拒绝成功,{"reason":'拒绝'},请求成功,订单管理,临调订单——拒绝临调单
 /adhocOrder/reject,put,重复拒绝,{"reason":'拒绝'},该临调单已处理，请勿重复操作,订单管理,临调订单——拒绝临调单
-/adhocOrder/edit,put,临调单ID为空,{"id": None},请选择临调订单,订单管理,临调订单——拒绝临调单
-,,,,,订单管理,临调订单——编辑临调单
+/adhocOrder/edit1,put,临调单ID为空,{"id": None},请选择临调订单,订单管理,临调订单——编辑临调单
+/adhocOrder/edit1,put,临调单重复,{"gender": "FEMALE"},只能修改待修改的订单,订单管理,临调订单——编辑临调单
+/adhocOrder/edit,put,工具包ID为空,{"kitTemplateId": None},请输入套包id,订单管理,临调订单——编辑临调单
+/adhocOrder/edit,put,工具包不存在,{"kitTemplateId": 999999},工具包不存在，请刷新重试,订单管理,临调订单——编辑临调单
+/adhocOrder/edit,put,商品ID为空,"{""goodsId"": None,}",请输入商品id,订单管理,临调订单——编辑临调单
+/adhocOrder/edit,put,商品不存在,"{""goodsId"": 9999999,}","商品不存在,请刷新重试",订单管理,临调订单——编辑临调单
+/adhocOrder/edit,put,医院名称为空,{"hospitalName": None},请输入医院名称,订单管理,临调订单——编辑临调单
+/adhocOrder/edit,put,医院名称超长,{"hospitalName":  '主治医师' * 50},医院名称长度超出限制,订单管理,临调订单——编辑临调单
+/adhocOrder/edit,put,手术部位为空,{"procedureSite": None},请选择手术部位,订单管理,临调订单——编辑临调单
+/adhocOrder/edit,put,手术部位不正确,{"procedureSite": [999]},请选择正确的手术部位,订单管理,临调订单——编辑临调单
+/adhocOrder/edit,put,医生名称为空,{"surgeon": None},请输入正确的主刀医生姓名,订单管理,临调订单——编辑临调单
+/adhocOrder/edit,put,医生名称过长,{"surgeon":  '主治医师' * 50},主刀医生名称长度超出限制,订单管理,临调订单——编辑临调单
+/adhocOrder/edit,put,订单联系人为空,{'contactName': None},请输入正确的联系人姓名,订单管理,临调订单——编辑临调单
+/adhocOrder/edit,put,联系人电话为空,{'contactPhone': None},请输入正确的手机号码,订单管理,临调订单——编辑临调单
+/adhocOrder/edit,put,品牌为空,{'manufacturerId': None},品牌不能为空,订单管理,临调订单——编辑临调单
+/adhocOrder/edit,put,收货方式为空,{'deliveryMode': None},请选择收货方式,订单管理,临调订单——编辑临调单
+/adhocOrder/edit,put,性别为空,{'gender': None},请选择患者性别,订单管理,临调订单——编辑临调单
+/adhocOrder/edit,put,年龄段为空,{'ageGroup': None},请选择患者年龄,订单管理,临调订单——编辑临调单
+/adhocOrder/edit,put,年龄段错误,{'ageGroup': 'None'},请求参数异常,订单管理,临调订单——编辑临调单
+/adhocOrder/edit,put,默认地址为空,{'addressId': None},请输入收货地址id,订单管理,临调订单——编辑临调单
+/adhocOrder/edit,put,默认地址错误,{'addressId': 9999999},所选地址不存在，请刷新重试,订单管理,临调订单——编辑临调单
+/adhocOrder/edit,put,手术时间为空,{'procedureTime': None},请选择手术日期,订单管理,临调订单——编辑临调单
+/adhocOrder/edit,put,归还时间为空,{'expectReturnTime': None},请选择归还日期,订单管理,临调订单——编辑临调单
+/adhocOrder/close,put,重复关闭订单,{None},订单状态为待接收或待修改时才能关闭,订单管理,临调订单——关闭临调单
+/adhocOrder/close,put,订单ID为空,{'id':None},不能为null,订单管理,临调订单——关闭临调单
+/adhocOrder/close,put,订单ID错误,{'id':99999999},未查询到该临调订单，请刷新重试,订单管理,临调订单——关闭临调单

@@ -133,7 +133,6 @@ def AdhocOrder_get_id(AdhocOrder_get_data):
                                                                deliveryMode=deliveryMode
                                                                )
     yield response['data']['id']
-    # Order_Management.AdhocOrder().adhocOrder_close(response['data']['id'])
 
 
 # 接收用
@@ -156,7 +155,6 @@ def AdhocOrder_get_id01(AdhocOrder_get_data):
                                                                deliveryMode=deliveryMode
                                                                )
     yield response['data']['id']
-    # Order_Management.AdhocOrder().adhocOrder_close(response['data']['id'])
 
 
 # 拒绝用
@@ -179,7 +177,50 @@ def AdhocOrder_get_id02(AdhocOrder_get_data):
                                                                deliveryMode=deliveryMode
                                                                )
     yield response['data']['id']
-    # Order_Management.AdhocOrder().adhocOrder_close(response['data']['id'])
+
+
+# 编辑用
+@pytest.fixture(scope='class')
+def AdhocOrder_get_id03(AdhocOrder_get_data):
+    response = Order_Management.AdhocOrder().adhocOrder_create(procedureSite=procedureSite,
+                                                               manufacturerId=manufacturerId,
+                                                               ageGroup=ageGroup, addressId=addressId,
+                                                               supplierId=supplierId,
+                                                               goodsId=AdhocOrdergoodsId,
+                                                               goodsQuantity=AdhocOrdergoodsQuantity,
+                                                               goodsSupplierId=goodsSupplierId,
+                                                               kitTemplateId=kitTemplateId,
+                                                               toolsQuantity=toolsQuantity,
+                                                               toolsSupplierId=toolsSupplierId,
+                                                               hospitalName=hospitalName,
+                                                               contactName=contactName,
+                                                               contactPhone=contactPhone,
+                                                               receivingName=receivingName,
+                                                               deliveryMode=deliveryMode
+                                                               )
+    yield response['data']['id']
+
+
+# 关闭用
+@pytest.fixture(scope='class')
+def AdhocOrder_get_id04(AdhocOrder_get_data):
+    response = Order_Management.AdhocOrder().adhocOrder_create(procedureSite=procedureSite,
+                                                               manufacturerId=manufacturerId,
+                                                               ageGroup=ageGroup, addressId=addressId,
+                                                               supplierId=supplierId,
+                                                               goodsId=AdhocOrdergoodsId,
+                                                               goodsQuantity=AdhocOrdergoodsQuantity,
+                                                               goodsSupplierId=goodsSupplierId,
+                                                               kitTemplateId=kitTemplateId,
+                                                               toolsQuantity=toolsQuantity,
+                                                               toolsSupplierId=toolsSupplierId,
+                                                               hospitalName=hospitalName,
+                                                               contactName=contactName,
+                                                               contactPhone=contactPhone,
+                                                               receivingName=receivingName,
+                                                               deliveryMode=deliveryMode
+                                                               )
+    yield response['data']['id']
 
 
 # 临调单：拒绝临调单
@@ -187,6 +228,13 @@ def AdhocOrder_get_id02(AdhocOrder_get_data):
 def AdhocOrder_reject(AdhocOrder_get_id):
     response = Order_Management.AdhocOrder().adhocOrder_reject(id=AdhocOrder_get_id)
     return AdhocOrder_get_id
+
+
+# 临调单：拒绝临调单，编辑
+@pytest.fixture(scope='class')
+def AdhocOrder_reject01(AdhocOrder_get_id03):
+    response = Order_Management.AdhocOrder().adhocOrder_reject(id=AdhocOrder_get_id03)
+    return AdhocOrder_get_id03
 
 
 # 临调单：接收临调单
@@ -218,6 +266,12 @@ def AdhocOrder_edit(AdhocOrder_reject):
                                                              receivingName=receivingName,
                                                              deliveryMode=deliveryMode
                                                              )
+
+
+# 临调单：关闭临调单
+@pytest.fixture(scope='class')
+def AdhocOrder_close(AdhocOrder_get_id04):
+    response = Order_Management.AdhocOrder().adhocOrder_close(adhocOrderId=AdhocOrder_get_id04)
 
 
 # 临调单 添加默认收货地址
