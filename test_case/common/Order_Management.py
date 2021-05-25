@@ -170,6 +170,16 @@ class AdhocOrder:
             raise response
         return response
 
+    # 拒绝临调单
+    def adhocOrder_reject(self, reason="拒绝", id=None):
+        url = '/adhocOrder/reject'
+        body = {
+            "reason": reason,
+            "accept": False,
+            "id": id
+        }
+        response = request.put_body01(url, body)
+
     # 接收临调单
     def adhocOrder_accept(self, goodsId=None, Gquantity=None, kitTemplateId=None, Kquantity=None, warehouseId=None,
                           id=None):
@@ -187,16 +197,6 @@ class AdhocOrder:
                 }],
                 "warehouseId": warehouseId
             }],
-            "id": id
-        }
-        response = request.put_body01(url, body)
-
-    # 拒绝临调单
-    def adhocOrder_reject(self, reason="拒绝", id=None):
-        url = '/adhocOrder/reject'
-        body = {
-            "reason": reason,
-            "accept": False,
             "id": id
         }
         response = request.put_body01(url, body)
@@ -261,13 +261,12 @@ class AdhocOrder:
         return response
 
     # 关闭临调单
-    def adhocOrder_close(self, adhocOrderId):
+    def adhocOrder_close(self, adhocOrderId=None):
         url = '/adhocOrder/close'
-        response = request.put_body01(url, adhocOrderId)
-        try:
-            assert response['msg'] == '请求成功'
-        except Exception:
-            raise response
+        body = {
+            'id': adhocOrderId
+        }
+        response = request.put_body01(url, body)
 
     def all(self):
         # 品牌
