@@ -1,4 +1,4 @@
 import pytest
 
 if __name__ == '__main__':
-    pytest.main(['--alluredir', 'Outputs/allure_reports'])
+    pytest.main(['--alluredir', './result'])

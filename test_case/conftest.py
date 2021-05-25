@@ -3,7 +3,7 @@
 # !/usr/bin/env python3
 # _*_ coding: utf-8 _*_
 
-import pytest, jsonpath
+import pytest
 import time, datetime
 from test_case.common import Purchase_Management, Order_Management, login
 
@@ -136,6 +136,7 @@ def AdhocOrder_get_id(AdhocOrder_get_data):
     # Order_Management.AdhocOrder().adhocOrder_close(response['data']['id'])
 
 
+# 接收用
 @pytest.fixture(scope='class')
 def AdhocOrder_get_id01(AdhocOrder_get_data):
     response = Order_Management.AdhocOrder().adhocOrder_create(procedureSite=procedureSite,
@@ -158,13 +159,65 @@ def AdhocOrder_get_id01(AdhocOrder_get_data):
     # Order_Management.AdhocOrder().adhocOrder_close(response['data']['id'])
 
 
+# 拒绝用
+@pytest.fixture(scope='class')
+def AdhocOrder_get_id02(AdhocOrder_get_data):
+    response = Order_Management.AdhocOrder().adhocOrder_create(procedureSite=procedureSite,
+                                                               manufacturerId=manufacturerId,
+                                                               ageGroup=ageGroup, addressId=addressId,
+                                                               supplierId=supplierId,
+                                                               goodsId=AdhocOrdergoodsId,
+                                                               goodsQuantity=AdhocOrdergoodsQuantity,
+                                                               goodsSupplierId=goodsSupplierId,
+                                                               kitTemplateId=kitTemplateId,
+                                                               toolsQuantity=toolsQuantity,
+                                                               toolsSupplierId=toolsSupplierId,
+                                                               hospitalName=hospitalName,
+                                                               contactName=contactName,
+                                                               contactPhone=contactPhone,
+                                                               receivingName=receivingName,
+                                                               deliveryMode=deliveryMode
+                                                               )
+    yield response['data']['id']
+    # Order_Management.AdhocOrder().adhocOrder_close(response['data']['id'])
+
+
+# 临调单：拒绝临调单
+@pytest.fixture(scope='class')
+def AdhocOrder_reject(AdhocOrder_get_id):
+    response = Order_Management.AdhocOrder().adhocOrder_reject(id=AdhocOrder_get_id)
+    return AdhocOrder_get_id
+
+
 # 临调单：接收临调单
 @pytest.fixture(scope='class')
-def AdhocOrder_accept(AdhocOrder_get_id, AdhocOrder_get_data):
+def AdhocOrder_accept(AdhocOrder_get_id):
     response = Order_Management.AdhocOrder().adhocOrder_accept(id=AdhocOrder_get_id, goodsId=AdhocOrdergoodsId,
                                                                Gquantity=AdhocOrdergoodsQuantity,
                                                                kitTemplateId=kitTemplateId,
                                                                Kquantity=toolsQuantity, warehouseId=warehouseId)
+    return AdhocOrder_get_id
+
+
+# 临调单：编辑临调单
+@pytest.fixture(scope='class')
+def AdhocOrder_edit(AdhocOrder_reject):
+    response = Order_Management.AdhocOrder().adhocOrder_edit(id=AdhocOrder_reject,
+                                                             procedureSite=procedureSite,
+                                                             manufacturerId=manufacturerId,
+                                                             ageGroup=ageGroup, addressId=addressId,
+                                                             supplierId=supplierId,
+                                                             goodsId=AdhocOrdergoodsId,
+                                                             goodsQuantity=AdhocOrdergoodsQuantity,
+                                                             goodsSupplierId=goodsSupplierId,
+                                                             kitTemplateId=kitTemplateId,
+                                                             toolsQuantity=toolsQuantity,
+                                                             hospitalName=hospitalName,
+                                                             contactName=contactName,
+                                                             contactPhone=contactPhone,
+                                                             receivingName=receivingName,
+                                                             deliveryMode=deliveryMode
+                                                             )
 
 
 # 临调单 添加默认收货地址
