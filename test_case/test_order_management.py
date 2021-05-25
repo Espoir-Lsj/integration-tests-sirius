@@ -26,7 +26,6 @@ supplierId = login.supplierId
 
 # 订单管理：临调订单
 @allure.feature('订单管理')
-@allure.story('临调订单——创建临调单')
 @pytest.mark.usefixtures('res_data')
 class TestAdhocOrder:
     data = [('物资id为空', {'goodsId': None}, '请输入商品id'),
@@ -58,6 +57,7 @@ class TestAdhocOrder:
             ]
 
     @pytest.mark.parametrize('title,case,expected', data)
+    @allure.story('临调订单——创建临调单')
     @allure.title('{title}')
     def test_create(self, title, case, expected, AdhocOrder_get_id):
         url = '/adhocOrder/create'
@@ -187,6 +187,7 @@ class TestAdhocOrder:
         response = request.put_body(url, body)
         assert response['msg'] == expected
 
+    @allure.story('临调订单——修改默认地址')
     @allure.title('经销商修改供应商地址')
     def test_updateReceivingAddress01(self):
         addressId = request.get('/supplier/getReceivingAddress?dealerId=%s' % supplierId)['data'][0]['id']
@@ -206,4 +207,14 @@ class TestAdhocOrder:
         }
         body = request.reValue_01(body, case)
         response = request.put_body(url, body)
+        assert response['msg'] == expected
+
+    data = get_datas.get_csv('/adhocOrder/updateAddress')
+
+    @pytest.mark.parametrize('url,title,case,expected', data)
+    @allure.story('临调订单——修改收货地址')
+    @allure.title('{title}')
+    def test_updateAddress(self, url, title, case, expected, AdhocOrder_updateAddress):
+        body = request.body_replace(url, case)
+        response = request.post_body(url, body)
         assert response['msg'] == expected

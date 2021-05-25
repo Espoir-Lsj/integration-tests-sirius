@@ -250,7 +250,7 @@ class KitTemplate:
 
     # 获取工具包模版列表
     def get_ToolsList(self):
-        url = '/frommBaseData/queryToolsList'
+        url = '/fromBaseData/queryToolsList'
         params = {
             'pageNum': 0,
             'pageSize': 50
@@ -402,7 +402,7 @@ class PackagingOrder:
 
     # 获取仓库下的工具包列表
     def get_packagingFindTools(self, warehouseId):
-        url = '/formBaseData/packagingFindToolsKitList'
+        url = '/fromBaseData/packagingFindToolsKitList'
         params = {
             'pageNum': 0,
             'pageSize': 50,

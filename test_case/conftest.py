@@ -293,6 +293,18 @@ def AdhocOrder_update_address(AdhocOrder_get_addressId):
     response = Order_Management.AdhocOrder().update_default_address(id=AdhocOrder_get_addressId)
 
 
+# 临调单 修改收货地址
+@pytest.fixture(scope='class')
+def AdhocOrder_updateAddress(AdhocOrder_accept):
+    response = Order_Management.AdhocOrder().adhocOrder_updataAddress(payOnDelivery=True, deliveryMode='SELF_PIKE_UP',
+                                                                      consignorName='提货人',
+                                                                      consignorPhone=13212345567,
+                                                                      receivingIdCard=421322199811044619,
+                                                                      powerOfAttorney='http://192.168.10.254:9191/server/file/2021/05/17/5b'
+                                                                                      '15b54d-de1f-4aab-ab5b-ffe6bc5a6998/base64Test.jpg',
+                                                                      orderId=AdhocOrder_accept, addressId=addressId)
+
+
 def pytest_collection_modifyitems(items):
     """
     测试用例收集完成时，将收集到的item的name和nodeid的中文显示在控制台上

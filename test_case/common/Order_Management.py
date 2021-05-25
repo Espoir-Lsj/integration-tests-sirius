@@ -268,6 +268,26 @@ class AdhocOrder:
         }
         response = request.put_body01(url, body)
 
+    # 修改收货方式
+    def adhocOrder_updataAddress(self, payOnDelivery=True, deliveryMode='SELF_PIKE_UP', consignorName='提货人',
+                                 consignorPhone=13212345567, receivingIdCard=421322199811044619,
+                                 powerOfAttorney='http://192.168.10.254:9191/server/file/2021/05/17/5b'
+                                                 '15b54d-de1f-4aab-ab5b-ffe6bc5a6998/base64Test.jpg',
+                                 orderId=None, addressId=None
+                                 ):
+        url = '/adhocOrder/updateAddress'
+        body = {
+            "payOnDelivery": payOnDelivery,
+            "deliveryMode": deliveryMode,
+            "consignorName": consignorName,
+            "consignorPhone": consignorPhone,
+            "receivingIdCard": receivingIdCard,
+            "powerOfAttorney": powerOfAttorney,
+            "orderId": orderId,
+            "addressId": addressId
+        }
+        response = request.post_body(url, body)
+
     def all(self):
         # 品牌
         manufacturerId = self.get_manufacturerId()
