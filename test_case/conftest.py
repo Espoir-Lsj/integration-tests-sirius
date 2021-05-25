@@ -303,6 +303,7 @@ def AdhocOrder_updateAddress(AdhocOrder_accept):
                                                                       powerOfAttorney='http://192.168.10.254:9191/server/file/2021/05/17/5b'
                                                                                       '15b54d-de1f-4aab-ab5b-ffe6bc5a6998/base64Test.jpg',
                                                                       orderId=AdhocOrder_accept, addressId=addressId)
+    yield AdhocOrder_accept
 
 
 def pytest_collection_modifyitems(items):

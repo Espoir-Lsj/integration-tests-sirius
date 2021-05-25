@@ -90,28 +90,6 @@ class TestAdhocOrder:
         body = request.body_replace(url, case)
         body['orderUiBean']['id'] = AdhocOrder_reject01
         response = request.put_body(url, body)
-        assert response['msg'] == expected
-
-    data = [
-        ('手术日期小于当天', {'procedureTime': yesterday_stamp}, '手术日期不能早于当天'),
-        ('归还时间小于手术开始时间', {'expectReturnTime': yesterday_stamp}, '预计归还日期不能早于手术日期'),
-        ('商品/套包数量为空', {'quantity': None}, '请输入'),
-        ('商品/套包数量为空', {'quantity': None}, '请输入'),
-        ('商品/套包数量为空', {'quantity': None}, '请输入'),
-        ('商品/套包数量为空', {'quantity': None}, '请输入'),
-        ('商品/套包数量为空', {'quantity': None}, '请输入'),
-        ('商品/套包数量为空', {'quantity': None}, '请输入'),
-    ]
-
-    @pytest.mark.parametrize('title,case,expected', data)
-    @allure.story('临调订单——编辑临调单')
-    @allure.title('{title}')
-    def test_edit01(self, title, case, expected, AdhocOrder_edit, AdhocOrder_reject01):
-        url = '/adhocOrder/edit'
-        body = request.body_replace(url, case)
-        body['orderUiBean']['id'] = AdhocOrder_reject01
-
-        response = request.put_body(url, body)
         if title == '商品/套包数量为空':
             assert expected in response['msg']
         else:

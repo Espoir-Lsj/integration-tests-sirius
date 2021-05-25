@@ -56,15 +56,23 @@ url,request_type,title,case,expected,模块,功能
 /adhocOrder/edit,put,默认地址错误,{'addressId': 9999999},所选地址不存在，请刷新重试,订单管理,临调订单——编辑临调单
 /adhocOrder/edit,put,手术时间为空,{'procedureTime': None},请选择手术日期,订单管理,临调订单——编辑临调单
 /adhocOrder/edit,put,归还时间为空,{'expectReturnTime': None},请选择归还日期,订单管理,临调订单——编辑临调单
+/adhocOrder/edit,put,手术日期小于当天,{'procedureTime':1621213936000},手术日期不能早于当天,订单管理,临调订单——编辑临调单
+/adhocOrder/edit,put,归还时间小于手术开始时间,{'expectReturnTime':1621213936000},预计归还日期不能早于手术日期,订单管理,临调订单——编辑临调单
+/adhocOrder/edit,put,商品/套包数量为空,{'quantity': None},请输入,订单管理,临调订单——编辑临调单
+/adhocOrder/edit,put,商品/套包数量为空,{'quantity': None},请输入,订单管理,临调订单——编辑临调单
+/adhocOrder/edit,put,商品/套包数量为空,{'quantity': None},请输入,订单管理,临调订单——编辑临调单
+/adhocOrder/edit,put,商品/套包数量为空,{'quantity': None},请输入,订单管理,临调订单——编辑临调单
+/adhocOrder/edit,put,商品/套包数量为空,{'quantity': None},请输入,订单管理,临调订单——编辑临调单
+/adhocOrder/edit,put,商品/套包数量为空,{'quantity': None},请输入,订单管理,临调订单——编辑临调单
 /adhocOrder/close,put,重复关闭订单,{None},订单状态为待接收或待修改时才能关闭,订单管理,临调订单——关闭临调单
 /adhocOrder/close,put,订单ID为空,{'id':None},不能为null,订单管理,临调订单——关闭临调单
 /adhocOrder/close,put,订单ID错误,{'id':99999999},未查询到该临调订单，请刷新重试,订单管理,临调订单——关闭临调单
 /adhocOrder/updateAddress,post,订单ID为空,{'orderId':None},不能为null,订单管理,临调订单——修改收货地址
-/adhocOrder/updateAddress,,提货人姓名为空,{"consignorName": None},请输入提货人,订单管理,临调订单——修改收货地址
-/adhocOrder/updateAddress,,提货人电话为空,{"consignorPhone": None},请输入提货人电话,订单管理,临调订单——修改收货地址
-/adhocOrder/updateAddress,,提货人电话错误,{"consignorPhone": 1321234567},请输入正确的手机号码,订单管理,临调订单——修改收货地址
-/adhocOrder/updateAddress,,身份证为空,{"receivingIdCard":None},请输入身份证号码,订单管理,临调订单——修改收货地址
-/adhocOrder/updateAddress,,身份证错误,{"receivingIdCard": 42132219981104461},请输入正确的身份证号,订单管理,临调订单——修改收货地址
-/adhocOrder/updateAddress,,提货委托书为空,{"powerOfAttorney": None},请上传提货委托书,订单管理,临调订单——修改收货地址
-,,订单ID错误,{'orderId':999999999},,订单管理,临调订单——修改收货地址
-,,提货人姓名过长,,,订单管理,临调订单——修改收货地址
+/adhocOrder/updateAddress,post,提货人姓名为空,{"consignorName": None},请输入提货人,订单管理,临调订单——修改收货地址
+/adhocOrder/updateAddress,post,提货人电话为空,{"consignorPhone": None},请输入提货人电话,订单管理,临调订单——修改收货地址
+/adhocOrder/updateAddress,post,提货人电话错误,{"consignorPhone": 1321234567},请输入正确的手机号码,订单管理,临调订单——修改收货地址
+/adhocOrder/updateAddress,post,身份证为空,{"receivingIdCard":None},请输入身份证号码,订单管理,临调订单——修改收货地址
+/adhocOrder/updateAddress,post,身份证错误,{"receivingIdCard": 42132219981104461},请输入正确的身份证号,订单管理,临调订单——修改收货地址
+/adhocOrder/updateAddress,post,提货委托书为空,{"powerOfAttorney": None},请上传提货委托书,订单管理,临调订单——修改收货地址
+,post,订单ID错误,{'orderId':999999999},,订单管理,临调订单——修改收货地址
+,post,提货人姓名过长,,,订单管理,临调订单——修改收货地址
