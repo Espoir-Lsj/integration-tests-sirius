@@ -27,3 +27,11 @@ url,request_type,title,case,expected,模块,功能
 /adhocOrder/accept,put,重复接收订单,{"quantity": 1},该临调单已处理，请勿重复操作,订单管理,临调订单——接收临调单
 /adhocOrder/accept1,put,商品数量错误,{"quantity": 999999},接收的商品明细和父临调单的明细不一致,订单管理,临调订单——接收临调单
 /adhocOrder/accept1,put,工具包数量错误,{"quantity": 1},接收的工具包明细和父临调单的明细不一致,订单管理,临调订单——接收临调单
+/adhocOrder/reject,put,临调单ID为空,{"id": None},请选择临调单,订单管理,临调订单——拒绝临调单
+/adhocOrder/reject,put,临调单ID错误,{"id": 99999},未查询到该临调订单，请刷新重试,订单管理,临调订单——拒绝临调单
+/adhocOrder/reject,put,拒绝原因为空,{"reason": None},请填写拒绝原因,订单管理,临调订单——拒绝临调单
+/adhocOrder/reject,put,拒绝原因过长,{"reason":  '主治医师' * 100},拒绝原因超出长度限制,订单管理,临调订单——拒绝临调单
+/adhocOrder/reject,put,拒绝成功,{"reason":'拒绝'},请求成功,订单管理,临调订单——拒绝临调单
+/adhocOrder/reject,put,重复拒绝,{"reason":'拒绝'},该临调单已处理，请勿重复操作,订单管理,临调订单——拒绝临调单
+/adhocOrder/edit,put,临调单ID为空,{"id": None},请选择临调订单,订单管理,临调订单——拒绝临调单
+,,,,,订单管理,临调订单——编辑临调单

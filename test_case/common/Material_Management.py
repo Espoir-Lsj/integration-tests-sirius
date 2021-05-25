@@ -250,7 +250,7 @@ class KitTemplate:
 
     # 获取工具包模版列表
     def get_ToolsList(self):
-        url = '/formBaseData/queryToolsList'
+        url = '/frommBaseData/queryToolsList'
         params = {
             'pageNum': 0,
             'pageSize': 50
