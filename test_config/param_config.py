@@ -14,9 +14,13 @@ supplierLoginPassword02 = 'Aa888888'
 # supplierName02 = '嘉事（上海）国润医疗器械有限公司'
 # other variable
 
-# 有库存的物资id
-goodsId = 250
-kitTemplateId = 3
+# 数据库
+database = "sirius_test",
+user = "sirius_test",
+password = "123456",
+host = "192.168.10.253",
+port = "5432"
+schema = 'sirius'
 
 # 订单类型
 Ordertpye = 'adhoc'

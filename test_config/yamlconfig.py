@@ -73,6 +73,7 @@ class timeid():
         return body
 
     def _body_replace(self, body, data):
+        # 如果想要参数化变量，在用到方法的时候 加eval（data）
         if type(data) is not dict:
             data = eval(data)
         for i in body.keys():
