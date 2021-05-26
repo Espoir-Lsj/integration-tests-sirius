@@ -103,7 +103,7 @@ class CsvData:
                 # print(all)
                 end = tuple(all)
                 datas.append(end)
-        print(datas)
+        # print(datas)
         return datas
 
 
