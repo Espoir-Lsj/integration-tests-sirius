@@ -1,4 +1,5 @@
 import threading
+import time
 
 from psycopg2 import pool
 from test_config import param_config
@@ -26,10 +27,10 @@ class PostgresSql:
                 try:
                     PostgresSql._instance.connectPool = pool.SimpleConnectionPool(2, 10, host=host,
                                                                                   port=port,
-                                                                                  user=user, password=password,
-                                                                                  database=database,
+                                                                                  user="sirius_test", password='123456',
+                                                                                  database='sirius_test',
                                                                                   options='-c search_path={schema}'.format(
-                                                                                      schema=schema),
+                                                                                      schema='sirius'),
                                                                                   keepalives=1, keepalives_idle=30,
                                                                                   keepalives_interval=10,
                                                                                   keepalives_count=5)
@@ -76,7 +77,22 @@ class PostgresSql:
 
 
 if __name__ == '__main__':
-    test = PostgresSql()
-    sql = 'SELECT * FROM sirius.md_goods_lot_info where goods_id =321'
-    a = test.selectAll(sql)
-    print(a)
+    pass
+    # test = PostgresSql()
+    # # sql = 'SELECT id FROM  sirius.md_goods  limit 10'
+    # sql = "SELECT id FROM  md_goods where name like '锁定%' limit 10"
+    # # sql1 = "SELECT name FROM  md_goods where id = c"
+    # a = test.selectAll(sql)
+    # b = (a[0][0])
+    # idList = []
+    # for i in a:
+    #     j = i[0]
+    #     ttt = (i[0], 57, 57, 13, 'put_on_shelf', 43, 'f', 59, str(time.time()))
+    #     idList.append(j)
+    # sql2 = """INSERT INTO sirius.wms_goods_stock
+    #             ( goods_id, goods_lot_info_id, quantity, warehouse_id, status, version,
+    #             is_packaged, storage_location_id, unique_code )
+    #             VALUES {}""".format(*idList)
+    #
+    # sql3 = """UPDATE sirius.wms_goods_stock SET quantity = 10 where goods_id in {}""".format(tuple(idList))
+    # test.execute(sql3)
