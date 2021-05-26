@@ -312,12 +312,24 @@ class AdhocOrder:
                                               ageGroup=ageGroup, addressId=addressId, supplierId=supplierId,
                                               goodsId=goodsId, goodsSupplierId=goodsSupplierId,
                                               kitTemplateId=kitTemplateId,
-                                              toolsSupplierId=toolsSupplierId)
+                                              toolsSupplierId=toolsSupplierId)['data']['id']
         # 拒绝临调单
-
+        self.adhocOrder_reject(id=adhocOrderId)
+        # 编辑临调单
+        self.adhocOrder_edit(id=adhocOrderId, procedureSite=procedureSite, procedureTime=timeStamp,
+                             expectReturnTime=fiveDaysAfter_stamp,
+                             manufacturerId=manufacturerId, ageGroup=ageGroup, addressId=addressId,
+                             supplierId=supplierId, goodsId=goodsId,
+                             goodsSupplierId=goodsSupplierId)
         # 接收临调单
         self.adhocOrder_accept(goodsId=goodsId, Gquantity=1, kitTemplateId=kitTemplateId, Kquantity=1,
-                               warehouseId=warehouseId)
+                               warehouseId=warehouseId,id=adhocOrderId)
+        # 更新收货地址
+        self.adhocOrder_updataAddress(orderId=adhocOrderId,addressId=addressId)
+
+        # 关闭临调单  待接收才可以关闭
+        # self.adhocOrder_close(adhocOrderId=adhocOrderId)
+
 
         # 无工具包
         # self.adhocOrder_create(procedureSite=procedureSite, manufacturerId=manufacturerId,
@@ -330,4 +342,4 @@ if __name__ == '__main__':
     test = AdhocOrder()
     # test.adhocOrder_create()
     # test.get_warehouse()
-    test.get_goodsInfo()
+    test.all()
