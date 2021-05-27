@@ -98,7 +98,8 @@ class AdhocOrder:
 
     # 获取商品信息
     def get_goodsInfo(self):
-        url = '/fromBaseData/findGoodsList?pageNum=0&pageSize=50&manufacturerId=%s' % self.get_manufacturerId()
+        url = '/fromBaseData/findGoodsList?pageNum=0&pageSize=50&manufacturerId={}&warehouseId={}' \
+            .format(self.get_manufacturerId(), self.get_warehouse())
         response = request.get(url)
         goodsId = response['data']['rows'][0]['id']
         supplierId = response['data']['rows'][0]['supplierId']
@@ -106,7 +107,8 @@ class AdhocOrder:
 
     # 获取工具包信息
     def get_toolsInfo(self):
-        url = '/fromBaseData/findToolsKitList?pageNum=0&pageSize=50&manufacturerId=1'
+        url = '/fromBaseData/findToolsKitList?pageNum=0&pageSize=50&manufacturerId={}&warehouseId={}' \
+            .format(self.get_manufacturerId(), self.get_warehouse())
         response = request.get(url)
         kitTemplateId = response['data']['rows'][0]['id']
         toolsSupplierId = response['data']['rows'][0]['supplierId']
@@ -313,23 +315,22 @@ class AdhocOrder:
                                               goodsId=goodsId, goodsSupplierId=goodsSupplierId,
                                               kitTemplateId=kitTemplateId,
                                               toolsSupplierId=toolsSupplierId)['data']['id']
-        # 拒绝临调单
-        self.adhocOrder_reject(id=adhocOrderId)
-        # 编辑临调单
-        self.adhocOrder_edit(id=adhocOrderId, procedureSite=procedureSite, procedureTime=timeStamp,
-                             expectReturnTime=fiveDaysAfter_stamp,
-                             manufacturerId=manufacturerId, ageGroup=ageGroup, addressId=addressId,
-                             supplierId=supplierId, goodsId=goodsId,
-                             goodsSupplierId=goodsSupplierId)
-        # 接收临调单
-        self.adhocOrder_accept(goodsId=goodsId, Gquantity=1, kitTemplateId=kitTemplateId, Kquantity=1,
-                               warehouseId=warehouseId,id=adhocOrderId)
-        # 更新收货地址
-        self.adhocOrder_updataAddress(orderId=adhocOrderId,addressId=addressId)
+        # # 拒绝临调单
+        # self.adhocOrder_reject(id=adhocOrderId)
+        # # 编辑临调单
+        # self.adhocOrder_edit(id=adhocOrderId, procedureSite=procedureSite, procedureTime=timeStamp,
+        #                      expectReturnTime=fiveDaysAfter_stamp,
+        #                      manufacturerId=manufacturerId, ageGroup=ageGroup, addressId=addressId,
+        #                      supplierId=supplierId, goodsId=goodsId,
+        #                      goodsSupplierId=goodsSupplierId)
+        # # 接收临调单
+        # self.adhocOrder_accept(goodsId=goodsId, Gquantity=1, kitTemplateId=kitTemplateId, Kquantity=1,
+        #                        warehouseId=warehouseId,id=adhocOrderId)
+        # # 更新收货地址
+        # self.adhocOrder_updataAddress(orderId=adhocOrderId,addressId=addressId)
 
         # 关闭临调单  待接收才可以关闭
         # self.adhocOrder_close(adhocOrderId=adhocOrderId)
-
 
         # 无工具包
         # self.adhocOrder_create(procedureSite=procedureSite, manufacturerId=manufacturerId,
