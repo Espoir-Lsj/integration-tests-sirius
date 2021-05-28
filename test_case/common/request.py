@@ -1,4 +1,3 @@
-
 import requests, json
 from test_config import param_config, yamlconfig
 from test_case.common import login, logger
@@ -10,12 +9,14 @@ log = logger.Log()
 
 
 # 替换参数
-def body_replace(url, data=None):
+def body_replace(url, data=None, **kwargs):
     body = yamlconfig.timeid()
 
-    if data is None:
+    if data:
         return body._get_body(url)
-    return body._body_replace(body._get_body(url), data)
+    # return body._body_replace(body._get_body(url), data)
+    # **kwasgs :{"":index}
+    return body._body_replace1(body._get_body(url), data, body._keyNumber(body._get_body(url)), **kwargs)
 
 
 def reValue_01(body, data):
