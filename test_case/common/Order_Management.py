@@ -102,7 +102,7 @@ class AdhocOrder:
             .format(self.get_manufacturerId(), self.get_warehouse())
         response = request.get(url)
         goodsId = response['data']['rows'][0]['id']
-        supplierId = response['data']['rows'][0]['supplierId']
+        supplierId = response['data']['rows'][2]['supplierId']
         return goodsId, supplierId
 
     # 获取工具包信息

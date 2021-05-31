@@ -8,6 +8,7 @@ api_url = param_config.api_url
 log = logger.Log()
 
 
+
 # 替换参数
 def body_replace(url, data=None, **kwargs):
     body = yamlconfig.timeid()

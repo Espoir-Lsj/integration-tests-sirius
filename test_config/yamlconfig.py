@@ -102,7 +102,7 @@ class timeid():
                             self._body_replace1(j, data, b, num)
 
                 if i in data.keys():
-                    if not num or i not in b.keys():
+                    if not num or i not in num.keys():
                         body[i] = data[i]
                     else:
                         if num[i] == 1 and b[i] != 1:
@@ -147,4 +147,6 @@ if __name__ == '__main__':
         }]
     }
     case = {'goodsId': None}
+
+
 

@@ -361,14 +361,14 @@ class KitTemplate:
         goodsId = self.get_ToolsList()
         # 创建工具包
         self.create_ToolsKit(goodsId, toolsKitCategory=toolsKitCategory)
-        # # 获取创建的工具包ID
-        # kitTemplateId = self.get_KitTemplateList(timeStamp)
-        # # 编辑工具包
-        # self.edit_ToolsKit(goodsId, kitTemplateId=kitTemplateId, kitCategory=toolsKitCategory)
-        # # 设置工具包租用费
-        # self.edit_Price(kitTemplateId)
-        # # 删除工具包
-        # self.delete_ToolsKit(kitTemplateId)
+        # 获取创建的工具包ID
+        kitTemplateId = self.get_KitTemplateList(timeStamp)
+        # 编辑工具包
+        self.edit_ToolsKit(goodsId, kitTemplateId=kitTemplateId, kitCategory=toolsKitCategory)
+        # 设置工具包租用费
+        self.edit_Price(kitTemplateId)
+        # 删除工具包
+        self.delete_ToolsKit(kitTemplateId)
 
 
 # 物资管理： 加工组包
