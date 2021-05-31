@@ -196,3 +196,6 @@ class TestAdhocOrder:
         body = request.body_replace(url, case)
         response = request.post_body(url, body)
         assert response['msg'] == expected
+
+
+# (01)16048981425711(17)000617(10)4382394

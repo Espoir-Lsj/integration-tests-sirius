@@ -14,6 +14,8 @@ timeStamp = int(time.time() * 1000)
 today = datetime.date.today()
 yesterday = today - datetime.timedelta(days=1)
 yesterday_stamp = int(time.mktime(yesterday.timetuple())) * 1000
+oneDaysAfter = today + datetime.timedelta(days=1)
+oneDaysAfter_stamp = int(time.mktime(oneDaysAfter.timetuple())) * 1000
 fiveDaysAfter = today + datetime.timedelta(days=5)
 fiveDaysAfter_stamp = int(time.mktime(fiveDaysAfter.timetuple())) * 1000
 log = logger.Log()
@@ -139,7 +141,7 @@ class TestGoods:
     def test_16(self, create):
         """注册证生效日期大于失效时间"""
         response = Material_Management.Goods('material').create_Goods(skuCode=str(timeStamp + 1),
-                                                                      registrationEndDate=timeStamp,
+                                                                      registrationEndDate=oneDaysAfter_stamp,
                                                                       registrationBeginDate=fiveDaysAfter_stamp,
                                                                       goodsCategory=self.goodsCategory)
         assert response['msg'] == '注册证生效日期不能大于失效日期'
@@ -255,7 +257,7 @@ class TestGoods:
     @allure.title('Edit：注册证失效日期小于于生效日期')
     def test_3001(self):
         """注册证生效日期不能大于失效日期"""
-        response = Material_Management.Goods('material').edit_Goods(self.Id, registrationEndDate=timeStamp,
+        response = Material_Management.Goods('material').edit_Goods(self.Id, registrationEndDate=oneDaysAfter_stamp,
                                                                     registrationBeginDate=fiveDaysAfter_stamp)
         assert response['msg'] == '注册证生效日期不能大于失效日期'
 

@@ -8,16 +8,16 @@ api_url = param_config.api_url
 log = logger.Log()
 
 
-
 # 替换参数
 def body_replace(url, data=None, **kwargs):
     body = yamlconfig.timeid()
-
-    if data:
+    if not kwargs:
+        kwargs = None
+    if not data:
         return body._get_body(url)
     # return body._body_replace(body._get_body(url), data)
     # **kwasgs :{"":index}
-    return body._body_replace1(body._get_body(url), data, body._keyNumber(body._get_body(url)), **kwargs)
+    return body._body_replace1(body._get_body(url), data, body._keyNumber(body._get_body(url)), kwargs)
 
 
 def reValue_01(body, data):

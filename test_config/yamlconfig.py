@@ -2,8 +2,6 @@
 import collections
 
 
-
-
 class timeid():
     # def __init__(self, file_yaml='config.yaml'):
     #     current_path = os.path.dirname(__file__)
@@ -87,7 +85,7 @@ class timeid():
                 body[i] = data[i]
         return body
 
-    def _body_replace1(self, body, data, b, num=None):
+    def _body_replace1(self, body, data, b=None, num=None):
         if type(data) is not dict:
             data = eval(data)
         if body:
@@ -135,18 +133,24 @@ body_data = timeid().body_data()
 
 if __name__ == '__main__':
     body = {
-        "toolsDetailUiBeans": [{
-            "kitTemplateId": 23,
-            "quantity": 1,
-            "supplierId": 3
-        }],
+        "baseOrderInfo": {
+            "id": None,
+            "reasonCode": "warehouse_replenishment",
+            "reason": "",
+            "sourceWarehouseId": 6,
+            "targetWarehouseId": 7
+        },
         "goodsDetailUiBeans": [{
-            "goodsId": 294,
-            "quantity": 1,
-            "supplierId": 8
+            "goodsId": 761,
+            "goodsLotInfoId": 57,
+            "goodsQuantity": 1
+        }],
+        "toolsDetailUiBeans": [],
+        "toolKitDetailUiBeans": [{
+            "kitStockId": 225,
+            "kitStockQuantity": 1
         }]
     }
-    case = {'goodsId': None}
-
-
-
+    case = {'reasonCode': None}
+    a = timeid()._body_replace1(body,case)
+    print(a)
