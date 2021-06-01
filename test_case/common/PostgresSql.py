@@ -78,7 +78,10 @@ class PostgresSql:
 
 if __name__ == '__main__':
     pass
-    # test = PostgresSql()
+    test = PostgresSql()
+    sql ='SELECT storage_location_id from wms_goods_stock  where goods_id= 259 ORDER BY storage_location_id limit 1 ;'
+    a = test.selectOne(sql)
+    print(str(a))
     # # sql = 'SELECT id FROM  sirius.md_goods  limit 10'
     # sql = "SELECT id FROM  md_goods where name like '锁定%' limit 10"
     # # sql1 = "SELECT name FROM  md_goods where id = c"

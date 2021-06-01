@@ -52,6 +52,21 @@ def get_params(path, params):
     return response
 
 
+def get_params01(path, params):
+    r = requests.get(api_url + path, headers=headers1, params=params, verify=False)
+    response = r.json()
+    assert (r.status_code == 200)
+    if response['code'] == 2:
+        log.error('----------系统错误---------- \n 请求地址：%s \n 传入参数：%s \n 响应内容：%s' % (
+            path, json.dumps(params, ensure_ascii=False), json.dumps(response, ensure_ascii=False)))
+    elif response['code'] == 1:
+        log.warning('----------接口报错---------- \n 请求地址：%s \n 传入参数：%s \n 响应内容：%s' % (
+            path, json.dumps(params, ensure_ascii=False), json.dumps(response, ensure_ascii=False)))
+    elif response['code'] == 0:
+        log.info('----------请求成功---------- \n 请求地址：%s \n 传入参数：%s' % (path, json.dumps(params, ensure_ascii=False)))
+    return response
+
+
 def get(path):
     r = requests.get(api_url + path, headers=headers, verify=False)
     response = r.json()

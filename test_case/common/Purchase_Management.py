@@ -106,12 +106,16 @@ class AllocateOrder:
                 "goodsQuantity": goodsQuantity
             }],
             "toolsDetailUiBeans": [],
-            "toolKitDetailUiBeans": [{
-                "kitStockId": kitStockId,
-                "kitStockQuantity": kitStockQuantity
-            }]
+            "toolKitDetailUiBeans": []
         }
-        response = request.post_body(url, body)
+        toolsDetailUiBeans = {
+            "kitStockId": kitStockId,
+            "kitStockQuantity": kitStockQuantity
+        }
+        if kitStockId:
+            body['toolsDetailUiBeans'].append(toolsDetailUiBeans)
+        #     只有供应商可创建调拨
+        response = request.post_body01(url, body)
         Id = response['data']['id']
         code = response['data']['code']
         try:
@@ -123,7 +127,7 @@ class AllocateOrder:
     # body,调拨单ID ,code
 
     # 审核调拨单：驳回、通过
-    def approve(self, approve=False, Id=103, rejectReason='不通过'):
+    def approve(self, approve=False, Id=None, rejectReason='不通过'):
         """
 
         :param approve: False 驳回  、True  通过
@@ -137,7 +141,7 @@ class AllocateOrder:
             "id": Id,
             "rejectReason": rejectReason
         }
-        response = request.put_body(url, body)
+        response = request.put_body01(url, body)
         return response
 
     # 关闭订单
@@ -166,28 +170,34 @@ class AllocateOrder:
         # 调出仓、调入仓、调拨理由
         reasonCode = self.get_allocate_reason()
 
-        sourceWarehouseId = self.get_out_warehouse()
-        targetWarehouseId = self.get_in_warehouse()
+        # sourceWarehouseId = self.get_out_warehouse()
+        # targetWarehouseId = self.get_in_warehouse()
+        sourceWarehouseId = 6
+        targetWarehouseId = 13
 
         # 物资信息
         goodsInfo = self.get_goodsInfo(sourceWarehouseId)
-        goodsId = goodsInfo[0]
-        goodsLotInfoId = goodsInfo[1]
+        # goodsId = goodsInfo[0]
+        goodsId = 259
+        # goodsLotInfoId = goodsInfo[1]
+        goodsLotInfoId = 41
 
         # 工具包信息
-        kitStockId = self.get_kitStockId(sourceWarehouseId)
+        # kitStockId = self.get_kitStockId(sourceWarehouseId)
 
+        # # 创建调拨单
+        # Id, code = self.create(reasonCode, sourceWarehouseId, targetWarehouseId, goodsId, goodsLotInfoId,
+        #                        kitStockId)
         # 创建调拨单
-        Id, code = self.create(reasonCode, sourceWarehouseId, targetWarehouseId, goodsId, goodsLotInfoId,
-                               kitStockId)
+        Id, code = self.create(reasonCode, sourceWarehouseId, targetWarehouseId, goodsId, goodsLotInfoId)
         # 拒绝调拨单
-        self.approve(Id)
+        self.approve(Id=Id,approve=True,rejectReason=None)
+        return code
 
 
 if __name__ == '__main__':
     test = AllocateOrder()
-    a = test.get_out_warehouse()
-    print(a)
+    a = test.all()
     # test.approve(True)
     # test.close(115)
     # test.remove(112)
