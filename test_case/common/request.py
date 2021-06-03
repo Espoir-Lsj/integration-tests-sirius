@@ -234,3 +234,16 @@ def put(path):
         log.info('----------请求成功---------- \n 请求地址：%s \n 响应内容：%s' % (path, json.dumps(response, ensure_ascii=False)))
 
     return response
+
+def put01(path):
+    r = requests.put(api_url + path, headers=headers1, verify=False)
+    response = r.json()
+    assert (r.status_code == 200)
+    if response['code'] == 2:
+        log.error('----------系统错误---------- \n 请求地址：%s \n 响应内容：%s' % (path, json.dumps(response, ensure_ascii=False)))
+    elif response['code'] == 1:
+        log.warning('----------接口报错---------- \n 请求地址：%s \n 响应内容：%s' % (path, json.dumps(response, ensure_ascii=False)))
+    elif response['code'] == 0:
+        log.info('----------请求成功---------- \n 请求地址：%s \n 响应内容：%s' % (path, json.dumps(response, ensure_ascii=False)))
+
+    return response

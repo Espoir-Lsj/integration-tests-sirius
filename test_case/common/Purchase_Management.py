@@ -118,10 +118,6 @@ class AllocateOrder:
         response = request.post_body01(url, body)
         Id = response['data']['id']
         code = response['data']['code']
-        try:
-            assert response['msg'] == '请求成功'
-        except Exception:
-            raise response
         return Id, code
 
     # body,调拨单ID ,code
@@ -192,7 +188,7 @@ class AllocateOrder:
         # 创建调拨单
         Id, code = self.create(reasonCode, sourceWarehouseId, targetWarehouseId, goodsId, goodsLotInfoId)
         # 拒绝调拨单
-        self.approve(Id=Id,approve=True,rejectReason=None)
+        self.approve(Id=Id, approve=True, rejectReason=None)
         return code
 
 
