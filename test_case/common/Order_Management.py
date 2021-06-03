@@ -275,18 +275,21 @@ class AdhocOrder:
                                  consignorPhone=13212345567, receivingIdCard=421322199811044619,
                                  powerOfAttorney='http://192.168.10.254:9191/server/file/2021/05/17/5b'
                                                  '15b54d-de1f-4aab-ab5b-ffe6bc5a6998/base64Test.jpg',
-                                 orderId=None, addressId=None
+                                 orderId=None, addressId=None,parentId=None
                                  ):
         url = '/adhocOrder/updateAddress'
         body = {
+            "parentId": parentId,
+            "addressId": addressId,
             "payOnDelivery": payOnDelivery,
-            "deliveryMode": deliveryMode,
-            "consignorName": consignorName,
-            "consignorPhone": consignorPhone,
-            "receivingIdCard": receivingIdCard,
-            "powerOfAttorney": powerOfAttorney,
-            "orderId": orderId,
-            "addressId": addressId
+            "addressList": [{
+                "orderId": orderId,
+                "deliveryMode": deliveryMode,
+                "powerOfAttorney": powerOfAttorney,
+                "consignorName": consignorName,
+                "consignorPhone": consignorPhone,
+                "receivingIdCard": receivingIdCard
+            }]
         }
         response = request.post_body(url, body)
 
@@ -327,7 +330,7 @@ class AdhocOrder:
         # self.adhocOrder_accept(goodsId=goodsId, Gquantity=1, kitTemplateId=kitTemplateId, Kquantity=1,
         #                        warehouseId=warehouseId,id=adhocOrderId)
         # # 更新收货地址
-        # self.adhocOrder_updataAddress(orderId=adhocOrderId,addressId=addressId)
+        # self.adhocOrder_updataAddress(orderId=adhocOrderId,addressId=addressId，parentId=adhocOrderId)
 
         # 关闭临调单  待接收才可以关闭
         # self.adhocOrder_close(adhocOrderId=adhocOrderId)

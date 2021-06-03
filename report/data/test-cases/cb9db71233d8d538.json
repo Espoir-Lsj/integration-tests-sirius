@@ -1,0 +1,158 @@
+{
+  "uid" : "cb9db71233d8d538",
+  "name" : "test_06",
+  "fullName" : "test_case.test_material_management.TestKitTemplate#test_06",
+  "historyId" : "1bc96b6139d87fe1a24575e9cdbfba37",
+  "time" : {
+    "start" : 1622692136851,
+    "stop" : 1622692137454,
+    "duration" : 603
+  },
+  "description" : "生成企业 为空",
+  "descriptionHtml" : "<p>生成企业 为空</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "res_data",
+    "time" : {
+      "start" : 1622692135496,
+      "stop" : 1622692135497,
+      "duration" : 1
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "create",
+    "time" : {
+      "start" : 1622692135497,
+      "stop" : 1622692136468,
+      "duration" : 971
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "_session_faker",
+    "time" : {
+      "start" : 1622692126444,
+      "stop" : 1622692126501,
+      "duration" : 57
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "description" : "生成企业 为空",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "2f80050f946cc31d",
+      "name" : "log",
+      "source" : "2f80050f946cc31d.txt",
+      "type" : "text/plain",
+      "size" : 390
+    }, {
+      "uid" : "129b415900e9763f",
+      "name" : "stderr",
+      "source" : "129b415900e9763f.txt",
+      "type" : "text/plain",
+      "size" : 414
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 2,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ {
+    "name" : "res_data::0",
+    "time" : {
+      "start" : 1622692139453,
+      "stop" : 1622692139453,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "story",
+    "value" : "创建工具包"
+  }, {
+    "name" : "feature",
+    "value" : "物资管理"
+  }, {
+    "name" : "tag",
+    "value" : "@pytest.mark.usefixtures('res_data')"
+  }, {
+    "name" : "parentSuite",
+    "value" : "test_case"
+  }, {
+    "name" : "suite",
+    "value" : "test_material_management"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestKitTemplate"
+  }, {
+    "name" : "host",
+    "value" : "liangshoujiedeMacBook-Pro.local"
+  }, {
+    "name" : "thread",
+    "value" : "12363-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_case.test_material_management"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ {
+      "uid" : "81989a49d1aec5c4",
+      "status" : "passed",
+      "time" : {
+        "start" : 1622534733130,
+        "stop" : 1622534733177,
+        "duration" : 47
+      }
+    } ],
+    "categories" : [ ],
+    "tags" : [ "@pytest.mark.usefixtures('res_data')" ]
+  },
+  "source" : "cb9db71233d8d538.json",
+  "parameterValues" : [ ]
+}

@@ -1,0 +1,197 @@
+{
+  "uid" : "3e11babafcf10868",
+  "name" : "收货地区为空",
+  "fullName" : "test_case.test_order_management.TestAdhocOrder#test_updateReceivingAddress",
+  "historyId" : "c1e246a3386bfdbce4ae3823fcae3f63",
+  "time" : {
+    "start" : 1622692161357,
+    "stop" : 1622692161606,
+    "duration" : 249
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "AdhocOrder_update_address",
+    "time" : {
+      "start" : 1622692160633,
+      "stop" : 1622692160715,
+      "duration" : 82
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "res_data",
+    "time" : {
+      "start" : 1622692141356,
+      "stop" : 1622692141356,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "AdhocOrder_get_addressId",
+    "time" : {
+      "start" : 1622692160498,
+      "stop" : 1622692160633,
+      "duration" : 135
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "_session_faker",
+    "time" : {
+      "start" : 1622692126444,
+      "stop" : 1622692126501,
+      "duration" : 57
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "151ac97091e4e403",
+      "name" : "log",
+      "source" : "151ac97091e4e403.txt",
+      "type" : "text/plain",
+      "size" : 366
+    }, {
+      "uid" : "e3c27d7d5397858",
+      "name" : "stderr",
+      "source" : "e3c27d7d5397858.txt",
+      "type" : "text/plain",
+      "size" : 390
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 2,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ {
+    "name" : "res_data::0",
+    "time" : {
+      "start" : 1622692162880,
+      "stop" : 1622692162880,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "AdhocOrder_get_addressId::0",
+    "time" : {
+      "start" : 1622692162882,
+      "stop" : 1622692162882,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "feature",
+    "value" : "订单管理"
+  }, {
+    "name" : "story",
+    "value" : "临调订单——修改默认地址"
+  }, {
+    "name" : "tag",
+    "value" : "@pytest.mark.usefixtures('res_data')"
+  }, {
+    "name" : "parentSuite",
+    "value" : "test_case"
+  }, {
+    "name" : "suite",
+    "value" : "test_order_management"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestAdhocOrder"
+  }, {
+    "name" : "host",
+    "value" : "liangshoujiedeMacBook-Pro.local"
+  }, {
+    "name" : "thread",
+    "value" : "12363-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_case.test_order_management"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "case",
+    "value" : "'{\"districtCode\": 110101000000111}'"
+  }, {
+    "name" : "expected",
+    "value" : "'收货地址区域不存在'"
+  }, {
+    "name" : "title",
+    "value" : "'收货地区为空'"
+  }, {
+    "name" : "url",
+    "value" : "'/supplier/updateReceivingAddress'"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ {
+      "uid" : "fc73a363969854ab",
+      "status" : "passed",
+      "time" : {
+        "start" : 1622534742328,
+        "stop" : 1622534742392,
+        "duration" : 64
+      }
+    } ],
+    "categories" : [ ],
+    "tags" : [ "@pytest.mark.usefixtures('res_data')" ]
+  },
+  "source" : "3e11babafcf10868.json",
+  "parameterValues" : [ "'{\"districtCode\": 110101000000111}'", "'收货地址区域不存在'", "'收货地区为空'", "'/supplier/updateReceivingAddress'" ]
+}

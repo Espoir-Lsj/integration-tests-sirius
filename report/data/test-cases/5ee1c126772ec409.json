@@ -1,0 +1,202 @@
+{
+  "uid" : "5ee1c126772ec409",
+  "name" : "订单ID为空",
+  "fullName" : "test_case.test_order_management.TestAdhocOrder#test_close",
+  "historyId" : "2cbd302f7dba3f7f10b2cb5943efcc59",
+  "time" : {
+    "start" : 1622534741204,
+    "stop" : 1622534741246,
+    "duration" : 42
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "AdhocOrder_get_id04",
+    "time" : {
+      "start" : 1622534740986,
+      "stop" : 1622534741081,
+      "duration" : 95
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "AdhocOrder_close",
+    "time" : {
+      "start" : 1622534741082,
+      "stop" : 1622534741140,
+      "duration" : 58
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "res_data",
+    "time" : {
+      "start" : 1622534734778,
+      "stop" : 1622534734778,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "_session_faker",
+    "time" : {
+      "start" : 1622534729324,
+      "stop" : 1622534729370,
+      "duration" : 46
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "AdhocOrder_get_data",
+    "time" : {
+      "start" : 1622534734778,
+      "stop" : 1622534735501,
+      "duration" : 723
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "82fd839bce0c1244",
+      "name" : "log",
+      "source" : "82fd839bce0c1244.txt",
+      "type" : "text/plain",
+      "size" : 206
+    }, {
+      "uid" : "b355c2b3a334ab26",
+      "name" : "stderr",
+      "source" : "b355c2b3a334ab26.txt",
+      "type" : "text/plain",
+      "size" : 230
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 2,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ {
+    "name" : "AdhocOrder_get_id04::0",
+    "time" : {
+      "start" : 1622534743131,
+      "stop" : 1622534743131,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "res_data::0",
+    "time" : {
+      "start" : 1622534743138,
+      "stop" : 1622534743138,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "feature",
+    "value" : "订单管理"
+  }, {
+    "name" : "story",
+    "value" : "临调订单——关闭临调单"
+  }, {
+    "name" : "tag",
+    "value" : "@pytest.mark.usefixtures('res_data')"
+  }, {
+    "name" : "parentSuite",
+    "value" : "test_case"
+  }, {
+    "name" : "suite",
+    "value" : "test_order_management"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestAdhocOrder"
+  }, {
+    "name" : "host",
+    "value" : "liangshoujiedeMacBook-Pro.local"
+  }, {
+    "name" : "thread",
+    "value" : "9873-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_case.test_order_management"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "case",
+    "value" : "'{'id':None}'"
+  }, {
+    "name" : "expected",
+    "value" : "'不能为null'"
+  }, {
+    "name" : "title",
+    "value" : "'订单ID为空'"
+  }, {
+    "name" : "url",
+    "value" : "'/adhocOrder/close'"
+  } ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ "@pytest.mark.usefixtures('res_data')" ]
+  },
+  "source" : "5ee1c126772ec409.json",
+  "parameterValues" : [ "'{'id':None}'", "'不能为null'", "'订单ID为空'", "'/adhocOrder/close'" ]
+}

@@ -1,0 +1,4957 @@
+{
+  "uid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
+  "name" : "timeline",
+  "children" : [ {
+    "name" : "liangshoujiedeMacBook-Pro.local",
+    "children" : [ {
+      "name" : "9873-MainThread",
+      "children" : [ {
+        "name" : "物资分类 为空",
+        "uid" : "61313cd1829293ba",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534730393,
+          "stop" : 1622534730463,
+          "duration" : 70
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "来源仓库空",
+        "uid" : "a6628f911c7aa377",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622534743664,
+          "stop" : 1622534743664,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'sourceWarehouseId': None}", "'请选择来源仓库'", "'来源仓库空'" ]
+      }, {
+        "name" : "提货人电话为空",
+        "uid" : "d114db0dc68f786d",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622534743038,
+          "stop" : 1622534743038,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"consignorPhone\": None}'", "'请输入提货人电话'", "'提货人电话为空'", "'/adhocOrder/updateAddress'" ]
+      }, {
+        "name" : "重复删除订单",
+        "uid" : "7b0b431181deed1b",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622534743920,
+          "stop" : 1622534743920,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "商品/套包数量为空",
+        "uid" : "1eaa48cf7be1f0d0",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534739937,
+          "stop" : 1622534739993,
+          "duration" : 56
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{'quantity': None}'", "'请输入'", "'商品/套包数量为空'", "'/adhocOrder/edit'" ]
+      }, {
+        "name" : "手术部位不正确",
+        "uid" : "9ca2cdf2d20c1ec6",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534738711,
+          "stop" : 1622534738799,
+          "duration" : 88
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"procedureSite\": [999]}'", "'请选择正确的手术部位'", "'手术部位不正确'", "'/adhocOrder/edit'" ]
+      }, {
+        "name" : "id错误",
+        "uid" : "ba480f0f730e5ae6",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622534740599,
+          "stop" : 1622534740600,
+          "duration" : 1
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"id\": 9999}'", "'未查询到该临调订单，请刷新重试'", "'id错误'", "'/adhocOrder/accept'" ]
+      }, {
+        "name" : "供应商：驳回理由为空",
+        "uid" : "23b73baafd4f24c0",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622534743868,
+          "stop" : 1622534743868,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'approve': False, 'rejectReason': None}", "'请输入修改建议'", "'供应商：驳回理由为空'" ]
+      }, {
+        "name" : "工具包数量过大",
+        "uid" : "8911d473d4694adf",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622534743770,
+          "stop" : 1622534743770,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'kitStockQuantity': 99999999999999}", "'工具包数量超出限制'", "'工具包数量过大'" ]
+      }, {
+        "name" : "test_06",
+        "uid" : "81989a49d1aec5c4",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534733130,
+          "stop" : 1622534733177,
+          "duration" : 47
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "物资id为空",
+        "uid" : "c14d15fd179e811d",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534735625,
+          "stop" : 1622534735670,
+          "duration" : 45
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'goodsId': None}", "'请输入商品id'", "'物资id为空'" ]
+      }, {
+        "name" : "地址ID错误",
+        "uid" : "6e243fcc0fc3184d",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534742554,
+          "stop" : 1622534742612,
+          "duration" : 58
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"id\": 9999}'", "'地址不存在'", "'地址ID错误'", "'/supplier/updateReceivingAddress'" ]
+      }, {
+        "name" : "test_13",
+        "uid" : "d9e23448a8fe970c",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534733588,
+          "stop" : 1622534733618,
+          "duration" : 30
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_create_tools[仓库错误-case2-当前用户不能在该仓库创建加工单]",
+        "uid" : "1bd44ad41764a1ab",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622534734676,
+          "stop" : 1622534734676,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'warehouseId': 999999}", "'当前用户不能在该仓库创建加工单'", "'仓库错误'" ]
+      }, {
+        "name" : "Edit：商品名为空",
+        "uid" : "aa6c635e46504642",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534730836,
+          "stop" : 1622534730875,
+          "duration" : 39
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "经销商：驳回理由为空",
+        "uid" : "ce26c648ae308c75",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622534743819,
+          "stop" : 1622534743819,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'approve': False, 'rejectReason': None}", "'当前用户不可接单'", "'经销商：驳回理由为空'" ]
+      }, {
+        "name" : "Edit：注册证已失效",
+        "uid" : "a8973ada5e646a3b",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534731796,
+          "stop" : 1622534731842,
+          "duration" : 46
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "skuCode重复",
+        "uid" : "fb5d34b0c483ce2",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534730516,
+          "stop" : 1622534730659,
+          "duration" : 143
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "物资、套包为空",
+        "uid" : "1e75aebbfd6a8bae",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534735901,
+          "stop" : 1622534735989,
+          "duration" : 88
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'goodsDetailUiBeans': [], 'toolsDetailUiBeans': []}", "'请选择物资'", "'物资、套包为空'" ]
+      }, {
+        "name" : "存储条件为空",
+        "uid" : "fafda8aefa4f19c4",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534730339,
+          "stop" : 1622534730389,
+          "duration" : 50
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_02",
+        "uid" : "4924eb2dbb9bfd5e",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534732908,
+          "stop" : 1622534732965,
+          "duration" : 57
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "拒绝成功",
+        "uid" : "2d95bf5019f514ae",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534737582,
+          "stop" : 1622534737678,
+          "duration" : 96
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"reason\":'拒绝'}'", "'请求成功'", "'拒绝成功'", "'/adhocOrder/reject'" ]
+      }, {
+        "name" : "price:商品不存在",
+        "uid" : "3563d484d1c1b4be",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534732437,
+          "stop" : 1622534732495,
+          "duration" : 58
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "订单联系人为空",
+        "uid" : "573347891e05d28e",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534736391,
+          "stop" : 1622534736437,
+          "duration" : 46
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'contactName': None}", "'请输入正确的联系人姓名'", "'订单联系人为空'" ]
+      }, {
+        "name" : "年龄段为空",
+        "uid" : "4bb7fd594b639d0f",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534736686,
+          "stop" : 1622534736742,
+          "duration" : 56
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'ageGroup': None}", "'请选择患者年龄'", "'年龄段为空'" ]
+      }, {
+        "name" : "默认地址错误",
+        "uid" : "c101888667f7f173",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534736842,
+          "stop" : 1622534736920,
+          "duration" : 78
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'addressId': 9999999}", "'所选地址不存在，请刷新重试'", "'默认地址错误'" ]
+      }, {
+        "name" : "Edit：注册证失效日期小于于生效日期",
+        "uid" : "6ee171ec38f7fbf2",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534731747,
+          "stop" : 1622534731791,
+          "duration" : 44
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_09",
+        "uid" : "1da42e4e80d1d666",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534733357,
+          "stop" : 1622534733449,
+          "duration" : 92
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "di码：商品ID为空",
+        "uid" : "babdc4c451453dd",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534731993,
+          "stop" : 1622534732065,
+          "duration" : 72
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_14",
+        "uid" : "386cf194093ed4c5",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534733622,
+          "stop" : 1622534733656,
+          "duration" : 34
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "重复拒绝",
+        "uid" : "11f235083d545f11",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534737687,
+          "stop" : 1622534737799,
+          "duration" : 112
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"reason\":'拒绝'}'", "'该临调单已处理，请勿重复操作'", "'重复拒绝'", "'/adhocOrder/reject'" ]
+      }, {
+        "name" : "注册证号为空",
+        "uid" : "b8f9b491fec4057f",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534730282,
+          "stop" : 1622534730335,
+          "duration" : 53
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "商品/套包数量为空",
+        "uid" : "1bcf6cc88372c0b9",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534740055,
+          "stop" : 1622534740086,
+          "duration" : 31
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{'quantity': None}'", "'请输入'", "'商品/套包数量为空'", "'/adhocOrder/edit'" ]
+      }, {
+        "name" : "收货地区为空",
+        "uid" : "3124b1ef661c5628",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534742267,
+          "stop" : 1622534742319,
+          "duration" : 52
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"districtCode\": None}'", "'请填写收货地区'", "'收货地区为空'", "'/supplier/updateReceivingAddress'" ]
+      }, {
+        "name" : "test_12",
+        "uid" : "e8abb71770fa98bb",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534733518,
+          "stop" : 1622534733582,
+          "duration" : 64
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "年龄段错误",
+        "uid" : "aeb6386135214cb7",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534739364,
+          "stop" : 1622534739408,
+          "duration" : 44
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{'ageGroup': 'None'}'", "'请求参数异常'", "'年龄段错误'", "'/adhocOrder/edit'" ]
+      }, {
+        "name" : "商品/套包数量为空",
+        "uid" : "30248dbcf7e6d3b1",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534740004,
+          "stop" : 1622534740043,
+          "duration" : 39
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{'quantity': None}'", "'请输入'", "'商品/套包数量为空'", "'/adhocOrder/edit'" ]
+      }, {
+        "name" : "id为空",
+        "uid" : "bb41e5deb2f09233",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534742781,
+          "stop" : 1622534742863,
+          "duration" : 82
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'id': None}", "'id不能为空'", "'id为空'" ]
+      }, {
+        "name" : "test_11",
+        "uid" : "635be986da8081fd",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534733453,
+          "stop" : 1622534733512,
+          "duration" : 59
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "套包数量为空",
+        "uid" : "8d4434102733f6a",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622534740675,
+          "stop" : 1622534740676,
+          "duration" : 1
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"quantity\": None}'", "'请输入套包数量'", "'套包数量为空'", "'/adhocOrder/accept'" ]
+      }, {
+        "name" : "Edit：注册证号为空",
+        "uid" : "e5bc3b27aafbdcc",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534731407,
+          "stop" : 1622534731461,
+          "duration" : 54
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_15",
+        "uid" : "77458c34df6730d",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534733658,
+          "stop" : 1622534733706,
+          "duration" : 48
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "经销商：调拨单ID为空",
+        "uid" : "f682d984af19b860",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622534743796,
+          "stop" : 1622534743796,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'id': None}", "'请选择调拨单'", "'经销商：调拨单ID为空'" ]
+      }, {
+        "name" : "商品信息为空",
+        "uid" : "9c3935ae31d592fa",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622534743758,
+          "stop" : 1622534743758,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'goodsLotInfoId': None}", "'参数异常'", "'商品信息为空'" ]
+      }, {
+        "name" : "test_05",
+        "uid" : "33800d8f31c66c90",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534733076,
+          "stop" : 1622534733128,
+          "duration" : 52
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "商品数量错误",
+        "uid" : "8fb25917853918fd",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622534740940,
+          "stop" : 1622534740940,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"quantity\": 999999}'", "'接收的商品明细和父临调单的明细不一致'", "'商品数量错误'", "'/adhocOrder/accept1'" ]
+      }, {
+        "name" : "套包ID错误",
+        "uid" : "c5d4a3e5ab1f0400",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534735814,
+          "stop" : 1622534735892,
+          "duration" : 78
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'kitTemplateId': 1111111}", "'工具包不存在，请刷新重试'", "'套包ID错误'" ]
+      }, {
+        "name" : "供应商：调拨单ID为空",
+        "uid" : "87a4d29deca79b1",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622534743842,
+          "stop" : 1622534743842,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'id': None}", "'请选择调拨单'", "'供应商：调拨单ID为空'" ]
+      }, {
+        "name" : "订单ID为空",
+        "uid" : "5ee1c126772ec409",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534741204,
+          "stop" : 1622534741246,
+          "duration" : 42
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{'id':None}'", "'不能为null'", "'订单ID为空'", "'/adhocOrder/close'" ]
+      }, {
+        "name" : "重复接收订单",
+        "uid" : "34c17fcc7fad5cb6",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622534740803,
+          "stop" : 1622534740803,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"quantity\": 1}'", "'该临调单已处理，请勿重复操作'", "'重复接收订单'", "'/adhocOrder/accept'" ]
+      }, {
+        "name" : "编辑未驳回订单",
+        "uid" : "4febe6ac3ad862dc",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622534743783,
+          "stop" : 1622534743783,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "收货方式为空",
+        "uid" : "d13f7e945e713e65",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622534740766,
+          "stop" : 1622534740766,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"deliveryMode\": None}'", "'请选择收货方式'", "'收货方式为空'", "'/adhocOrder/accept'" ]
+      }, {
+        "name" : "Edit：参数异常",
+        "uid" : "e0a2e2cf7e7bb2bc",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534731601,
+          "stop" : 1622534731663,
+          "duration" : 62
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "手术部位错误",
+        "uid" : "63597177fac790eb",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534736189,
+          "stop" : 1622534736265,
+          "duration" : 76
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'procedureSite': [9999999]}", "'请选择正确的手术部位'", "'手术部位错误'" ]
+      }, {
+        "name" : "提货委托书为空",
+        "uid" : "3c5a36762874d1a1",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622534743112,
+          "stop" : 1622534743112,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"powerOfAttorney\": None}'", "'请上传提货委托书'", "'提货委托书为空'", "'/adhocOrder/updateAddress'" ]
+      }, {
+        "name" : "手机号为空",
+        "uid" : "d1c267afb4327a09",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534742198,
+          "stop" : 1622534742259,
+          "duration" : 61
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"receivingPhone\": None}'", "'请输入正确的手机号码'", "'手机号为空'", "'/supplier/updateReceivingAddress'" ]
+      }, {
+        "name" : "删除未关闭订单",
+        "uid" : "3fcf29ddcbff054b",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622534743893,
+          "stop" : 1622534743893,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_01",
+        "uid" : "f3918ad324ecd621",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534732855,
+          "stop" : 1622534732906,
+          "duration" : 51
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "供应商：驳回理由超长",
+        "uid" : "cf5741f36ea95740",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622534743881,
+          "stop" : 1622534743881,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'approve': False, 'rejectReason': '00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001'}", "'拒绝原因超出长度限制'", "'供应商：驳回理由超长'" ]
+      }, {
+        "name" : "经销商：驳回理由超长",
+        "uid" : "5c51085fde0c781",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622534743830,
+          "stop" : 1622534743830,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'approve': False, 'rejectReason': '00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001'}", "'拒绝原因超出长度限制'", "'经销商：驳回理由超长'" ]
+      }, {
+        "name" : "Edit：原厂编码为空",
+        "uid" : "6acf231157e660b",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534730878,
+          "stop" : 1622534730922,
+          "duration" : 44
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "性别为空",
+        "uid" : "ce29511f3a4a6583",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534739221,
+          "stop" : 1622534739277,
+          "duration" : 56
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{'gender': None}'", "'请选择患者性别'", "'性别为空'", "'/adhocOrder/edit'" ]
+      }, {
+        "name" : "临调单ID为空",
+        "uid" : "6681e3e5658dfa5f",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534737307,
+          "stop" : 1622534737355,
+          "duration" : 48
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"id\": None}'", "'请选择临调单'", "'临调单ID为空'", "'/adhocOrder/reject'" ]
+      }, {
+        "name" : "收货地区为空",
+        "uid" : "269808b820fd5acb",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534741655,
+          "stop" : 1622534741720,
+          "duration" : 65
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"districtCode\": 110101000000111}'", "'收货地址区域不存在'", "'收货地区为空'", "'/supplier/addReceivingAddress'" ]
+      }, {
+        "name" : "详细地址为空",
+        "uid" : "c2b1b0449571d8f5",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534741812,
+          "stop" : 1622534741882,
+          "duration" : 70
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"receivingAddress\": '主治医师' * 30}'", "'收货地址长度超出限制'", "'详细地址为空'", "'/supplier/addReceivingAddress'" ]
+      }, {
+        "name" : "默认地址为空",
+        "uid" : "6295e32c6a2e863e",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534739418,
+          "stop" : 1622534739481,
+          "duration" : 63
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{'addressId': None}'", "'请输入收货地址id'", "'默认地址为空'", "'/adhocOrder/edit'" ]
+      }, {
+        "name" : "Edit：商品照片为空",
+        "uid" : "79098eb6745e8675",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534731292,
+          "stop" : 1622534731342,
+          "duration" : 50
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "di码为空",
+        "uid" : "e0542bf36058198e",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534731846,
+          "stop" : 1622534731895,
+          "duration" : 49
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "工具包未选择",
+        "uid" : "a6929e4a68be40c",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534734127,
+          "stop" : 1622534734171,
+          "duration" : 44
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'templateIds': None, 'warehouseId': 'warehouseId'}", "'请选择工具包'", "'工具包未选择'" ]
+      }, {
+        "name" : "test_03",
+        "uid" : "ea1f64b1f1dbc399",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534732968,
+          "stop" : 1622534733023,
+          "duration" : 55
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "商品数量过大",
+        "uid" : "dc69a20a948d6fd1",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622534743745,
+          "stop" : 1622534743745,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'goodsQuantity': 999999999999}", "'商品数量超出限制'", "'商品数量过大'" ]
+      }, {
+        "name" : "仓库为空",
+        "uid" : "373f98901b630d8",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622534740732,
+          "stop" : 1622534740732,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"warehouseId\": None}'", "'请选择临调单仓库'", "'仓库为空'", "'/adhocOrder/accept'" ]
+      }, {
+        "name" : "Edit：产地为空",
+        "uid" : "e0a4994995269785",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534731087,
+          "stop" : 1622534731154,
+          "duration" : 67
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "品牌为空",
+        "uid" : "dd7b91a1df436607",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534739085,
+          "stop" : 1622534739136,
+          "duration" : 51
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{'manufacturerId': None}'", "'品牌不能为空'", "'品牌为空'", "'/adhocOrder/edit'" ]
+      }, {
+        "name" : "型号为空",
+        "uid" : "160c0f6d49d881d",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534730065,
+          "stop" : 1622534730180,
+          "duration" : 115
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "商品/套包数量为空",
+        "uid" : "60450eb734d8aa65",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534740095,
+          "stop" : 1622534740159,
+          "duration" : 64
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{'quantity': None}'", "'请输入'", "'商品/套包数量为空'", "'/adhocOrder/edit'" ]
+      }, {
+        "name" : "商品/套包数量为空",
+        "uid" : "e654376f7e9b16fb",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534740169,
+          "stop" : 1622534740242,
+          "duration" : 73
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{'quantity': None}'", "'请输入'", "'商品/套包数量为空'", "'/adhocOrder/edit'" ]
+      }, {
+        "name" : "收件人名字为空",
+        "uid" : "f1c0960d366cc02e",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534741386,
+          "stop" : 1622534741451,
+          "duration" : 65
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"receivingName\": None}'", "'请输入正确的收货人姓名'", "'收件人名字为空'", "'/supplier/addReceivingAddress'" ]
+      }, {
+        "name" : "test_0601",
+        "uid" : "f8398efa5faab19c",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534733180,
+          "stop" : 1622534733248,
+          "duration" : 68
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "收货地区为空",
+        "uid" : "d3add05c1784d242",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534741598,
+          "stop" : 1622534741647,
+          "duration" : 49
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"districtCode\": None}'", "'请填写收货地区'", "'收货地区为空'", "'/supplier/addReceivingAddress'" ]
+      }, {
+        "name" : "test_1401",
+        "uid" : "a1883ec71a4cb1a4",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534730469,
+          "stop" : 1622534730513,
+          "duration" : 44
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "Edit：物资类别为空",
+        "uid" : "62bb48cd0e5892b7",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534730925,
+          "stop" : 1622534730972,
+          "duration" : 47
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "物资ID错误",
+        "uid" : "57af12d8d3c6a048",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534735676,
+          "stop" : 1622534735743,
+          "duration" : 67
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'goodsId': 1111111}", "'商品不存在,请刷新重试'", "'物资ID错误'" ]
+      }, {
+        "name" : "手机号为空",
+        "uid" : "e094bf2c61d3ad6b",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534741527,
+          "stop" : 1622534741588,
+          "duration" : 61
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"receivingPhone\": None}'", "'请输入正确的手机号码'", "'手机号为空'", "'/supplier/addReceivingAddress'" ]
+      }, {
+        "name" : "医院为空",
+        "uid" : "70edd77a7b81711b",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534735999,
+          "stop" : 1622534736059,
+          "duration" : 60
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'hospitalName': None}", "'请输入医院名称'", "'医院为空'" ]
+      }, {
+        "name" : "Edit：商品分类 为空",
+        "uid" : "36b8ab8180b556ea",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534731520,
+          "stop" : 1622534731594,
+          "duration" : 74
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "医生名称过长",
+        "uid" : "f60987183af5a30e",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534738868,
+          "stop" : 1622534738929,
+          "duration" : 61
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"surgeon\":  '主治医师' * 50}'", "'主刀医生名称长度超出限制'", "'医生名称过长'", "'/adhocOrder/edit'" ]
+      }, {
+        "name" : "test_create_tools[商品数量错误-case0-数量不一致，请确定数量]",
+        "uid" : "fc3c5739d906ea37",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622534734176,
+          "stop" : 1622534734176,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'goodsDetails': [{'goodsId': 11, 'goodsLotInfoId': 88, 'goodsQuantity': 2}]}", "'数量不一致，请确定数量'", "'商品数量错误'" ]
+      }, {
+        "name" : "Edit：养护类型为空",
+        "uid" : "faacc6cd094025c8",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534730977,
+          "stop" : 1622534731026,
+          "duration" : 49
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "套包数量为空",
+        "uid" : "e92bb597806c2025",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622534740694,
+          "stop" : 1622534740694,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"quantity\": None}'", "'请输入套包数量'", "'套包数量为空'", "'/adhocOrder/accept'" ]
+      }, {
+        "name" : "收货方式为空",
+        "uid" : "a37d7ce5f9870213",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534736587,
+          "stop" : 1622534736630,
+          "duration" : 43
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'deliveryMode': None}", "'请选择收货方式'", "'收货方式为空'" ]
+      }, {
+        "name" : "Edit基：本单位为空",
+        "uid" : "206c240876358b9e",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534731159,
+          "stop" : 1622534731211,
+          "duration" : 52
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "主刀医生为空",
+        "uid" : "990632ed66fa1c97",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534736274,
+          "stop" : 1622534736336,
+          "duration" : 62
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'surgeon': None}", "'请输入正确的主刀医生姓名'", "'主刀医生为空'" ]
+      }, {
+        "name" : "套包ID为空",
+        "uid" : "8406b92ddba15e04",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534735750,
+          "stop" : 1622534735806,
+          "duration" : 56
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'kitTemplateId': None}", "'请输入套包id'", "'套包ID为空'" ]
+      }, {
+        "name" : "身份证错误",
+        "uid" : "9f9e66df583ec415",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622534743094,
+          "stop" : 1622534743094,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"receivingIdCard\": 42132219981104461}'", "'请输入正确的身份证号'", "'身份证错误'", "'/adhocOrder/updateAddress'" ]
+      }, {
+        "name" : "工具包ID为空",
+        "uid" : "2ebe71c4ceb10078",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534738195,
+          "stop" : 1622534738237,
+          "duration" : 42
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"kitTemplateId\": None}'", "'请输入套包id'", "'工具包ID为空'", "'/adhocOrder/edit'" ]
+      }, {
+        "name" : "医生名称为空",
+        "uid" : "2c7405a4aa3dd237",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534738809,
+          "stop" : 1622534738858,
+          "duration" : 49
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"surgeon\": None}'", "'请输入正确的主刀医生姓名'", "'医生名称为空'", "'/adhocOrder/edit'" ]
+      }, {
+        "name" : "临调单ID为空",
+        "uid" : "e64cfc458b670424",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534740252,
+          "stop" : 1622534740312,
+          "duration" : 60
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"id\": None}'", "'请选择临调订单'", "'临调单ID为空'", "'/adhocOrder/edit1'" ]
+      }, {
+        "name" : "拒绝原因为空",
+        "uid" : "ae6b6f287562f050",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534737436,
+          "stop" : 1622534737500,
+          "duration" : 64
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"reason\": None}'", "'请填写拒绝原因'", "'拒绝原因为空'", "'/adhocOrder/reject'" ]
+      }, {
+        "name" : "手术日期小于当天",
+        "uid" : "64cd63f673cc4046",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534737054,
+          "stop" : 1622534737112,
+          "duration" : 58
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'procedureTime': 1622390400000}", "'手术日期不能早于当天'", "'手术日期小于当天'" ]
+      }, {
+        "name" : "price:税率为0",
+        "uid" : "83b0034bc9bde42",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534732203,
+          "stop" : 1622534732268,
+          "duration" : 65
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "正向流程",
+        "uid" : "3fab3b1d5c6c14e4",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534733951,
+          "stop" : 1622534734051,
+          "duration" : 100
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'templateIds': 'templateIds', 'warehouseId': 'warehouseId'}", "'请求成功'", "'正向流程'" ]
+      }, {
+        "name" : "test_18",
+        "uid" : "f7dd004a5ce9f554",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534733792,
+          "stop" : 1622534733838,
+          "duration" : 46
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "套包ID为空",
+        "uid" : "6fd3f7441071f6ab",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622534740712,
+          "stop" : 1622534740712,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"kitTemplateId\": None}'", "'请输入套包id'", "'套包ID为空'", "'/adhocOrder/accept'" ]
+      }, {
+        "name" : "重复关闭订单",
+        "uid" : "4ffe6cd4750fdf91",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534741143,
+          "stop" : 1622534741195,
+          "duration" : 52
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{None}'", "'订单状态为待接收或待修改时才能关闭'", "'重复关闭订单'", "'/adhocOrder/close'" ]
+      }, {
+        "name" : "地址ID为空",
+        "uid" : "d25d309aa457e076",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534742505,
+          "stop" : 1622534742544,
+          "duration" : 39
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"id\": None}'", "'请选择id'", "'地址ID为空'", "'/supplier/updateReceivingAddress'" ]
+      }, {
+        "name" : "手术时间为空",
+        "uid" : "858adc05f85f5b51",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534736928,
+          "stop" : 1622534736985,
+          "duration" : 57
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'procedureTime': None}", "'请选择手术日期'", "'手术时间为空'" ]
+      }, {
+        "name" : "拒绝原因过长",
+        "uid" : "a628a057fd0b39d6",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534737509,
+          "stop" : 1622534737571,
+          "duration" : 62
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"reason\":  '主治医师' * 100}'", "'拒绝原因超出长度限制'", "'拒绝原因过长'", "'/adhocOrder/reject'" ]
+      }, {
+        "name" : "商品ID为空",
+        "uid" : "2b2e2364f6d157cd",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534738357,
+          "stop" : 1622534738400,
+          "duration" : 43
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"goodsId\": None,}'", "'请输入商品id'", "'商品ID为空'", "'/adhocOrder/edit'" ]
+      }, {
+        "name" : "医院名称超长",
+        "uid" : "556ef80451df8150",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534738570,
+          "stop" : 1622534738618,
+          "duration" : 48
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"hospitalName\":  '主治医师' * 50}'", "'医院名称长度超出限制'", "'医院名称超长'", "'/adhocOrder/edit'" ]
+      }, {
+        "name" : "price:采购价格为0",
+        "uid" : "432508fbc7d611b8",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534732271,
+          "stop" : 1622534732352,
+          "duration" : 81
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "基本单位为空",
+        "uid" : "f9adc34b29743fa6",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534729721,
+          "stop" : 1622534729770,
+          "duration" : 49
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "调拨理由为空",
+        "uid" : "8dabd1fda133eda8",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622534743147,
+          "stop" : 1622534743147,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'reasonCode': None}", "'请选择调拨理由'", "'调拨理由为空'" ]
+      }, {
+        "name" : "归还时间为空",
+        "uid" : "e9d2edb1b41eb478",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534739661,
+          "stop" : 1622534739720,
+          "duration" : 59
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{'expectReturnTime': None}'", "'请选择归还日期'", "'归还时间为空'", "'/adhocOrder/edit'" ]
+      }, {
+        "name" : "主刀医生超长",
+        "uid" : "ffc76e6ece020a5b",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534736346,
+          "stop" : 1622534736382,
+          "duration" : 36
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'surgeon': '主治医师主治医师主治医师主治医师主治医师主治医师主治医师主治医师主治医师主治医师主治医师主治医师主治医师主治医师主治医师主治医师主治医师主治医师主治医师主治医师主治医师主治医师主治医师主治医师主治医师主治医师主治医师主治医师主治医师主治医师'}", "'主刀医生名称长度超出限制'", "'主刀医生超长'" ]
+      }, {
+        "name" : "供应商：审核建议为空",
+        "uid" : "bf2673917168f437",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622534743855,
+          "stop" : 1622534743855,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'approve': None}", "'请选择审核或者驳回调拨单'", "'供应商：审核建议为空'" ]
+      }, {
+        "name" : "收货地区为空",
+        "uid" : "fc73a363969854ab",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534742328,
+          "stop" : 1622534742392,
+          "duration" : 64
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"districtCode\": 110101000000111}'", "'收货地址区域不存在'", "'收货地区为空'", "'/supplier/updateReceivingAddress'" ]
+      }, {
+        "name" : "price:折扣率为0",
+        "uid" : "8a9a9b1c7d96749f",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534732125,
+          "stop" : 1622534732200,
+          "duration" : 75
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_04",
+        "uid" : "be076c2e601a7678",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534733026,
+          "stop" : 1622534733073,
+          "duration" : 47
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "工具包数量错误",
+        "uid" : "3bf7c61ea1dac848",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622534740968,
+          "stop" : 1622534740968,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"quantity\": 1}'", "'接收的工具包明细和父临调单的明细不一致'", "'工具包数量错误'", "'/adhocOrder/accept1'" ]
+      }, {
+        "name" : "手术部位为空",
+        "uid" : "185d4b9813a1e08a",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534738629,
+          "stop" : 1622534738698,
+          "duration" : 69
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"procedureSite\": None}'", "'请选择手术部位'", "'手术部位为空'", "'/adhocOrder/edit'" ]
+      }, {
+        "name" : "详细地址为空",
+        "uid" : "83b7da865aa53f06",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534741730,
+          "stop" : 1622534741801,
+          "duration" : 71
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"receivingAddress\": None}'", "'请填写收货地址'", "'详细地址为空'", "'/supplier/addReceivingAddress'" ]
+      }, {
+        "name" : "联系人电话为空",
+        "uid" : "75bc943a685074e1",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534739020,
+          "stop" : 1622534739076,
+          "duration" : 56
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{'contactPhone': None}'", "'请输入正确的手机号码'", "'联系人电话为空'", "'/adhocOrder/edit'" ]
+      }, {
+        "name" : "di码 少于14位",
+        "uid" : "f955fd284593867c",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534731900,
+          "stop" : 1622534731990,
+          "duration" : 90
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_16",
+        "uid" : "c72e97831491b388",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534733711,
+          "stop" : 1622534733751,
+          "duration" : 40
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "提货人电话错误",
+        "uid" : "879f50ce0a4dd234",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622534743057,
+          "stop" : 1622534743057,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"consignorPhone\": 1321234567}'", "'请输入正确的手机号码'", "'提货人电话错误'", "'/adhocOrder/updateAddress'" ]
+      }, {
+        "name" : "订单ID错误",
+        "uid" : "59e1e555887c64ac",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534741256,
+          "stop" : 1622534741326,
+          "duration" : 70
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{'id':99999999}'", "'未查询到该临调订单，请刷新重试'", "'订单ID错误'", "'/adhocOrder/close'" ]
+      }, {
+        "name" : "医院名称为空",
+        "uid" : "4812e307785715f3",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534738503,
+          "stop" : 1622534738560,
+          "duration" : 57
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"hospitalName\": None}'", "'请输入医院名称'", "'医院名称为空'", "'/adhocOrder/edit'" ]
+      }, {
+        "name" : "skuCode为空",
+        "uid" : "d73667ec9bd179be",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534729449,
+          "stop" : 1622534729505,
+          "duration" : 56
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "id为空",
+        "uid" : "1d32c38ee92ce53f",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534742872,
+          "stop" : 1622534742916,
+          "duration" : 44
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'id': 99990099}", "'地址不存在'", "'id为空'" ]
+      }, {
+        "name" : "test_create_tools[仓库为空-case1-请选择仓库]",
+        "uid" : "df78ff954405bdf",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622534734651,
+          "stop" : 1622534734651,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'warehouseId': None}", "'请选择仓库'", "'仓库为空'" ]
+      }, {
+        "name" : "price:商品ID为空",
+        "uid" : "4b97d7459e1005fc",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534732068,
+          "stop" : 1622534732123,
+          "duration" : 55
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "品牌为空",
+        "uid" : "499ae23790ad7c53",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534736518,
+          "stop" : 1622534736579,
+          "duration" : 61
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'manufacturerId': None}", "'品牌不能为空'", "'品牌为空'" ]
+      }, {
+        "name" : "身份证为空",
+        "uid" : "b6f928000d37e6b8",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622534743075,
+          "stop" : 1622534743075,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"receivingIdCard\":None}'", "'请输入身份证号码'", "'身份证为空'", "'/adhocOrder/updateAddress'" ]
+      }, {
+        "name" : "归还时间小于手术开始时间",
+        "uid" : "6847b9b02cd114e3",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534737120,
+          "stop" : 1622534737190,
+          "duration" : 70
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'expectReturnTime': 1622390400000}", "'预计归还日期不能早于手术日期'", "'归还时间小于手术开始时间'" ]
+      }, {
+        "name" : "Edit：注册证照为空",
+        "uid" : "d9e354bf78a10f7c",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534731347,
+          "stop" : 1622534731402,
+          "duration" : 55
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "临调单ID错误",
+        "uid" : "3a5d5ca78cd78886",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534737363,
+          "stop" : 1622534737426,
+          "duration" : 63
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"id\": 99999}'", "'未查询到该临调订单，请刷新重试'", "'临调单ID错误'", "'/adhocOrder/reject'" ]
+      }, {
+        "name" : "年龄段错误",
+        "uid" : "76d563a02498b10b",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534736747,
+          "stop" : 1622534736777,
+          "duration" : 30
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'ageGroup': 'None'}", "'请求参数异常'", "'年龄段错误'" ]
+      }, {
+        "name" : "订单ID为空",
+        "uid" : "b33f458b818cfd46",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622534740749,
+          "stop" : 1622534740749,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"id\": None}'", "'请选择临调单'", "'订单ID为空'", "'/adhocOrder/accept'" ]
+      }, {
+        "name" : "商品/套包数量为空",
+        "uid" : "7ab4f52c13a5126d",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534739892,
+          "stop" : 1622534739932,
+          "duration" : 40
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{'quantity': None}'", "'请输入'", "'商品/套包数量为空'", "'/adhocOrder/edit'" ]
+      }, {
+        "name" : "年龄段为空",
+        "uid" : "6c31be363e15b063",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534739287,
+          "stop" : 1622534739354,
+          "duration" : 67
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{'ageGroup': None}'", "'请选择患者年龄'", "'年龄段为空'", "'/adhocOrder/edit'" ]
+      }, {
+        "name" : "归还时间为空",
+        "uid" : "2635f315d56b29e9",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534736994,
+          "stop" : 1622534737044,
+          "duration" : 50
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'expectReturnTime': None}", "'请选择归还日期'", "'归还时间为空'" ]
+      }, {
+        "name" : "手术部位为空",
+        "uid" : "52fdcb8df09358ab",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534736138,
+          "stop" : 1622534736181,
+          "duration" : 43
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'procedureSite': None}", "'请选择手术部位'", "'手术部位为空'" ]
+      }, {
+        "name" : "test_17",
+        "uid" : "57e0b92aebbafa9f",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534733755,
+          "stop" : 1622534733789,
+          "duration" : 34
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "注册证已失效",
+        "uid" : "2827577918cf37a9",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534730738,
+          "stop" : 1622534730831,
+          "duration" : 93
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "Edit：存储条件为空",
+        "uid" : "64f6bc91b0c97744",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534731464,
+          "stop" : 1622534731517,
+          "duration" : 53
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "详细地址为空",
+        "uid" : "b30d8cd3ef75c25e",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534742402,
+          "stop" : 1622534742445,
+          "duration" : 43
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"receivingAddress\": None}'", "'请填写收货地址'", "'详细地址为空'", "'/supplier/updateReceivingAddress'" ]
+      }, {
+        "name" : "重复关闭订单",
+        "uid" : "5bea2cb2dd34a460",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622534743906,
+          "stop" : 1622534743906,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'订单状态为待接收或待修改时才能关闭'", "'重复关闭订单'" ]
+      }, {
+        "name" : "Edit：生产企业为空",
+        "uid" : "d4bbd8d6ac06cb6b",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534731029,
+          "stop" : 1622534731085,
+          "duration" : 56
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "来源仓库错误",
+        "uid" : "317118f93203a269",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622534743678,
+          "stop" : 1622534743678,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'targetWarehouseId': 'aa'}", "'请求参数异常'", "'来源仓库错误'" ]
+      }, {
+        "name" : "医院名字超长",
+        "uid" : "dc5be63794257540",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534736068,
+          "stop" : 1622534736128,
+          "duration" : 60
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'hospitalName': '00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001'}", "'医院名称长度超出限制'", "'医院名字超长'" ]
+      }, {
+        "name" : "经销商：审核建议为空",
+        "uid" : "1c622bf662fd72da",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622534743808,
+          "stop" : 1622534743808,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'approve': None}", "'请选择审核或者驳回调拨单'", "'经销商：审核建议为空'" ]
+      }, {
+        "name" : "生产企业为空",
+        "uid" : "8f73a3944f84a520",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534729608,
+          "stop" : 1622534729657,
+          "duration" : 49
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "仓库未选择",
+        "uid" : "13e4a39e8420d19f",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534734058,
+          "stop" : 1622534734117,
+          "duration" : 59
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'templateIds': 'templateIds', 'warehouseId': None}", "'参数异常，请刷新后重试'", "'仓库未选择'" ]
+      }, {
+        "name" : "注册证生效日期大于失效时间",
+        "uid" : "665ca9070b3c3eb9",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534730661,
+          "stop" : 1622534730735,
+          "duration" : 74
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "Edit：skuCode重复",
+        "uid" : "807b82bb63e89122",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534731668,
+          "stop" : 1622534731742,
+          "duration" : 74
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "物资类别为空",
+        "uid" : "e5b649951aa72cf9",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534729508,
+          "stop" : 1622534729554,
+          "duration" : 46
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "商品数量为空",
+        "uid" : "f699c2d202840b23",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622534740657,
+          "stop" : 1622534740658,
+          "duration" : 1
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"quantity\": None}'", "'请输入商品数量'", "'商品数量为空'", "'/adhocOrder/accept'" ]
+      }, {
+        "name" : "养护类型为空",
+        "uid" : "f9d9ec9fb212e4a5",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534729558,
+          "stop" : 1622534729605,
+          "duration" : 47
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "商品数量为空",
+        "uid" : "6c562e562dc65c4",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622534743705,
+          "stop" : 1622534743705,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'goodsQuantity': None}", "'请输入商品数量'", "'商品数量为空'" ]
+      }, {
+        "name" : "收货方式为空",
+        "uid" : "89dde89ce8e29ecf",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534739147,
+          "stop" : 1622534739209,
+          "duration" : 62
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{'deliveryMode': None}'", "'请选择收货方式'", "'收货方式为空'", "'/adhocOrder/edit'" ]
+      }, {
+        "name" : "收件人名字为空",
+        "uid" : "dc484927cd812478",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534742128,
+          "stop" : 1622534742188,
+          "duration" : 60
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"receivingName\": '主治医师' * 30}'", "'收货人姓名长度超出限制'", "'收件人名字为空'", "'/supplier/updateReceivingAddress'" ]
+      }, {
+        "name" : "收件人名字为空",
+        "uid" : "330d97ef42041ba4",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534741460,
+          "stop" : 1622534741518,
+          "duration" : 58
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"receivingName\": '主治医师' * 30}'", "'收货人姓名长度超出限制'", "'收件人名字为空'", "'/supplier/addReceivingAddress'" ]
+      }, {
+        "name" : "手术时间为空",
+        "uid" : "f02753e0540feb0c",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534739589,
+          "stop" : 1622534739652,
+          "duration" : 63
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{'procedureTime': None}'", "'请选择手术日期'", "'手术时间为空'", "'/adhocOrder/edit'" ]
+      }, {
+        "name" : "test_08",
+        "uid" : "f64f539dca1c8c7e",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534733312,
+          "stop" : 1622534733353,
+          "duration" : 41
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "订单ID为空",
+        "uid" : "8285395ef4390ba1",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622534742987,
+          "stop" : 1622534742988,
+          "duration" : 1
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{'orderId':None}'", "'不能为null'", "'订单ID为空'", "'/adhocOrder/updateAddress'" ]
+      }, {
+        "name" : "商品ID为空",
+        "uid" : "5017ac3d0f28c301",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622534740637,
+          "stop" : 1622534740637,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"goodsId\": None}'", "'请输入商品id'", "'商品ID为空'", "'/adhocOrder/accept'" ]
+      }, {
+        "name" : "price:临调价为0",
+        "uid" : "7656cdd2eeef5d4f",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534732355,
+          "stop" : 1622534732433,
+          "duration" : 78
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "手术日期小于当天",
+        "uid" : "e9f9b6b4e496a414",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534739730,
+          "stop" : 1622534739802,
+          "duration" : 72
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{'procedureTime':1621213936000}'", "'手术日期不能早于当天'", "'手术日期小于当天'", "'/adhocOrder/edit'" ]
+      }, {
+        "name" : "临调单重复",
+        "uid" : "6a91100285079590",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534740322,
+          "stop" : 1622534740414,
+          "duration" : 92
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"gender\": \"FEMALE\"}'", "'只能修改待修改的订单'", "'临调单重复'", "'/adhocOrder/edit1'" ]
+      }, {
+        "name" : "test_07",
+        "uid" : "3df423da81a45f76",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534733252,
+          "stop" : 1622534733307,
+          "duration" : 55
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "注册证照为空",
+        "uid" : "b65eebfcd64be4b6",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534730225,
+          "stop" : 1622534730277,
+          "duration" : 52
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "联系人电话为空",
+        "uid" : "ad9af3a78a790442",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534736446,
+          "stop" : 1622534736508,
+          "duration" : 62
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'contactPhone': None}", "'请输入正确的手机号码'", "'联系人电话为空'" ]
+      }, {
+        "name" : "物资名称为空",
+        "uid" : "239eeba9769ce067",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534729371,
+          "stop" : 1622534729446,
+          "duration" : 75
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "详细地址为空",
+        "uid" : "d69b69dbe7f49084",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534742454,
+          "stop" : 1622534742495,
+          "duration" : 41
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"receivingAddress\": '主治医师' * 30}'", "'收货地址长度超出限制'", "'详细地址为空'", "'/supplier/updateReceivingAddress'" ]
+      }, {
+        "name" : "Edit：规格 /型号为空",
+        "uid" : "80798665ad50830a",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534731217,
+          "stop" : 1622534731288,
+          "duration" : 71
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "收货仓库为空",
+        "uid" : "791f80486a2b58d1",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622534743690,
+          "stop" : 1622534743690,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'targetWarehouseId': None}", "'请选择目标仓库'", "'收货仓库为空'" ]
+      }, {
+        "name" : "订单联系人为空",
+        "uid" : "a759ea4ee8c068d1",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534738940,
+          "stop" : 1622534739012,
+          "duration" : 72
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{'contactName': None}'", "'请输入正确的联系人姓名'", "'订单联系人为空'", "'/adhocOrder/edit'" ]
+      }, {
+        "name" : "删除物资",
+        "uid" : "99c4960b88be9ae2",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534732499,
+          "stop" : 1622534732562,
+          "duration" : 63
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "归还时间小于手术开始时间",
+        "uid" : "96f356cfec0d2b73",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534739812,
+          "stop" : 1622534739885,
+          "duration" : 73
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{'expectReturnTime':1621213936000}'", "'预计归还日期不能早于手术日期'", "'归还时间小于手术开始时间'", "'/adhocOrder/edit'" ]
+      }, {
+        "name" : "商品照片为空",
+        "uid" : "cd4946d29e0c7591",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534730185,
+          "stop" : 1622534730222,
+          "duration" : 37
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "工具包不存在",
+        "uid" : "eab9f2c133199eda",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534738247,
+          "stop" : 1622534738351,
+          "duration" : 104
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"kitTemplateId\": 999999}'", "'工具包不存在，请刷新重试'", "'工具包不存在'", "'/adhocOrder/edit'" ]
+      }, {
+        "name" : "经销商修改供应商地址",
+        "uid" : "70c56036ecec3a6e",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534742620,
+          "stop" : 1622534742776,
+          "duration" : 156
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "默认地址为空",
+        "uid" : "70315c0ac9898d93",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534736781,
+          "stop" : 1622534736833,
+          "duration" : 52
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'addressId': None}", "'请输入收货地址id'", "'默认地址为空'" ]
+      }, {
+        "name" : "商品不存在",
+        "uid" : "5626a3297206b7f4",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534738410,
+          "stop" : 1622534738492,
+          "duration" : 82
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"goodsId\": 9999999,}'", "'商品不存在,请刷新重试'", "'商品不存在'", "'/adhocOrder/edit'" ]
+      }, {
+        "name" : "产地为空",
+        "uid" : "35b7ac3a7d0045ca",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534729662,
+          "stop" : 1622534729716,
+          "duration" : 54
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "默认地址错误",
+        "uid" : "e18fc24d29302872",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534739491,
+          "stop" : 1622534739576,
+          "duration" : 85
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{'addressId': 9999999}'", "'所选地址不存在，请刷新重试'", "'默认地址错误'", "'/adhocOrder/edit'" ]
+      }, {
+        "name" : "性别为空",
+        "uid" : "4046f62e259a21e3",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534736637,
+          "stop" : 1622534736678,
+          "duration" : 41
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'gender': None}", "'请选择患者性别'", "'性别为空'" ]
+      }, {
+        "name" : "提货人姓名为空",
+        "uid" : "21f44584a4d4921d",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622534743014,
+          "stop" : 1622534743014,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"consignorName\": None}'", "'请输入提货人'", "'提货人姓名为空'", "'/adhocOrder/updateAddress'" ]
+      }, {
+        "name" : "收件人名字为空",
+        "uid" : "d1d0320327f7163d",
+        "parentUid" : "39bdee2de04892c671aa3405ef31301d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622534742077,
+          "stop" : 1622534742119,
+          "duration" : 42
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"receivingName\": None}'", "'请输入正确的收货人姓名'", "'收件人名字为空'", "'/supplier/updateReceivingAddress'" ]
+      } ],
+      "uid" : "39bdee2de04892c671aa3405ef31301d"
+    }, {
+      "name" : "12363-MainThread",
+      "children" : [ {
+        "name" : "手术日期小于当天",
+        "uid" : "ef3cd3c6b12f627",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692147360,
+          "stop" : 1622692147493,
+          "duration" : 133
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'procedureTime': 1622563200000}", "'手术日期不能早于当天'", "'手术日期小于当天'" ]
+      }, {
+        "name" : "手机号为空",
+        "uid" : "6f4a0d72c919f890",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692161010,
+          "stop" : 1622692161246,
+          "duration" : 236
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"receivingPhone\": None}'", "'请输入正确的手机号码'", "'手机号为空'", "'/supplier/updateReceivingAddress'" ]
+      }, {
+        "name" : "手术时间为空",
+        "uid" : "76ddfdad988deb2b",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692146980,
+          "stop" : 1622692147165,
+          "duration" : 185
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'procedureTime': None}", "'请选择手术日期'", "'手术时间为空'" ]
+      }, {
+        "name" : "price:商品不存在",
+        "uid" : "6d1af904097f02e9",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692135190,
+          "stop" : 1622692135293,
+          "duration" : 103
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "详细地址为空",
+        "uid" : "cc635e0cb074d953",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692161678,
+          "stop" : 1622692161748,
+          "duration" : 70
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"receivingAddress\": '主治医师' * 30}'", "'收货地址长度超出限制'", "'详细地址为空'", "'/supplier/updateReceivingAddress'" ]
+      }, {
+        "name" : "套包数量为空",
+        "uid" : "36da689287276258",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692155925,
+          "stop" : 1622692156127,
+          "duration" : 202
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"quantity\": None}'", "'请输入套包数量'", "'套包数量为空'", "'/adhocOrder/accept'" ]
+      }, {
+        "name" : "提货人电话错误",
+        "uid" : "c890c51f079b3c1",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622692162758,
+          "stop" : 1622692162758,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"consignorPhone\": 1321234567}'", "'请输入正确的手机号码'", "'提货人电话错误'", "'/adhocOrder/updateAddress'" ]
+      }, {
+        "name" : "收件人名字为空",
+        "uid" : "b4318c3e753cf618",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692159628,
+          "stop" : 1622692159763,
+          "duration" : 135
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"receivingName\": '主治医师' * 30}'", "'收货人姓名长度超出限制'", "'收件人名字为空'", "'/supplier/addReceivingAddress'" ]
+      }, {
+        "name" : "test_15",
+        "uid" : "e6b29b995718724",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692138993,
+          "stop" : 1622692139119,
+          "duration" : 126
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "拒绝原因为空",
+        "uid" : "24aa5ebc5c364dc5",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692148309,
+          "stop" : 1622692148368,
+          "duration" : 59
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"reason\": None}'", "'请填写拒绝原因'", "'拒绝原因为空'", "'/adhocOrder/reject'" ]
+      }, {
+        "name" : "拒绝成功",
+        "uid" : "ddb162d47dc3e110",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692148485,
+          "stop" : 1622692148587,
+          "duration" : 102
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"reason\":'拒绝'}'", "'请求成功'", "'拒绝成功'", "'/adhocOrder/reject'" ]
+      }, {
+        "name" : "test_12",
+        "uid" : "111af7feb91b0326",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692138459,
+          "stop" : 1622692138589,
+          "duration" : 130
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "编辑未驳回订单",
+        "uid" : "24fb4dd03c5d569",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622692164262,
+          "stop" : 1622692164262,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "经销商：审核建议为空",
+        "uid" : "2be2513b30bde562",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622692164288,
+          "stop" : 1622692164288,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'approve': None}", "'请选择审核或者驳回调拨单'", "'经销商：审核建议为空'" ]
+      }, {
+        "name" : "医院名称为空",
+        "uid" : "50dbdc0014707900",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692150219,
+          "stop" : 1622692150376,
+          "duration" : 157
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"hospitalName\": None}'", "'请输入医院名称'", "'医院名称为空'", "'/adhocOrder/edit'" ]
+      }, {
+        "name" : "商品数量错误",
+        "uid" : "ce149a17ac9d4cf3",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692157567,
+          "stop" : 1622692157836,
+          "duration" : 269
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"quantity\": 999999}'", "'接收的商品明细和父临调单的明细不一致'", "'商品数量错误'", "'/adhocOrder/accept1'" ]
+      }, {
+        "name" : "test_18",
+        "uid" : "b5a94350e63af806",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692139319,
+          "stop" : 1622692139451,
+          "duration" : 132
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "手术时间为空",
+        "uid" : "54b0562f68888f0d",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692152453,
+          "stop" : 1622692152534,
+          "duration" : 81
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{'procedureTime': None}'", "'请选择手术日期'", "'手术时间为空'", "'/adhocOrder/edit'" ]
+      }, {
+        "name" : "收货地区为空",
+        "uid" : "d9b3a996c487e14e",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692159982,
+          "stop" : 1622692160087,
+          "duration" : 105
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"districtCode\": None}'", "'请填写收货地区'", "'收货地区为空'", "'/supplier/addReceivingAddress'" ]
+      }, {
+        "name" : "收货地区为空",
+        "uid" : "2d6a25af900e12a6",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692161257,
+          "stop" : 1622692161348,
+          "duration" : 91
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"districtCode\": None}'", "'请填写收货地区'", "'收货地区为空'", "'/supplier/updateReceivingAddress'" ]
+      }, {
+        "name" : "商品/套包数量为空",
+        "uid" : "a6c64e073b62242d",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692153084,
+          "stop" : 1622692153255,
+          "duration" : 171
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{'quantity': None}'", "'请输入'", "'商品/套包数量为空'", "'/adhocOrder/edit'" ]
+      }, {
+        "name" : "存储条件为空",
+        "uid" : "f035c404d40e501",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692129398,
+          "stop" : 1622692129626,
+          "duration" : 228
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_14",
+        "uid" : "7fdc957c9be4c38f",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692138847,
+          "stop" : 1622692138987,
+          "duration" : 140
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "商品/套包数量为空",
+        "uid" : "edab84e7cae1d77e",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692153265,
+          "stop" : 1622692153443,
+          "duration" : 178
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{'quantity': None}'", "'请输入'", "'商品/套包数量为空'", "'/adhocOrder/edit'" ]
+      }, {
+        "name" : "test_13",
+        "uid" : "4e671f7c1a54f06b",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692138595,
+          "stop" : 1622692138841,
+          "duration" : 246
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_create_tools[仓库错误-case2-当前用户不能在该仓库创建加工单]",
+        "uid" : "a44024fe17e44c5d",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622692141156,
+          "stop" : 1622692141156,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'warehouseId': 999999}", "'当前用户不能在该仓库创建加工单'", "'仓库错误'" ]
+      }, {
+        "name" : "重复删除订单",
+        "uid" : "84597d714cf279e3",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622692164405,
+          "stop" : 1622692164405,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "收货仓库为空",
+        "uid" : "9aab90023a76e180",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622692164164,
+          "stop" : 1622692164164,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'targetWarehouseId': None}", "'请选择目标仓库'", "'收货仓库为空'" ]
+      }, {
+        "name" : "收货方式为空",
+        "uid" : "4cf378eb0cbd866c",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692156647,
+          "stop" : 1622692156928,
+          "duration" : 281
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"deliveryMode\": None}'", "'请选择收货方式'", "'收货方式为空'", "'/adhocOrder/accept'" ]
+      }, {
+        "name" : "年龄段错误",
+        "uid" : "8d0bda4d2e4df76e",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692146529,
+          "stop" : 1622692146670,
+          "duration" : 141
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'ageGroup': 'None'}", "'请求参数异常'", "'年龄段错误'" ]
+      }, {
+        "name" : "物资ID错误",
+        "uid" : "e59a3c54809c9943",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692143487,
+          "stop" : 1622692143670,
+          "duration" : 183
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'goodsId': 1111111}", "'商品不存在,请刷新重试'", "'物资ID错误'" ]
+      }, {
+        "name" : "Edit：存储条件为空",
+        "uid" : "2810f7f94411ccff",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692133366,
+          "stop" : 1622692133435,
+          "duration" : 69
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "删除未关闭订单",
+        "uid" : "bd1e22a4554a86a7",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622692164375,
+          "stop" : 1622692164375,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "商品不存在",
+        "uid" : "77df0eac9bc8055d",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692149974,
+          "stop" : 1622692150209,
+          "duration" : 235
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"goodsId\": 9999999,}'", "'商品不存在,请刷新重试'", "'商品不存在'", "'/adhocOrder/edit'" ]
+      }, {
+        "name" : "订单联系人为空",
+        "uid" : "83ce27fcbe58f77e",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692151223,
+          "stop" : 1622692151357,
+          "duration" : 134
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{'contactName': None}'", "'请输入正确的联系人姓名'", "'订单联系人为空'", "'/adhocOrder/edit'" ]
+      }, {
+        "name" : "调拨理由为空",
+        "uid" : "c9fbd16bc3e337c7",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622692162891,
+          "stop" : 1622692162891,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'reasonCode': None}", "'请选择调拨理由'", "'调拨理由为空'" ]
+      }, {
+        "name" : "price:税率为0",
+        "uid" : "a942ba46562dd8fc",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692134641,
+          "stop" : 1622692134781,
+          "duration" : 140
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "手术日期小于当天",
+        "uid" : "f7079b481ef18010",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692152633,
+          "stop" : 1622692152688,
+          "duration" : 55
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{'procedureTime':1621213936000}'", "'手术日期不能早于当天'", "'手术日期小于当天'", "'/adhocOrder/edit'" ]
+      }, {
+        "name" : "test_create_tools[商品数量错误-case0-数量不一致，请确定数量]",
+        "uid" : "14b5ebc7d776628c",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622692140268,
+          "stop" : 1622692140268,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'goodsDetails': [{'goodsId': 11, 'goodsLotInfoId': 88, 'goodsQuantity': 2}]}", "'数量不一致，请确定数量'", "'商品数量错误'" ]
+      }, {
+        "name" : "生产企业为空",
+        "uid" : "b974ab7ba51078aa",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692127217,
+          "stop" : 1622692127324,
+          "duration" : 107
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_04",
+        "uid" : "3734f057c7d9f815",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692136714,
+          "stop" : 1622692136783,
+          "duration" : 69
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_01",
+        "uid" : "8d021a89651aa0b1",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692136469,
+          "stop" : 1622692136528,
+          "duration" : 59
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "品牌为空",
+        "uid" : "f97c088d095c4379",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692145862,
+          "stop" : 1622692146006,
+          "duration" : 144
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'manufacturerId': None}", "'品牌不能为空'", "'品牌为空'" ]
+      }, {
+        "name" : "price:商品ID为空",
+        "uid" : "dc75e9de4688d1e6",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692134322,
+          "stop" : 1622692134423,
+          "duration" : 101
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "订单ID为空",
+        "uid" : "de63695c6d686aa6",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692156474,
+          "stop" : 1622692156636,
+          "duration" : 162
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"id\": None}'", "'请选择临调单'", "'订单ID为空'", "'/adhocOrder/accept'" ]
+      }, {
+        "name" : "Edit：参数异常",
+        "uid" : "d2b4f578e879d41a",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692133602,
+          "stop" : 1622692133653,
+          "duration" : 51
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "收件人名字为空",
+        "uid" : "4b20d0db6aa0f014",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692160717,
+          "stop" : 1622692160798,
+          "duration" : 81
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"receivingName\": None}'", "'请输入正确的收货人姓名'", "'收件人名字为空'", "'/supplier/updateReceivingAddress'" ]
+      }, {
+        "name" : "Edit：原厂编码为空",
+        "uid" : "2c04a6368e6f525e",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692131507,
+          "stop" : 1622692131761,
+          "duration" : 254
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "供应商：驳回理由超长",
+        "uid" : "30faa4f6e60196a5",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622692164361,
+          "stop" : 1622692164361,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'approve': False, 'rejectReason': '00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001'}", "'拒绝原因超出长度限制'", "'供应商：驳回理由超长'" ]
+      }, {
+        "name" : "默认地址为空",
+        "uid" : "c2a08876d870a16e",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692146678,
+          "stop" : 1622692146804,
+          "duration" : 126
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'addressId': None}", "'请输入收货地址id'", "'默认地址为空'" ]
+      }, {
+        "name" : "test_05",
+        "uid" : "fb4691c328ddf7a5",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692136789,
+          "stop" : 1622692136845,
+          "duration" : 56
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "身份证为空",
+        "uid" : "6d3451e0ed0d12f1",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622692162776,
+          "stop" : 1622692162776,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"receivingIdCard\":None}'", "'请输入身份证号码'", "'身份证为空'", "'/adhocOrder/updateAddress'" ]
+      }, {
+        "name" : "商品/套包数量为空",
+        "uid" : "b169de4e46bf1081",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692153736,
+          "stop" : 1622692153891,
+          "duration" : 155
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{'quantity': None}'", "'请输入'", "'商品/套包数量为空'", "'/adhocOrder/edit'" ]
+      }, {
+        "name" : "经销商：驳回理由为空",
+        "uid" : "bc2aaaf6cd5a76b0",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622692164301,
+          "stop" : 1622692164301,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'approve': False, 'rejectReason': None}", "'当前用户不可接单'", "'经销商：驳回理由为空'" ]
+      }, {
+        "name" : "主刀医生为空",
+        "uid" : "e85175369b07eab",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692145347,
+          "stop" : 1622692145548,
+          "duration" : 201
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'surgeon': None}", "'请输入正确的主刀医生姓名'", "'主刀医生为空'" ]
+      }, {
+        "name" : "供应商：驳回理由为空",
+        "uid" : "d970f91b9ec86cd7",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622692164349,
+          "stop" : 1622692164349,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'approve': False, 'rejectReason': None}", "'请输入修改建议'", "'供应商：驳回理由为空'" ]
+      }, {
+        "name" : "Edit基：本单位为空",
+        "uid" : "f6cdfc5842b649b2",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692132446,
+          "stop" : 1622692132667,
+          "duration" : 221
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "详细地址为空",
+        "uid" : "7aaf6828ab28e22f",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692160197,
+          "stop" : 1622692160367,
+          "duration" : 170
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"receivingAddress\": None}'", "'请填写收货地址'", "'详细地址为空'", "'/supplier/addReceivingAddress'" ]
+      }, {
+        "name" : "重复拒绝",
+        "uid" : "1e9f69e58e9f5b8b",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692148597,
+          "stop" : 1622692148717,
+          "duration" : 120
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"reason\":'拒绝'}'", "'该临调单已处理，请勿重复操作'", "'重复拒绝'", "'/adhocOrder/reject'" ]
+      }, {
+        "name" : "年龄段为空",
+        "uid" : "840ba4879a14802c",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692151792,
+          "stop" : 1622692151915,
+          "duration" : 123
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{'ageGroup': None}'", "'请选择患者年龄'", "'年龄段为空'", "'/adhocOrder/edit'" ]
+      }, {
+        "name" : "di码：商品ID为空",
+        "uid" : "919237d8ac5b3a27",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692134222,
+          "stop" : 1622692134317,
+          "duration" : 95
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "手机号为空",
+        "uid" : "314424315fdfb6c4",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692159773,
+          "stop" : 1622692159972,
+          "duration" : 199
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"receivingPhone\": None}'", "'请输入正确的手机号码'", "'手机号为空'", "'/supplier/addReceivingAddress'" ]
+      }, {
+        "name" : "注册证照为空",
+        "uid" : "c05045d98676b7c8",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692128757,
+          "stop" : 1622692129132,
+          "duration" : 375
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "重复关闭订单",
+        "uid" : "6784ba81aef0a3d5",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692158668,
+          "stop" : 1622692158884,
+          "duration" : 216
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{None}'", "'订单状态为待接收或待修改时才能关闭'", "'重复关闭订单'", "'/adhocOrder/close'" ]
+      }, {
+        "name" : "Edit：注册证照为空",
+        "uid" : "2f62896709625db4",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692133129,
+          "stop" : 1622692133204,
+          "duration" : 75
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "商品数量为空",
+        "uid" : "3fd6391a4e106963",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692155557,
+          "stop" : 1622692155742,
+          "duration" : 185
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"quantity\": None}'", "'请输入商品数量'", "'商品数量为空'", "'/adhocOrder/accept'" ]
+      }, {
+        "name" : "price:临调价为0",
+        "uid" : "b2f252185ca5997f",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692134951,
+          "stop" : 1622692135185,
+          "duration" : 234
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "商品/套包数量为空",
+        "uid" : "77ac4e6d94439abe",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692153609,
+          "stop" : 1622692153727,
+          "duration" : 118
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{'quantity': None}'", "'请输入'", "'商品/套包数量为空'", "'/adhocOrder/edit'" ]
+      }, {
+        "name" : "联系人电话为空",
+        "uid" : "9db7866b9be6ba6",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692145778,
+          "stop" : 1622692145854,
+          "duration" : 76
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'contactPhone': None}", "'请输入正确的手机号码'", "'联系人电话为空'" ]
+      }, {
+        "name" : "skuCode重复",
+        "uid" : "f058739b24f53574",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692130089,
+          "stop" : 1622692130539,
+          "duration" : 450
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "详细地址为空",
+        "uid" : "f2709f7de1bf27f7",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692161616,
+          "stop" : 1622692161666,
+          "duration" : 50
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"receivingAddress\": None}'", "'请填写收货地址'", "'详细地址为空'", "'/supplier/updateReceivingAddress'" ]
+      }, {
+        "name" : "物资分类 为空",
+        "uid" : "59dbfef2da3b568d",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692129632,
+          "stop" : 1622692129798,
+          "duration" : 166
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "归还时间为空",
+        "uid" : "c01ff690ef0410f6",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692152543,
+          "stop" : 1622692152623,
+          "duration" : 80
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{'expectReturnTime': None}'", "'请选择归还日期'", "'归还时间为空'", "'/adhocOrder/edit'" ]
+      }, {
+        "name" : "物资名称为空",
+        "uid" : "4d72342a02282605",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692126501,
+          "stop" : 1622692126831,
+          "duration" : 330
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "临调单ID为空",
+        "uid" : "d87c6e493f46b6fc",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692153901,
+          "stop" : 1622692154078,
+          "duration" : 177
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"id\": None}'", "'请选择临调订单'", "'临调单ID为空'", "'/adhocOrder/edit1'" ]
+      }, {
+        "name" : "来源仓库空",
+        "uid" : "9999bc1bc9124ecb",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622692164136,
+          "stop" : 1622692164136,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'sourceWarehouseId': None}", "'请选择来源仓库'", "'来源仓库空'" ]
+      }, {
+        "name" : "套包数量为空",
+        "uid" : "1de5cc4001fda085",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692155752,
+          "stop" : 1622692155916,
+          "duration" : 164
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"quantity\": None}'", "'请输入套包数量'", "'套包数量为空'", "'/adhocOrder/accept'" ]
+      }, {
+        "name" : "手术部位错误",
+        "uid" : "5cfdc55e94484e74",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692145081,
+          "stop" : 1622692145339,
+          "duration" : 258
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'procedureSite': [9999999]}", "'请选择正确的手术部位'", "'手术部位错误'" ]
+      }, {
+        "name" : "test_11",
+        "uid" : "84eb556578556c0c",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692138363,
+          "stop" : 1622692138454,
+          "duration" : 91
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "临调单ID为空",
+        "uid" : "e4f5146dde25e9c5",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692148088,
+          "stop" : 1622692148181,
+          "duration" : 93
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"id\": None}'", "'请选择临调单'", "'临调单ID为空'", "'/adhocOrder/reject'" ]
+      }, {
+        "name" : "套包ID错误",
+        "uid" : "17cf11c5a5c62fea",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692143773,
+          "stop" : 1622692143956,
+          "duration" : 183
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'kitTemplateId': 1111111}", "'工具包不存在，请刷新重试'", "'套包ID错误'" ]
+      }, {
+        "name" : "test_create_tools[仓库为空-case1-请选择仓库]",
+        "uid" : "67fb3b0cc449d46f",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622692141134,
+          "stop" : 1622692141134,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'warehouseId': None}", "'请选择仓库'", "'仓库为空'" ]
+      }, {
+        "name" : "主刀医生超长",
+        "uid" : "4d7975dbc075e84f",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692145558,
+          "stop" : 1622692145684,
+          "duration" : 126
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'surgeon': '主治医师主治医师主治医师主治医师主治医师主治医师主治医师主治医师主治医师主治医师主治医师主治医师主治医师主治医师主治医师主治医师主治医师主治医师主治医师主治医师主治医师主治医师主治医师主治医师主治医师主治医师主治医师主治医师主治医师主治医师'}", "'主刀医生名称长度超出限制'", "'主刀医生超长'" ]
+      }, {
+        "name" : "订单ID为空",
+        "uid" : "d093748382ab5c75",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692158892,
+          "stop" : 1622692159260,
+          "duration" : 368
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{'id':None}'", "'不能为null'", "'订单ID为空'", "'/adhocOrder/close'" ]
+      }, {
+        "name" : "归还时间为空",
+        "uid" : "57ee16c90201a4cf",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692147173,
+          "stop" : 1622692147351,
+          "duration" : 178
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'expectReturnTime': None}", "'请选择归还日期'", "'归还时间为空'" ]
+      }, {
+        "name" : "商品照片为空",
+        "uid" : "32f0efadd8eb653",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692128624,
+          "stop" : 1622692128749,
+          "duration" : 125
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "工具包ID为空",
+        "uid" : "652ecf6c54c5560a",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692149551,
+          "stop" : 1622692149605,
+          "duration" : 54
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"kitTemplateId\": None}'", "'请输入套包id'", "'工具包ID为空'", "'/adhocOrder/edit'" ]
+      }, {
+        "name" : "收件人名字为空",
+        "uid" : "811ed79c34956cd4",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692160810,
+          "stop" : 1622692161000,
+          "duration" : 190
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"receivingName\": '主治医师' * 30}'", "'收货人姓名长度超出限制'", "'收件人名字为空'", "'/supplier/updateReceivingAddress'" ]
+      }, {
+        "name" : "物资类别为空",
+        "uid" : "372b1cf514a958de",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692126929,
+          "stop" : 1622692127080,
+          "duration" : 151
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "医院名字超长",
+        "uid" : "ea8bc59423c83cab",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692144376,
+          "stop" : 1622692144566,
+          "duration" : 190
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'hospitalName': '00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001'}", "'医院名称长度超出限制'", "'医院名字超长'" ]
+      }, {
+        "name" : "供应商：审核建议为空",
+        "uid" : "ee90b1ab49aa8e3f",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622692164337,
+          "stop" : 1622692164337,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'approve': None}", "'请选择审核或者驳回调拨单'", "'供应商：审核建议为空'" ]
+      }, {
+        "name" : "联系人电话为空",
+        "uid" : "967c17e8c3874379",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692151367,
+          "stop" : 1622692151534,
+          "duration" : 167
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{'contactPhone': None}'", "'请输入正确的手机号码'", "'联系人电话为空'", "'/adhocOrder/edit'" ]
+      }, {
+        "name" : "基本单位为空",
+        "uid" : "b908fcb2698e9fe7",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692127426,
+          "stop" : 1622692127565,
+          "duration" : 139
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "id错误",
+        "uid" : "6406afdea0a0696e",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692155133,
+          "stop" : 1622692155354,
+          "duration" : 221
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"id\": 9999}'", "'未查询到该临调订单，请刷新重试'", "'id错误'", "'/adhocOrder/accept'" ]
+      }, {
+        "name" : "收货方式为空",
+        "uid" : "52e2325c9e245e71",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692146016,
+          "stop" : 1622692146196,
+          "duration" : 180
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'deliveryMode': None}", "'请选择收货方式'", "'收货方式为空'" ]
+      }, {
+        "name" : "来源仓库错误",
+        "uid" : "b2ea6e5365854906",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622692164150,
+          "stop" : 1622692164150,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'targetWarehouseId': 'aa'}", "'请求参数异常'", "'来源仓库错误'" ]
+      }, {
+        "name" : "型号为空",
+        "uid" : "d5185750b5fff07",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692128327,
+          "stop" : 1622692128617,
+          "duration" : 290
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "收货方式为空",
+        "uid" : "1e3e012470c04762",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692151641,
+          "stop" : 1622692151692,
+          "duration" : 51
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{'deliveryMode': None}'", "'请选择收货方式'", "'收货方式为空'", "'/adhocOrder/edit'" ]
+      }, {
+        "name" : "id为空",
+        "uid" : "71e54e27e575da21",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692162393,
+          "stop" : 1622692162569,
+          "duration" : 176
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'id': 99990099}", "'地址不存在'", "'id为空'" ]
+      }, {
+        "name" : "临调单ID错误",
+        "uid" : "826c1830e4ea230",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692148190,
+          "stop" : 1622692148300,
+          "duration" : 110
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"id\": 99999}'", "'未查询到该临调订单，请刷新重试'", "'临调单ID错误'", "'/adhocOrder/reject'" ]
+      }, {
+        "name" : "地址ID为空",
+        "uid" : "522d2f8b8303e99b",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692161757,
+          "stop" : 1622692161813,
+          "duration" : 56
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"id\": None}'", "'请选择id'", "'地址ID为空'", "'/supplier/updateReceivingAddress'" ]
+      }, {
+        "name" : "工具包数量错误",
+        "uid" : "2e1134858c13a892",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692157847,
+          "stop" : 1622692158135,
+          "duration" : 288
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"quantity\": 1}'", "'接收的工具包明细和父临调单的明细不一致'", "'工具包数量错误'", "'/adhocOrder/accept1'" ]
+      }, {
+        "name" : "Edit：养护类型为空",
+        "uid" : "13d74b80f9244c91",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692131893,
+          "stop" : 1622692132063,
+          "duration" : 170
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "重复关闭订单",
+        "uid" : "9faba37bcd5d92a7",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622692164390,
+          "stop" : 1622692164390,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'订单状态为待接收或待修改时才能关闭'", "'重复关闭订单'" ]
+      }, {
+        "name" : "商品ID为空",
+        "uid" : "9b08353055faab80",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692149855,
+          "stop" : 1622692149964,
+          "duration" : 109
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"goodsId\": None,}'", "'请输入商品id'", "'商品ID为空'", "'/adhocOrder/edit'" ]
+      }, {
+        "name" : "工具包不存在",
+        "uid" : "a5dd87520f2a7524",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692149615,
+          "stop" : 1622692149845,
+          "duration" : 230
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"kitTemplateId\": 999999}'", "'工具包不存在，请刷新重试'", "'工具包不存在'", "'/adhocOrder/edit'" ]
+      }, {
+        "name" : "Edit：产地为空",
+        "uid" : "797ca618328f8d8b",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692132337,
+          "stop" : 1622692132441,
+          "duration" : 104
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "产地为空",
+        "uid" : "ae339422e7665fa8",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692127329,
+          "stop" : 1622692127419,
+          "duration" : 90
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "Edit：物资类别为空",
+        "uid" : "105f26a2f9455b8e",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692131768,
+          "stop" : 1622692131887,
+          "duration" : 119
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "仓库未选择",
+        "uid" : "c62a1baa4805fdeb",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692139969,
+          "stop" : 1622692140168,
+          "duration" : 199
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'templateIds': 'templateIds', 'warehouseId': None}", "'参数异常，请刷新后重试'", "'仓库未选择'" ]
+      }, {
+        "name" : "养护类型为空",
+        "uid" : "b79c9285db29d92",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692127086,
+          "stop" : 1622692127210,
+          "duration" : 124
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "套包ID为空",
+        "uid" : "c87e40217514e327",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692156137,
+          "stop" : 1622692156300,
+          "duration" : 163
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"kitTemplateId\": None}'", "'请输入套包id'", "'套包ID为空'", "'/adhocOrder/accept'" ]
+      }, {
+        "name" : "默认地址错误",
+        "uid" : "496326b5173dc5a6",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692146809,
+          "stop" : 1622692146970,
+          "duration" : 161
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'addressId': 9999999}", "'所选地址不存在，请刷新重试'", "'默认地址错误'" ]
+      }, {
+        "name" : "Edit：注册证号为空",
+        "uid" : "178db6655767dd47",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692133209,
+          "stop" : 1622692133361,
+          "duration" : 152
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "Edit：skuCode重复",
+        "uid" : "564c6c409fd39b90",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692133659,
+          "stop" : 1622692133756,
+          "duration" : 97
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "商品数量为空",
+        "uid" : "d3ee0dc9d727f2a",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622692164176,
+          "stop" : 1622692164176,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'goodsQuantity': None}", "'请输入商品数量'", "'商品数量为空'" ]
+      }, {
+        "name" : "套包ID为空",
+        "uid" : "910c6ae85c3c2505",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692143677,
+          "stop" : 1622692143764,
+          "duration" : 87
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'kitTemplateId': None}", "'请输入套包id'", "'套包ID为空'" ]
+      }, {
+        "name" : "商品信息为空",
+        "uid" : "74458d412fe462a4",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622692164230,
+          "stop" : 1622692164230,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'goodsLotInfoId': None}", "'参数异常'", "'商品信息为空'" ]
+      }, {
+        "name" : "Edit：注册证失效日期小于于生效日期",
+        "uid" : "cfab8848dd3363aa",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692133761,
+          "stop" : 1622692133944,
+          "duration" : 183
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "医生名称过长",
+        "uid" : "9abbae2ca19463ee",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692151141,
+          "stop" : 1622692151211,
+          "duration" : 70
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"surgeon\":  '主治医师' * 50}'", "'主刀医生名称长度超出限制'", "'医生名称过长'", "'/adhocOrder/edit'" ]
+      }, {
+        "name" : "收货地区为空",
+        "uid" : "8c91171d1844e719",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692160097,
+          "stop" : 1622692160186,
+          "duration" : 89
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"districtCode\": 110101000000111}'", "'收货地址区域不存在'", "'收货地区为空'", "'/supplier/addReceivingAddress'" ]
+      }, {
+        "name" : "经销商：调拨单ID为空",
+        "uid" : "b3c3d2edae3eb749",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622692164276,
+          "stop" : 1622692164276,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'id': None}", "'请选择调拨单'", "'经销商：调拨单ID为空'" ]
+      }, {
+        "name" : "test_17",
+        "uid" : "5dee4d5300d7daa6",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692139246,
+          "stop" : 1622692139311,
+          "duration" : 65
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_06",
+        "uid" : "cb9db71233d8d538",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692136851,
+          "stop" : 1622692137454,
+          "duration" : 603
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "Edit：商品照片为空",
+        "uid" : "1b1cf13283b3004",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692132863,
+          "stop" : 1622692133123,
+          "duration" : 260
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "归还时间小于手术开始时间",
+        "uid" : "26321056a1716372",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692147501,
+          "stop" : 1622692147674,
+          "duration" : 173
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'expectReturnTime': 1622563200000}", "'预计归还日期不能早于手术日期'", "'归还时间小于手术开始时间'" ]
+      }, {
+        "name" : "订单ID为空",
+        "uid" : "7b222463c8e943bc",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622692162659,
+          "stop" : 1622692162659,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{'orderId':None}'", "'不能为null'", "'订单ID为空'", "'/adhocOrder/updateAddress'" ]
+      }, {
+        "name" : "身份证错误",
+        "uid" : "908a28f272c304e2",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622692162798,
+          "stop" : 1622692162799,
+          "duration" : 1
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"receivingIdCard\": 42132219981104461}'", "'请输入正确的身份证号'", "'身份证错误'", "'/adhocOrder/updateAddress'" ]
+      }, {
+        "name" : "物资、套包为空",
+        "uid" : "ff476addf1afbe6c",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692143964,
+          "stop" : 1622692144163,
+          "duration" : 199
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'goodsDetailUiBeans': [], 'toolsDetailUiBeans': []}", "'请选择物资'", "'物资、套包为空'" ]
+      }, {
+        "name" : "年龄段为空",
+        "uid" : "1f96466f26a1cd47",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692146330,
+          "stop" : 1622692146519,
+          "duration" : 189
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'ageGroup': None}", "'请选择患者年龄'", "'年龄段为空'" ]
+      }, {
+        "name" : "Edit：注册证已失效",
+        "uid" : "8c9f5cce7a7929b7",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692133947,
+          "stop" : 1622692134038,
+          "duration" : 91
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "详细地址为空",
+        "uid" : "e9f31168b4865625",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692160377,
+          "stop" : 1622692160490,
+          "duration" : 113
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"receivingAddress\": '主治医师' * 30}'", "'收货地址长度超出限制'", "'详细地址为空'", "'/supplier/addReceivingAddress'" ]
+      }, {
+        "name" : "注册证号为空",
+        "uid" : "304ebfd51a2890f2",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692129138,
+          "stop" : 1622692129392,
+          "duration" : 254
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "price:采购价格为0",
+        "uid" : "f0d8377f12ead290",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692134786,
+          "stop" : 1622692134944,
+          "duration" : 158
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "供应商：调拨单ID为空",
+        "uid" : "f5836dc04abe5f0f",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622692164325,
+          "stop" : 1622692164325,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'id': None}", "'请选择调拨单'", "'供应商：调拨单ID为空'" ]
+      }, {
+        "name" : "test_03",
+        "uid" : "b9f49ea15382ec84",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692136607,
+          "stop" : 1622692136707,
+          "duration" : 100
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "删除物资",
+        "uid" : "bce5626e1018365c",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692135302,
+          "stop" : 1622692135490,
+          "duration" : 188
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "仓库为空",
+        "uid" : "cc38f11cf2910498",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692156310,
+          "stop" : 1622692156464,
+          "duration" : 154
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"warehouseId\": None}'", "'请选择临调单仓库'", "'仓库为空'", "'/adhocOrder/accept'" ]
+      }, {
+        "name" : "注册证生效日期大于失效时间",
+        "uid" : "6a29e495d58095c1",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692130545,
+          "stop" : 1622692131015,
+          "duration" : 470
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "Edit：规格 /型号为空",
+        "uid" : "e090dd3cfd1fc4f",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692132671,
+          "stop" : 1622692132856,
+          "duration" : 185
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "性别为空",
+        "uid" : "d8da8731ea3181b9",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692151702,
+          "stop" : 1622692151784,
+          "duration" : 82
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{'gender': None}'", "'请选择患者性别'", "'性别为空'", "'/adhocOrder/edit'" ]
+      }, {
+        "name" : "品牌为空",
+        "uid" : "bdb9e00770a75127",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692151541,
+          "stop" : 1622692151632,
+          "duration" : 91
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{'manufacturerId': None}'", "'品牌不能为空'", "'品牌为空'", "'/adhocOrder/edit'" ]
+      }, {
+        "name" : "商品ID为空",
+        "uid" : "60cca8918708d46",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692155364,
+          "stop" : 1622692155549,
+          "duration" : 185
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"goodsId\": None}'", "'请输入商品id'", "'商品ID为空'", "'/adhocOrder/accept'" ]
+      }, {
+        "name" : "收件人名字为空",
+        "uid" : "a49941a16e2273fb",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692159494,
+          "stop" : 1622692159619,
+          "duration" : 125
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"receivingName\": None}'", "'请输入正确的收货人姓名'", "'收件人名字为空'", "'/supplier/addReceivingAddress'" ]
+      }, {
+        "name" : "注册证已失效",
+        "uid" : "b90f1c08447a3a8a",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692131019,
+          "stop" : 1622692131323,
+          "duration" : 304
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "经销商修改供应商地址",
+        "uid" : "3c93fb7b51ec856e",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692161891,
+          "stop" : 1622692162297,
+          "duration" : 406
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "订单ID错误",
+        "uid" : "9bb601619fb9d5a",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692159270,
+          "stop" : 1622692159351,
+          "duration" : 81
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{'id':99999999}'", "'未查询到该临调订单，请刷新重试'", "'订单ID错误'", "'/adhocOrder/close'" ]
+      }, {
+        "name" : "test_1401",
+        "uid" : "afb1530a13962959",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692129804,
+          "stop" : 1622692130084,
+          "duration" : 280
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "医生名称为空",
+        "uid" : "623c44547e75f54b",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692151014,
+          "stop" : 1622692151130,
+          "duration" : 116
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"surgeon\": None}'", "'请输入正确的主刀医生姓名'", "'医生名称为空'", "'/adhocOrder/edit'" ]
+      }, {
+        "name" : "test_08",
+        "uid" : "e1a0537c41654270",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692138062,
+          "stop" : 1622692138198,
+          "duration" : 136
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "归还时间小于手术开始时间",
+        "uid" : "50cd40c876cddbca",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692152698,
+          "stop" : 1622692152933,
+          "duration" : 235
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{'expectReturnTime':1621213936000}'", "'预计归还日期不能早于手术日期'", "'归还时间小于手术开始时间'", "'/adhocOrder/edit'" ]
+      }, {
+        "name" : "工具包数量过大",
+        "uid" : "8339830ab03ffbed",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622692164248,
+          "stop" : 1622692164248,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'kitStockQuantity': 99999999999999}", "'工具包数量超出限制'", "'工具包数量过大'" ]
+      }, {
+        "name" : "商品/套包数量为空",
+        "uid" : "911b7dbede34371",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692152944,
+          "stop" : 1622692153075,
+          "duration" : 131
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{'quantity': None}'", "'请输入'", "'商品/套包数量为空'", "'/adhocOrder/edit'" ]
+      }, {
+        "name" : "年龄段错误",
+        "uid" : "d2ed7a987554fdfe",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692151924,
+          "stop" : 1622692152022,
+          "duration" : 98
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{'ageGroup': 'None'}'", "'请求参数异常'", "'年龄段错误'", "'/adhocOrder/edit'" ]
+      }, {
+        "name" : "test_0601",
+        "uid" : "e516a0ae90d66ac6",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692137459,
+          "stop" : 1622692137990,
+          "duration" : 531
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "Edit：商品分类 为空",
+        "uid" : "723a5643b5c1bd9a",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692133439,
+          "stop" : 1622692133595,
+          "duration" : 156
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "拒绝原因过长",
+        "uid" : "fb4172f5b07a3c60",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692148378,
+          "stop" : 1622692148476,
+          "duration" : 98
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"reason\":  '主治医师' * 100}'", "'拒绝原因超出长度限制'", "'拒绝原因过长'", "'/adhocOrder/reject'" ]
+      }, {
+        "name" : "di码为空",
+        "uid" : "76ffc84752895916",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692134041,
+          "stop" : 1622692134155,
+          "duration" : 114
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "经销商：驳回理由超长",
+        "uid" : "618d54067b115a1a",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622692164313,
+          "stop" : 1622692164313,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'approve': False, 'rejectReason': '00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001'}", "'拒绝原因超出长度限制'", "'经销商：驳回理由超长'" ]
+      }, {
+        "name" : "地址ID错误",
+        "uid" : "86e7cdf8e7303810",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692161824,
+          "stop" : 1622692161882,
+          "duration" : 58
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"id\": 9999}'", "'地址不存在'", "'地址ID错误'", "'/supplier/updateReceivingAddress'" ]
+      }, {
+        "name" : "Edit：生产企业为空",
+        "uid" : "e2c3b5d2e379d028",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692132068,
+          "stop" : 1622692132331,
+          "duration" : 263
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_09",
+        "uid" : "794915f68f3efe1f",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692138205,
+          "stop" : 1622692138356,
+          "duration" : 151
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "skuCode为空",
+        "uid" : "eace46944a9ad6fc",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692126842,
+          "stop" : 1622692126918,
+          "duration" : 76
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "di码 少于14位",
+        "uid" : "9eef33dfedacd0ad",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692134158,
+          "stop" : 1622692134219,
+          "duration" : 61
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "默认地址为空",
+        "uid" : "cd6e331051eb6a2d",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692152032,
+          "stop" : 1622692152282,
+          "duration" : 250
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{'addressId': None}'", "'请输入收货地址id'", "'默认地址为空'", "'/adhocOrder/edit'" ]
+      }, {
+        "name" : "提货人姓名为空",
+        "uid" : "ea1887da5b7274c1",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622692162721,
+          "stop" : 1622692162721,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"consignorName\": None}'", "'请输入提货人'", "'提货人姓名为空'", "'/adhocOrder/updateAddress'" ]
+      }, {
+        "name" : "默认地址错误",
+        "uid" : "20bc7bafd7d50235",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692152293,
+          "stop" : 1622692152443,
+          "duration" : 150
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{'addressId': 9999999}'", "'所选地址不存在，请刷新重试'", "'默认地址错误'", "'/adhocOrder/edit'" ]
+      }, {
+        "name" : "Edit：商品名为空",
+        "uid" : "e666a46c3a2d0620",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692131328,
+          "stop" : 1622692131502,
+          "duration" : 174
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_16",
+        "uid" : "67ea2b7ba7c6fc1f",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692139124,
+          "stop" : 1622692139241,
+          "duration" : 117
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "手术部位不正确",
+        "uid" : "7d22d13952f77152",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692150758,
+          "stop" : 1622692151006,
+          "duration" : 248
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"procedureSite\": [999]}'", "'请选择正确的手术部位'", "'手术部位不正确'", "'/adhocOrder/edit'" ]
+      }, {
+        "name" : "test_02",
+        "uid" : "2ede2a4d9f69954d",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692136535,
+          "stop" : 1622692136605,
+          "duration" : 70
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "工具包未选择",
+        "uid" : "5e72612dc013ad33",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692140174,
+          "stop" : 1622692140265,
+          "duration" : 91
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'templateIds': None, 'warehouseId': 'warehouseId'}", "'请选择工具包'", "'工具包未选择'" ]
+      }, {
+        "name" : "收货地区为空",
+        "uid" : "3e11babafcf10868",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692161357,
+          "stop" : 1622692161606,
+          "duration" : 249
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"districtCode\": 110101000000111}'", "'收货地址区域不存在'", "'收货地区为空'", "'/supplier/updateReceivingAddress'" ]
+      }, {
+        "name" : "商品数量过大",
+        "uid" : "9a84c55d72c1ef6e",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622692164199,
+          "stop" : 1622692164199,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'goodsQuantity': 999999999999}", "'商品数量超出限制'", "'商品数量过大'" ]
+      }, {
+        "name" : "医院为空",
+        "uid" : "6148a7eb2ab1be0b",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692144174,
+          "stop" : 1622692144365,
+          "duration" : 191
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'hospitalName': None}", "'请输入医院名称'", "'医院为空'" ]
+      }, {
+        "name" : "test_07",
+        "uid" : "93d3bc8507eab9be",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692137996,
+          "stop" : 1622692138058,
+          "duration" : 62
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "重复接收订单",
+        "uid" : "c20eeba31e2f5fcd",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692156938,
+          "stop" : 1622692157297,
+          "duration" : 359
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"quantity\": 1}'", "'该临调单已处理，请勿重复操作'", "'重复接收订单'", "'/adhocOrder/accept'" ]
+      }, {
+        "name" : "订单联系人为空",
+        "uid" : "9ce40e1a5f9b36a9",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692145693,
+          "stop" : 1622692145773,
+          "duration" : 80
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'contactName': None}", "'请输入正确的联系人姓名'", "'订单联系人为空'" ]
+      }, {
+        "name" : "id为空",
+        "uid" : "9532209ca3953e53",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692162302,
+          "stop" : 1622692162384,
+          "duration" : 82
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'id': None}", "'id不能为空'", "'id为空'" ]
+      }, {
+        "name" : "手术部位为空",
+        "uid" : "f0ea185426510531",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692144577,
+          "stop" : 1622692145072,
+          "duration" : 495
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'procedureSite': None}", "'请选择手术部位'", "'手术部位为空'" ]
+      }, {
+        "name" : "提货人电话为空",
+        "uid" : "93d9dce28fd857f",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622692162739,
+          "stop" : 1622692162740,
+          "duration" : 1
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"consignorPhone\": None}'", "'请输入提货人电话'", "'提货人电话为空'", "'/adhocOrder/updateAddress'" ]
+      }, {
+        "name" : "性别为空",
+        "uid" : "e278c3a43477a042",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692146201,
+          "stop" : 1622692146325,
+          "duration" : 124
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'gender': None}", "'请选择患者性别'", "'性别为空'" ]
+      }, {
+        "name" : "price:折扣率为0",
+        "uid" : "6997634eee2c8703",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692134426,
+          "stop" : 1622692134635,
+          "duration" : 209
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "商品/套包数量为空",
+        "uid" : "74c14a4391d7b43a",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692153453,
+          "stop" : 1622692153597,
+          "duration" : 144
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{'quantity': None}'", "'请输入'", "'商品/套包数量为空'", "'/adhocOrder/edit'" ]
+      }, {
+        "name" : "物资id为空",
+        "uid" : "7e10e19b2e2cda69",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692143439,
+          "stop" : 1622692143479,
+          "duration" : 40
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'goodsId': None}", "'请输入商品id'", "'物资id为空'" ]
+      }, {
+        "name" : "正向流程",
+        "uid" : "7a663a073118efc7",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692139690,
+          "stop" : 1622692139962,
+          "duration" : 272
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'templateIds': 'templateIds', 'warehouseId': 'warehouseId'}", "'请求成功'", "'正向流程'" ]
+      }, {
+        "name" : "提货委托书为空",
+        "uid" : "17f8cefd59fbedf1",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622692162821,
+          "stop" : 1622692162821,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"powerOfAttorney\": None}'", "'请上传提货委托书'", "'提货委托书为空'", "'/adhocOrder/updateAddress'" ]
+      }, {
+        "name" : "临调单重复",
+        "uid" : "8ca2d48f7199b859",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692154088,
+          "stop" : 1622692154532,
+          "duration" : 444
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"gender\": \"FEMALE\"}'", "'只能修改待修改的订单'", "'临调单重复'", "'/adhocOrder/edit1'" ]
+      }, {
+        "name" : "手术部位为空",
+        "uid" : "e12b2f0f1d96a5d2",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692150540,
+          "stop" : 1622692150749,
+          "duration" : 209
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"procedureSite\": None}'", "'请选择手术部位'", "'手术部位为空'", "'/adhocOrder/edit'" ]
+      }, {
+        "name" : "医院名称超长",
+        "uid" : "ad332bba00f5988f",
+        "parentUid" : "d294e4f553ab33d3b5ab258f1dd7c9b7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622692150385,
+          "stop" : 1622692150529,
+          "duration" : 144
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"hospitalName\":  '主治医师' * 50}'", "'医院名称长度超出限制'", "'医院名称超长'", "'/adhocOrder/edit'" ]
+      } ],
+      "uid" : "d294e4f553ab33d3b5ab258f1dd7c9b7"
+    } ],
+    "uid" : "0946a06371a902da335ca130bb71f2ad"
+  } ]
+}

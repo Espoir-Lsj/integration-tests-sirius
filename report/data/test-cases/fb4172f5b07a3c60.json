@@ -1,0 +1,197 @@
+{
+  "uid" : "fb4172f5b07a3c60",
+  "name" : "拒绝原因过长",
+  "fullName" : "test_case.test_order_management.TestAdhocOrder#test_reject",
+  "historyId" : "e43ce4039a149f68f4b0f4cb6d8e634f",
+  "time" : {
+    "start" : 1622692148378,
+    "stop" : 1622692148476,
+    "duration" : 98
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "AdhocOrder_get_id02",
+    "time" : {
+      "start" : 1622692147680,
+      "stop" : 1622692148085,
+      "duration" : 405
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "res_data",
+    "time" : {
+      "start" : 1622692141356,
+      "stop" : 1622692141356,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "AdhocOrder_get_data",
+    "time" : {
+      "start" : 1622692141356,
+      "stop" : 1622692143222,
+      "duration" : 1866
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "_session_faker",
+    "time" : {
+      "start" : 1622692126444,
+      "stop" : 1622692126501,
+      "duration" : 57
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "fb8cdf7a61fba4f6",
+      "name" : "log",
+      "source" : "fb8cdf7a61fba4f6.txt",
+      "type" : "text/plain",
+      "size" : 1455
+    }, {
+      "uid" : "c3a891d40805661",
+      "name" : "stderr",
+      "source" : "c3a891d40805661.txt",
+      "type" : "text/plain",
+      "size" : 1479
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 2,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ {
+    "name" : "AdhocOrder_get_id02::0",
+    "time" : {
+      "start" : 1622692162878,
+      "stop" : 1622692162878,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "res_data::0",
+    "time" : {
+      "start" : 1622692162880,
+      "stop" : 1622692162880,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "story",
+    "value" : "临调订单——拒绝临调单"
+  }, {
+    "name" : "feature",
+    "value" : "订单管理"
+  }, {
+    "name" : "tag",
+    "value" : "@pytest.mark.usefixtures('res_data')"
+  }, {
+    "name" : "parentSuite",
+    "value" : "test_case"
+  }, {
+    "name" : "suite",
+    "value" : "test_order_management"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestAdhocOrder"
+  }, {
+    "name" : "host",
+    "value" : "liangshoujiedeMacBook-Pro.local"
+  }, {
+    "name" : "thread",
+    "value" : "12363-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_case.test_order_management"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "case",
+    "value" : "'{\"reason\":  '主治医师' * 100}'"
+  }, {
+    "name" : "expected",
+    "value" : "'拒绝原因超出长度限制'"
+  }, {
+    "name" : "title",
+    "value" : "'拒绝原因过长'"
+  }, {
+    "name" : "url",
+    "value" : "'/adhocOrder/reject'"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ {
+      "uid" : "a628a057fd0b39d6",
+      "status" : "passed",
+      "time" : {
+        "start" : 1622534737509,
+        "stop" : 1622534737571,
+        "duration" : 62
+      }
+    } ],
+    "categories" : [ ],
+    "tags" : [ "@pytest.mark.usefixtures('res_data')" ]
+  },
+  "source" : "fb4172f5b07a3c60.json",
+  "parameterValues" : [ "'{\"reason\":  '主治医师' * 100}'", "'拒绝原因超出长度限制'", "'拒绝原因过长'", "'/adhocOrder/reject'" ]
+}

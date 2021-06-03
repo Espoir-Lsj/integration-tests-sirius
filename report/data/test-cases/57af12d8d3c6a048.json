@@ -1,0 +1,184 @@
+{
+  "uid" : "57af12d8d3c6a048",
+  "name" : "物资ID错误",
+  "fullName" : "test_case.test_order_management.TestAdhocOrder#test_create",
+  "historyId" : "ac0c751b66457472ab8d0f553c74d8db",
+  "time" : {
+    "start" : 1622534735676,
+    "stop" : 1622534735743,
+    "duration" : 67
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "res_data",
+    "time" : {
+      "start" : 1622534734778,
+      "stop" : 1622534734778,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "AdhocOrder_get_id",
+    "time" : {
+      "start" : 1622534735501,
+      "stop" : 1622534735623,
+      "duration" : 122
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "_session_faker",
+    "time" : {
+      "start" : 1622534729324,
+      "stop" : 1622534729370,
+      "duration" : 46
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "AdhocOrder_get_data",
+    "time" : {
+      "start" : 1622534734778,
+      "stop" : 1622534735501,
+      "duration" : 723
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "38f3d3c0f5f9e2b3",
+      "name" : "log",
+      "source" : "38f3d3c0f5f9e2b3.txt",
+      "type" : "text/plain",
+      "size" : 1046
+    }, {
+      "uid" : "112f77c54d4f9c15",
+      "name" : "stderr",
+      "source" : "112f77c54d4f9c15.txt",
+      "type" : "text/plain",
+      "size" : 1070
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 2,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ {
+    "name" : "res_data::0",
+    "time" : {
+      "start" : 1622534743138,
+      "stop" : 1622534743138,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "AdhocOrder_get_id::0",
+    "time" : {
+      "start" : 1622534743130,
+      "stop" : 1622534743130,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "story",
+    "value" : "临调订单——创建临调单"
+  }, {
+    "name" : "feature",
+    "value" : "订单管理"
+  }, {
+    "name" : "tag",
+    "value" : "@pytest.mark.usefixtures('res_data')"
+  }, {
+    "name" : "parentSuite",
+    "value" : "test_case"
+  }, {
+    "name" : "suite",
+    "value" : "test_order_management"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestAdhocOrder"
+  }, {
+    "name" : "host",
+    "value" : "liangshoujiedeMacBook-Pro.local"
+  }, {
+    "name" : "thread",
+    "value" : "9873-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_case.test_order_management"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "case",
+    "value" : "{'goodsId': 1111111}"
+  }, {
+    "name" : "expected",
+    "value" : "'商品不存在,请刷新重试'"
+  }, {
+    "name" : "title",
+    "value" : "'物资ID错误'"
+  } ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ "@pytest.mark.usefixtures('res_data')" ]
+  },
+  "source" : "57af12d8d3c6a048.json",
+  "parameterValues" : [ "{'goodsId': 1111111}", "'商品不存在,请刷新重试'", "'物资ID错误'" ]
+}

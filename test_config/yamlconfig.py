@@ -64,7 +64,10 @@ class timeid():
         return collections.defaultdict()
 
     def _get_body(self, path):
-        body = eval(str(body_data[path].copy()))
+        if body_data.get(path):
+            body = eval(str(body_data[path].copy()))
+        else:
+            body = body_data.get(path)
         return body
 
     def _body_replace(self, body, data):
@@ -152,5 +155,5 @@ if __name__ == '__main__':
         }]
     }
     case = {'reasonCode': None}
-    a = timeid()._body_replace1(body,case)
+    a = timeid()._body_replace1(body, case)
     print(a)

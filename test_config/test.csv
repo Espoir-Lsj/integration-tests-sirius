@@ -65,14 +65,25 @@ url,request_type,title,case,expected,模块,功能
 /adhocOrder/edit,put,商品/套包数量为空,{'quantity': None},请输入,订单管理,临调订单——编辑临调单
 /adhocOrder/edit,put,商品/套包数量为空,{'quantity': None},请输入,订单管理,临调订单——编辑临调单
 /adhocOrder/close,put,重复关闭订单,{None},订单状态为待接收或待修改时才能关闭,订单管理,临调订单——关闭临调单
-/adhocOrder/close,put,订单ID为空,{'id':None},不能为null,订单管理,临调订单——关闭临调单
+/adhocOrder/close,put,订单ID为空,{'id':None},不能为None,订单管理,临调订单——关闭临调单
 /adhocOrder/close,put,订单ID错误,{'id':99999999},未查询到该临调订单，请刷新重试,订单管理,临调订单——关闭临调单
-/adhocOrder/updateAddress,post,订单ID为空,{'orderId':None},不能为null,订单管理,临调订单——修改收货地址
+/adhocOrder/updateAddress,post,订单ID为空,{'orderId':None},未查询到该临调订单，请刷新重试,订单管理,临调订单——修改收货地址
 /adhocOrder/updateAddress,post,提货人姓名为空,{"consignorName": None},请输入提货人,订单管理,临调订单——修改收货地址
 /adhocOrder/updateAddress,post,提货人电话为空,{"consignorPhone": None},请输入提货人电话,订单管理,临调订单——修改收货地址
 /adhocOrder/updateAddress,post,提货人电话错误,{"consignorPhone": 1321234567},请输入正确的手机号码,订单管理,临调订单——修改收货地址
 /adhocOrder/updateAddress,post,身份证为空,{"receivingIdCard":None},请输入身份证号码,订单管理,临调订单——修改收货地址
-/adhocOrder/updateAddress,post,身份证错误,{"receivingIdCard": 42132219981104461},请输入正确的身份证号,订单管理,临调订单——修改收货地址
+/adhocOrder/updateAddress,post,身份证错误,{"receivingIdCard": 421322199814461},请输入正确的身份证号,订单管理,临调订单——修改收货地址
 /adhocOrder/updateAddress,post,提货委托书为空,{"powerOfAttorney": None},请上传提货委托书,订单管理,临调订单——修改收货地址
-,post,订单ID错误,{'orderId':999999999},,订单管理,临调订单——修改收货地址
-,post,提货人姓名过长,,,订单管理,临调订单——修改收货地址
+/adhocOrder/updateAddress,post,订单ID错误,{'orderId':999999999},未查询到该临调订单，请刷新重试,订单管理,临调订单——修改收货地址
+,post,提货人姓名过长,{"consignorName": '主治医师' * 50},,订单管理,临调订单——修改收货地址
+/pickOrder/picking,put,商品ID为空,{"goodsId": None},请选择需要拣的物资,仓库管理,拣货单——拣货
+/pickOrder/picking,put,商品ID错误,{"goodsId": 99999},该批次商品不存在,仓库管理,拣货单——拣货
+/pickOrder/picking,put,拣货单ID为空,{"pickOrderId": None},请选择拣货单,仓库管理,拣货单——拣货
+/pickOrder/picking,put,拣货单不存在,{"pickOrderId": 99999},拣货单不存在,仓库管理,拣货单——拣货
+/pickOrder/picking,put,货位ID为空,{"storageLocationId": None},拣货的商品或该批次的商品在拣货单中不存在,仓库管理,拣货单——拣货
+/pickOrder/picking,put,货位错误,{"storageLocationId": 420},拣货的商品或该批次的商品在拣货单中不存在,仓库管理,拣货单——拣货
+/pickOrder/picking,put,重复拣货,{"serialNu": None},该商品已拣货完成请勿重复操作,仓库管理,拣货单——拣货
+/pickOrder/pickFinished,put,拣货单ID为空,{"pickOrderId": None},请选择拣货单,仓库管理,拣货单——拣货完成
+/pickOrder/pickFinished,put,拣货单ID错误,{"pickOrderId": 9999},拣货单不存在,仓库管理,拣货单——拣货完成
+/pickOrder/pickFinished,put,重复确认拣货,{"imagePath":["/file/2021/06/03/04a82f82-e0f3-44d7-93f3-964d11c44326/base64Testjpg"]},只有拣货中的订单才能拣货完成,仓库管理,拣货单——拣货完成
+/pickOrder/pickFinished,put,照片为空,{"imagePath":None},照片为空,仓库管理,拣货单——拣货完成

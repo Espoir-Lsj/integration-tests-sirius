@@ -1,0 +1,167 @@
+{
+  "uid" : "a49941a16e2273fb",
+  "name" : "收件人名字为空",
+  "fullName" : "test_case.test_order_management.TestAdhocOrder#test_addReceivingAddress",
+  "historyId" : "c504f9cd2df4756c5d330d8597ffc487",
+  "time" : {
+    "start" : 1622692159494,
+    "stop" : 1622692159619,
+    "duration" : 125
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "res_data",
+    "time" : {
+      "start" : 1622692141356,
+      "stop" : 1622692141356,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "_session_faker",
+    "time" : {
+      "start" : 1622692126444,
+      "stop" : 1622692126501,
+      "duration" : 57
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "AdhocOrder_add_address",
+    "time" : {
+      "start" : 1622692159357,
+      "stop" : 1622692159492,
+      "duration" : 135
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "a065a6d49ea7a35b",
+      "name" : "log",
+      "source" : "a065a6d49ea7a35b.txt",
+      "type" : "text/plain",
+      "size" : 683
+    }, {
+      "uid" : "460a5643da2837dc",
+      "name" : "stderr",
+      "source" : "460a5643da2837dc.txt",
+      "type" : "text/plain",
+      "size" : 372
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 2,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ {
+    "name" : "res_data::0",
+    "time" : {
+      "start" : 1622692162880,
+      "stop" : 1622692162880,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "story",
+    "value" : "临调订单——创建默认地址"
+  }, {
+    "name" : "feature",
+    "value" : "订单管理"
+  }, {
+    "name" : "tag",
+    "value" : "@pytest.mark.usefixtures('res_data')"
+  }, {
+    "name" : "parentSuite",
+    "value" : "test_case"
+  }, {
+    "name" : "suite",
+    "value" : "test_order_management"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestAdhocOrder"
+  }, {
+    "name" : "host",
+    "value" : "liangshoujiedeMacBook-Pro.local"
+  }, {
+    "name" : "thread",
+    "value" : "12363-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_case.test_order_management"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "case",
+    "value" : "'{\"receivingName\": None}'"
+  }, {
+    "name" : "expected",
+    "value" : "'请输入正确的收货人姓名'"
+  }, {
+    "name" : "title",
+    "value" : "'收件人名字为空'"
+  }, {
+    "name" : "url",
+    "value" : "'/supplier/addReceivingAddress'"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ {
+      "uid" : "f1c0960d366cc02e",
+      "status" : "passed",
+      "time" : {
+        "start" : 1622534741386,
+        "stop" : 1622534741451,
+        "duration" : 65
+      }
+    } ],
+    "categories" : [ ],
+    "tags" : [ "@pytest.mark.usefixtures('res_data')" ]
+  },
+  "source" : "a49941a16e2273fb.json",
+  "parameterValues" : [ "'{\"receivingName\": None}'", "'请输入正确的收货人姓名'", "'收件人名字为空'", "'/supplier/addReceivingAddress'" ]
+}

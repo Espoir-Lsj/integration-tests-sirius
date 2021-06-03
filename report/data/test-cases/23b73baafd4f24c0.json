@@ -1,0 +1,151 @@
+{
+  "uid" : "23b73baafd4f24c0",
+  "name" : "供应商：驳回理由为空",
+  "fullName" : "test_case.test_purchase_management.TestAllocateOrder#test_approve01",
+  "historyId" : "d594975c4e899fbf0babacf20143b111",
+  "time" : {
+    "start" : 1622534743868,
+    "stop" : 1622534743868,
+    "duration" : 0
+  },
+  "status" : "broken",
+  "statusMessage" : "TypeError: 'NoneType' object is not subscriptable",
+  "statusTrace" : "AllocateOrder_get_data = None\n\n    @pytest.fixture(scope=\"class\")\n    def AllocateOrder_get_Id(AllocateOrder_get_data):\n        response = Purchase_Management.AllocateOrder().create(reasonCode=reasonCode, sourceWarehouseId=sourceWarehouseId,\n                                                              targetWarehouseId=targetWarehouseId, goodsId=goodsId,\n                                                              goodsLotInfoId=goodsLotInfoId, kitStockId=kitStockId,\n                                                              goodsQuantity=goodsQuantity,\n>                                                             kitStockQuantity=kitStockQuantity)\n\ntest_case/conftest.py:56: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <test_case.common.Purchase_Management.AllocateOrder object at 0x117c51dd0>\nreasonCode = 'warehouse_replenishment', sourceWarehouseId = 6\ntargetWarehouseId = 7, goodsId = 761, goodsLotInfoId = 57, goodsQuantity = 1\nkitStockId = 225, kitStockQuantity = 1, Id = None\n\n    def create(self, reasonCode=None, sourceWarehouseId=None, targetWarehouseId=None,\n               goodsId=None, goodsLotInfoId=None, goodsQuantity=1, kitStockId=None, kitStockQuantity=1, Id=None):\n        url = '/allocateOrder/create'\n        body = {\n            \"baseOrderInfo\": {\n                \"id\": Id,\n                \"reasonCode\": reasonCode,\n                \"reason\": \"\",\n                \"sourceWarehouseId\": sourceWarehouseId,\n                \"targetWarehouseId\": targetWarehouseId\n            },\n            \"goodsDetailUiBeans\": [{\n                \"goodsId\": goodsId,\n                \"goodsLotInfoId\": goodsLotInfoId,\n                \"goodsQuantity\": goodsQuantity\n            }],\n            \"toolsDetailUiBeans\": [],\n            \"toolKitDetailUiBeans\": []\n        }\n        toolsDetailUiBeans = {\n            \"kitStockId\": kitStockId,\n            \"kitStockQuantity\": kitStockQuantity\n        }\n        if kitStockId:\n            body['toolsDetailUiBeans'].append(toolsDetailUiBeans)\n        #     只有供应商可创建调拨\n        response = request.post_body01(url, body)\n>       Id = response['data']['id']\nE       TypeError: 'NoneType' object is not subscriptable\n\ntest_case/common/Purchase_Management.py:119: TypeError",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "AllocateOrder_get_Id",
+    "time" : {
+      "start" : 1622534743583,
+      "stop" : 1622534743640,
+      "duration" : 57
+    },
+    "status" : "broken",
+    "statusMessage" : "TypeError: 'NoneType' object is not subscriptable\n",
+    "statusTrace" : "  File \"/usr/local/lib/python3.7/site-packages/pluggy/callers.py\", line 187, in _multicall\n    res = hook_impl.function(*args)\n  File \"/usr/local/lib/python3.7/site-packages/_pytest/fixtures.py\", line 1126, in pytest_fixture_setup\n    result = call_fixture_func(fixturefunc, request, kwargs)\n  File \"/usr/local/lib/python3.7/site-packages/_pytest/fixtures.py\", line 925, in call_fixture_func\n    fixture_result = next(generator)\n  File \"/Users/liangshoujie/PycharmProjects/integration-tests-sirius/test_case/conftest.py\", line 56, in AllocateOrder_get_Id\n    kitStockQuantity=kitStockQuantity)\n  File \"/Users/liangshoujie/PycharmProjects/integration-tests-sirius/test_case/common/Purchase_Management.py\", line 119, in create\n    Id = response['data']['id']\n",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : true,
+    "hasContent" : true
+  }, {
+    "name" : "res_data",
+    "time" : {
+      "start" : 1622534743148,
+      "stop" : 1622534743148,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "AllocateOrder_get_data",
+    "time" : {
+      "start" : 1622534743148,
+      "stop" : 1622534743583,
+      "duration" : 435
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "_session_faker",
+    "time" : {
+      "start" : 1622534729324,
+      "stop" : 1622534729370,
+      "duration" : 46
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "afterStages" : [ {
+    "name" : "res_data::0",
+    "time" : {
+      "start" : 1622534743935,
+      "stop" : 1622534743935,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "story",
+    "value" : "调拨单"
+  }, {
+    "name" : "feature",
+    "value" : "采购管理"
+  }, {
+    "name" : "tag",
+    "value" : "@pytest.mark.usefixtures('res_data')"
+  }, {
+    "name" : "parentSuite",
+    "value" : "test_case"
+  }, {
+    "name" : "suite",
+    "value" : "test_purchase_management"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestAllocateOrder"
+  }, {
+    "name" : "host",
+    "value" : "liangshoujiedeMacBook-Pro.local"
+  }, {
+    "name" : "thread",
+    "value" : "9873-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_case.test_purchase_management"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "case",
+    "value" : "{'approve': False, 'rejectReason': None}"
+  }, {
+    "name" : "expected",
+    "value" : "'请输入修改建议'"
+  }, {
+    "name" : "title",
+    "value" : "'供应商：驳回理由为空'"
+  } ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ "@pytest.mark.usefixtures('res_data')" ]
+  },
+  "source" : "23b73baafd4f24c0.json",
+  "parameterValues" : [ "{'approve': False, 'rejectReason': None}", "'请输入修改建议'", "'供应商：驳回理由为空'" ]
+}

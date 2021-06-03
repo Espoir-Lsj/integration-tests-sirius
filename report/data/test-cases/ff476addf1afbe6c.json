@@ -1,0 +1,194 @@
+{
+  "uid" : "ff476addf1afbe6c",
+  "name" : "物资、套包为空",
+  "fullName" : "test_case.test_order_management.TestAdhocOrder#test_create",
+  "historyId" : "b2fbe93596c23d9a84da5569ca487b18",
+  "time" : {
+    "start" : 1622692143964,
+    "stop" : 1622692144163,
+    "duration" : 199
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "res_data",
+    "time" : {
+      "start" : 1622692141356,
+      "stop" : 1622692141356,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "AdhocOrder_get_id",
+    "time" : {
+      "start" : 1622692143223,
+      "stop" : 1622692143436,
+      "duration" : 213
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "AdhocOrder_get_data",
+    "time" : {
+      "start" : 1622692141356,
+      "stop" : 1622692143222,
+      "duration" : 1866
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "_session_faker",
+    "time" : {
+      "start" : 1622692126444,
+      "stop" : 1622692126501,
+      "duration" : 57
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "bdc4b195778ef984",
+      "name" : "log",
+      "source" : "bdc4b195778ef984.txt",
+      "type" : "text/plain",
+      "size" : 925
+    }, {
+      "uid" : "fd910ba3993366b8",
+      "name" : "stderr",
+      "source" : "fd910ba3993366b8.txt",
+      "type" : "text/plain",
+      "size" : 949
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 2,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ {
+    "name" : "res_data::0",
+    "time" : {
+      "start" : 1622692162880,
+      "stop" : 1622692162880,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "AdhocOrder_get_id::0",
+    "time" : {
+      "start" : 1622692162870,
+      "stop" : 1622692162870,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "story",
+    "value" : "临调订单——创建临调单"
+  }, {
+    "name" : "feature",
+    "value" : "订单管理"
+  }, {
+    "name" : "tag",
+    "value" : "@pytest.mark.usefixtures('res_data')"
+  }, {
+    "name" : "parentSuite",
+    "value" : "test_case"
+  }, {
+    "name" : "suite",
+    "value" : "test_order_management"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestAdhocOrder"
+  }, {
+    "name" : "host",
+    "value" : "liangshoujiedeMacBook-Pro.local"
+  }, {
+    "name" : "thread",
+    "value" : "12363-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_case.test_order_management"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "case",
+    "value" : "{'goodsDetailUiBeans': [], 'toolsDetailUiBeans': []}"
+  }, {
+    "name" : "expected",
+    "value" : "'请选择物资'"
+  }, {
+    "name" : "title",
+    "value" : "'物资、套包为空'"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ {
+      "uid" : "1e75aebbfd6a8bae",
+      "status" : "passed",
+      "time" : {
+        "start" : 1622534735901,
+        "stop" : 1622534735989,
+        "duration" : 88
+      }
+    } ],
+    "categories" : [ ],
+    "tags" : [ "@pytest.mark.usefixtures('res_data')" ]
+  },
+  "source" : "ff476addf1afbe6c.json",
+  "parameterValues" : [ "{'goodsDetailUiBeans': [], 'toolsDetailUiBeans': []}", "'请选择物资'", "'物资、套包为空'" ]
+}

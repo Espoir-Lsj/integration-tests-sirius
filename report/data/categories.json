@@ -1,0 +1,411 @@
+{
+  "uid" : "4b4757e66a1912dae1a509f688f20b0f",
+  "name" : "categories",
+  "children" : [ {
+    "name" : "Test defects",
+    "children" : [ {
+      "name" : "TypeError: exceptions must derive from BaseException",
+      "children" : [ {
+        "name" : "test_create_tools[商品数量错误-case0-数量不一致，请确定数量]",
+        "uid" : "14b5ebc7d776628c",
+        "parentUid" : "f686c92fbacb894b21fc948f0d46f177",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622692140268,
+          "stop" : 1622692140268,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'goodsDetails': [{'goodsId': 11, 'goodsLotInfoId': 88, 'goodsQuantity': 2}]}", "'数量不一致，请确定数量'", "'商品数量错误'" ]
+      }, {
+        "name" : "test_create_tools[仓库为空-case1-请选择仓库]",
+        "uid" : "67fb3b0cc449d46f",
+        "parentUid" : "f686c92fbacb894b21fc948f0d46f177",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622692141134,
+          "stop" : 1622692141134,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'warehouseId': None}", "'请选择仓库'", "'仓库为空'" ]
+      }, {
+        "name" : "test_create_tools[仓库错误-case2-当前用户不能在该仓库创建加工单]",
+        "uid" : "a44024fe17e44c5d",
+        "parentUid" : "f686c92fbacb894b21fc948f0d46f177",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622692141156,
+          "stop" : 1622692141156,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'warehouseId': 999999}", "'当前用户不能在该仓库创建加工单'", "'仓库错误'" ]
+      } ],
+      "uid" : "f686c92fbacb894b21fc948f0d46f177"
+    }, {
+      "name" : "KeyError: '/adhocOrder/updateAddress'",
+      "children" : [ {
+        "name" : "订单ID为空",
+        "uid" : "7b222463c8e943bc",
+        "parentUid" : "95d239d46062dc7af4f3e11cd06ed0cf",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622692162659,
+          "stop" : 1622692162659,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{'orderId':None}'", "'不能为null'", "'订单ID为空'", "'/adhocOrder/updateAddress'" ]
+      }, {
+        "name" : "提货人姓名为空",
+        "uid" : "ea1887da5b7274c1",
+        "parentUid" : "95d239d46062dc7af4f3e11cd06ed0cf",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622692162721,
+          "stop" : 1622692162721,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"consignorName\": None}'", "'请输入提货人'", "'提货人姓名为空'", "'/adhocOrder/updateAddress'" ]
+      }, {
+        "name" : "提货人电话为空",
+        "uid" : "93d9dce28fd857f",
+        "parentUid" : "95d239d46062dc7af4f3e11cd06ed0cf",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622692162739,
+          "stop" : 1622692162740,
+          "duration" : 1
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"consignorPhone\": None}'", "'请输入提货人电话'", "'提货人电话为空'", "'/adhocOrder/updateAddress'" ]
+      }, {
+        "name" : "提货人电话错误",
+        "uid" : "c890c51f079b3c1",
+        "parentUid" : "95d239d46062dc7af4f3e11cd06ed0cf",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622692162758,
+          "stop" : 1622692162758,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"consignorPhone\": 1321234567}'", "'请输入正确的手机号码'", "'提货人电话错误'", "'/adhocOrder/updateAddress'" ]
+      }, {
+        "name" : "身份证为空",
+        "uid" : "6d3451e0ed0d12f1",
+        "parentUid" : "95d239d46062dc7af4f3e11cd06ed0cf",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622692162776,
+          "stop" : 1622692162776,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"receivingIdCard\":None}'", "'请输入身份证号码'", "'身份证为空'", "'/adhocOrder/updateAddress'" ]
+      }, {
+        "name" : "身份证错误",
+        "uid" : "908a28f272c304e2",
+        "parentUid" : "95d239d46062dc7af4f3e11cd06ed0cf",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622692162798,
+          "stop" : 1622692162799,
+          "duration" : 1
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"receivingIdCard\": 42132219981104461}'", "'请输入正确的身份证号'", "'身份证错误'", "'/adhocOrder/updateAddress'" ]
+      }, {
+        "name" : "提货委托书为空",
+        "uid" : "17f8cefd59fbedf1",
+        "parentUid" : "95d239d46062dc7af4f3e11cd06ed0cf",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622692162821,
+          "stop" : 1622692162821,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'{\"powerOfAttorney\": None}'", "'请上传提货委托书'", "'提货委托书为空'", "'/adhocOrder/updateAddress'" ]
+      } ],
+      "uid" : "95d239d46062dc7af4f3e11cd06ed0cf"
+    }, {
+      "name" : "TypeError: 'NoneType' object is not subscriptable",
+      "children" : [ {
+        "name" : "调拨理由为空",
+        "uid" : "c9fbd16bc3e337c7",
+        "parentUid" : "86a928d47f47009c564bd8e345a40463",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622692162891,
+          "stop" : 1622692162891,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'reasonCode': None}", "'请选择调拨理由'", "'调拨理由为空'" ]
+      }, {
+        "name" : "来源仓库空",
+        "uid" : "9999bc1bc9124ecb",
+        "parentUid" : "86a928d47f47009c564bd8e345a40463",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622692164136,
+          "stop" : 1622692164136,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'sourceWarehouseId': None}", "'请选择来源仓库'", "'来源仓库空'" ]
+      }, {
+        "name" : "来源仓库错误",
+        "uid" : "b2ea6e5365854906",
+        "parentUid" : "86a928d47f47009c564bd8e345a40463",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622692164150,
+          "stop" : 1622692164150,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'targetWarehouseId': 'aa'}", "'请求参数异常'", "'来源仓库错误'" ]
+      }, {
+        "name" : "收货仓库为空",
+        "uid" : "9aab90023a76e180",
+        "parentUid" : "86a928d47f47009c564bd8e345a40463",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622692164164,
+          "stop" : 1622692164164,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'targetWarehouseId': None}", "'请选择目标仓库'", "'收货仓库为空'" ]
+      }, {
+        "name" : "商品数量为空",
+        "uid" : "d3ee0dc9d727f2a",
+        "parentUid" : "86a928d47f47009c564bd8e345a40463",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622692164176,
+          "stop" : 1622692164176,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'goodsQuantity': None}", "'请输入商品数量'", "'商品数量为空'" ]
+      }, {
+        "name" : "商品数量过大",
+        "uid" : "9a84c55d72c1ef6e",
+        "parentUid" : "86a928d47f47009c564bd8e345a40463",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622692164199,
+          "stop" : 1622692164199,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'goodsQuantity': 999999999999}", "'商品数量超出限制'", "'商品数量过大'" ]
+      }, {
+        "name" : "商品信息为空",
+        "uid" : "74458d412fe462a4",
+        "parentUid" : "86a928d47f47009c564bd8e345a40463",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622692164230,
+          "stop" : 1622692164230,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'goodsLotInfoId': None}", "'参数异常'", "'商品信息为空'" ]
+      }, {
+        "name" : "工具包数量过大",
+        "uid" : "8339830ab03ffbed",
+        "parentUid" : "86a928d47f47009c564bd8e345a40463",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622692164248,
+          "stop" : 1622692164248,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'kitStockQuantity': 99999999999999}", "'工具包数量超出限制'", "'工具包数量过大'" ]
+      }, {
+        "name" : "编辑未驳回订单",
+        "uid" : "24fb4dd03c5d569",
+        "parentUid" : "86a928d47f47009c564bd8e345a40463",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622692164262,
+          "stop" : 1622692164262,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "经销商：调拨单ID为空",
+        "uid" : "b3c3d2edae3eb749",
+        "parentUid" : "86a928d47f47009c564bd8e345a40463",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622692164276,
+          "stop" : 1622692164276,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'id': None}", "'请选择调拨单'", "'经销商：调拨单ID为空'" ]
+      }, {
+        "name" : "经销商：审核建议为空",
+        "uid" : "2be2513b30bde562",
+        "parentUid" : "86a928d47f47009c564bd8e345a40463",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622692164288,
+          "stop" : 1622692164288,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'approve': None}", "'请选择审核或者驳回调拨单'", "'经销商：审核建议为空'" ]
+      }, {
+        "name" : "经销商：驳回理由为空",
+        "uid" : "bc2aaaf6cd5a76b0",
+        "parentUid" : "86a928d47f47009c564bd8e345a40463",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622692164301,
+          "stop" : 1622692164301,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'approve': False, 'rejectReason': None}", "'当前用户不可接单'", "'经销商：驳回理由为空'" ]
+      }, {
+        "name" : "经销商：驳回理由超长",
+        "uid" : "618d54067b115a1a",
+        "parentUid" : "86a928d47f47009c564bd8e345a40463",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622692164313,
+          "stop" : 1622692164313,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'approve': False, 'rejectReason': '00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001'}", "'拒绝原因超出长度限制'", "'经销商：驳回理由超长'" ]
+      }, {
+        "name" : "供应商：调拨单ID为空",
+        "uid" : "f5836dc04abe5f0f",
+        "parentUid" : "86a928d47f47009c564bd8e345a40463",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622692164325,
+          "stop" : 1622692164325,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'id': None}", "'请选择调拨单'", "'供应商：调拨单ID为空'" ]
+      }, {
+        "name" : "供应商：审核建议为空",
+        "uid" : "ee90b1ab49aa8e3f",
+        "parentUid" : "86a928d47f47009c564bd8e345a40463",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622692164337,
+          "stop" : 1622692164337,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'approve': None}", "'请选择审核或者驳回调拨单'", "'供应商：审核建议为空'" ]
+      }, {
+        "name" : "供应商：驳回理由为空",
+        "uid" : "d970f91b9ec86cd7",
+        "parentUid" : "86a928d47f47009c564bd8e345a40463",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622692164349,
+          "stop" : 1622692164349,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'approve': False, 'rejectReason': None}", "'请输入修改建议'", "'供应商：驳回理由为空'" ]
+      }, {
+        "name" : "供应商：驳回理由超长",
+        "uid" : "30faa4f6e60196a5",
+        "parentUid" : "86a928d47f47009c564bd8e345a40463",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622692164361,
+          "stop" : 1622692164361,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'approve': False, 'rejectReason': '00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001'}", "'拒绝原因超出长度限制'", "'供应商：驳回理由超长'" ]
+      }, {
+        "name" : "删除未关闭订单",
+        "uid" : "bd1e22a4554a86a7",
+        "parentUid" : "86a928d47f47009c564bd8e345a40463",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622692164375,
+          "stop" : 1622692164375,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "重复关闭订单",
+        "uid" : "9faba37bcd5d92a7",
+        "parentUid" : "86a928d47f47009c564bd8e345a40463",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622692164390,
+          "stop" : 1622692164390,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "'订单状态为待接收或待修改时才能关闭'", "'重复关闭订单'" ]
+      }, {
+        "name" : "重复删除订单",
+        "uid" : "84597d714cf279e3",
+        "parentUid" : "86a928d47f47009c564bd8e345a40463",
+        "status" : "broken",
+        "time" : {
+          "start" : 1622692164405,
+          "stop" : 1622692164405,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "86a928d47f47009c564bd8e345a40463"
+    } ],
+    "uid" : "bdbf199525818fae7a8651db9eafe741"
+  } ]
+}
