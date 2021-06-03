@@ -5,7 +5,7 @@
 
 import pytest
 import time, datetime
-from test_case.common import Purchase_Management, Order_Management, login
+from test_case.common import Purchase_Management, Order_Management, login, Warehouse_Management
 
 from test_config.yamlconfig import timeid, body_data
 
@@ -304,6 +304,45 @@ def AdhocOrder_updateAddress(AdhocOrder_accept):
                                                                                       '15b54d-de1f-4aab-ab5b-ffe6bc5a6998/base64Test.jpg',
                                                                       orderId=AdhocOrder_accept, addressId=addressId)
     yield AdhocOrder_accept
+
+
+# 仓库管理 获取拣货单ID
+@pytest.fixture(scope='class')
+def PickOrder_get_pickOrderId():
+    global pickOrderId
+    # 这里后期要优化，keyword 是创建 调拨单/临调单 的时候返回的订单code，目前是没有继承fixture
+    keyword = Purchase_Management.AllocateOrder().all()
+    pickOrderId = Warehouse_Management.OutboundOrder().get_out_orderInfo(keyword)
+    yield pickOrderId
+
+
+# 仓库管理 获取拣货单信息
+@pytest.fixture(scope='class')
+def PickOrder_get_pickOrderInfo(PickOrder_get_pickOrderId):
+    global storageLocationId
+    infoList = Warehouse_Management.PickOrder().get_pick_orderInfo(PickOrder_get_pickOrderId)
+    materialCode = infoList[0]
+    warehouseId = infoList[1]
+    storageLocationId = infoList[2]
+    quantity = infoList[3]
+    yield materialCode, warehouseId, storageLocationId, quantity
+
+
+# 仓库管理 获取拣货单 商品信息
+@pytest.fixture(scope='class')
+def PickOrder_get_goodsInfo(PickOrder_get_pickOrderInfo):
+    goodsinfoList = Warehouse_Management.PickOrder().get_goodsInfo(PickOrder_get_pickOrderInfo[1],
+                                                                   PickOrder_get_pickOrderInfo[0])
+    goodsId = goodsinfoList[0]
+    lotNum = goodsinfoList[1]
+    yield goodsId, lotNum
+
+
+# 仓库管理 拣货单 拣货
+@pytest.fixture(scope='class')
+def PickOrder_picking(PickOrder_get_goodsInfo):
+    Warehouse_Management.PickOrder().picking(goodsId=PickOrder_get_goodsInfo[0], lotNum=PickOrder_get_goodsInfo[1],
+                                             pickOrderId=pickOrderId, storageLocationId=storageLocationId)
 
 
 def pytest_collection_modifyitems(items):

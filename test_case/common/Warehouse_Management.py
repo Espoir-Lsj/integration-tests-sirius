@@ -62,9 +62,17 @@ class PickOrder:
         }
         response = request.put_body01(url, body)
 
+    def pickFinished(self, pickOrderId=None,
+                     imagePath=["/file/2021/06/03/04a82f82-e0f3-44d7-93f3-964d11c44326/base64Test.jpg"]):
+        url = '/pickOrder/pickFinished'
+        body = {
+            "pickOrderId": pickOrderId,
+            "imagePath": imagePath
+        }
+        response = request.put_body01(url, body)
+
     def pick_approval(self, pickOrderId=None, goodsId=None, quantity=None, kitStockId=None, kitquantity=None
-                      , imagePath='http://192.168.10.254:9191/server/file/2021/05/17/5b'
-                                  '15b54d-de1f-4aab-ab5b-ffe6bc5a6998/base64Test.jpg'):
+                      , imagePath=["/file/2021/06/03/04a82f82-e0f3-44d7-93f3-964d11c44326/base64Test.jpg"], ):
         url = '/pickOrder/approval'
         body = {
             "imagePath": imagePath,
@@ -101,5 +109,7 @@ if __name__ == '__main__':
     lotNum = goodsInfo[1]
 
     test1.picking(goodsId=goodsId, lotNum=lotNum, pickOrderId=pickOrderId, storageLocationId=storageLocationId)
+
+    test1.pickFinished(pickOrderId=pickOrderId)
 
     test1.pick_approval(goodsId=goodsId, quantity=quantity, pickOrderId=pickOrderId)

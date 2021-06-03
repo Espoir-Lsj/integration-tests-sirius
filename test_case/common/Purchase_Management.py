@@ -178,6 +178,7 @@ class AllocateOrder:
         # 物资信息
         goodsInfo = self.get_goodsInfo(sourceWarehouseId)
         # goodsId = goodsInfo[0]
+        # 6/3 号，后续商品ID需要动态获取，目前这个是 在数据库准备的数据
         goodsId = 259
         # goodsLotInfoId = goodsInfo[1]
         goodsLotInfoId = 41
