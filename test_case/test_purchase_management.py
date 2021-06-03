@@ -52,7 +52,7 @@ class TestAllocateOrder:
         url = '/allocateOrder/create'
         case = {'id': AllocateOrder_get_Id}
         body = request.body_replace(url, case)
-        print(body)
+        # print(body)
         response = request.post_body(url, body)
         assert response['msg'] == '只能修改驳回的订单'
 

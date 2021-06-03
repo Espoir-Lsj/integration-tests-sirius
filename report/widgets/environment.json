@@ -1,1 +1,25 @@
-[ ]
+[ {
+  "values" : [ "Mac OS" ],
+  "name" : "SystemVersion"
+}, {
+  "values" : [ "lsj" ],
+  "name" : "author"
+}, {
+  "values" : [ "3.7" ],
+  "name" : "PythonVersion"
+}, {
+  "values" : [ "2.8.40" ],
+  "name" : "allureVersion"
+}, {
+  "values" : [ "http://192.168.10.254:9191" ],
+  "name" : "BaseUrl"
+}, {
+  "values" : [ "Sirius V2.0" ],
+  "name" : "ProjectName"
+}, {
+  "values" : [ "88888888@qq.com" ],
+  "name" : "email"
+}, {
+  "values" : [ "value_a" ],
+  "name" : "jdbc.url"
+} ]

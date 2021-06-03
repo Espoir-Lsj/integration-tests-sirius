@@ -2,7 +2,11 @@
 # @Time : 2021/6/1 11:24 上午 
 # @Author : lsj
 # @File : Warehouse_Management.py
-from test_case.common import request, Purchase_Management, PostgresSql
+import time
+
+from test_case.common import request, Purchase_Management
+
+timeStamp = int(time.time() * 1000)
 
 
 class OutboundOrder:
@@ -18,9 +22,31 @@ class OutboundOrder:
         }
         response = request.get_params01(url, params)
         data = response['data']['rows'][0]
-        outId = data['id']
         pickOrderId = data['pickOrderId']
-        return pickOrderId
+        outOrderId = data['id']
+        return pickOrderId, outOrderId
+
+    def delivery(self, logisticsCompany=None, deliveryDate=None, expressNo=None, outOrderId=None, deliveryMode=None):
+        url = '/outboundOrder/delivery'
+        body = {
+            "logisticsCompany": logisticsCompany,
+            "deliveryDate": deliveryDate,
+            "expressNo": expressNo,
+            "id": outOrderId,
+            "deliveryMode": deliveryMode
+        }
+        response = request.put_body01(url, body)
+
+
+    def approval(self, logisticsCompany=None, deliveryDate=None, expressNo=None, outOrderId=None):
+        url = '/outboundOrder/approval'
+        body = {
+            "logisticsCompany": logisticsCompany,
+            "deliveryDate": deliveryDate,
+            "expressNo": expressNo,
+            "id": outOrderId
+        }
+        response = request.put_body01(url, body)
 
 
 class PickOrder:
@@ -49,6 +75,7 @@ class PickOrder:
         response = request.get_params01(url, params)
         goodsId = response['data']['rows'][0]['goodsId']
         lotNum = response['data']['rows'][0]['lotNum']
+
         return goodsId, lotNum
 
     def picking(self, goodsId=None, lotNum=None, pickOrderId=None, storageLocationId=None):
@@ -61,15 +88,20 @@ class PickOrder:
             "storageLocationId": storageLocationId
         }
         response = request.put_body01(url, body)
+        try:
+            response['msg'] == '请求成功'
+        except Exception:
+            raise response
 
     def pickFinished(self, pickOrderId=None,
-                     imagePath=["/file/2021/06/03/04a82f82-e0f3-44d7-93f3-964d11c44326/base64Test.jpg"]):
+                     imagePath=["/file/2021/06/03/04a82f82-e0f3-44d7-93f3-964d11c44326/base64Test.jpg]"]):
         url = '/pickOrder/pickFinished'
         body = {
             "pickOrderId": pickOrderId,
             "imagePath": imagePath
         }
         response = request.put_body01(url, body)
+
 
     def pick_approval(self, pickOrderId=None, goodsId=None, quantity=None, kitStockId=None, kitquantity=None
                       , imagePath=["/file/2021/06/03/04a82f82-e0f3-44d7-93f3-964d11c44326/base64Test.jpg"], ):
@@ -95,7 +127,8 @@ class PickOrder:
 
 if __name__ == '__main__':
     test = OutboundOrder()
-    pickOrderId = test.get_out_orderInfo()
+    pickOrderId = test.get_out_orderInfo()[0]
+    outOrderId = test.get_out_orderInfo()[1]
 
     test1 = PickOrder()
     data = test1.get_pick_orderInfo(pickOrderId)
@@ -107,9 +140,14 @@ if __name__ == '__main__':
     goodsInfo = test1.get_goodsInfo(warehouseId, materialCode)
     goodsId = goodsInfo[0]
     lotNum = goodsInfo[1]
-
+    # 拣货
     test1.picking(goodsId=goodsId, lotNum=lotNum, pickOrderId=pickOrderId, storageLocationId=storageLocationId)
-
+    # 拣货完成
     test1.pickFinished(pickOrderId=pickOrderId)
-
+    # 审核拣货
     test1.pick_approval(goodsId=goodsId, quantity=quantity, pickOrderId=pickOrderId)
+    # 发货
+    test.delivery(logisticsCompany='京东', deliveryDate=timeStamp, expressNo='123123', outOrderId=outOrderId,
+                  deliveryMode='DELIVERY')
+    # 审核发货
+    test.approval(logisticsCompany='京东', deliveryDate=timeStamp, expressNo='123123', outOrderId=outOrderId)

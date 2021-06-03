@@ -1,1410 +1,1900 @@
 [ {
-  "uid" : "4573976c63d33619",
-  "name" : "调拨理由为空",
+  "uid" : "919237d8ac5b3a27",
+  "name" : "di码：商品ID为空",
   "time" : {
-    "start" : 1621849865158,
-    "stop" : 1621849865213,
-    "duration" : 55
+    "start" : 1622692134222,
+    "stop" : 1622692134317,
+    "duration" : 95
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "b8816c5f06ab11a7",
-  "name" : "Edit：养护类型为空",
-  "time" : {
-    "start" : 1621849855204,
-    "stop" : 1621849855263,
-    "duration" : 59
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "43e0581e19d84261",
-  "name" : "经销商：调拨单ID为空",
-  "time" : {
-    "start" : 1621849865688,
-    "stop" : 1621849865751,
-    "duration" : 63
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "68519c723c2bbfbb",
-  "name" : "归还时间为空",
-  "time" : {
-    "start" : 1621849861980,
-    "stop" : 1621849862034,
-    "duration" : 54
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "294efaaca9624ec2",
-  "name" : "收件人名字为空",
-  "time" : {
-    "start" : 1621849863780,
-    "stop" : 1621849863825,
-    "duration" : 45
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "d86cfed6b41db49f",
-  "name" : "供应商：审核建议为空",
-  "time" : {
-    "start" : 1621849866118,
-    "stop" : 1621849866178,
-    "duration" : 60
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "d15173e2b773303c",
-  "name" : "物资类别为空",
-  "time" : {
-    "start" : 1621849850200,
-    "stop" : 1621849850289,
-    "duration" : 89
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "dab0dd702a8fb254",
-  "name" : "正向流程",
-  "time" : {
-    "start" : 1621849858620,
-    "stop" : 1621849858714,
-    "duration" : 94
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "cbcdbabe4af9197d",
-  "name" : "Edit：生产企业为空",
-  "time" : {
-    "start" : 1621849855270,
-    "stop" : 1621849855319,
-    "duration" : 49
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "aa0553d1c37f88f7",
-  "name" : "默认地址错误",
-  "time" : {
-    "start" : 1621849861834,
-    "stop" : 1621849861910,
-    "duration" : 76
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "f7c3cb9196ac8687",
-  "name" : "Edit：注册证号为空",
-  "time" : {
-    "start" : 1621849855653,
-    "stop" : 1621849855774,
-    "duration" : 121
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "a6568e9183f39d4a",
-  "name" : "联系人电话为空",
-  "time" : {
-    "start" : 1621849861401,
-    "stop" : 1621849861462,
-    "duration" : 61
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "bbfb6410619382fb",
-  "name" : "收货仓库为空",
-  "time" : {
-    "start" : 1621849865336,
-    "stop" : 1621849865391,
-    "duration" : 55
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "c99dbbaaa1f8bfef",
-  "name" : "默认地址为空",
-  "time" : {
-    "start" : 1621849861766,
-    "stop" : 1621849861825,
-    "duration" : 59
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "4f1fb8c3e4bf8159",
-  "name" : "套包ID错误",
-  "time" : {
-    "start" : 1621849860600,
-    "stop" : 1621849860685,
-    "duration" : 85
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "40a0194bc213ffc7",
-  "name" : "price:税率为0",
-  "time" : {
-    "start" : 1621849856539,
-    "stop" : 1621849856613,
-    "duration" : 74
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "e404968b7696627b",
-  "name" : "Edit：物资类别为空",
-  "time" : {
-    "start" : 1621849855143,
-    "stop" : 1621849855199,
-    "duration" : 56
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "e55bef963510d8f1",
-  "name" : "test_15",
-  "time" : {
-    "start" : 1621849858156,
-    "stop" : 1621849858243,
-    "duration" : 87
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "40159ffe8f62a0bf",
-  "name" : "供应商：驳回理由为空",
-  "time" : {
-    "start" : 1621849866187,
-    "stop" : 1621849866236,
-    "duration" : 49
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "71b99bfd5b502219",
-  "name" : "Edit：规格 /型号为空",
-  "time" : {
-    "start" : 1621849855425,
-    "stop" : 1621849855481,
-    "duration" : 56
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "a9d54859504f2205",
-  "name" : "Edit：商品名为空",
-  "time" : {
-    "start" : 1621849855014,
-    "stop" : 1621849855089,
-    "duration" : 75
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "168547678af56f9d",
-  "name" : "test_01",
-  "time" : {
-    "start" : 1621849857234,
-    "stop" : 1621849857280,
-    "duration" : 46
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "e75423df66852f63",
-  "name" : "注册证号为空",
-  "time" : {
-    "start" : 1621849850981,
-    "stop" : 1621849851032,
-    "duration" : 51
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "a4a8b2f185925154",
-  "name" : "仓库未选择",
-  "time" : {
-    "start" : 1621849858720,
-    "stop" : 1621849858794,
-    "duration" : 74
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "a74545caeb8aa8c",
-  "name" : "重复关闭订单",
-  "time" : {
-    "start" : 1621849866493,
-    "stop" : 1621849866552,
-    "duration" : 59
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "f516f55b37c79db2",
-  "name" : "手术时间为空",
-  "time" : {
-    "start" : 1621849861919,
-    "stop" : 1621849861976,
-    "duration" : 57
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "7915d796dda07fa7",
-  "name" : "test_05",
-  "time" : {
-    "start" : 1621849857469,
-    "stop" : 1621849857512,
-    "duration" : 43
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "e804a059944cc990",
+  "uid" : "618d54067b115a1a",
   "name" : "经销商：驳回理由超长",
   "time" : {
-    "start" : 1621849865895,
-    "stop" : 1621849865930,
-    "duration" : 35
+    "start" : 1622692164313,
+    "stop" : 1622692164313,
+    "duration" : 0
   },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "a33545e5fd16f152",
-  "name" : "test_13",
-  "time" : {
-    "start" : 1621849857999,
-    "stop" : 1621849858049,
-    "duration" : 50
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "28597929eac96284",
-  "name" : "商品数量过大",
-  "time" : {
-    "start" : 1621849865449,
-    "stop" : 1621849865501,
-    "duration" : 52
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "e1492d47ba95dffe",
-  "name" : "详细地址为空",
-  "time" : {
-    "start" : 1621849863425,
-    "stop" : 1621849863465,
-    "duration" : 40
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "d98e45c9610c2b5b",
-  "name" : "基本单位为空",
-  "time" : {
-    "start" : 1621849850452,
-    "stop" : 1621849850490,
-    "duration" : 38
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "b94149c9cf768230",
-  "name" : "test_create_tools[商品数量错误-case0-数量不一致，请确定数量]",
-  "time" : {
-    "start" : 1621849859222,
-    "stop" : 1621849859315,
-    "duration" : 93
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "f897a9b23c4bc893",
-  "name" : "套包ID为空",
-  "time" : {
-    "start" : 1621849862706,
-    "stop" : 1621849862753,
-    "duration" : 47
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "d62e1795cfb16d82",
-  "name" : "物资ID错误",
-  "time" : {
-    "start" : 1621849860427,
-    "stop" : 1621849860532,
-    "duration" : 105
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "d81916c604b14bf4",
-  "name" : "删除未关闭订单",
-  "time" : {
-    "start" : 1621849866309,
-    "stop" : 1621849866384,
-    "duration" : 75
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "8a80c20e10fd23fa",
-  "name" : "test_17",
-  "time" : {
-    "start" : 1621849858323,
-    "stop" : 1621849858410,
-    "duration" : 87
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "6ed1bc255b6020f2",
-  "name" : "id为空",
-  "time" : {
-    "start" : 1621849864460,
-    "stop" : 1621849864498,
-    "duration" : 38
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "39aac8f1d88d22a7",
-  "name" : "来源仓库空",
-  "time" : {
-    "start" : 1621849865217,
-    "stop" : 1621849865272,
-    "duration" : 55
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "cea728442b395ed9",
-  "name" : "供应商：调拨单ID为空",
-  "time" : {
-    "start" : 1621849865937,
-    "stop" : 1621849865988,
-    "duration" : 51
-  },
-  "status" : "failed",
-  "severity" : "normal"
-}, {
-  "uid" : "ddae109e1f144182",
-  "name" : "存储条件为空",
-  "time" : {
-    "start" : 1621849851035,
-    "stop" : 1621849851092,
-    "duration" : 57
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "b2c2289f300dee29",
-  "name" : "订单ID为空",
-  "time" : {
-    "start" : 1621849862822,
-    "stop" : 1621849862863,
-    "duration" : 41
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "15c445e8990dea96",
-  "name" : "Edit：参数异常",
-  "time" : {
-    "start" : 1621849855969,
-    "stop" : 1621849856019,
-    "duration" : 50
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "3014f0dc4c0923de",
-  "name" : "手机号为空",
-  "time" : {
-    "start" : 1621849863230,
-    "stop" : 1621849863273,
-    "duration" : 43
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "7adbfa29ae6836a8",
-  "name" : "套包ID为空",
-  "time" : {
-    "start" : 1621849860541,
-    "stop" : 1621849860594,
-    "duration" : 53
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "1e31208e45c7b89f",
-  "name" : "归还时间小于手术开始时间",
-  "time" : {
-    "start" : 1621849862111,
-    "stop" : 1621849862166,
-    "duration" : 55
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "f133c809e290c5bb",
-  "name" : "test_07",
-  "time" : {
-    "start" : 1621849857664,
-    "stop" : 1621849857701,
-    "duration" : 37
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "dce87b3e6092ec53",
-  "name" : "收货方式为空",
-  "time" : {
-    "start" : 1621849861539,
-    "stop" : 1621849861598,
-    "duration" : 59
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "af595556bbfaa30c",
-  "name" : "test_14",
-  "time" : {
-    "start" : 1621849858054,
-    "stop" : 1621849858151,
-    "duration" : 97
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "a7d34ebe817521f2",
-  "name" : "手术部位为空",
-  "time" : {
-    "start" : 1621849860938,
-    "stop" : 1621849861021,
-    "duration" : 83
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "5c73ca011231eb03",
-  "name" : "供应商：驳回理由超长",
-  "time" : {
-    "start" : 1621849866245,
-    "stop" : 1621849866301,
-    "duration" : 56
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "60a0c5c0c08915f4",
-  "name" : "手机号为空",
-  "time" : {
-    "start" : 1621849863834,
-    "stop" : 1621849863880,
-    "duration" : 46
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "ab3bc8d2d722a0a0",
-  "name" : "test_08",
-  "time" : {
-    "start" : 1621849857706,
-    "stop" : 1621849857749,
-    "duration" : 43
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "8e9042e05c5e3e6e",
-  "name" : "Edit：商品分类 为空",
-  "time" : {
-    "start" : 1621849855907,
-    "stop" : 1621849855963,
-    "duration" : 56
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "15ea6b1675d41b43",
-  "name" : "test_09",
-  "time" : {
-    "start" : 1621849857754,
-    "stop" : 1621849857854,
-    "duration" : 100
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "ee3c7680b21efeec",
-  "name" : "price:商品不存在",
-  "time" : {
-    "start" : 1621849856777,
-    "stop" : 1621849856822,
-    "duration" : 45
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "2d04336ad417e345",
-  "name" : "收件人名字为空",
-  "time" : {
-    "start" : 1621849863725,
-    "stop" : 1621849863771,
-    "duration" : 46
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "290cb7953f001cc9",
-  "name" : "订单联系人为空",
-  "time" : {
-    "start" : 1621849861304,
-    "stop" : 1621849861392,
-    "duration" : 88
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "95c9b28d64e39c4a",
-  "name" : "物资分类 为空",
-  "time" : {
-    "start" : 1621849851094,
-    "stop" : 1621849851158,
-    "duration" : 64
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "bd34ff06379ea046",
-  "name" : "Edit：注册证失效日期小于于生效日期",
-  "time" : {
-    "start" : 1621849856092,
-    "stop" : 1621849856150,
-    "duration" : 58
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "dfbf6a9acac061d6",
-  "name" : "详细地址为空",
-  "time" : {
-    "start" : 1621849863474,
-    "stop" : 1621849863540,
-    "duration" : 66
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "74384b7fb870f",
-  "name" : "主刀医生超长",
-  "time" : {
-    "start" : 1621849861209,
-    "stop" : 1621849861295,
-    "duration" : 86
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "6ec644daf2510ac2",
-  "name" : "id为空",
-  "time" : {
-    "start" : 1621849864502,
-    "stop" : 1621849864567,
-    "duration" : 65
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "534534766b9b19ab",
-  "name" : "详细地址为空",
-  "time" : {
-    "start" : 1621849864003,
-    "stop" : 1621849864052,
-    "duration" : 49
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "28d7aa323dea88b4",
-  "name" : "注册证照为空",
-  "time" : {
-    "start" : 1621849850916,
-    "stop" : 1621849850976,
-    "duration" : 60
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "5410fb3837f9b4d4",
-  "name" : "商品信息为空",
-  "time" : {
-    "start" : 1621849865509,
-    "stop" : 1621849865554,
-    "duration" : 45
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "708d917a1cbca7a6",
-  "name" : "商品ID为空",
-  "time" : {
-    "start" : 1621849862472,
-    "stop" : 1621849862520,
-    "duration" : 48
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "8c60d74e24e62976",
-  "name" : "性别为空",
-  "time" : {
-    "start" : 1621849861606,
-    "stop" : 1621849861655,
-    "duration" : 49
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "d0bc8726baf4202a",
-  "name" : "注册证已失效",
-  "time" : {
-    "start" : 1621849854922,
-    "stop" : 1621849855009,
-    "duration" : 87
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "69452faf9b794726",
-  "name" : "生产企业为空",
-  "time" : {
-    "start" : 1621849850358,
-    "stop" : 1621849850402,
-    "duration" : 44
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "36489644db9ac734",
-  "name" : "skuCode为空",
-  "time" : {
-    "start" : 1621849850155,
-    "stop" : 1621849850198,
-    "duration" : 43
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "bef55dab321c1a48",
-  "name" : "套包数量为空",
-  "time" : {
-    "start" : 1621849862663,
-    "stop" : 1621849862700,
-    "duration" : 37
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "d014f0ceb1f74823",
-  "name" : "主刀医生为空",
-  "time" : {
-    "start" : 1621849861140,
-    "stop" : 1621849861200,
-    "duration" : 60
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "74944222b0641104",
-  "name" : "商品照片为空",
-  "time" : {
-    "start" : 1621849850869,
-    "stop" : 1621849850912,
-    "duration" : 43
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "4bd2f51efffba5a8",
-  "name" : "Edit：存储条件为空",
-  "time" : {
-    "start" : 1621849855779,
-    "stop" : 1621849855905,
-    "duration" : 126
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "bc34dd7e1454a3be",
-  "name" : "test_06",
-  "time" : {
-    "start" : 1621849857517,
-    "stop" : 1621849857573,
-    "duration" : 56
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "22214a1aa314afc3",
-  "name" : "id错误",
-  "time" : {
-    "start" : 1621849862385,
-    "stop" : 1621849862461,
-    "duration" : 76
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "4a8bb7f4479552a7",
-  "name" : "test_create_tools[仓库错误-case2-当前用户不能在该仓库创建加工单]",
-  "time" : {
-    "start" : 1621849859414,
-    "stop" : 1621849859506,
-    "duration" : 92
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "1fb8fce4d5c48136",
-  "name" : "注册证生效日期大于失效时间",
-  "time" : {
-    "start" : 1621849854806,
-    "stop" : 1621849854918,
-    "duration" : 112
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "723f65d459f46650",
-  "name" : "重复接收订单",
-  "time" : {
-    "start" : 1621849862920,
-    "stop" : 1621849863028,
-    "duration" : 108
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "7431349aa9a814ff",
-  "name" : "编辑未驳回订单",
-  "time" : {
-    "start" : 1621849865611,
-    "stop" : 1621849865682,
-    "duration" : 71
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "5f9e9578482f3014",
-  "name" : "工具包未选择",
-  "time" : {
-    "start" : 1621849858798,
-    "stop" : 1621849858842,
-    "duration" : 44
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "cdd0d95998a86807",
-  "name" : "手术日期小于当天",
-  "time" : {
-    "start" : 1621849862043,
-    "stop" : 1621849862102,
-    "duration" : 59
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "591781cdb5142e09",
-  "name" : "test_0601",
-  "time" : {
-    "start" : 1621849857579,
-    "stop" : 1621849857659,
-    "duration" : 80
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "dbad75d2d7ed6043",
-  "name" : "年龄段为空",
-  "time" : {
-    "start" : 1621849861664,
-    "stop" : 1621849861704,
-    "duration" : 40
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "1f10aaf3bdda88d8",
-  "name" : "养护类型为空",
-  "time" : {
-    "start" : 1621849850292,
-    "stop" : 1621849850355,
-    "duration" : 63
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "a96ceaeb119546d",
-  "name" : "收货方式为空",
-  "time" : {
-    "start" : 1621849862873,
-    "stop" : 1621849862912,
-    "duration" : 39
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "77aad5e0ff5ae000",
-  "name" : "年龄段错误",
-  "time" : {
-    "start" : 1621849861711,
-    "stop" : 1621849861757,
-    "duration" : 46
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "440c61a3af632ad0",
-  "name" : "套包数量为空",
-  "time" : {
-    "start" : 1621849862596,
-    "stop" : 1621849862654,
-    "duration" : 58
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "4f780136b498065d",
-  "name" : "商品数量为空",
-  "time" : {
-    "start" : 1621849865400,
-    "stop" : 1621849865442,
-    "duration" : 42
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "2bd67cb7734b32d3",
-  "name" : "price:折扣率为0",
-  "time" : {
-    "start" : 1621849856456,
-    "stop" : 1621849856534,
-    "duration" : 78
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "c6d6825a7b705c3a",
-  "name" : "di码为空",
-  "time" : {
-    "start" : 1621849856220,
-    "stop" : 1621849856263,
-    "duration" : 43
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "f6cb07b7fe68fee1",
-  "name" : "di码 少于14位",
-  "time" : {
-    "start" : 1621849856267,
-    "stop" : 1621849856324,
-    "duration" : 57
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "b427eadadb35e2b3",
-  "name" : "医院名字超长",
-  "time" : {
-    "start" : 1621849860845,
-    "stop" : 1621849860930,
-    "duration" : 85
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "223521e5ebcd7d63",
-  "name" : "收货地区为空",
-  "time" : {
-    "start" : 1621849863280,
-    "stop" : 1621849863349,
-    "duration" : 69
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "26ce4cda3bb436a0",
-  "name" : "Edit：skuCode重复",
-  "time" : {
-    "start" : 1621849856021,
-    "stop" : 1621849856087,
-    "duration" : 66
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "bd30c8251df90bb8",
-  "name" : "Edit：注册证照为空",
-  "time" : {
-    "start" : 1621849855584,
-    "stop" : 1621849855651,
-    "duration" : 67
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "1a996a96a1dcbf63",
-  "name" : "收货地区为空",
-  "time" : {
-    "start" : 1621849863358,
-    "stop" : 1621849863417,
-    "duration" : 59
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "ed4f13dd84c85dce",
-  "name" : "price:临调价为0",
-  "time" : {
-    "start" : 1621849856700,
-    "stop" : 1621849856775,
-    "duration" : 75
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "d1459ef539462a4a",
-  "name" : "Edit：原厂编码为空",
-  "time" : {
-    "start" : 1621849855094,
-    "stop" : 1621849855138,
-    "duration" : 44
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "b4b23c04ecec4ac6",
-  "name" : "地址ID为空",
-  "time" : {
-    "start" : 1621849864124,
-    "stop" : 1621849864202,
-    "duration" : 78
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "6511bf656f39fc2c",
-  "name" : "price:采购价格为0",
-  "time" : {
-    "start" : 1621849856618,
-    "stop" : 1621849856695,
-    "duration" : 77
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "be3282c30157d59a",
-  "name" : "经销商：驳回理由为空",
-  "time" : {
-    "start" : 1621849865830,
-    "stop" : 1621849865886,
-    "duration" : 56
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "11a420b0e078dccf",
-  "name" : "收货地区为空",
-  "time" : {
-    "start" : 1621849863951,
-    "stop" : 1621849863996,
-    "duration" : 45
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "6f51be160eabd5da",
-  "name" : "地址ID错误",
-  "time" : {
-    "start" : 1621849864212,
-    "stop" : 1621849864259,
-    "duration" : 47
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "3ccc30fb731c6169",
-  "name" : "来源仓库错误",
-  "time" : {
-    "start" : 1621849865279,
-    "stop" : 1621849865328,
-    "duration" : 49
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "23756c95b92da1ab",
-  "name" : "收货地区为空",
-  "time" : {
-    "start" : 1621849863889,
-    "stop" : 1621849863943,
-    "duration" : 54
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "5dd1c177d0444d18",
-  "name" : "经销商：审核建议为空",
-  "time" : {
-    "start" : 1621849865759,
-    "stop" : 1621849865821,
-    "duration" : 62
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "a52ad590e2a5e409",
-  "name" : "Edit：商品照片为空",
-  "time" : {
-    "start" : 1621849855487,
-    "stop" : 1621849855579,
-    "duration" : 92
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "e3cefa23c357c9f2",
-  "name" : "test_04",
-  "time" : {
-    "start" : 1621849857417,
-    "stop" : 1621849857464,
-    "duration" : 47
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "a5ce59155b6f736d",
-  "name" : "收件人名字为空",
-  "time" : {
-    "start" : 1621849863176,
-    "stop" : 1621849863221,
-    "duration" : 45
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "aedabd674a749185",
-  "name" : "Edit：注册证已失效",
-  "time" : {
-    "start" : 1621849856154,
-    "stop" : 1621849856215,
-    "duration" : 61
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "534c7932a0adfc7b",
-  "name" : "医院为空",
-  "time" : {
-    "start" : 1621849860761,
-    "stop" : 1621849860836,
-    "duration" : 75
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "4758300267f60960",
-  "name" : "物资、套包为空",
-  "time" : {
-    "start" : 1621849860689,
-    "stop" : 1621849860753,
-    "duration" : 64
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "f1bd7dcdeb9ec0a6",
-  "name" : "删除物资",
-  "time" : {
-    "start" : 1621849856827,
-    "stop" : 1621849856912,
-    "duration" : 85
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "637d721d8a4c47a8",
-  "name" : "物资名称为空",
-  "time" : {
-    "start" : 1621849850095,
-    "stop" : 1621849850151,
-    "duration" : 56
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "efe5b7ec16b59d5d",
-  "name" : "产地为空",
-  "time" : {
-    "start" : 1621849850404,
-    "stop" : 1621849850449,
-    "duration" : 45
-  },
-  "status" : "passed",
+  "status" : "broken",
   "severity" : "normal"
 }, {
-  "uid" : "539dbbabab1c1c25",
-  "name" : "test_02",
+  "uid" : "f058739b24f53574",
+  "name" : "skuCode重复",
   "time" : {
-    "start" : 1621849857284,
-    "stop" : 1621849857333,
-    "duration" : 49
+    "start" : 1622692130089,
+    "stop" : 1622692130539,
+    "duration" : 450
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "31d159bbc784156c",
-  "name" : "手术部位错误",
+  "uid" : "dc75e9de4688d1e6",
+  "name" : "price:商品ID为空",
   "time" : {
-    "start" : 1621849861031,
-    "stop" : 1621849861132,
+    "start" : 1622692134322,
+    "stop" : 1622692134423,
     "duration" : 101
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "8c0248f8ab6ef90c",
-  "name" : "test_16",
+  "uid" : "8c91171d1844e719",
+  "name" : "收货地区为空",
   "time" : {
-    "start" : 1621849858248,
-    "stop" : 1621849858318,
-    "duration" : 70
+    "start" : 1622692160097,
+    "stop" : 1622692160186,
+    "duration" : 89
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "5db0affa0c648400",
-  "name" : "Edit基：本单位为空",
+  "uid" : "3fd6391a4e106963",
+  "name" : "商品数量为空",
   "time" : {
-    "start" : 1621849855381,
-    "stop" : 1621849855422,
-    "duration" : 41
+    "start" : 1622692155557,
+    "stop" : 1622692155742,
+    "duration" : 185
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "57778c83d319f4d8",
+  "uid" : "d970f91b9ec86cd7",
+  "name" : "供应商：驳回理由为空",
+  "time" : {
+    "start" : 1622692164349,
+    "stop" : 1622692164349,
+    "duration" : 0
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "7d22d13952f77152",
+  "name" : "手术部位不正确",
+  "time" : {
+    "start" : 1622692150758,
+    "stop" : 1622692151006,
+    "duration" : 248
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "b79c9285db29d92",
+  "name" : "养护类型为空",
+  "time" : {
+    "start" : 1622692127086,
+    "stop" : 1622692127210,
+    "duration" : 124
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "ce149a17ac9d4cf3",
+  "name" : "商品数量错误",
+  "time" : {
+    "start" : 1622692157567,
+    "stop" : 1622692157836,
+    "duration" : 269
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "9aab90023a76e180",
+  "name" : "收货仓库为空",
+  "time" : {
+    "start" : 1622692164164,
+    "stop" : 1622692164164,
+    "duration" : 0
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "c9fbd16bc3e337c7",
+  "name" : "调拨理由为空",
+  "time" : {
+    "start" : 1622692162891,
+    "stop" : 1622692162891,
+    "duration" : 0
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "b4318c3e753cf618",
+  "name" : "收件人名字为空",
+  "time" : {
+    "start" : 1622692159628,
+    "stop" : 1622692159763,
+    "duration" : 135
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "bdb9e00770a75127",
   "name" : "品牌为空",
   "time" : {
-    "start" : 1621849861470,
-    "stop" : 1621849861530,
-    "duration" : 60
+    "start" : 1622692151541,
+    "stop" : 1622692151632,
+    "duration" : 91
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "f7a74c6f9feb3b3c",
-  "name" : "skuCode重复",
+  "uid" : "f97c088d095c4379",
+  "name" : "品牌为空",
   "time" : {
-    "start" : 1621849854635,
-    "stop" : 1621849854801,
+    "start" : 1622692145862,
+    "stop" : 1622692146006,
+    "duration" : 144
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "de63695c6d686aa6",
+  "name" : "订单ID为空",
+  "time" : {
+    "start" : 1622692156474,
+    "stop" : 1622692156636,
+    "duration" : 162
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "ea8bc59423c83cab",
+  "name" : "医院名字超长",
+  "time" : {
+    "start" : 1622692144376,
+    "stop" : 1622692144566,
+    "duration" : 190
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "2d6a25af900e12a6",
+  "name" : "收货地区为空",
+  "time" : {
+    "start" : 1622692161257,
+    "stop" : 1622692161348,
+    "duration" : 91
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "77ac4e6d94439abe",
+  "name" : "商品/套包数量为空",
+  "time" : {
+    "start" : 1622692153609,
+    "stop" : 1622692153727,
+    "duration" : 118
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "6d1af904097f02e9",
+  "name" : "price:商品不存在",
+  "time" : {
+    "start" : 1622692135190,
+    "stop" : 1622692135293,
+    "duration" : 103
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "fb4691c328ddf7a5",
+  "name" : "test_05",
+  "time" : {
+    "start" : 1622692136789,
+    "stop" : 1622692136845,
+    "duration" : 56
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "7a663a073118efc7",
+  "name" : "正向流程",
+  "time" : {
+    "start" : 1622692139690,
+    "stop" : 1622692139962,
+    "duration" : 272
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "bc2aaaf6cd5a76b0",
+  "name" : "经销商：驳回理由为空",
+  "time" : {
+    "start" : 1622692164301,
+    "stop" : 1622692164301,
+    "duration" : 0
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "d093748382ab5c75",
+  "name" : "订单ID为空",
+  "time" : {
+    "start" : 1622692158892,
+    "stop" : 1622692159260,
+    "duration" : 368
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "86e7cdf8e7303810",
+  "name" : "地址ID错误",
+  "time" : {
+    "start" : 1622692161824,
+    "stop" : 1622692161882,
+    "duration" : 58
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "b5a94350e63af806",
+  "name" : "test_18",
+  "time" : {
+    "start" : 1622692139319,
+    "stop" : 1622692139451,
+    "duration" : 132
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "4cf378eb0cbd866c",
+  "name" : "收货方式为空",
+  "time" : {
+    "start" : 1622692156647,
+    "stop" : 1622692156928,
+    "duration" : 281
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "b2ea6e5365854906",
+  "name" : "来源仓库错误",
+  "time" : {
+    "start" : 1622692164150,
+    "stop" : 1622692164150,
+    "duration" : 0
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "7e10e19b2e2cda69",
+  "name" : "物资id为空",
+  "time" : {
+    "start" : 1622692143439,
+    "stop" : 1622692143479,
+    "duration" : 40
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "ad332bba00f5988f",
+  "name" : "医院名称超长",
+  "time" : {
+    "start" : 1622692150385,
+    "stop" : 1622692150529,
+    "duration" : 144
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "c05045d98676b7c8",
+  "name" : "注册证照为空",
+  "time" : {
+    "start" : 1622692128757,
+    "stop" : 1622692129132,
+    "duration" : 375
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "cfab8848dd3363aa",
+  "name" : "Edit：注册证失效日期小于于生效日期",
+  "time" : {
+    "start" : 1622692133761,
+    "stop" : 1622692133944,
+    "duration" : 183
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "5e72612dc013ad33",
+  "name" : "工具包未选择",
+  "time" : {
+    "start" : 1622692140174,
+    "stop" : 1622692140265,
+    "duration" : 91
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "967c17e8c3874379",
+  "name" : "联系人电话为空",
+  "time" : {
+    "start" : 1622692151367,
+    "stop" : 1622692151534,
+    "duration" : 167
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "71e54e27e575da21",
+  "name" : "id为空",
+  "time" : {
+    "start" : 1622692162393,
+    "stop" : 1622692162569,
+    "duration" : 176
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "910c6ae85c3c2505",
+  "name" : "套包ID为空",
+  "time" : {
+    "start" : 1622692143677,
+    "stop" : 1622692143764,
+    "duration" : 87
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "fb4172f5b07a3c60",
+  "name" : "拒绝原因过长",
+  "time" : {
+    "start" : 1622692148378,
+    "stop" : 1622692148476,
+    "duration" : 98
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "76ddfdad988deb2b",
+  "name" : "手术时间为空",
+  "time" : {
+    "start" : 1622692146980,
+    "stop" : 1622692147165,
+    "duration" : 185
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "17cf11c5a5c62fea",
+  "name" : "套包ID错误",
+  "time" : {
+    "start" : 1622692143773,
+    "stop" : 1622692143956,
+    "duration" : 183
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "50cd40c876cddbca",
+  "name" : "归还时间小于手术开始时间",
+  "time" : {
+    "start" : 1622692152698,
+    "stop" : 1622692152933,
+    "duration" : 235
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "826c1830e4ea230",
+  "name" : "临调单ID错误",
+  "time" : {
+    "start" : 1622692148190,
+    "stop" : 1622692148300,
+    "duration" : 110
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "1e3e012470c04762",
+  "name" : "收货方式为空",
+  "time" : {
+    "start" : 1622692151641,
+    "stop" : 1622692151692,
+    "duration" : 51
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "3c93fb7b51ec856e",
+  "name" : "经销商修改供应商地址",
+  "time" : {
+    "start" : 1622692161891,
+    "stop" : 1622692162297,
+    "duration" : 406
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "e516a0ae90d66ac6",
+  "name" : "test_0601",
+  "time" : {
+    "start" : 1622692137459,
+    "stop" : 1622692137990,
+    "duration" : 531
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "59dbfef2da3b568d",
+  "name" : "物资分类 为空",
+  "time" : {
+    "start" : 1622692129632,
+    "stop" : 1622692129798,
     "duration" : 166
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "fd645b38579b341b",
-  "name" : "工具包数量过大",
+  "uid" : "652ecf6c54c5560a",
+  "name" : "工具包ID为空",
   "time" : {
-    "start" : 1621849865561,
-    "stop" : 1621849865604,
-    "duration" : 43
+    "start" : 1622692149551,
+    "stop" : 1622692149605,
+    "duration" : 54
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "7e8d10d3112cec49",
-  "name" : "test_18",
+  "uid" : "13d74b80f9244c91",
+  "name" : "Edit：养护类型为空",
   "time" : {
-    "start" : 1621849858415,
-    "stop" : 1621849858487,
-    "duration" : 72
+    "start" : 1622692131893,
+    "stop" : 1622692132063,
+    "duration" : 170
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "3cea7c3bf1c4cd60",
-  "name" : "收件人名字为空",
+  "uid" : "5dee4d5300d7daa6",
+  "name" : "test_17",
   "time" : {
-    "start" : 1621849863121,
-    "stop" : 1621849863167,
-    "duration" : 46
+    "start" : 1622692139246,
+    "stop" : 1622692139311,
+    "duration" : 65
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "3b4bffc822f87cd",
-  "name" : "test_1401",
+  "uid" : "93d3bc8507eab9be",
+  "name" : "test_07",
   "time" : {
-    "start" : 1621849851160,
-    "stop" : 1621849854632,
-    "duration" : 3472
+    "start" : 1622692137996,
+    "stop" : 1622692138058,
+    "duration" : 62
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "66a5d893f87c7f5a",
-  "name" : "test_12",
+  "uid" : "4d72342a02282605",
+  "name" : "物资名称为空",
   "time" : {
-    "start" : 1621849857922,
-    "stop" : 1621849857994,
-    "duration" : 72
+    "start" : 1622692126501,
+    "stop" : 1622692126831,
+    "duration" : 330
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "28441477ebae9f0b",
-  "name" : "经销商修改供应商地址",
+  "uid" : "ea1887da5b7274c1",
+  "name" : "提货人姓名为空",
   "time" : {
-    "start" : 1621849864267,
-    "stop" : 1621849864456,
-    "duration" : 189
+    "start" : 1622692162721,
+    "stop" : 1622692162721,
+    "duration" : 0
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "9faba37bcd5d92a7",
+  "name" : "重复关闭订单",
+  "time" : {
+    "start" : 1622692164390,
+    "stop" : 1622692164390,
+    "duration" : 0
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "b908fcb2698e9fe7",
+  "name" : "基本单位为空",
+  "time" : {
+    "start" : 1622692127426,
+    "stop" : 1622692127565,
+    "duration" : 139
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "bb0338de8d89e472",
-  "name" : "test_03",
-  "time" : {
-    "start" : 1621849857338,
-    "stop" : 1621849857412,
-    "duration" : 74
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "fc9659840761c788",
-  "name" : "物资id为空",
-  "time" : {
-    "start" : 1621849860321,
-    "stop" : 1621849860418,
-    "duration" : 97
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "c24bd20349988292",
+  "uid" : "d3ee0dc9d727f2a",
   "name" : "商品数量为空",
   "time" : {
-    "start" : 1621849862527,
-    "stop" : 1621849862588,
-    "duration" : 61
+    "start" : 1622692164176,
+    "stop" : 1622692164176,
+    "duration" : 0
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "7aaf6828ab28e22f",
+  "name" : "详细地址为空",
+  "time" : {
+    "start" : 1622692160197,
+    "stop" : 1622692160367,
+    "duration" : 170
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "44adc405f12d09e8",
-  "name" : "price:商品ID为空",
+  "uid" : "30faa4f6e60196a5",
+  "name" : "供应商：驳回理由超长",
   "time" : {
-    "start" : 1621849856383,
-    "stop" : 1621849856454,
-    "duration" : 71
+    "start" : 1622692164361,
+    "stop" : 1622692164361,
+    "duration" : 0
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "26321056a1716372",
+  "name" : "归还时间小于手术开始时间",
+  "time" : {
+    "start" : 1622692147501,
+    "stop" : 1622692147674,
+    "duration" : 173
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "b41003673b94aa8c",
-  "name" : "test_11",
+  "uid" : "84597d714cf279e3",
+  "name" : "重复删除订单",
   "time" : {
-    "start" : 1621849857859,
-    "stop" : 1621849857918,
+    "start" : 1622692164405,
+    "stop" : 1622692164405,
+    "duration" : 0
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "d9b3a996c487e14e",
+  "name" : "收货地区为空",
+  "time" : {
+    "start" : 1622692159982,
+    "stop" : 1622692160087,
+    "duration" : 105
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "314424315fdfb6c4",
+  "name" : "手机号为空",
+  "time" : {
+    "start" : 1622692159773,
+    "stop" : 1622692159972,
+    "duration" : 199
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "5cfdc55e94484e74",
+  "name" : "手术部位错误",
+  "time" : {
+    "start" : 1622692145081,
+    "stop" : 1622692145339,
+    "duration" : 258
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "723a5643b5c1bd9a",
+  "name" : "Edit：商品分类 为空",
+  "time" : {
+    "start" : 1622692133439,
+    "stop" : 1622692133595,
+    "duration" : 156
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "e6b29b995718724",
+  "name" : "test_15",
+  "time" : {
+    "start" : 1622692138993,
+    "stop" : 1622692139119,
+    "duration" : 126
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "8d021a89651aa0b1",
+  "name" : "test_01",
+  "time" : {
+    "start" : 1622692136469,
+    "stop" : 1622692136528,
     "duration" : 59
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "b4fd0f973d8c1a44",
-  "name" : "重复删除订单",
+  "uid" : "e278c3a43477a042",
+  "name" : "性别为空",
   "time" : {
-    "start" : 1621849866613,
-    "stop" : 1621849866658,
-    "duration" : 45
+    "start" : 1622692146201,
+    "stop" : 1622692146325,
+    "duration" : 124
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "a8497e56464b9023",
-  "name" : "test_create_tools[仓库为空-case1-请选择仓库]",
+  "uid" : "840ba4879a14802c",
+  "name" : "年龄段为空",
   "time" : {
-    "start" : 1621849859323,
-    "stop" : 1621849859405,
-    "duration" : 82
+    "start" : 1622692151792,
+    "stop" : 1622692151915,
+    "duration" : 123
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "f1602038fcc83800",
-  "name" : "详细地址为空",
+  "uid" : "3e11babafcf10868",
+  "name" : "收货地区为空",
   "time" : {
-    "start" : 1621849864062,
-    "stop" : 1621849864115,
-    "duration" : 53
+    "start" : 1622692161357,
+    "stop" : 1622692161606,
+    "duration" : 249
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "68b515d173978af8",
-  "name" : "di码：商品ID为空",
+  "uid" : "9b08353055faab80",
+  "name" : "商品ID为空",
   "time" : {
-    "start" : 1621849856329,
-    "stop" : 1621849856379,
-    "duration" : 50
+    "start" : 1622692149855,
+    "stop" : 1622692149964,
+    "duration" : 109
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "beda05d86c997274",
-  "name" : "仓库为空",
+  "uid" : "9db7866b9be6ba6",
+  "name" : "联系人电话为空",
   "time" : {
-    "start" : 1621849862761,
-    "stop" : 1621849862813,
-    "duration" : 52
+    "start" : 1622692145778,
+    "stop" : 1622692145854,
+    "duration" : 76
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "2909d5374fbdca30",
+  "uid" : "7b222463c8e943bc",
+  "name" : "订单ID为空",
+  "time" : {
+    "start" : 1622692162659,
+    "stop" : 1622692162659,
+    "duration" : 0
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "797ca618328f8d8b",
   "name" : "Edit：产地为空",
   "time" : {
-    "start" : 1621849855324,
-    "stop" : 1621849855379,
+    "start" : 1622692132337,
+    "stop" : 1622692132441,
+    "duration" : 104
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "cc38f11cf2910498",
+  "name" : "仓库为空",
+  "time" : {
+    "start" : 1622692156310,
+    "stop" : 1622692156464,
+    "duration" : 154
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "811ed79c34956cd4",
+  "name" : "收件人名字为空",
+  "time" : {
+    "start" : 1622692160810,
+    "stop" : 1622692161000,
+    "duration" : 190
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "67fb3b0cc449d46f",
+  "name" : "test_create_tools[仓库为空-case1-请选择仓库]",
+  "time" : {
+    "start" : 1622692141134,
+    "stop" : 1622692141134,
+    "duration" : 0
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "eace46944a9ad6fc",
+  "name" : "skuCode为空",
+  "time" : {
+    "start" : 1622692126842,
+    "stop" : 1622692126918,
+    "duration" : 76
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "c01ff690ef0410f6",
+  "name" : "归还时间为空",
+  "time" : {
+    "start" : 1622692152543,
+    "stop" : 1622692152623,
+    "duration" : 80
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "a5dd87520f2a7524",
+  "name" : "工具包不存在",
+  "time" : {
+    "start" : 1622692149615,
+    "stop" : 1622692149845,
+    "duration" : 230
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "e12b2f0f1d96a5d2",
+  "name" : "手术部位为空",
+  "time" : {
+    "start" : 1622692150540,
+    "stop" : 1622692150749,
+    "duration" : 209
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "ef3cd3c6b12f627",
+  "name" : "手术日期小于当天",
+  "time" : {
+    "start" : 1622692147360,
+    "stop" : 1622692147493,
+    "duration" : 133
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "60cca8918708d46",
+  "name" : "商品ID为空",
+  "time" : {
+    "start" : 1622692155364,
+    "stop" : 1622692155549,
+    "duration" : 185
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "e1a0537c41654270",
+  "name" : "test_08",
+  "time" : {
+    "start" : 1622692138062,
+    "stop" : 1622692138198,
+    "duration" : 136
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "36da689287276258",
+  "name" : "套包数量为空",
+  "time" : {
+    "start" : 1622692155925,
+    "stop" : 1622692156127,
+    "duration" : 202
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "372b1cf514a958de",
+  "name" : "物资类别为空",
+  "time" : {
+    "start" : 1622692126929,
+    "stop" : 1622692127080,
+    "duration" : 151
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "9abbae2ca19463ee",
+  "name" : "医生名称过长",
+  "time" : {
+    "start" : 1622692151141,
+    "stop" : 1622692151211,
+    "duration" : 70
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "304ebfd51a2890f2",
+  "name" : "注册证号为空",
+  "time" : {
+    "start" : 1622692129138,
+    "stop" : 1622692129392,
+    "duration" : 254
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "f0ea185426510531",
+  "name" : "手术部位为空",
+  "time" : {
+    "start" : 1622692144577,
+    "stop" : 1622692145072,
+    "duration" : 495
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "f7079b481ef18010",
+  "name" : "手术日期小于当天",
+  "time" : {
+    "start" : 1622692152633,
+    "stop" : 1622692152688,
     "duration" : 55
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "62326fca58cce3b3",
+  "uid" : "84eb556578556c0c",
+  "name" : "test_11",
+  "time" : {
+    "start" : 1622692138363,
+    "stop" : 1622692138454,
+    "duration" : 91
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "2f62896709625db4",
+  "name" : "Edit：注册证照为空",
+  "time" : {
+    "start" : 1622692133129,
+    "stop" : 1622692133204,
+    "duration" : 75
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "e666a46c3a2d0620",
+  "name" : "Edit：商品名为空",
+  "time" : {
+    "start" : 1622692131328,
+    "stop" : 1622692131502,
+    "duration" : 174
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "50dbdc0014707900",
+  "name" : "医院名称为空",
+  "time" : {
+    "start" : 1622692150219,
+    "stop" : 1622692150376,
+    "duration" : 157
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "93d9dce28fd857f",
+  "name" : "提货人电话为空",
+  "time" : {
+    "start" : 1622692162739,
+    "stop" : 1622692162740,
+    "duration" : 1
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "52e2325c9e245e71",
+  "name" : "收货方式为空",
+  "time" : {
+    "start" : 1622692146016,
+    "stop" : 1622692146196,
+    "duration" : 180
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "e9f31168b4865625",
+  "name" : "详细地址为空",
+  "time" : {
+    "start" : 1622692160377,
+    "stop" : 1622692160490,
+    "duration" : 113
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "a49941a16e2273fb",
+  "name" : "收件人名字为空",
+  "time" : {
+    "start" : 1622692159494,
+    "stop" : 1622692159619,
+    "duration" : 125
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "ddb162d47dc3e110",
+  "name" : "拒绝成功",
+  "time" : {
+    "start" : 1622692148485,
+    "stop" : 1622692148587,
+    "duration" : 102
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "9532209ca3953e53",
+  "name" : "id为空",
+  "time" : {
+    "start" : 1622692162302,
+    "stop" : 1622692162384,
+    "duration" : 82
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "911b7dbede34371",
+  "name" : "商品/套包数量为空",
+  "time" : {
+    "start" : 1622692152944,
+    "stop" : 1622692153075,
+    "duration" : 131
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "2be2513b30bde562",
+  "name" : "经销商：审核建议为空",
+  "time" : {
+    "start" : 1622692164288,
+    "stop" : 1622692164288,
+    "duration" : 0
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "1b1cf13283b3004",
+  "name" : "Edit：商品照片为空",
+  "time" : {
+    "start" : 1622692132863,
+    "stop" : 1622692133123,
+    "duration" : 260
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "6997634eee2c8703",
+  "name" : "price:折扣率为0",
+  "time" : {
+    "start" : 1622692134426,
+    "stop" : 1622692134635,
+    "duration" : 209
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "2c04a6368e6f525e",
+  "name" : "Edit：原厂编码为空",
+  "time" : {
+    "start" : 1622692131507,
+    "stop" : 1622692131761,
+    "duration" : 254
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "74458d412fe462a4",
+  "name" : "商品信息为空",
+  "time" : {
+    "start" : 1622692164230,
+    "stop" : 1622692164230,
+    "duration" : 0
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "17f8cefd59fbedf1",
+  "name" : "提货委托书为空",
+  "time" : {
+    "start" : 1622692162821,
+    "stop" : 1622692162821,
+    "duration" : 0
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "bd1e22a4554a86a7",
+  "name" : "删除未关闭订单",
+  "time" : {
+    "start" : 1622692164375,
+    "stop" : 1622692164375,
+    "duration" : 0
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "a6c64e073b62242d",
+  "name" : "商品/套包数量为空",
+  "time" : {
+    "start" : 1622692153084,
+    "stop" : 1622692153255,
+    "duration" : 171
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "b974ab7ba51078aa",
+  "name" : "生产企业为空",
+  "time" : {
+    "start" : 1622692127217,
+    "stop" : 1622692127324,
+    "duration" : 107
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "9a84c55d72c1ef6e",
+  "name" : "商品数量过大",
+  "time" : {
+    "start" : 1622692164199,
+    "stop" : 1622692164199,
+    "duration" : 0
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "c890c51f079b3c1",
+  "name" : "提货人电话错误",
+  "time" : {
+    "start" : 1622692162758,
+    "stop" : 1622692162758,
+    "duration" : 0
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "a942ba46562dd8fc",
+  "name" : "price:税率为0",
+  "time" : {
+    "start" : 1622692134641,
+    "stop" : 1622692134781,
+    "duration" : 140
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "ff476addf1afbe6c",
+  "name" : "物资、套包为空",
+  "time" : {
+    "start" : 1622692143964,
+    "stop" : 1622692144163,
+    "duration" : 199
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "8c9f5cce7a7929b7",
+  "name" : "Edit：注册证已失效",
+  "time" : {
+    "start" : 1622692133947,
+    "stop" : 1622692134038,
+    "duration" : 91
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "9bb601619fb9d5a",
+  "name" : "订单ID错误",
+  "time" : {
+    "start" : 1622692159270,
+    "stop" : 1622692159351,
+    "duration" : 81
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "9eef33dfedacd0ad",
+  "name" : "di码 少于14位",
+  "time" : {
+    "start" : 1622692134158,
+    "stop" : 1622692134219,
+    "duration" : 61
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "a44024fe17e44c5d",
+  "name" : "test_create_tools[仓库错误-case2-当前用户不能在该仓库创建加工单]",
+  "time" : {
+    "start" : 1622692141156,
+    "stop" : 1622692141156,
+    "duration" : 0
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "e2c3b5d2e379d028",
+  "name" : "Edit：生产企业为空",
+  "time" : {
+    "start" : 1622692132068,
+    "stop" : 1622692132331,
+    "duration" : 263
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "edab84e7cae1d77e",
+  "name" : "商品/套包数量为空",
+  "time" : {
+    "start" : 1622692153265,
+    "stop" : 1622692153443,
+    "duration" : 178
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "14b5ebc7d776628c",
+  "name" : "test_create_tools[商品数量错误-case0-数量不一致，请确定数量]",
+  "time" : {
+    "start" : 1622692140268,
+    "stop" : 1622692140268,
+    "duration" : 0
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "afb1530a13962959",
+  "name" : "test_1401",
+  "time" : {
+    "start" : 1622692129804,
+    "stop" : 1622692130084,
+    "duration" : 280
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "f035c404d40e501",
+  "name" : "存储条件为空",
+  "time" : {
+    "start" : 1622692129398,
+    "stop" : 1622692129626,
+    "duration" : 228
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "794915f68f3efe1f",
+  "name" : "test_09",
+  "time" : {
+    "start" : 1622692138205,
+    "stop" : 1622692138356,
+    "duration" : 151
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "d5185750b5fff07",
   "name" : "型号为空",
   "time" : {
-    "start" : 1621849850774,
-    "stop" : 1621849850867,
+    "start" : 1622692128327,
+    "stop" : 1622692128617,
+    "duration" : 290
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "24aa5ebc5c364dc5",
+  "name" : "拒绝原因为空",
+  "time" : {
+    "start" : 1622692148309,
+    "stop" : 1622692148368,
+    "duration" : 59
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "2e1134858c13a892",
+  "name" : "工具包数量错误",
+  "time" : {
+    "start" : 1622692157847,
+    "stop" : 1622692158135,
+    "duration" : 288
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "2810f7f94411ccff",
+  "name" : "Edit：存储条件为空",
+  "time" : {
+    "start" : 1622692133366,
+    "stop" : 1622692133435,
+    "duration" : 69
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "d2b4f578e879d41a",
+  "name" : "Edit：参数异常",
+  "time" : {
+    "start" : 1622692133602,
+    "stop" : 1622692133653,
+    "duration" : 51
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "6784ba81aef0a3d5",
+  "name" : "重复关闭订单",
+  "time" : {
+    "start" : 1622692158668,
+    "stop" : 1622692158884,
+    "duration" : 216
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "6406afdea0a0696e",
+  "name" : "id错误",
+  "time" : {
+    "start" : 1622692155133,
+    "stop" : 1622692155354,
+    "duration" : 221
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "4d7975dbc075e84f",
+  "name" : "主刀医生超长",
+  "time" : {
+    "start" : 1622692145558,
+    "stop" : 1622692145684,
+    "duration" : 126
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "b90f1c08447a3a8a",
+  "name" : "注册证已失效",
+  "time" : {
+    "start" : 1622692131019,
+    "stop" : 1622692131323,
+    "duration" : 304
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "105f26a2f9455b8e",
+  "name" : "Edit：物资类别为空",
+  "time" : {
+    "start" : 1622692131768,
+    "stop" : 1622692131887,
+    "duration" : 119
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "6d3451e0ed0d12f1",
+  "name" : "身份证为空",
+  "time" : {
+    "start" : 1622692162776,
+    "stop" : 1622692162776,
+    "duration" : 0
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "564c6c409fd39b90",
+  "name" : "Edit：skuCode重复",
+  "time" : {
+    "start" : 1622692133659,
+    "stop" : 1622692133756,
+    "duration" : 97
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "1de5cc4001fda085",
+  "name" : "套包数量为空",
+  "time" : {
+    "start" : 1622692155752,
+    "stop" : 1622692155916,
+    "duration" : 164
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "522d2f8b8303e99b",
+  "name" : "地址ID为空",
+  "time" : {
+    "start" : 1622692161757,
+    "stop" : 1622692161813,
+    "duration" : 56
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "cb9db71233d8d538",
+  "name" : "test_06",
+  "time" : {
+    "start" : 1622692136851,
+    "stop" : 1622692137454,
+    "duration" : 603
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "ee90b1ab49aa8e3f",
+  "name" : "供应商：审核建议为空",
+  "time" : {
+    "start" : 1622692164337,
+    "stop" : 1622692164337,
+    "duration" : 0
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "b9f49ea15382ec84",
+  "name" : "test_03",
+  "time" : {
+    "start" : 1622692136607,
+    "stop" : 1622692136707,
+    "duration" : 100
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "bce5626e1018365c",
+  "name" : "删除物资",
+  "time" : {
+    "start" : 1622692135302,
+    "stop" : 1622692135490,
+    "duration" : 188
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "77df0eac9bc8055d",
+  "name" : "商品不存在",
+  "time" : {
+    "start" : 1622692149974,
+    "stop" : 1622692150209,
+    "duration" : 235
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "ae339422e7665fa8",
+  "name" : "产地为空",
+  "time" : {
+    "start" : 1622692127329,
+    "stop" : 1622692127419,
+    "duration" : 90
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "e4f5146dde25e9c5",
+  "name" : "临调单ID为空",
+  "time" : {
+    "start" : 1622692148088,
+    "stop" : 1622692148181,
     "duration" : 93
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "496326b5173dc5a6",
+  "name" : "默认地址错误",
+  "time" : {
+    "start" : 1622692146809,
+    "stop" : 1622692146970,
+    "duration" : 161
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "54b0562f68888f0d",
+  "name" : "手术时间为空",
+  "time" : {
+    "start" : 1622692152453,
+    "stop" : 1622692152534,
+    "duration" : 81
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "b2f252185ca5997f",
+  "name" : "price:临调价为0",
+  "time" : {
+    "start" : 1622692134951,
+    "stop" : 1622692135185,
+    "duration" : 234
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "1f96466f26a1cd47",
+  "name" : "年龄段为空",
+  "time" : {
+    "start" : 1622692146330,
+    "stop" : 1622692146519,
+    "duration" : 189
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "c87e40217514e327",
+  "name" : "套包ID为空",
+  "time" : {
+    "start" : 1622692156137,
+    "stop" : 1622692156300,
+    "duration" : 163
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "20bc7bafd7d50235",
+  "name" : "默认地址错误",
+  "time" : {
+    "start" : 1622692152293,
+    "stop" : 1622692152443,
+    "duration" : 150
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "74c14a4391d7b43a",
+  "name" : "商品/套包数量为空",
+  "time" : {
+    "start" : 1622692153453,
+    "stop" : 1622692153597,
+    "duration" : 144
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "76ffc84752895916",
+  "name" : "di码为空",
+  "time" : {
+    "start" : 1622692134041,
+    "stop" : 1622692134155,
+    "duration" : 114
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "c20eeba31e2f5fcd",
+  "name" : "重复接收订单",
+  "time" : {
+    "start" : 1622692156938,
+    "stop" : 1622692157297,
+    "duration" : 359
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "67ea2b7ba7c6fc1f",
+  "name" : "test_16",
+  "time" : {
+    "start" : 1622692139124,
+    "stop" : 1622692139241,
+    "duration" : 117
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "b169de4e46bf1081",
+  "name" : "商品/套包数量为空",
+  "time" : {
+    "start" : 1622692153736,
+    "stop" : 1622692153891,
+    "duration" : 155
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "e59a3c54809c9943",
+  "name" : "物资ID错误",
+  "time" : {
+    "start" : 1622692143487,
+    "stop" : 1622692143670,
+    "duration" : 183
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "c2a08876d870a16e",
+  "name" : "默认地址为空",
+  "time" : {
+    "start" : 1622692146678,
+    "stop" : 1622692146804,
+    "duration" : 126
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "83ce27fcbe58f77e",
+  "name" : "订单联系人为空",
+  "time" : {
+    "start" : 1622692151223,
+    "stop" : 1622692151357,
+    "duration" : 134
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "f2709f7de1bf27f7",
+  "name" : "详细地址为空",
+  "time" : {
+    "start" : 1622692161616,
+    "stop" : 1622692161666,
+    "duration" : 50
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "32f0efadd8eb653",
+  "name" : "商品照片为空",
+  "time" : {
+    "start" : 1622692128624,
+    "stop" : 1622692128749,
+    "duration" : 125
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "6148a7eb2ab1be0b",
+  "name" : "医院为空",
+  "time" : {
+    "start" : 1622692144174,
+    "stop" : 1622692144365,
+    "duration" : 191
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "623c44547e75f54b",
+  "name" : "医生名称为空",
+  "time" : {
+    "start" : 1622692151014,
+    "stop" : 1622692151130,
+    "duration" : 116
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "111af7feb91b0326",
+  "name" : "test_12",
+  "time" : {
+    "start" : 1622692138459,
+    "stop" : 1622692138589,
+    "duration" : 130
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "908a28f272c304e2",
+  "name" : "身份证错误",
+  "time" : {
+    "start" : 1622692162798,
+    "stop" : 1622692162799,
+    "duration" : 1
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "d2ed7a987554fdfe",
+  "name" : "年龄段错误",
+  "time" : {
+    "start" : 1622692151924,
+    "stop" : 1622692152022,
+    "duration" : 98
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "2ede2a4d9f69954d",
+  "name" : "test_02",
+  "time" : {
+    "start" : 1622692136535,
+    "stop" : 1622692136605,
+    "duration" : 70
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "4e671f7c1a54f06b",
+  "name" : "test_13",
+  "time" : {
+    "start" : 1622692138595,
+    "stop" : 1622692138841,
+    "duration" : 246
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "d87c6e493f46b6fc",
+  "name" : "临调单ID为空",
+  "time" : {
+    "start" : 1622692153901,
+    "stop" : 1622692154078,
+    "duration" : 177
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "f5836dc04abe5f0f",
+  "name" : "供应商：调拨单ID为空",
+  "time" : {
+    "start" : 1622692164325,
+    "stop" : 1622692164325,
+    "duration" : 0
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "e090dd3cfd1fc4f",
+  "name" : "Edit：规格 /型号为空",
+  "time" : {
+    "start" : 1622692132671,
+    "stop" : 1622692132856,
+    "duration" : 185
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "f0d8377f12ead290",
+  "name" : "price:采购价格为0",
+  "time" : {
+    "start" : 1622692134786,
+    "stop" : 1622692134944,
+    "duration" : 158
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "8339830ab03ffbed",
+  "name" : "工具包数量过大",
+  "time" : {
+    "start" : 1622692164248,
+    "stop" : 1622692164248,
+    "duration" : 0
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "6f4a0d72c919f890",
+  "name" : "手机号为空",
+  "time" : {
+    "start" : 1622692161010,
+    "stop" : 1622692161246,
+    "duration" : 236
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "c62a1baa4805fdeb",
+  "name" : "仓库未选择",
+  "time" : {
+    "start" : 1622692139969,
+    "stop" : 1622692140168,
+    "duration" : 199
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "d8da8731ea3181b9",
+  "name" : "性别为空",
+  "time" : {
+    "start" : 1622692151702,
+    "stop" : 1622692151784,
+    "duration" : 82
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "3734f057c7d9f815",
+  "name" : "test_04",
+  "time" : {
+    "start" : 1622692136714,
+    "stop" : 1622692136783,
+    "duration" : 69
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "4b20d0db6aa0f014",
+  "name" : "收件人名字为空",
+  "time" : {
+    "start" : 1622692160717,
+    "stop" : 1622692160798,
+    "duration" : 81
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "6a29e495d58095c1",
+  "name" : "注册证生效日期大于失效时间",
+  "time" : {
+    "start" : 1622692130545,
+    "stop" : 1622692131015,
+    "duration" : 470
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "cd6e331051eb6a2d",
+  "name" : "默认地址为空",
+  "time" : {
+    "start" : 1622692152032,
+    "stop" : 1622692152282,
+    "duration" : 250
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "e85175369b07eab",
+  "name" : "主刀医生为空",
+  "time" : {
+    "start" : 1622692145347,
+    "stop" : 1622692145548,
+    "duration" : 201
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "8ca2d48f7199b859",
+  "name" : "临调单重复",
+  "time" : {
+    "start" : 1622692154088,
+    "stop" : 1622692154532,
+    "duration" : 444
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "1e9f69e58e9f5b8b",
+  "name" : "重复拒绝",
+  "time" : {
+    "start" : 1622692148597,
+    "stop" : 1622692148717,
+    "duration" : 120
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "9999bc1bc9124ecb",
+  "name" : "来源仓库空",
+  "time" : {
+    "start" : 1622692164136,
+    "stop" : 1622692164136,
+    "duration" : 0
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "178db6655767dd47",
+  "name" : "Edit：注册证号为空",
+  "time" : {
+    "start" : 1622692133209,
+    "stop" : 1622692133361,
+    "duration" : 152
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "cc635e0cb074d953",
+  "name" : "详细地址为空",
+  "time" : {
+    "start" : 1622692161678,
+    "stop" : 1622692161748,
+    "duration" : 70
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "7fdc957c9be4c38f",
+  "name" : "test_14",
+  "time" : {
+    "start" : 1622692138847,
+    "stop" : 1622692138987,
+    "duration" : 140
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "9ce40e1a5f9b36a9",
+  "name" : "订单联系人为空",
+  "time" : {
+    "start" : 1622692145693,
+    "stop" : 1622692145773,
+    "duration" : 80
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "24fb4dd03c5d569",
+  "name" : "编辑未驳回订单",
+  "time" : {
+    "start" : 1622692164262,
+    "stop" : 1622692164262,
+    "duration" : 0
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "8d0bda4d2e4df76e",
+  "name" : "年龄段错误",
+  "time" : {
+    "start" : 1622692146529,
+    "stop" : 1622692146670,
+    "duration" : 141
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "b3c3d2edae3eb749",
+  "name" : "经销商：调拨单ID为空",
+  "time" : {
+    "start" : 1622692164276,
+    "stop" : 1622692164276,
+    "duration" : 0
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "57ee16c90201a4cf",
+  "name" : "归还时间为空",
+  "time" : {
+    "start" : 1622692147173,
+    "stop" : 1622692147351,
+    "duration" : 178
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "f6cdfc5842b649b2",
+  "name" : "Edit基：本单位为空",
+  "time" : {
+    "start" : 1622692132446,
+    "stop" : 1622692132667,
+    "duration" : 221
   },
   "status" : "passed",
   "severity" : "normal"

@@ -302,18 +302,27 @@ def AdhocOrder_updateAddress(AdhocOrder_accept):
                                                                       receivingIdCard=421322199811044619,
                                                                       powerOfAttorney='http://192.168.10.254:9191/server/file/2021/05/17/5b'
                                                                                       '15b54d-de1f-4aab-ab5b-ffe6bc5a6998/base64Test.jpg',
-                                                                      orderId=AdhocOrder_accept, addressId=addressId)
+                                                                      orderId=AdhocOrder_accept, addressId=addressId,parentId=AdhocOrder_accept)
     yield AdhocOrder_accept
 
 
-# 仓库管理 获取拣货单ID
+# 仓库管理 获取拣货单ID/picking用
 @pytest.fixture(scope='class')
 def PickOrder_get_pickOrderId():
     global pickOrderId
     # 这里后期要优化，keyword 是创建 调拨单/临调单 的时候返回的订单code，目前是没有继承fixture
     keyword = Purchase_Management.AllocateOrder().all()
-    pickOrderId = Warehouse_Management.OutboundOrder().get_out_orderInfo(keyword)
+    pickOrderId = Warehouse_Management.OutboundOrder().get_out_orderInfo(keyword)[0]
     yield pickOrderId
+
+# 仓库管理 获取拣货单ID/pickFinished用
+@pytest.fixture(scope='class')
+def PickOrder_get_pickOrderId01():
+    global pickOrderId01
+    # 这里后期要优化，keyword 是创建 调拨单/临调单 的时候返回的订单code，目前是没有继承fixture
+    keyword = Purchase_Management.AllocateOrder().all()
+    pickOrderId01 = Warehouse_Management.OutboundOrder().get_out_orderInfo(keyword)
+    yield pickOrderId01
 
 
 # 仓库管理 获取拣货单信息
@@ -343,6 +352,12 @@ def PickOrder_get_goodsInfo(PickOrder_get_pickOrderInfo):
 def PickOrder_picking(PickOrder_get_goodsInfo):
     Warehouse_Management.PickOrder().picking(goodsId=PickOrder_get_goodsInfo[0], lotNum=PickOrder_get_goodsInfo[1],
                                              pickOrderId=pickOrderId, storageLocationId=storageLocationId)
+
+
+# 仓库管理 拣货单 拣货完成
+@pytest.fixture(scope='class')
+def PickOrder_pickFinished(PickOrder_picking,PickOrder_get_pickOrderId):
+    Warehouse_Management.PickOrder().pickFinished(PickOrder_get_pickOrderId)
 
 
 def pytest_collection_modifyitems(items):
