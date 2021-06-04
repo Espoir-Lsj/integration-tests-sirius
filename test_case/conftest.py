@@ -33,27 +33,28 @@ def res_data():
 def AllocateOrder_get_data():
     # 获取所有需要的参数
     test = Purchase_Management.AllocateOrder()
-    global reasonCode, sourceWarehouseId, targetWarehouseId, goodsId, goodsLotInfoId, kitStockId, \
-        goodsQuantity, kitStockQuantity
-    reasonCode = test.get_allocate_reason()
-    sourceWarehouseId = test.get_out_warehouse()
-    targetWarehouseId = test.get_in_warehouse()
-    goodsInfo = test.get_goodsInfo(sourceWarehouseId)
-    goodsId = goodsInfo[0]
-    goodsLotInfoId = goodsInfo[1]
-    kitStockId = test.get_kitStockId(sourceWarehouseId)
-    goodsQuantity = 1
-    kitStockQuantity = 1
+    global ReasonCode, SourceWarehouseId, TargetWarehouseId, GoodsId, GoodsLotInfoId, KitStockId, \
+        GoodsQuantity, KitStockQuantity
+    ReasonCode = test.get_allocate_reason()
+    SourceWarehouseId = test.get_out_warehouse()
+    TargetWarehouseId = test.get_in_warehouse()
+    GoodsInfo = test.get_goodsInfo(SourceWarehouseId)
+    GoodsId = GoodsInfo[0]
+    GoodsLotInfoId = GoodsInfo[1]
+    # KitStockId = None
+    KitStockId = test.get_kitStockId(SourceWarehouseId)
+    GoodsQuantity = 1
+    KitStockQuantity = 1
 
 
 # 调拨单：获取调拨单id
 @pytest.fixture(scope="class")
 def AllocateOrder_get_Id(AllocateOrder_get_data):
-    response = Purchase_Management.AllocateOrder().create(reasonCode=reasonCode, sourceWarehouseId=sourceWarehouseId,
-                                                          targetWarehouseId=targetWarehouseId, goodsId=goodsId,
-                                                          goodsLotInfoId=goodsLotInfoId, kitStockId=kitStockId,
-                                                          goodsQuantity=goodsQuantity,
-                                                          kitStockQuantity=kitStockQuantity)
+    response = Purchase_Management.AllocateOrder().create(reasonCode=ReasonCode, sourceWarehouseId=SourceWarehouseId,
+                                                          targetWarehouseId=TargetWarehouseId, goodsId=GoodsId,
+                                                          goodsLotInfoId=GoodsLotInfoId, kitStockId=KitStockId,
+                                                          goodsQuantity=GoodsQuantity,
+                                                          kitStockQuantity=KitStockQuantity)
     Id = response[0]
     yield Id
 
@@ -61,7 +62,8 @@ def AllocateOrder_get_Id(AllocateOrder_get_data):
 # 调拨单：审核调拨单
 @pytest.fixture(scope="class")
 def AllocateOrder_approve(AllocateOrder_get_Id):
-    Purchase_Management.AllocateOrder().approve(Id=AllocateOrder_get_Id)
+    Purchase_Management.AllocateOrder().approve(allocateId=AllocateOrder_get_Id)
+
     yield AllocateOrder_get_Id
 
 
@@ -302,7 +304,8 @@ def AdhocOrder_updateAddress(AdhocOrder_accept):
                                                                       receivingIdCard=421322199811044619,
                                                                       powerOfAttorney='http://192.168.10.254:9191/server/file/2021/05/17/5b'
                                                                                       '15b54d-de1f-4aab-ab5b-ffe6bc5a6998/base64Test.jpg',
-                                                                      orderId=AdhocOrder_accept, addressId=addressId,parentId=AdhocOrder_accept)
+                                                                      orderId=AdhocOrder_accept, addressId=addressId,
+                                                                      parentId=AdhocOrder_accept)
     yield AdhocOrder_accept
 
 
@@ -314,6 +317,7 @@ def PickOrder_get_pickOrderId():
     keyword = Purchase_Management.AllocateOrder().all()
     pickOrderId = Warehouse_Management.OutboundOrder().get_out_orderInfo(keyword)[0]
     yield pickOrderId
+
 
 # 仓库管理 获取拣货单ID/pickFinished用
 @pytest.fixture(scope='class')
@@ -356,7 +360,7 @@ def PickOrder_picking(PickOrder_get_goodsInfo):
 
 # 仓库管理 拣货单 拣货完成
 @pytest.fixture(scope='class')
-def PickOrder_pickFinished(PickOrder_picking,PickOrder_get_pickOrderId):
+def PickOrder_pickFinished(PickOrder_picking, PickOrder_get_pickOrderId):
     Warehouse_Management.PickOrder().pickFinished(PickOrder_get_pickOrderId)
 
 

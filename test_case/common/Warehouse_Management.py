@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# @Time : 2021/6/1 11:24 上午 
+# @Time : 2021/6/1 11:24 上午
 # @Author : lsj
 # @File : Warehouse_Management.py
 import time
@@ -10,10 +10,9 @@ timeStamp = int(time.time() * 1000)
 
 
 class OutboundOrder:
-    keyword = Purchase_Management.AllocateOrder().all()
 
     # 通过临调单code 获取拣货单id
-    def get_out_orderInfo(self, keyword=keyword):
+    def get_out_orderInfo(self, keyword=None):
         url = '/outboundOrder/list'
         params = {
             'pageNum': 0,
@@ -36,7 +35,6 @@ class OutboundOrder:
             "deliveryMode": deliveryMode
         }
         response = request.put_body01(url, body)
-
 
     def approval(self, logisticsCompany=None, deliveryDate=None, expressNo=None, outOrderId=None):
         url = '/outboundOrder/approval'
@@ -102,7 +100,6 @@ class PickOrder:
         }
         response = request.put_body01(url, body)
 
-
     def pick_approval(self, pickOrderId=None, goodsId=None, quantity=None, kitStockId=None, kitquantity=None
                       , imagePath=["/file/2021/06/03/04a82f82-e0f3-44d7-93f3-964d11c44326/base64Test.jpg"], ):
         url = '/pickOrder/approval'
@@ -126,9 +123,12 @@ class PickOrder:
 
 
 if __name__ == '__main__':
+    keyword = Purchase_Management.AllocateOrder().all()[0]
+
     test = OutboundOrder()
-    pickOrderId = test.get_out_orderInfo()[0]
-    outOrderId = test.get_out_orderInfo()[1]
+
+    pickOrderId = test.get_out_orderInfo(keyword)[0]
+    outOrderId = test.get_out_orderInfo(keyword)[1]
 
     test1 = PickOrder()
     data = test1.get_pick_orderInfo(pickOrderId)

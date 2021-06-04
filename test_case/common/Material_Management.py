@@ -38,7 +38,7 @@ class Goods:
             'type': Type,
             'webKeyword': webKeyword
         }
-        response = request.get_params(url, params)
+        response = request.get_params01(url, params)
         try:
             assert response['msg'] == '请求成功'
         except Exception:
@@ -63,7 +63,7 @@ class Goods:
                 'parentCode': 'TOOLS_MATERIAL'  # 工具是 TOOLS_MATERIAL
             }
 
-        response = request.get_params(url, params)
+        response = request.get_params01(url, params)
         try:
             assert response['msg'] == '请求成功'
         except Exception:
@@ -79,7 +79,7 @@ class Goods:
             "di": di,
             "id": id
         }
-        response = request.put_body(url, body)
+        response = request.put_body01(url, body)
         # try:
         #     assert response['msg'] == '请求成功'
         # except Exception:
@@ -123,7 +123,7 @@ class Goods:
                 }]
             }]
         }
-        response = request.post_body(url, body)
+        response = request.post_body01(url, body)
         # try:
         #     assert response['msg'] == '请求成功'
         # except Exception:
@@ -165,7 +165,7 @@ class Goods:
                 "registrationNum": registrationNum
             }]
         }
-        response = request.put_body(url, body)
+        response = request.put_body01(url, body)
         # try:
         #     assert response['msg'] == '请求成功'
         # except Exception:
@@ -180,7 +180,7 @@ class Goods:
         body = {
             'ids': [id]
         }
-        response = request.put_body(url, body)
+        response = request.put_body01(url, body)
         # try:
         #     assert response['msg'] == '请求成功'
         # except Exception:
@@ -201,7 +201,7 @@ class Goods:
             "purchasePrice": purchasePrice,  # 采购价
             "taxRate": taxRate  # 税率
         }
-        response = request.put_body(url, body)
+        response = request.put_body01(url, body)
         # try:
         #     assert response['msg'] == '请求成功'
         # except Exception:
@@ -239,7 +239,7 @@ class KitTemplate:
             'pageSize': 50,
             'toolKitName': toolKitName
         }
-        response = request.get_params(url, params)
+        response = request.get_params01(url, params)
         try:
             assert response['msg'] == '请求成功'
         except Exception:
@@ -255,7 +255,7 @@ class KitTemplate:
             'pageNum': 0,
             'pageSize': 50
         }
-        response = request.get_params(url, params)
+        response = request.get_params01(url, params)
         try:
             assert response['msg'] == '请求成功'
         except Exception:
@@ -272,7 +272,7 @@ class KitTemplate:
             'pageSize': 50,
             'parentCode': 'TOOLS_MATERIAL'
         }
-        response = request.get_params(url, params)
+        response = request.get_params01(url, params)
         try:
             assert response['msg'] == '请求成功'
         except Exception:
@@ -296,7 +296,7 @@ class KitTemplate:
                 "goodsQuantity": goodsQuantity
             }]
         }
-        response = request.post_body(url, body)
+        response = request.post_body01(url, body)
         # try:
         #     assert response['msg'] == '请求成功'
         # except Exception:
@@ -320,7 +320,7 @@ class KitTemplate:
             "kitTemplateId": kitTemplateId,  # 工具包id
             "kitTemplateName": kitTemplateName
         }
-        response = request.put_body(url, body)
+        response = request.put_body01(url, body)
         # try:
         #     assert response['msg'] == '请求成功'
         # except Exception:
@@ -333,7 +333,7 @@ class KitTemplate:
         body = {
             "ids": [kitTemplateId]
         }
-        response = request.put_body(url, body)
+        response = request.put_body01(url, body)
         # try:
         #     assert response['msg'] == '请求成功'
         # except Exception:
@@ -347,7 +347,7 @@ class KitTemplate:
             "id": id,
             "price": price
         }
-        response = request.put_body(url, body)
+        response = request.put_body01(url, body)
         # try:
         #     assert response['msg'] == '请求成功'
         # except Exception:
@@ -380,7 +380,7 @@ class PackagingOrder:
             'pageNum': 0,
             'pageSize': 50,
         }
-        response = request.get_params(url, params)
+        response = request.get_params01(url, params)
         try:
             assert response['msg'] == '请求成功'
         except Exception:
@@ -389,7 +389,7 @@ class PackagingOrder:
     # 获取仓库ID
     def get_warehouse(self):
         url = '/warehouse/getAll'
-        response = request.get(url)
+        response = request.get01(url)
         try:
             assert response['msg'] == '请求成功'
         except Exception:
@@ -408,7 +408,7 @@ class PackagingOrder:
             'pageSize': 50,
             'warehouseId': warehouseId
         }
-        response = request.get_params(url, params)
+        response = request.get_params01(url, params)
         try:
             assert response['msg'] == '请求成功'
         except Exception:
@@ -431,7 +431,7 @@ class PackagingOrder:
             'templateIds': templateIds,
             'warehouseId': warehouseId
         }
-        response = request.get_params(url, params)
+        response = request.get_params01(url, params)
         try:
             assert response['msg'] == '请求成功'
         except Exception:
@@ -500,7 +500,7 @@ class PackagingOrder:
 
 
 if __name__ == '__main__':
-    test = KitTemplate()
+    test = PackagingOrder()
     test.all()
     # 物资
     # create = test.create_Goods()

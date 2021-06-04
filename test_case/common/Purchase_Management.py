@@ -1,11 +1,9 @@
 # -*- coding: utf-8 -*-
-# @Time : 2021/5/12 4:08 下午 
+# @Time : 2021/5/12 4:08 下午
 # @Author : lsj
 # @File : Purchase_Management.py
 # 采购管理
 import time, datetime
-import requests
-import json
 import request
 
 timeStamp = int(time.time() * 1000)
@@ -63,7 +61,7 @@ class AllocateOrder:
             'pageSize': 50,
             'warehouseId': sourceWarehouseId
         }
-        response = request.get_params(url, params)
+        response = request.get_params01(url, params)
         try:
             assert response['msg'] == '请求成功'
         except Exception:
@@ -80,7 +78,7 @@ class AllocateOrder:
             'pageSize': 50,
             'warehouseId': sourceWarehouseId
         }
-        response = request.get_params(url, params)
+        response = request.get_params01(url, params)
         try:
             assert response['msg'] == '请求成功'
         except Exception:
@@ -108,22 +106,22 @@ class AllocateOrder:
             "toolsDetailUiBeans": [],
             "toolKitDetailUiBeans": []
         }
-        toolsDetailUiBeans = {
+        toolKitDetailUiBeans = {
             "kitStockId": kitStockId,
             "kitStockQuantity": kitStockQuantity
         }
         if kitStockId:
-            body['toolsDetailUiBeans'].append(toolsDetailUiBeans)
+            body['toolKitDetailUiBeans'].append(toolKitDetailUiBeans)
         #     只有供应商可创建调拨
         response = request.post_body01(url, body)
-        Id = response['data']['id']
+        allocateId = response['data']['id']
         code = response['data']['code']
-        return Id, code
+        return allocateId, code
 
     # body,调拨单ID ,code
 
     # 审核调拨单：驳回、通过
-    def approve(self, approve=False, Id=None, rejectReason='不通过'):
+    def approve(self, approve=False, allocateId=None, rejectReason='不通过'):
         """
 
         :param approve: False 驳回  、True  通过
@@ -134,27 +132,27 @@ class AllocateOrder:
         url = '/allocateOrder/approve'
         body = {
             "approve": approve,
-            "id": Id,
+            "id": allocateId,
             "rejectReason": rejectReason
         }
         response = request.put_body01(url, body)
         return response
 
     # 关闭订单
-    def close(self, orderId):
-        url = '/allocateOrder/close?orderId=%s' % orderId
+    def close(self, allocateId):
+        url = '/allocateOrder/close?orderId=%s' % allocateId
 
-        response = request.put(url)
+        response = request.put01(url)
         try:
             assert response['msg'] == '请求成功'
         except Exception:
             raise response
 
     # 删除订单
-    def remove(self, orderId):
-        url = '/allocateOrder/remove?orderId=%s' % orderId
+    def remove(self, allocateId):
+        url = '/allocateOrder/remove?orderId=%s' % allocateId
 
-        response = request.delete(url)
+        response = request.delete01(url)
         try:
             assert response['msg'] == '请求成功'
         except Exception:
@@ -186,9 +184,9 @@ class AllocateOrder:
         # Id, code = self.create(reasonCode, sourceWarehouseId, targetWarehouseId, goodsId, goodsLotInfoId,
         #                        kitStockId)
         # 创建调拨单
-        Id, code = self.create(reasonCode, sourceWarehouseId, targetWarehouseId, goodsId, goodsLotInfoId)
+        allocateId, code = self.create(reasonCode, sourceWarehouseId, targetWarehouseId, goodsId, goodsLotInfoId)
         # 拒绝调拨单
-        self.approve(Id=Id, approve=True, rejectReason=None)
+        self.approve(allocateId=allocateId, approve=True, rejectReason=None)
         return code
 
 
