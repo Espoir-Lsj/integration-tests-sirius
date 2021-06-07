@@ -122,6 +122,20 @@ class PickOrder:
         response = request.put_body01(url, body)
 
 
+class InboundOrder:
+    def get_in_OrderInfo(self, keyword=None):
+        url = '/inboundOrder/findList'
+        params = {
+            'pageNum': 0,
+            'pageSize': 50,
+            'keyword': keyword
+        }
+        response = request.get_params01(url, params)
+        data = response['data']['rows'][0]
+        inboundOrderId = data['inboundOrderId']
+        return inboundOrderId
+
+
 if __name__ == '__main__':
     keyword = Purchase_Management.AllocateOrder().all()[0]
 
@@ -143,11 +157,11 @@ if __name__ == '__main__':
     # 拣货
     test1.picking(goodsId=goodsId, lotNum=lotNum, pickOrderId=pickOrderId, storageLocationId=storageLocationId)
     # 拣货完成
-    test1.pickFinished(pickOrderId=pickOrderId)
+    # test1.pickFinished(pickOrderId=pickOrderId)
     # 审核拣货
-    test1.pick_approval(goodsId=goodsId, quantity=quantity, pickOrderId=pickOrderId)
+    # test1.pick_approval(goodsId=goodsId, quantity=quantity, pickOrderId=pickOrderId)
     # 发货
-    test.delivery(logisticsCompany='京东', deliveryDate=timeStamp, expressNo='123123', outOrderId=outOrderId,
-                  deliveryMode='DELIVERY')
-    # 审核发货
-    test.approval(logisticsCompany='京东', deliveryDate=timeStamp, expressNo='123123', outOrderId=outOrderId)
+    # test.delivery(logisticsCompany='京东', deliveryDate=timeStamp, expressNo='123123', outOrderId=outOrderId,
+    #               deliveryMode='DELIVERY')
+    # # 审核发货
+    # test.approval(logisticsCompany='京东', deliveryDate=timeStamp, expressNo='123123', outOrderId=outOrderId)

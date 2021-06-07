@@ -275,7 +275,7 @@ class AdhocOrder:
                                  consignorPhone=13212345567, receivingIdCard=421322199811044619,
                                  powerOfAttorney='http://192.168.10.254:9191/server/file/2021/05/17/5b'
                                                  '15b54d-de1f-4aab-ab5b-ffe6bc5a6998/base64Test.jpg',
-                                 orderId=None, addressId=None,parentId=None
+                                 orderId=None, addressId=None, parentId=None
                                  ):
         url = '/adhocOrder/updateAddress'
         body = {
@@ -316,7 +316,7 @@ class AdhocOrder:
         adhocOrderId = self.adhocOrder_create(procedureSite=procedureSite, manufacturerId=manufacturerId,
                                               ageGroup=ageGroup, addressId=addressId, supplierId=supplierId,
                                               goodsId=goodsId, goodsSupplierId=goodsSupplierId,
-                                              kitTemplateId=kitTemplateId,
+                                              kitTemplateId=None,
                                               toolsSupplierId=toolsSupplierId)['data']['id']
         # # 拒绝临调单
         # self.adhocOrder_reject(id=adhocOrderId)
@@ -328,7 +328,7 @@ class AdhocOrder:
         #                      goodsSupplierId=goodsSupplierId)
         # # 接收临调单
         # self.adhocOrder_accept(goodsId=goodsId, Gquantity=1, kitTemplateId=kitTemplateId, Kquantity=1,
-        #                        warehouseId=warehouseId,id=adhocOrderId)
+        #                        warehouseId=warehouseId, id=adhocOrderId)
         # # 更新收货地址
         # self.adhocOrder_updataAddress(orderId=adhocOrderId,addressId=addressId，parentId=adhocOrderId)
 

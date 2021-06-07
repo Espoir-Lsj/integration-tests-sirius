@@ -32,6 +32,7 @@ def login(loginName, loginPassword, platform='TEST'):
     r = requests.post(api_url + '/auth/login', json=payload, verify=False)
     assert r.status_code == 200
     dealerId = r.json()['data']['companyId']
+
     if r.json()['msg'] == '请求成功':
         token = r.headers['X-AUTH-TOKEN']
         # headers

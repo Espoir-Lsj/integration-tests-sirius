@@ -65,9 +65,9 @@ url,request_type,title,case,expected,模块,功能
 /adhocOrder/edit,put,商品/套包数量为空,{'quantity': None},请输入,订单管理,临调订单——编辑临调单
 /adhocOrder/edit,put,商品/套包数量为空,{'quantity': None},请输入,订单管理,临调订单——编辑临调单
 /adhocOrder/close,put,重复关闭订单,{None},订单状态为待接收或待修改时才能关闭,订单管理,临调订单——关闭临调单
-/adhocOrder/close,put,订单ID为空,{'id':None},未查询到该临调订单，请刷新重试,订单管理,临调订单——关闭临调单
+/adhocOrder/close,put,订单ID为空,{'id':None},不能为null,订单管理,临调订单——关闭临调单
 /adhocOrder/close,put,订单ID错误,{'id':99999999},未查询到该临调订单，请刷新重试,订单管理,临调订单——关闭临调单
-/adhocOrder/updateAddress,post,订单ID为空,{'orderId':None},未查询到该临调订单，请刷新重试,订单管理,临调订单——修改收货地址
+/adhocOrder/updateAddress,post,订单ID为空,{'orderId':None},不能为null,订单管理,临调订单——修改收货地址
 /adhocOrder/updateAddress,post,提货人姓名为空,{"consignorName": None},请输入提货人,订单管理,临调订单——修改收货地址
 /adhocOrder/updateAddress,post,提货人电话为空,{"consignorPhone": None},请输入提货人电话,订单管理,临调订单——修改收货地址
 /adhocOrder/updateAddress,post,提货人电话错误,{"consignorPhone": 1321234567},请输入正确的手机号码,订单管理,临调订单——修改收货地址

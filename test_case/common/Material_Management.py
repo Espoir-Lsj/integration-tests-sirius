@@ -24,7 +24,7 @@ class Goods:
         self.type = Type
 
     # 通过关键字查询列表(物资、工具)
-    def getList(self, webKeyword, Type='material'):
+    def getList(self, webKeyword):
         """
 
         :param webKeyword: 关键字
@@ -35,7 +35,7 @@ class Goods:
         params = {
             'pageNum': 0,
             'pageSize': 50,
-            'type': Type,
+            'type': self.type,
             'webKeyword': webKeyword
         }
         response = request.get_params01(url, params)
@@ -208,8 +208,8 @@ class Goods:
         #     raise response
         return response
 
-    def all(self, type='material'):
-        goodsCategory = Goods(type).get_goodsCategory()
+    def all(self):
+        goodsCategory = Goods(self.type).get_goodsCategory()
         # 创建商品
         self.create_Goods(goodsCategory=goodsCategory)
         # 获取商品ID
@@ -500,7 +500,8 @@ class PackagingOrder:
 
 
 if __name__ == '__main__':
-    test = PackagingOrder()
+    # test = PackagingOrder()
+    test = Goods('tool')
     test.all()
     # 物资
     # create = test.create_Goods()
