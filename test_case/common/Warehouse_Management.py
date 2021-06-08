@@ -9,6 +9,7 @@ from test_case.common import request, Purchase_Management
 timeStamp = int(time.time() * 1000)
 
 
+# 出库单
 class OutboundOrder:
 
     # 通过临调单code 获取拣货单id
@@ -47,6 +48,7 @@ class OutboundOrder:
         response = request.put_body01(url, body)
 
 
+# 拣货单
 class PickOrder:
 
     def get_pick_orderInfo(self, pickOrderId):
@@ -122,6 +124,7 @@ class PickOrder:
         response = request.put_body01(url, body)
 
 
+# 入库单
 class InboundOrder:
     def get_in_OrderInfo(self, keyword=None):
         url = '/inboundOrder/findList'
@@ -136,9 +139,18 @@ class InboundOrder:
         return inboundOrderId
 
 
-if __name__ == '__main__':
-    keyword = Purchase_Management.AllocateOrder().all()
-    print(keyword)
+# 上架单
+class putOnShelf:
+    pass
+
+
+# 主流程
+def all(keyword=None):
+    """
+
+    :param keyword: 关联单号
+    :return:
+    """
 
     test = OutboundOrder()
 
@@ -166,3 +178,36 @@ if __name__ == '__main__':
                   deliveryMode='DELIVERY')
     # # 审核发货
     test.approval(logisticsCompany='京东', deliveryDate=timeStamp, expressNo='123123', outOrderId=outOrderId)
+
+
+if __name__ == '__main__':
+    keyword = Purchase_Management.AllocateOrder().all()
+    print(keyword)
+    all(keyword)
+
+    # test = OutboundOrder()
+    #
+    # pickOrderId = test.get_out_orderInfo(keyword)[0]
+    # outOrderId = test.get_out_orderInfo(keyword)[1]
+    #
+    # test1 = PickOrder()
+    # data = test1.get_pick_orderInfo(pickOrderId)
+    # materialCode = data[0]
+    # warehouseId = data[1]
+    # storageLocationId = data[2]
+    # quantity = data[3]
+    #
+    # goodsInfo = test1.get_goodsInfo(warehouseId, materialCode)
+    # goodsId = goodsInfo[0]
+    # lotNum = goodsInfo[1]
+    # # 拣货
+    # test1.picking(goodsId=goodsId, lotNum=lotNum, pickOrderId=pickOrderId, storageLocationId=storageLocationId)
+    # # 拣货完成
+    # test1.pickFinished(pickOrderId=pickOrderId)
+    # # 审核拣货
+    # test1.pick_approval(goodsId=goodsId, quantity=quantity, pickOrderId=pickOrderId)
+    # # 发货
+    # test.delivery(logisticsCompany='京东', deliveryDate=timeStamp, expressNo='123123', outOrderId=outOrderId,
+    #               deliveryMode='DELIVERY')
+    # # # 审核发货
+    # test.approval(logisticsCompany='京东', deliveryDate=timeStamp, expressNo='123123', outOrderId=outOrderId)

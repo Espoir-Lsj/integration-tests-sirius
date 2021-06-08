@@ -2,7 +2,9 @@
 # @Time : 2021/6/7 2:47 下午 
 # @Author : lsj
 # @File : test_All.py
-from test_case.common import Material_Management, Order_Management, Purchase_Management, Warehouse_Management
+from test_case.common import Material_Management, Order_Management, Purchase_Management, Warehouse_Management, logger
+
+log = logger.Log()
 
 
 # 物资管理主流程
@@ -25,7 +27,8 @@ def test_material():
 # 采购管理主流程
 def purchase():
     AllocateOrder_test = Purchase_Management.AllocateOrder()
-    AllocateOrder_test.all()
+    code = AllocateOrder_test.all()
+    return code
 
 
 # 订单管理主流程
@@ -36,8 +39,16 @@ def Oeder():
 
 # 仓库管理主流程
 def Warehouse():
+    log.info("-----------调拨流程出入库--------------")
+    purchaseKey = purchase()
+    all_test = Warehouse_Management.all(purchaseKey)
+
     OutboundOrder_test = Warehouse_Management.OutboundOrder()
 
     PickOrder_test = Warehouse_Management.PickOrder()
 
     InboundOrder_test = Warehouse_Management.InboundOrder()
+
+
+if __name__ == '__main__':
+    Warehouse()
