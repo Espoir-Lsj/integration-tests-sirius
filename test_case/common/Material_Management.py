@@ -414,7 +414,7 @@ class PackagingOrder:
         except Exception:
             raise response
         for i in response['data']['rows']:
-            if i['templateName'] == '钢板支架工具包':
+            if i['templateName'] == '出库测试工具包':
                 templateIds = i['id']
                 return templateIds
 

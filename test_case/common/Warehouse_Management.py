@@ -137,7 +137,8 @@ class InboundOrder:
 
 
 if __name__ == '__main__':
-    keyword = Purchase_Management.AllocateOrder().all()[0]
+    keyword = Purchase_Management.AllocateOrder().all()
+    print(keyword)
 
     test = OutboundOrder()
 
@@ -157,11 +158,11 @@ if __name__ == '__main__':
     # 拣货
     test1.picking(goodsId=goodsId, lotNum=lotNum, pickOrderId=pickOrderId, storageLocationId=storageLocationId)
     # 拣货完成
-    # test1.pickFinished(pickOrderId=pickOrderId)
+    test1.pickFinished(pickOrderId=pickOrderId)
     # 审核拣货
-    # test1.pick_approval(goodsId=goodsId, quantity=quantity, pickOrderId=pickOrderId)
+    test1.pick_approval(goodsId=goodsId, quantity=quantity, pickOrderId=pickOrderId)
     # 发货
-    # test.delivery(logisticsCompany='京东', deliveryDate=timeStamp, expressNo='123123', outOrderId=outOrderId,
-    #               deliveryMode='DELIVERY')
+    test.delivery(logisticsCompany='京东', deliveryDate=timeStamp, expressNo='123123', outOrderId=outOrderId,
+                  deliveryMode='DELIVERY')
     # # 审核发货
-    # test.approval(logisticsCompany='京东', deliveryDate=timeStamp, expressNo='123123', outOrderId=outOrderId)
+    test.approval(logisticsCompany='京东', deliveryDate=timeStamp, expressNo='123123', outOrderId=outOrderId)

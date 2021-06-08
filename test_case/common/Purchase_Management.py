@@ -185,7 +185,7 @@ class AllocateOrder:
         #                        kitStockId)
         # 创建调拨单
         allocateId, code = self.create(reasonCode, sourceWarehouseId, targetWarehouseId, goodsId, goodsLotInfoId)
-        # 拒绝调拨单
+        # 接收调拨单
         self.approve(allocateId=allocateId, approve=True, rejectReason=None)
         return code
 
@@ -193,6 +193,7 @@ class AllocateOrder:
 if __name__ == '__main__':
     test = AllocateOrder()
     a = test.all()
+    print(a)
     # test.approve(True)
     # test.close(115)
     # test.remove(112)

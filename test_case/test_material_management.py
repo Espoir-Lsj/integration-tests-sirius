@@ -37,7 +37,7 @@ class TestGoods:
         test = Material_Management.Goods('material')
         TestGoods.goodsCategory = test.get_goodsCategory()
         test.create_Goods(name=timeStamp, goodsCategory=TestGoods.goodsCategory)
-        Id = test.getList(timeStamp, 'material')
+        Id = test.getList(timeStamp)
         TestGoods.Id = Id
         log.info('新增物资的ID：%s' % Id)
         yield

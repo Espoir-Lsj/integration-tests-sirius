@@ -33,6 +33,7 @@ def Oeder():
     AdhocOrder_test = Order_Management.AdhocOrder()
     AdhocOrder_test.all()
 
+
 # 仓库管理主流程
 def Warehouse():
     OutboundOrder_test = Warehouse_Management.OutboundOrder()
