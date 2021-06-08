@@ -25,22 +25,22 @@ def test_material():
 
 
 # 采购管理主流程
-def purchase():
+def test_Purchase():
     AllocateOrder_test = Purchase_Management.AllocateOrder()
     code = AllocateOrder_test.all()
     return code
 
 
 # 订单管理主流程
-def Oeder():
+def test_Oeder():
     AdhocOrder_test = Order_Management.AdhocOrder()
     AdhocOrder_test.all()
 
 
 # 仓库管理主流程
-def Warehouse():
+def test_Warehouse():
     log.info("-----------调拨流程出入库--------------")
-    purchaseKey = purchase()
+    purchaseKey = test_Purchase()
     all_test = Warehouse_Management.all(purchaseKey)
 
     OutboundOrder_test = Warehouse_Management.OutboundOrder()
@@ -50,5 +50,4 @@ def Warehouse():
     InboundOrder_test = Warehouse_Management.InboundOrder()
 
 
-if __name__ == '__main__':
-    Warehouse()
+test_Warehouse()

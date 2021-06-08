@@ -62,6 +62,8 @@ class AdhocOrder:
             "receivingAddress": "详情地址"
         }
         response = request.post_body(url, body)
+        addressId = response['data']
+        return addressId
 
     def update_default_address(self, id=None):
         url = '/supplier/updateReceivingAddress'
@@ -74,6 +76,13 @@ class AdhocOrder:
         }
         response = request.put_body(url, body)
         return response
+
+    def delete_default_address(self, addressId=None):
+        url = '/supplier/deleteReceivingAddress'
+        body = {
+            'id': addressId
+        }
+        response = request.delete_body(url, body)
 
     # 获取默认地址ID
     def get_addressId(self):
@@ -297,7 +306,7 @@ class AdhocOrder:
         # 品牌
         manufacturerId = self.get_manufacturerId()
         # 默认地址
-        addressId = self.get_addressId()
+        addressId = self.add_default_address()
         # 仓库地址
         warehouseId = self.get_warehouse()
         # 年龄段
@@ -340,6 +349,7 @@ class AdhocOrder:
         #                        ageGroup=ageGroup, addressId=addressId, supplierId=supplierId,
         #                        goodsId=goodsId, goodsSupplierId=goodsSupplierId,
         #                        toolsSupplierId=toolsSupplierId)
+        self.delete_default_address(addressId)
 
 
 if __name__ == '__main__':
