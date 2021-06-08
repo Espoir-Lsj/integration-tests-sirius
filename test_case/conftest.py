@@ -319,7 +319,7 @@ def PickOrder_get_pickOrderId():
     yield pickOrderId
 
 
-# 仓库管理 获取拣货单ID/pickFinished用
+# 仓库管理 获取拣货单ID/pick approval用
 @pytest.fixture(scope='class')
 def PickOrder_get_pickOrderId01():
     global pickOrderId01
@@ -362,6 +362,12 @@ def PickOrder_picking(PickOrder_get_goodsInfo):
 @pytest.fixture(scope='class')
 def PickOrder_pickFinished(PickOrder_picking, PickOrder_get_pickOrderId):
     Warehouse_Management.PickOrder().pickFinished(PickOrder_get_pickOrderId)
+
+
+# 仓库管理 拣货单 拣货审核
+@pytest.fixture(scope='class')
+def PickOrder_pick_approval(PickOrder_picking, PickOrder_get_pickOrderId):
+    Warehouse_Management.PickOrder().pick_approval(PickOrder_get_pickOrderId, goodsId=PickOrder_get_goodsInfo[0])
 
 
 def pytest_collection_modifyitems(items):

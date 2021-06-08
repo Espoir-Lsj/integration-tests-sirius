@@ -80,10 +80,11 @@ url,request_type,title,case,expected,模块,功能
 /pickOrder/picking,put,商品ID错误,{"goodsId": 99999},该批次商品不存在,仓库管理,拣货单——拣货
 /pickOrder/picking,put,拣货单ID为空,{"pickOrderId": None},请选择拣货单,仓库管理,拣货单——拣货
 /pickOrder/picking,put,拣货单不存在,{"pickOrderId": 99999},拣货单不存在,仓库管理,拣货单——拣货
+/pickOrder/picking,put,重复拣货,{"serialNumber": None},该商品已拣货完成请勿重复操作,仓库管理,拣货单——拣货
 /pickOrder/picking,put,货位ID为空,{"storageLocationId": None},拣货的商品或该批次的商品在拣货单中不存在,仓库管理,拣货单——拣货
 /pickOrder/picking,put,货位错误,{"storageLocationId": 420},拣货的商品或该批次的商品在拣货单中不存在,仓库管理,拣货单——拣货
 /pickOrder/picking,put,重复拣货,{"serialNu": None},该商品已拣货完成请勿重复操作,仓库管理,拣货单——拣货
 /pickOrder/pickFinished,put,拣货单ID为空,{"pickOrderId": None},请选择拣货单,仓库管理,拣货单——拣货完成
 /pickOrder/pickFinished,put,拣货单ID错误,{"pickOrderId": 9999},拣货单不存在,仓库管理,拣货单——拣货完成
 /pickOrder/pickFinished,put,重复确认拣货,{"imagePath":["/file/2021/06/03/04a82f82-e0f3-44d7-93f3-964d11c44326/base64Testjpg"]},只有拣货中的订单才能拣货完成,仓库管理,拣货单——拣货完成
-,put,照片为空,{"imagePath":[]},照片为空,仓库管理,拣货单——拣货完成
+

@@ -107,7 +107,7 @@ class AdhocOrder:
 
     # 获取商品信息
     def get_goodsInfo(self):
-        url = '/fromBaseData/findGoodsList?pageNum=0&pageSize=50&manufacturerId={}&warehouseId={}' \
+        url = '/stockBaseData/findGoodsList?pageNum=0&pageSize=50&manufacturerId={}&warehouseId={}' \
             .format(self.get_manufacturerId(), self.get_warehouse())
         response = request.get(url)
         goodsId = response['data']['rows'][0]['id']
@@ -116,7 +116,7 @@ class AdhocOrder:
 
     # 获取工具包信息
     def get_toolsInfo(self):
-        url = '/fromBaseData/findToolsKitList?pageNum=0&pageSize=50&manufacturerId={}&warehouseId={}' \
+        url = '/stockBaseData/findToolsKitList?pageNum=0&pageSize=50&manufacturerId={}&warehouseId={}' \
             .format(self.get_manufacturerId(), self.get_warehouse())
         response = request.get(url)
         kitTemplateId = response['data']['rows'][0]['id']

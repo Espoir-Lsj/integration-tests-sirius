@@ -33,4 +33,3 @@ class TestPickOrder:
             body['pickOrderId'] = PickOrder_get_pickOrderId01
         response = request.put_body01(url, body)
         assert response['msg'] == expected
-
