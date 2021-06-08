@@ -325,7 +325,7 @@ def PickOrder_get_pickOrderId01():
     global pickOrderId01
     # 这里后期要优化，keyword 是创建 调拨单/临调单 的时候返回的订单code，目前是没有继承fixture
     keyword = Purchase_Management.AllocateOrder().all()
-    pickOrderId01 = Warehouse_Management.OutboundOrder().get_out_orderInfo(keyword)
+    pickOrderId01 = Warehouse_Management.OutboundOrder().get_out_orderInfo(keyword)[0]
     yield pickOrderId01
 
 
@@ -341,11 +341,32 @@ def PickOrder_get_pickOrderInfo(PickOrder_get_pickOrderId):
     yield materialCode, warehouseId, storageLocationId, quantity
 
 
+@pytest.fixture(scope='class')
+def PickOrder_get_pickOrderInfo01(PickOrder_get_pickOrderId01):
+    global storageLocationId01
+    infoList = Warehouse_Management.PickOrder().get_pick_orderInfo(PickOrder_get_pickOrderId01)
+    materialCode = infoList[0]
+    warehouseId = infoList[1]
+    storageLocationId01 = infoList[2]
+    quantity = infoList[3]
+    yield materialCode, warehouseId, storageLocationId01, quantity
+
+
 # 仓库管理 获取拣货单 商品信息
 @pytest.fixture(scope='class')
 def PickOrder_get_goodsInfo(PickOrder_get_pickOrderInfo):
     goodsinfoList = Warehouse_Management.PickOrder().get_goodsInfo(PickOrder_get_pickOrderInfo[1],
                                                                    PickOrder_get_pickOrderInfo[0])
+    goodsId = goodsinfoList[0]
+    lotNum = goodsinfoList[1]
+    yield goodsId, lotNum
+
+
+# 仓库管理 获取拣货单 商品信息
+@pytest.fixture(scope='class')
+def PickOrder_get_goodsInfo01(PickOrder_get_pickOrderInfo01):
+    goodsinfoList = Warehouse_Management.PickOrder().get_goodsInfo(PickOrder_get_pickOrderInfo01[1],
+                                                                   PickOrder_get_pickOrderInfo01[0])
     goodsId = goodsinfoList[0]
     lotNum = goodsinfoList[1]
     yield goodsId, lotNum
@@ -358,16 +379,31 @@ def PickOrder_picking(PickOrder_get_goodsInfo):
                                              pickOrderId=pickOrderId, storageLocationId=storageLocationId)
 
 
+# 仓库管理 拣货单 拣货
+@pytest.fixture(scope='class')
+def PickOrder_picking01(PickOrder_get_goodsInfo01):
+    Warehouse_Management.PickOrder().picking(goodsId=PickOrder_get_goodsInfo01[0], lotNum=PickOrder_get_goodsInfo01[1],
+                                             pickOrderId=pickOrderId01, storageLocationId=storageLocationId01)
+
+
 # 仓库管理 拣货单 拣货完成
 @pytest.fixture(scope='class')
 def PickOrder_pickFinished(PickOrder_picking, PickOrder_get_pickOrderId):
     Warehouse_Management.PickOrder().pickFinished(PickOrder_get_pickOrderId)
 
 
+# 仓库管理 拣货单 拣货完成
+@pytest.fixture(scope='class')
+def PickOrder_pickFinished01(PickOrder_picking01, PickOrder_get_pickOrderId01):
+    Warehouse_Management.PickOrder().pickFinished(PickOrder_get_pickOrderId01)
+
+
 # 仓库管理 拣货单 拣货审核
 @pytest.fixture(scope='class')
-def PickOrder_pick_approval(PickOrder_picking, PickOrder_get_pickOrderId):
-    Warehouse_Management.PickOrder().pick_approval(PickOrder_get_pickOrderId, goodsId=PickOrder_get_goodsInfo[0])
+def PickOrder_pick_approval(PickOrder_pickFinished, PickOrder_get_pickOrderInfo, PickOrder_get_goodsInfo):
+    Warehouse_Management.PickOrder().pick_approval(pickOrderId=pickOrderId,
+                                                   goodsId=PickOrder_get_goodsInfo[0],
+                                                   quantity=PickOrder_get_pickOrderInfo[3])
 
 
 def pytest_collection_modifyitems(items):

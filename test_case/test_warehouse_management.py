@@ -27,9 +27,10 @@ class TestPickOrder:
     @pytest.mark.parametrize('url,title,case,expected', data)
     @allure.story('拣货单——拣货单 完成拣货')
     @allure.title('{title}')
-    def test_pickFinished(self, url, title, case, expected, PickOrder_get_pickOrderId01, PickOrder_pickFinished):
+    def test_pickFinished(self, url, title, case, expected, PickOrder_pickFinished):
         body = request.body_replace(url, case)
-        if title == '照片为空':
-            body['pickOrderId'] = PickOrder_get_pickOrderId01
         response = request.put_body01(url, body)
         assert response['msg'] == expected
+
+    def test_pickApproval(self, PickOrder_pick_approval):
+        pass
