@@ -4,7 +4,7 @@
 # @File : Warehouse_Management.py
 import time
 
-from test_case.common import request, Purchase_Management
+from test_case.common import request, Purchase_Management,Order_Management
 
 timeStamp = int(time.time() * 1000)
 
@@ -151,40 +151,46 @@ def all(keyword=None):
     :param keyword: 关联单号
     :return:
     """
-    #
-    # test = OutboundOrder()
-    #
-    # pickOrderId = test.get_out_orderInfo(keyword)[0]
-    # outOrderId = test.get_out_orderInfo(keyword)[1]
-    #
+
+    test = OutboundOrder()
+
+    pickOrderId = test.get_out_orderInfo(keyword)[0]
+    outOrderId = test.get_out_orderInfo(keyword)[1]
+
     test1 = PickOrder()
-    # data = test1.get_pick_orderInfo(pickOrderId)
-    # materialCode = data[0]
-    # warehouseId = data[1]
-    # storageLocationId = data[2]
-    # quantity = data[3]
-    #
-    # goodsInfo = test1.get_goodsInfo(warehouseId, materialCode)
-    # goodsId = goodsInfo[0]
-    # lotNum = goodsInfo[1]
-    # # 拣货
-    # test1.picking(goodsId=goodsId, lotNum=lotNum, pickOrderId=pickOrderId, storageLocationId=storageLocationId)
-    # # 拣货完成
-    # test1.pickFinished(pickOrderId=pickOrderId)
-    # print(pickOrderId)
+    data = test1.get_pick_orderInfo(pickOrderId)
+    materialCode = data[0]
+    warehouseId = data[1]
+    storageLocationId = data[2]
+    quantity = data[3]
+
+    goodsInfo = test1.get_goodsInfo(warehouseId, materialCode)
+    goodsId = goodsInfo[0]
+    lotNum = goodsInfo[1]
+    # 拣货
+    test1.picking(goodsId=goodsId, lotNum=lotNum, pickOrderId=pickOrderId, storageLocationId=storageLocationId)
+    # 拣货完成
+    test1.pickFinished(pickOrderId=pickOrderId)
+    print(pickOrderId)
     # 审核拣货
-    # test1.pick_approval(goodsId=goodsId, quantity=quantity, pickOrderId=pickOrderId)
+    test1.pick_approval(goodsId=goodsId, quantity=quantity, pickOrderId=pickOrderId)
     # 发货
-    # test.delivery(logisticsCompany='京东', deliveryDate=timeStamp, expressNo='123123', outOrderId=outOrderId,
-    #               deliveryMode='DELIVERY')
-    # # 审核发货
-    # test.approval(logisticsCompany='京东', deliveryDate=timeStamp, expressNo='123123', outOrderId=outOrderId)
+    test.delivery(logisticsCompany='京东', deliveryDate=timeStamp, expressNo='123123', outOrderId=outOrderId,
+                  deliveryMode='DELIVERY')
+    # 审核发货
+    test.approval(logisticsCompany='京东', deliveryDate=timeStamp, expressNo='123123', outOrderId=outOrderId)
 
 
 if __name__ == '__main__':
-    keyword = Purchase_Management.AllocateOrder().all()
-    print(keyword)
-    all(keyword)
+    # 调拨单code
+    allocateCode = Purchase_Management.AllocateOrder().all()
+    print(allocateCode)
+    all(allocateCode)
+    # 临调单code
+    # adhocOrderCode = Order_Management.AdhocOrder().all()
+    #
+    # print(adhocOrderCode)
+    # all(adhocOrderCode)
 
     # test = OutboundOrder()
     #

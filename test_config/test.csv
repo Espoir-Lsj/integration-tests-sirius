@@ -6,6 +6,7 @@ url,request_type,title,case,expected,模块,功能
 /supplier/addReceivingAddress,post,收货地区为空,{"districtCode": 110101000000111},收货地址区域不存在,订单管理,临调订单——创建默认地址
 /supplier/addReceivingAddress,post,详细地址为空,{"receivingAddress": None},请填写收货地址,订单管理,临调订单——创建默认地址
 /supplier/addReceivingAddress,post,详细地址为空,{"receivingAddress": '主治医师' * 30},收货地址长度超出限制,订单管理,临调订单——创建默认地址
+
 /supplier/updateReceivingAddress,post,收件人名字为空,{"receivingName": None},请输入正确的收货人姓名,订单管理,临调订单——修改默认地址
 /supplier/updateReceivingAddress,post,收件人名字为空,{"receivingName": '主治医师' * 30},收货人姓名长度超出限制,订单管理,临调订单——修改默认地址
 /supplier/updateReceivingAddress,post,手机号为空,{"receivingPhone": None},请输入正确的手机号码,订单管理,临调订单——修改默认地址
@@ -15,6 +16,7 @@ url,request_type,title,case,expected,模块,功能
 /supplier/updateReceivingAddress,post,详细地址为空,{"receivingAddress": '主治医师' * 30},收货地址长度超出限制,订单管理,临调订单——修改默认地址
 /supplier/updateReceivingAddress,post,地址ID为空,{"id": None},请选择id,订单管理,临调订单——修改默认地址
 /supplier/updateReceivingAddress,post,地址ID错误,{"id": 9999},地址不存在,订单管理,临调订单——修改默认地址
+
 /adhocOrder/accept,put,id错误,{"id": 9999},未查询到该临调订单，请刷新重试,订单管理,临调订单——接收临调单
 /adhocOrder/accept,put,商品ID为空,{"goodsId": None},请输入商品id,订单管理,临调订单——接收临调单
 /adhocOrder/accept,put,商品数量为空,{"quantity": None},请输入商品数量,订单管理,临调订单——接收临调单
@@ -27,12 +29,14 @@ url,request_type,title,case,expected,模块,功能
 /adhocOrder/accept,put,重复接收订单,{"quantity": 1},该临调单已处理，请勿重复操作,订单管理,临调订单——接收临调单
 /adhocOrder/accept1,put,商品数量错误,{"quantity": 999999},接收的商品明细和父临调单的明细不一致,订单管理,临调订单——接收临调单
 /adhocOrder/accept1,put,工具包数量错误,{"quantity": 1},接收的工具包明细和父临调单的明细不一致,订单管理,临调订单——接收临调单
+
 /adhocOrder/reject,put,临调单ID为空,{"id": None},请选择临调单,订单管理,临调订单——拒绝临调单
 /adhocOrder/reject,put,临调单ID错误,{"id": 99999},未查询到该临调订单，请刷新重试,订单管理,临调订单——拒绝临调单
 /adhocOrder/reject,put,拒绝原因为空,{"reason": None},请填写拒绝原因,订单管理,临调订单——拒绝临调单
 /adhocOrder/reject,put,拒绝原因过长,{"reason":  '主治医师' * 100},拒绝原因超出长度限制,订单管理,临调订单——拒绝临调单
 /adhocOrder/reject,put,拒绝成功,{"reason":'拒绝'},请求成功,订单管理,临调订单——拒绝临调单
 /adhocOrder/reject,put,重复拒绝,{"reason":'拒绝'},该临调单已处理，请勿重复操作,订单管理,临调订单——拒绝临调单
+
 /adhocOrder/edit1,put,临调单ID为空,{"id": None},请选择临调订单,订单管理,临调订单——编辑临调单
 /adhocOrder/edit1,put,临调单重复,{"gender": "FEMALE"},只能修改待修改的订单,订单管理,临调订单——编辑临调单
 /adhocOrder/edit,put,工具包ID为空,{"kitTemplateId": None},请输入套包id,订单管理,临调订单——编辑临调单
@@ -64,6 +68,7 @@ url,request_type,title,case,expected,模块,功能
 /adhocOrder/edit,put,商品/套包数量为空,{'quantity': None},请输入,订单管理,临调订单——编辑临调单
 /adhocOrder/edit,put,商品/套包数量为空,{'quantity': None},请输入,订单管理,临调订单——编辑临调单
 /adhocOrder/edit,put,商品/套包数量为空,{'quantity': None},请输入,订单管理,临调订单——编辑临调单
+
 /adhocOrder/close,put,重复关闭订单,{None},订单状态为待接收或待修改时才能关闭,订单管理,临调订单——关闭临调单
 /adhocOrder/close,put,订单ID为空,{'id':None},不能为null,订单管理,临调订单——关闭临调单
 /adhocOrder/close,put,订单ID错误,{'id':99999999},未查询到该临调订单，请刷新重试,订单管理,临调订单——关闭临调单
@@ -76,6 +81,7 @@ url,request_type,title,case,expected,模块,功能
 /adhocOrder/updateAddress,post,提货委托书为空,{"powerOfAttorney": None},请上传提货委托书,订单管理,临调订单——修改收货地址
 /adhocOrder/updateAddress,post,订单ID错误,{'orderId':999999999},未查询到该临调订单，请刷新重试,订单管理,临调订单——修改收货地址
 ,post,提货人姓名过长,{"consignorName": '主治医师' * 50},,订单管理,临调订单——修改收货地址
+
 /pickOrder/picking,put,商品ID为空,{"goodsId": None},请选择需要拣的物资,仓库管理,拣货单——拣货
 /pickOrder/picking,put,商品ID错误,{"goodsId": 99999},该批次商品不存在,仓库管理,拣货单——拣货
 /pickOrder/picking,put,拣货单ID为空,{"pickOrderId": None},请选择拣货单,仓库管理,拣货单——拣货
@@ -84,8 +90,13 @@ url,request_type,title,case,expected,模块,功能
 /pickOrder/picking,put,货位ID为空,{"storageLocationId": None},拣货的商品或该批次的商品在拣货单中不存在,仓库管理,拣货单——拣货
 /pickOrder/picking,put,货位错误,{"storageLocationId": 420},拣货的商品或该批次的商品在拣货单中不存在,仓库管理,拣货单——拣货
 /pickOrder/picking,put,重复拣货,{"serialNu": None},该商品已拣货完成请勿重复操作,仓库管理,拣货单——拣货
+
 /pickOrder/pickFinished,put,拣货单ID为空,{"pickOrderId": None},请选择拣货单,仓库管理,拣货单——拣货完成
 /pickOrder/pickFinished,put,拣货单ID错误,{"pickOrderId": 99939},拣货单不存在,仓库管理,拣货单——拣货完成
 /pickOrder/pickFinished,put,拣货单未拣货,{"pickOrderId": 1},只有拣货中的订单才能拣货完成,仓库管理,拣货单——拣货完成
 /pickOrder/pickFinished,put,重复确认拣货,{"imagePath":["/file/2021/06/03/04a82f82-e0f3-44d7-93f3-964d11c44326/base64Testjpg"]},只有拣货中的订单才能拣货完成,仓库管理,拣货单——拣货完成
+
+/pickOrder/approval,put,拣货单未审核,{"pickOrderId": 1},只可审核已拣货的拣货单,仓库管理,拣货单——拣货审核
+/pickOrder/approval,put,拣货单不存在,{"pickOrderId": 1000000},拣货单不存在,仓库管理,拣货单——拣货审核
+
 

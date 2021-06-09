@@ -22,7 +22,7 @@ fiveDaysAfter_stamp = int(time.mktime(fiveDaysAfter.timetuple())) * 1000
 # def res_data():
 #     timeid(file_yaml='request_data.yaml')._set_yaml_time({'url': 'body'}, 'w')
 
-@pytest.fixture(scope='class')
+@pytest.fixture(scope='class', autouse=True)
 def res_data():
     yield
     body_data.clear()
@@ -400,7 +400,8 @@ def PickOrder_pickFinished01(PickOrder_picking01, PickOrder_get_pickOrderId01):
 
 # 仓库管理 拣货单 拣货审核
 @pytest.fixture(scope='class')
-def PickOrder_pick_approval(PickOrder_pickFinished, PickOrder_get_pickOrderInfo, PickOrder_get_goodsInfo):
+def PickOrder_pick_approval(PickOrder_pickFinished, PickOrder_get_pickOrderInfo, PickOrder_get_goodsInfo,
+                            PickOrder_pickFinished01):
     Warehouse_Management.PickOrder().pick_approval(pickOrderId=pickOrderId,
                                                    goodsId=PickOrder_get_goodsInfo[0],
                                                    quantity=PickOrder_get_pickOrderInfo[3])

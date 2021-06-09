@@ -184,10 +184,11 @@ class AllocateOrder:
         # Id, code = self.create(reasonCode, sourceWarehouseId, targetWarehouseId, goodsId, goodsLotInfoId,
         #                        kitStockId)
         # 创建调拨单
-        allocateId, code = self.create(reasonCode, sourceWarehouseId, targetWarehouseId, goodsId, goodsLotInfoId)
+        allocateId, allocateCode = self.create(reasonCode, sourceWarehouseId, targetWarehouseId, goodsId,
+                                               goodsLotInfoId)
         # 接收调拨单
         self.approve(allocateId=allocateId, approve=True, rejectReason=None)
-        return code
+        return allocateCode
 
 
 if __name__ == '__main__':

@@ -23,7 +23,7 @@ log = logger.Log()
 
 # 物资 工具接口
 # @pytest.mark.TestGoods
-@pytest.mark.usefixtures('res_data')
+# @pytest.mark.usefixtures('res_data')
 @allure.feature('物资管理')
 @allure.story('创建物资')
 class TestGoods:

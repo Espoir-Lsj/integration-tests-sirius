@@ -26,7 +26,7 @@ supplierId = login.supplierId
 
 # 订单管理：临调订单
 @allure.feature('订单管理')
-@pytest.mark.usefixtures('res_data')
+# @pytest.mark.usefixtures('res_data')
 class TestAdhocOrder:
     data = [('物资id为空', {'goodsId': None}, '请输入商品id'),
             ('物资ID错误', {'goodsId': 1111111}, '商品不存在,请刷新重试'),
