@@ -4,7 +4,7 @@
 # @File : Warehouse_Management.py
 import time
 
-from test_case.common import request, Purchase_Management,Order_Management
+from test_case.common import request, Purchase_Management, Order_Management
 
 timeStamp = int(time.time() * 1000)
 
@@ -126,7 +126,7 @@ class PickOrder:
 
 # 入库单
 class InboundOrder:
-    def get_in_OrderInfo(self, keyword=None):
+    def get_inboundOrderId(self, keyword=None):
         url = '/inboundOrder/findList'
         params = {
             'pageNum': 0,
@@ -137,6 +137,29 @@ class InboundOrder:
         data = response['data']['rows'][0]
         inboundOrderId = data['inboundOrderId']
         return inboundOrderId
+
+    def get_InboundOrder_Info(self, inboundOrderId=None):
+        url = '/inboundOrder/getDetailById?inboundOrderId=%s' % inboundOrderId
+        response = request.get01(url)
+        data = response['data']['goodsList'][0]
+        registrationNum = data['registrationNumList'][0]
+        return registrationNum
+
+    # 入库单收货
+    def inbound_receiving(self, inboundOrderId=None, goodsId=None, quantity=1, lotNum=None, registrationNum=None,
+                          serialNumber=None):
+        url = '/inboundOrder/receiving'
+        body = {
+            "inboundOrderId": inboundOrderId,
+            "inboundOrderDetailReceiveBeanList": [{
+                "goodsId": goodsId,
+                "quantity": quantity,
+                "lotNum": lotNum,
+                "registrationNum": registrationNum,
+                "serialNumber": serialNumber
+            }]
+        }
+        response = request.put_body01(url, body)
 
 
 # 上架单
@@ -168,7 +191,10 @@ def all(keyword=None):
     goodsId = goodsInfo[0]
     lotNum = goodsInfo[1]
     # 拣货
-    test1.picking(goodsId=goodsId, lotNum=lotNum, pickOrderId=pickOrderId, storageLocationId=storageLocationId)
+    i = 0
+    while i < 10:
+        test1.picking(goodsId=goodsId, lotNum=lotNum, pickOrderId=pickOrderId, storageLocationId=storageLocationId)
+        i += 1
     # 拣货完成
     test1.pickFinished(pickOrderId=pickOrderId)
     print(pickOrderId)

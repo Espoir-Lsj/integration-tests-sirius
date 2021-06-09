@@ -4,7 +4,7 @@
 # @File : Order_Management.py
 import time, datetime
 from faker import Faker
-import request, login
+import request, login, Warehouse_Management
 
 faker = Faker(locale='zh_CN')
 
@@ -112,6 +112,8 @@ class AdhocOrder:
         response = request.get(url)
         goodsId = response['data']['rows'][0]['id']
         supplierId = response['data']['rows'][2]['supplierId']
+        # 6/10 号李斌会把这个字段从这个接口返回
+        goodsLotInfoId = None
         return goodsId, supplierId
 
     # 获取工具包信息
@@ -181,16 +183,6 @@ class AdhocOrder:
             raise response
         return response
 
-    # 拒绝临调单
-    def adhocOrder_reject(self, reason="拒绝", id=None):
-        url = '/adhocOrder/reject'
-        body = {
-            "reason": reason,
-            "accept": False,
-            "id": id
-        }
-        response = request.put_body01(url, body)
-
     # 接收临调单
     def adhocOrder_accept(self, goodsId=None, Gquantity=None, kitTemplateId=None, Kquantity=None, warehouseId=None,
                           id=None):
@@ -208,6 +200,16 @@ class AdhocOrder:
                 }],
                 "warehouseId": warehouseId
             }],
+            "id": id
+        }
+        response = request.put_body01(url, body)
+
+    # 拒绝临调单
+    def adhocOrder_reject(self, reason="拒绝", id=None):
+        url = '/adhocOrder/reject'
+        body = {
+            "reason": reason,
+            "accept": False,
             "id": id
         }
         response = request.put_body01(url, body)
@@ -271,6 +273,23 @@ class AdhocOrder:
             raise response
         return response
 
+    # 提交销用
+    def adhocOrder_return(self, childAdhocOrderId=None, goodsId=None, goodsLotInfoId=None, quantity=None,
+                          parentAdhocOrderId=None):
+        url = '/adhocOrder/adhocReturn'
+        body = {
+            "detail": [{
+                "childAdhocOrderId": childAdhocOrderId,
+                "goodsList": [{
+                    "goodsId": goodsId,
+                    "goodsLotInfoId": goodsLotInfoId,
+                    "quantity": quantity
+                }]
+            }],
+            "parentAdhocOrderId": parentAdhocOrderId
+        }
+        response = request.post_body(url, body)
+
     # 关闭临调单
     def adhocOrder_close(self, adhocOrderId=None):
         url = '/adhocOrder/close'
@@ -315,29 +334,40 @@ class AdhocOrder:
         procedureSite = self.get_procedureSite()
         # 商品信息
         goodsInfo = self.get_goodsInfo()
-        goodsId = goodsInfo[0]
+        goodsLotInfoId = 41
+        # goodsId = goodsInfo[0]
+        goodsId = 259
         goodsSupplierId = goodsInfo[1]
         # 工具包信息
         toolsInfo = self.get_toolsInfo()
         kitTemplateId = toolsInfo[0]
         toolsSupplierId = toolsInfo[1]
         # 创建临调单
-        adhocOrderId = self.adhocOrder_create(procedureSite=procedureSite, manufacturerId=manufacturerId,
-                                              ageGroup=ageGroup, addressId=addressId, supplierId=supplierId,
-                                              goodsId=goodsId, goodsSupplierId=goodsSupplierId,
-                                              kitTemplateId=None,
-                                              toolsSupplierId=toolsSupplierId)['data']['id']
-        # # 拒绝临调单
-        # self.adhocOrder_reject(id=adhocOrderId)
-        # # 编辑临调单
-        # self.adhocOrder_edit(id=adhocOrderId, procedureSite=procedureSite, procedureTime=timeStamp,
-        #                      expectReturnTime=fiveDaysAfter_stamp,
-        #                      manufacturerId=manufacturerId, ageGroup=ageGroup, addressId=addressId,
-        #                      supplierId=supplierId, goodsId=goodsId,
-        #                      goodsSupplierId=goodsSupplierId)
-        # # 接收临调单
-        # self.adhocOrder_accept(goodsId=goodsId, Gquantity=1, kitTemplateId=kitTemplateId, Kquantity=1,
-        #                        warehouseId=warehouseId, id=adhocOrderId)
+        data = self.adhocOrder_create(procedureSite=procedureSite, manufacturerId=manufacturerId,
+                                      ageGroup=ageGroup, addressId=addressId, supplierId=supplierId,
+                                      goodsId=goodsId, goodsSupplierId=goodsSupplierId,
+                                      kitTemplateId=None,
+                                      toolsSupplierId=toolsSupplierId)
+        adhocOrderId = data['data']['id']
+        adhocOrderCode = data['data']['code']
+        # 拒绝临调单
+        self.adhocOrder_reject(id=adhocOrderId)
+        # 编辑临调单
+        self.adhocOrder_edit(id=adhocOrderId, procedureSite=procedureSite, procedureTime=timeStamp,
+                             expectReturnTime=fiveDaysAfter_stamp,
+                             manufacturerId=manufacturerId, ageGroup=ageGroup, addressId=addressId,
+                             supplierId=supplierId, goodsId=goodsId,
+                             goodsSupplierId=goodsSupplierId,goodsQuantity=10)
+        # 接收临调单
+        self.adhocOrder_accept(goodsId=goodsId, Gquantity=10, kitTemplateId=kitTemplateId, Kquantity=1,
+                               warehouseId=warehouseId, id=adhocOrderId)
+        # 发货流程：出库、拣货
+        Warehouse_Management.all(adhocOrderCode)
+
+        # 提交销用
+        self.adhocOrder_return(childAdhocOrderId=adhocOrderId, goodsId=goodsId, goodsLotInfoId=goodsLotInfoId,
+                               quantity=5, parentAdhocOrderId=adhocOrderId)
+
         # # 更新收货地址
         # self.adhocOrder_updataAddress(orderId=adhocOrderId,addressId=addressId，parentId=adhocOrderId)
 
@@ -350,6 +380,8 @@ class AdhocOrder:
         #                        goodsId=goodsId, goodsSupplierId=goodsSupplierId,
         #                        toolsSupplierId=toolsSupplierId)
         self.delete_default_address(addressId)
+        print(adhocOrderCode)
+        return adhocOrderCode
 
 
 if __name__ == '__main__':
