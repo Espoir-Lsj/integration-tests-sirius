@@ -321,6 +321,25 @@ class AdhocOrder:
         }
         response = request.post_body(url, body)
 
+    # 查询临调单列表
+    def get_adhocOrder_list(self):
+        url = '/adhocOrder/findList?pageNum=0&pageSize=50'
+        response = request.get01(url)
+        try:
+            assert response['msg'] == '请求成功'
+        except Exception:
+            raise response
+
+    # 查询临调单详情
+    def get_adhocOrder_detail(self, adhocOrderId):
+        url = '/adhocOrder/getDetailByOrderId?orderId=%s' % adhocOrderId
+        response = request.get01(url)
+        try:
+            assert response['msg'] == '请求成功'
+        except Exception:
+            raise response
+
+    # 创建流程
     def all(self):
         # 品牌
         manufacturerId = self.get_manufacturerId()
@@ -375,6 +394,7 @@ class AdhocOrder:
                                toolsSupplierId=toolsSupplierId)
         self.delete_default_address(addressId)
 
+    # 临调单主流程
     def all_process(self):
         # 品牌
         manufacturerId = self.get_manufacturerId()
@@ -404,6 +424,12 @@ class AdhocOrder:
                                       toolsSupplierId=toolsSupplierId)
         adhocOrderId = data['data']['id']
         adhocOrderCode = data['data']['code']
+
+        # 查询临调单列表
+        self.get_adhocOrder_list()
+        # 查询临调单详情
+        self.get_adhocOrder_detail(adhocOrderId)
+
         # 拒绝临调单
         self.adhocOrder_reject(id=adhocOrderId)
         # 编辑临调单
@@ -425,6 +451,7 @@ class AdhocOrder:
         Warehouse_Management.All(adhocOrderCode).all_in_putOnShelf()
 
         self.delete_default_address(addressId)
+        print('临调单号---------------%s' % adhocOrderCode)
         return adhocOrderCode
 
 

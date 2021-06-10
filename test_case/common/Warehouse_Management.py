@@ -51,6 +51,22 @@ class OutboundOrder:
         }
         response = request.put_body01(url, body)
 
+    def get_outOrder_list(self):
+        url = '/adhocOrder/findList?pageNum=0&pageSize=50'
+        response = request.get01(url)
+        try:
+            assert response['msg'] == '请求成功'
+        except Exception:
+            raise response
+
+    def get_outOrder_detail(self, outOrderId):
+        url = '/adhocOrder/getDetailByOrderId?orderId=%s' % outOrderId
+        response = request.get01(url)
+        try:
+            assert response['msg'] == '请求成功'
+        except Exception:
+            raise response
+
 
 # 拣货单
 class PickOrder:
@@ -128,6 +144,14 @@ class PickOrder:
             body['pickingUiBeans'].append(kitInfo)
         response = request.put_body01(url, body)
 
+    def get_pickOrder_list(self):
+        url = '/pickOrder/list?pageNum=0&pageSize=50'
+        response = request.get01(url)
+        try:
+            assert response['msg'] == '请求成功'
+        except Exception:
+            raise response
+
 
 # 入库单
 class InboundOrder:
@@ -171,6 +195,8 @@ class InboundOrder:
         response = request.put_body01(url, body)
 
 
+
+
 # 上架单
 class putOnShelf:
     pass
@@ -180,8 +206,11 @@ class putOnShelf:
 class All:
     def __init__(self, keyword):
         self.keyword = keyword
+        # 出库单
         self.test = OutboundOrder()
+        # 拣货单
         self.test1 = PickOrder()
+        # 入库单
         self.test2 = InboundOrder()
 
         self.pickOrderId = self.test.get_out_orderInfo(keyword)[0]
@@ -196,6 +225,12 @@ class All:
         goodsInfo = self.test1.get_goodsInfo(self.warehouseId, self.materialCode)
         self.goodsId = goodsInfo[0]
         self.lotNum = goodsInfo[1]
+
+        # 查询接口
+        self.test.get_outOrder_list()
+        self.test.get_outOrder_detail(self.outOrderId)
+
+        self.test1.get_pickOrder_list()
 
     # 拣货出库流程
     def all_pick_out(self):

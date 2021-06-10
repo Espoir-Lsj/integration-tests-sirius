@@ -158,6 +158,24 @@ class AllocateOrder:
         except Exception:
             raise response
 
+    # 查询 调拨单详情
+    def get_allocate_detail(self, allocateId):
+        url = '/allocateOrder/detail?orderId=%s' % allocateId
+        response = request.get01(url)
+        try:
+            assert response['msg'] == '请求成功'
+        except Exception:
+            raise response
+
+    # 查询 调拨单列表
+    def get_allocate_list(self):
+        url = '/allocateOrder/findList?pageNum=0&pageSize=50'
+        response = request.get01(url)
+        try:
+            assert response['msg'] == '请求成功'
+        except Exception:
+            raise response
+
     # 主流程：创建调拨单
     def all(self):
 
@@ -180,14 +198,32 @@ class AllocateOrder:
         # 工具包信息
         # kitStockId = self.get_kitStockId(sourceWarehouseId)
 
-        # # 创建调拨单
+        #  创建调拨单 --有工具包
         # Id, code = self.create(reasonCode, sourceWarehouseId, targetWarehouseId, goodsId, goodsLotInfoId,
         #                        kitStockId)
         # 创建调拨单
         allocateId, allocateCode = self.create(reasonCode, sourceWarehouseId, targetWarehouseId, goodsId,
                                                goodsLotInfoId)
+        # 查询调拨单详情
+        self.get_allocate_detail(allocateId=allocateId)
+        # 查询调拨单列表
+        self.get_allocate_list()
+        # 驳回调拨单---修改
+        self.approve(allocateId=allocateId)
+        # 修改调拨单
+        self.create(reasonCode, sourceWarehouseId, targetWarehouseId, goodsId,
+                    goodsLotInfoId, Id=allocateId)
+        # 驳回调拨单 -- 关闭
+        self.approve(allocateId=allocateId)
+        # 关闭调拨单
+        self.close(allocateId=allocateId)
+
+        # 创建调拨单
+        allocateId, allocateCode = self.create(reasonCode, sourceWarehouseId, targetWarehouseId, goodsId,
+                                               goodsLotInfoId,goodsQuantity=5)
+
         # 接收调拨单
-        self.approve(allocateId=allocateId, approve=True, rejectReason=None)
+        # self.approve(allocateId=allocateId, approve=True, rejectReason=None)
         return allocateCode
 
 
