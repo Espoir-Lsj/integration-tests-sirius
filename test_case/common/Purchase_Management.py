@@ -220,10 +220,10 @@ class AllocateOrder:
 
         # 创建调拨单
         allocateId, allocateCode = self.create(reasonCode, sourceWarehouseId, targetWarehouseId, goodsId,
-                                               goodsLotInfoId,goodsQuantity=5)
+                                               goodsLotInfoId)
 
         # 接收调拨单
-        # self.approve(allocateId=allocateId, approve=True, rejectReason=None)
+        self.approve(allocateId=allocateId, approve=True, rejectReason=None)
         return allocateCode
 
 
