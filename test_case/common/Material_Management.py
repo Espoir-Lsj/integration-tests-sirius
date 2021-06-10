@@ -226,27 +226,6 @@ class Goods:
 
 # 物资管理：工具包
 class KitTemplate:
-    # 获取工具包列表
-    def get_KitTemplateList(self, toolKitName):
-        """
-
-        :param toolKitName: 工具包名称
-        :return:
-        """
-        url = '/kitTemplate/queryToolsKitList'
-        params = {
-            'pageNum': 0,
-            'pageSize': 50,
-            'toolKitName': toolKitName
-        }
-        response = request.get_params01(url, params)
-        try:
-            assert response['msg'] == '请求成功'
-        except Exception:
-            raise response
-        # 获取工具包 id
-        id = response['data']['rows'][0]['id']
-        return id
 
     # 获取工具包模版列表
     def get_ToolsList(self):
@@ -302,6 +281,28 @@ class KitTemplate:
         # except Exception:
         #     raise response
         return response
+
+    # 获取工具包列表
+    def get_KitTemplateList(self, toolKitName):
+        """
+
+        :param toolKitName: 工具包名称
+        :return:
+        """
+        url = '/kitTemplate/queryToolsKitList'
+        params = {
+            'pageNum': 0,
+            'pageSize': 50,
+            'toolKitName': toolKitName
+        }
+        response = request.get_params01(url, params)
+        try:
+            assert response['msg'] == '请求成功'
+        except Exception:
+            raise response
+        # 获取工具包 id
+        id = response['data']['rows'][0]['id']
+        return id
 
     # 编辑工具包
     def edit_ToolsKit(self, goodsId, kitTemplateId, skuCode=timeStamp, remark='哈哈哈', goodsQuantity=1,
@@ -501,7 +502,7 @@ class PackagingOrder:
 
 if __name__ == '__main__':
     # test = PackagingOrder()
-    test = Goods('tool')
+    test = KitTemplate()
     test.all()
     # 物资
     # create = test.create_Goods()

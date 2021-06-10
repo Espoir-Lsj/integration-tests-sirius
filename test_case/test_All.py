@@ -15,9 +15,9 @@ def test_material():
     Goods_test.all()
     Goods_test1.all()
 
-    # 工具包
-    KitTemplate_test = Material_Management.KitTemplate()
-    KitTemplate_test.all()
+    # # 工具包
+    # KitTemplate_test = Material_Management.KitTemplate()
+    # KitTemplate_test.all()
 
     # 加工组包
     PackagingOrder_test = Material_Management.PackagingOrder()
@@ -41,7 +41,7 @@ def test_Oeder():
 def test_Warehouse():
     log.info("-----------调拨流程出入库--------------")
     purchaseKey = test_Purchase()
-    all_test = Warehouse_Management.all(purchaseKey)
+    all_test = Warehouse_Management.All(purchaseKey).all_pick_out()
 
     OutboundOrder_test = Warehouse_Management.OutboundOrder()
 

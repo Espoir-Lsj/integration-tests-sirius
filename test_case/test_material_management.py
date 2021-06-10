@@ -351,12 +351,13 @@ class TestKitTemplate:
 
     @pytest.fixture(scope="class")
     def create(self):
+        timeStamp1 = timeStamp
         TestKitTemplate.toolsKitCategory = Material_Management.KitTemplate().get_toolsKitCategoryId()
         TestKitTemplate.goodsId = Material_Management.KitTemplate().get_ToolsList()
         response = Material_Management.KitTemplate().create_ToolsKit(TestKitTemplate.goodsId,
-                                                                     name=timeStamp,
+                                                                     name=timeStamp1,
                                                                      toolsKitCategory=TestKitTemplate.toolsKitCategory)
-        TestKitTemplate.toolsId = Material_Management.KitTemplate().get_KitTemplateList(timeStamp)
+        TestKitTemplate.toolsId = Material_Management.KitTemplate().get_KitTemplateList(timeStamp1)
 
     # 创建工具包接口异常
     def test_01(self, create):
