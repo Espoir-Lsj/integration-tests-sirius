@@ -112,8 +112,6 @@ class AdhocOrder:
         response = request.get(url)
         goodsId = response['data']['rows'][0]['id']
         supplierId = response['data']['rows'][2]['supplierId']
-        # 6/10 号李斌会把这个字段从这个接口返回
-        goodsLotInfoId = None
         return goodsId, supplierId
 
     # 获取工具包信息
@@ -194,14 +192,17 @@ class AdhocOrder:
                     "goodsId": goodsId,
                     "quantity": Gquantity
                 }],
-                "toolsDetailUiBeans": [{
-                    "kitTemplateId": kitTemplateId,
-                    "quantity": Kquantity
-                }],
+                "toolsDetailUiBeans": [],
                 "warehouseId": warehouseId
             }],
             "id": id
         }
+        tools = {
+            "kitTemplateId": kitTemplateId,
+            "quantity": Kquantity
+        }
+        if kitTemplateId:
+            body['detail'][0]['toolsDetailUiBeans'].append(tools)
         response = request.put_body01(url, body)
 
     # 拒绝临调单
@@ -339,6 +340,13 @@ class AdhocOrder:
         except Exception:
             raise response
 
+    # 查询商品批次号
+    def get_goodsLotInfoId(self, adhocOrderId):
+        url = '/adhocOrder/getDetailByOrderId?orderId=%s' % adhocOrderId
+        response = request.get01(url)
+        get_goodsLotInfoId = response['data']['childUiList'][0]['detailBeanUiList'][0]['goodsLotInfoId']
+        return get_goodsLotInfoId
+
     # 创建流程
     def all(self):
         # 品牌
@@ -353,7 +361,6 @@ class AdhocOrder:
         procedureSite = self.get_procedureSite()
         # 商品信息
         goodsInfo = self.get_goodsInfo()
-        goodsLotInfoId = 41
         # goodsId = goodsInfo[0]
         goodsId = 259
         goodsSupplierId = goodsInfo[1]
@@ -369,6 +376,7 @@ class AdhocOrder:
                                       toolsSupplierId=toolsSupplierId)
         adhocOrderId = data['data']['id']
         adhocOrderCode = data['data']['code']
+
         # 拒绝临调单
         self.adhocOrder_reject(id=adhocOrderId)
         # 编辑临调单
@@ -414,10 +422,13 @@ class AdhocOrder:
         goodsSupplierId = goodsInfo[1]
         # 工具包信息
         toolsInfo = self.get_toolsInfo()
-        kitTemplateId = toolsInfo[0]
+        # kitTemplateId = toolsInfo[0]
+        kitTemplateId = None
         toolsSupplierId = toolsInfo[1]
+        Gquantity = 10
         # 创建临调单
-        data = self.adhocOrder_create(procedureSite=procedureSite, manufacturerId=manufacturerId,
+        data = self.adhocOrder_create(goodsQuantity=Gquantity, procedureSite=procedureSite,
+                                      manufacturerId=manufacturerId,
                                       ageGroup=ageGroup, addressId=addressId, supplierId=supplierId,
                                       goodsId=goodsId, goodsSupplierId=goodsSupplierId,
                                       kitTemplateId=None,
@@ -425,28 +436,25 @@ class AdhocOrder:
         adhocOrderId = data['data']['id']
         adhocOrderCode = data['data']['code']
 
+        #  查出goodsLotInfoId
+
         # 查询临调单列表
         self.get_adhocOrder_list()
         # 查询临调单详情
         self.get_adhocOrder_detail(adhocOrderId)
 
-        # 拒绝临调单
-        self.adhocOrder_reject(id=adhocOrderId)
-        # 编辑临调单
-        self.adhocOrder_edit(id=adhocOrderId, procedureSite=procedureSite, procedureTime=timeStamp,
-                             expectReturnTime=fiveDaysAfter_stamp,
-                             manufacturerId=manufacturerId, ageGroup=ageGroup, addressId=addressId,
-                             supplierId=supplierId, goodsId=goodsId,
-                             goodsSupplierId=goodsSupplierId, goodsQuantity=10)
         # 接收临调单
-        self.adhocOrder_accept(goodsId=goodsId, Gquantity=10, kitTemplateId=kitTemplateId, Kquantity=1,
+        self.adhocOrder_accept(goodsId=goodsId, Gquantity=Gquantity, kitTemplateId=kitTemplateId, Kquantity=1,
                                warehouseId=warehouseId, id=adhocOrderId)
         # 发货流程：出库、拣货
         Warehouse_Management.All(adhocOrderCode).all_pick_out()
 
+        # 获取批次号
+        goodsLotInfoId = self.get_goodsLotInfoId(adhocOrderId)
+
         # 提交销用
         self.adhocOrder_return(childAdhocOrderId=adhocOrderId, goodsId=goodsId, goodsLotInfoId=goodsLotInfoId,
-                               Usequantity=5, parentAdhocOrderId=adhocOrderId)
+                               Usequantity=6, parentAdhocOrderId=adhocOrderId)
         # 收货流程：入库收货
         Warehouse_Management.All(adhocOrderCode).all_in_putOnShelf()
 
@@ -459,4 +467,5 @@ if __name__ == '__main__':
     test = AdhocOrder()
     # test.adhocOrder_create()
     # test.get_warehouse()
+
     test.all_process()
