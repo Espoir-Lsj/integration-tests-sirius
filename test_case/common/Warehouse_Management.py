@@ -30,6 +30,7 @@ class OutboundOrder:
         print('拣货单号---------------%s' % pickCode)
         return pickOrderId, outOrderId, outCode
 
+    # 出库发货
     def delivery(self, logisticsCompany=None, deliveryDate=None, expressNo=None, outOrderId=None, deliveryMode=None):
         url = '/outboundOrder/delivery'
         body = {
@@ -41,6 +42,7 @@ class OutboundOrder:
         }
         response = request.put_body01(url, body)
 
+    # 出货审核
     def approval(self, logisticsCompany=None, deliveryDate=None, expressNo=None, outOrderId=None):
         url = '/outboundOrder/approval'
         body = {
@@ -51,16 +53,18 @@ class OutboundOrder:
         }
         response = request.put_body01(url, body)
 
+    # 查询出库单列表
     def get_outOrder_list(self):
-        url = '/adhocOrder/findList?pageNum=0&pageSize=50'
+        url = '/outboundOrder/list?pageNum=0&pageSize=50'
         response = request.get01(url)
         try:
             assert response['msg'] == '请求成功'
         except Exception:
             raise response
 
+    # 查询 出库单详情
     def get_outOrder_detail(self, outOrderId):
-        url = '/adhocOrder/getDetailByOrderId?orderId=%s' % outOrderId
+        url = '/outboundOrder/detail/%s' % outOrderId
         response = request.get01(url)
         try:
             assert response['msg'] == '请求成功'
@@ -71,6 +75,7 @@ class OutboundOrder:
 # 拣货单
 class PickOrder:
 
+    # 查询拣货单信息
     def get_pick_orderInfo(self, pickOrderId):
         url = '/pickOrder/detail/%s' % pickOrderId
 
@@ -85,6 +90,7 @@ class PickOrder:
 
         return materialCode, warehouseId, storageLocationId, quantity
 
+    # 查询拣货物资信息
     def get_goodsInfo(self, warehouseId, materialCode):
         url = '/stockBaseData/findAllocateGoodsStockList'
         params = {
@@ -99,6 +105,7 @@ class PickOrder:
 
         return goodsId, lotNum
 
+    # 拣货
     def picking(self, goodsId=None, lotNum=None, pickOrderId=None, storageLocationId=None):
         url = '/pickOrder/picking'
         body = {
@@ -114,6 +121,7 @@ class PickOrder:
         except Exception:
             raise response
 
+    # 完成拣货
     def pickFinished(self, pickOrderId=None,
                      imagePath=["/file/2021/06/03/04a82f82-e0f3-44d7-93f3-964d11c44326/base64Test.jpg]"]):
         url = '/pickOrder/pickFinished'
@@ -123,6 +131,7 @@ class PickOrder:
         }
         response = request.put_body01(url, body)
 
+    # 审核拣货单
     def pick_approval(self, pickOrderId=None, goodsId=None, quantity=None, kitStockId=None, kitquantity=None
                       , imagePath=["/file/2021/06/03/04a82f82-e0f3-44d7-93f3-964d11c44326/base64Test.jpg"]):
         url = '/pickOrder/approval'
@@ -144,6 +153,7 @@ class PickOrder:
             body['pickingUiBeans'].append(kitInfo)
         response = request.put_body01(url, body)
 
+    # 查询拣货单列表
     def get_pickOrder_list(self):
         url = '/pickOrder/list?pageNum=0&pageSize=50'
         response = request.get01(url)
@@ -168,7 +178,7 @@ class InboundOrder:
         inboundOrderId = data['inboundOrderId']
         inboundCode = data['inboundOrderCode']
         print('入库单号---------------%s' % inboundCode)
-        return inboundOrderId
+        return inboundOrderId, inboundCode
 
     # 获取入库单信息
     def get_InboundOrder_Info(self, inboundOrderId=None):
@@ -195,11 +205,68 @@ class InboundOrder:
         response = request.put_body01(url, body)
 
 
-
-
 # 上架单
-class putOnShelf:
-    pass
+class PutOnShelf():
+    # 获取上架单号
+    def get_putOnShelfId(self, inboundCode):
+        """
+
+        :param inboundCode: 入库单code
+        :return:
+        """
+        url = '/putOnShelf/findList?pageNum=0&pageSize=50&keyword=%s' % inboundCode
+        response = request.get01(url)
+        putOnShelfId = response['data']['rows'][0]['id']
+        return putOnShelfId
+
+    # 查询上架单详情
+    def get_putOnshelf_detail(self, putOnShelfId):
+        """
+
+        :param putOnShelfId: 上架单ID
+        :return:
+        """
+        url = '/putOnShelf/getDetail?orderId=%s' % putOnShelfId
+        response = request.get01(url)
+
+
+# 验收单
+class CheckOrder:
+
+    # 获取验收单id
+    def get_checkOrder_list(self):
+        url = '/inboundOrder/findCheckList?pageNum=0&pageSize=50'
+        response = request.get01(url)
+
+    # 获取验收单详情
+    def get_checkOrder_Info(self, inboundCode):
+        url = '/inboundOrder/getDetailById?inboundOrderId=%s' % inboundCode
+        response = request.get01(url)
+        goodsList = response['data']['goodsList'][0]
+        checkOrderId = goodsList['id']
+        receivedQuantity = goodsList['receivedQuantity']
+        inboundingQuantity = goodsList['inboundingQuantity']
+        goodsLotInfoId = goodsList['goodsLotInfoId']
+        goodsId = goodsList['goodsId']
+        toolsList = response['data']['toolsList'][0]
+
+    def check(self, inboundOrderId, goodsLotInfoId, unqualifiedQuantity=0):
+        """
+
+        :param inboundOrderId: 入库单号
+        :param goodsLotInfoId:  批次号
+        :param unqualifiedQuantity: 未通过数量
+        :return:
+        """
+        url = '/inboundOrder/check'
+        body = {
+            "inboundOrderId": inboundOrderId,
+            "inboundOrderDetailCheckBeanList": [{
+                "checkInstructionUiList": [],
+                "goodsLotInfoId": goodsLotInfoId,
+                "unqualifiedQuantity": unqualifiedQuantity
+            }]
+        }
 
 
 # 主流程
@@ -255,7 +322,7 @@ class All:
 
     # 入库上架流程
     def all_in_putOnShelf(self):
-        inboundOrderId = self.test2.get_inboundOrderId(self.keyword)
+        inboundOrderId = self.test2.get_inboundOrderId(self.keyword)[0]
         registrationNum = self.test2.get_InboundOrder_Info(inboundOrderId)
 
         # 入库单 收货
