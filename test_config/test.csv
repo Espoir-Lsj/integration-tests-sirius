@@ -98,5 +98,8 @@ url,request_type,title,case,expected,模块,功能
 
 /pickOrder/approval,put,拣货单未审核,{"pickOrderId": 1},只可审核已拣货的拣货单,仓库管理,拣货单——拣货审核
 /pickOrder/approval,put,拣货单不存在,{"pickOrderId": 1000000},拣货单不存在,仓库管理,拣货单——拣货审核
+/pickOrder/approval,put,拣货单不存在,{"pickOrderId": None},拣货单id为空,仓库管理,拣货单——拣货审核
+/pickOrder/approval,put,拣货单不存在,{"goodsId": None},物资【低切迹弧形重建接骨板3.5】待拣数量和审核数量不一致，请刷新后重试,仓库管理,拣货单——拣货审核
+/pickOrder/approval,put,拣货单不存在,{"pickOrderId": None},拣货单id为空,仓库管理,拣货单——拣货审核
 
 
