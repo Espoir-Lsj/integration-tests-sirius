@@ -89,6 +89,20 @@ class PickOrder:
         quantity = response['data']['goodsDetail'][0]['quantity']
 
         return materialCode, warehouseId, storageLocationId, quantity
+    # 查询拣货单信息1
+    def get_pick_orderInfo01(self, pickOrderId):
+        url = '/pickOrder/detail/%s' % pickOrderId
+
+        response = request.get01(url)
+        # udi1 = response['data']['goodsDetail'][0]['udi']
+        # aa = str(udi1).replace('(', '')
+        # udi = str(aa).replace(')', '')
+        materialCode = response['data']['goodsDetail'][0]['materialCode']
+        warehouseId = response['data']['warehouseId']
+        storageLocationId = response['data']['goodsDetail'][0]['storageLocationId']
+        quantity = response['data']['goodsDetail'][0]['quantity']
+
+        return response
 
     # 查询拣货物资信息
     def get_goodsInfo(self, warehouseId, materialCode):
@@ -234,39 +248,60 @@ class PutOnShelf():
 class CheckOrder:
 
     # 获取验收单id
-    def get_checkOrder_list(self):
-        url = '/inboundOrder/findCheckList?pageNum=0&pageSize=50'
+    def get_checkOrder_list(self, inboundCode):
+        url = '/checkOrder/list?pageNum=0&pageSize=50&keyword=%s' % inboundCode
         response = request.get01(url)
+        checkId = response['data']['rows'][0]['id']
+        checkCode = response['data']['rows'][0]['code']
+        return checkId, checkCode
 
     # 获取验收单详情
-    def get_checkOrder_Info(self, inboundCode):
-        url = '/inboundOrder/getDetailById?inboundOrderId=%s' % inboundCode
+    def get_checkOrder_Info(self, checkId):
+        url = '/checkOrder/detail?orderId=%s' % checkId
         response = request.get01(url)
+        checkId = response['data']['checkOrderId']
         goodsList = response['data']['goodsList'][0]
-        checkOrderId = goodsList['id']
+        # 实际收到的数量
         receivedQuantity = goodsList['receivedQuantity']
+        # 入库数量
         inboundingQuantity = goodsList['inboundingQuantity']
         goodsLotInfoId = goodsList['goodsLotInfoId']
         goodsId = goodsList['goodsId']
-        toolsList = response['data']['toolsList'][0]
+        # 注册证
+        registrationNum = goodsList['registrationNumList']
+        lotNum = goodsList['lotNum']
+        # toolsList = response['data']['toolsList'][0]
+        return checkId, goodsLotInfoId, goodsId, lotNum, inboundingQuantity, registrationNum
 
-    def check(self, inboundOrderId, goodsLotInfoId, unqualifiedQuantity=0):
+    def check(self, checkId=None, goodsLotInfoId=None, unqualifiedQuantity=0, goodsId=None, lotNum=None,
+              receivedQuantity=None,
+              registrationNum=None):
         """
 
-        :param inboundOrderId: 入库单号
-        :param goodsLotInfoId:  批次号
-        :param unqualifiedQuantity: 未通过数量
+        :param checkId: 验收单号
+        :param goodsLotInfoId: 货位ID
+        :param unqualifiedQuantity: 未通过数量 默认为0  不需要协商
+        :param goodsId: 商品ID
+        :param lotNum: 货位
+        :param receivedQuantity: 实际收货数量
+        :param registrationNum: 注册证号
         :return:
         """
-        url = '/inboundOrder/check'
+        url = '/checkOrder/check'
         body = {
-            "inboundOrderId": inboundOrderId,
+            "orderId": checkId,
             "inboundOrderDetailCheckBeanList": [{
                 "checkInstructionUiList": [],
                 "goodsLotInfoId": goodsLotInfoId,
-                "unqualifiedQuantity": unqualifiedQuantity
+                "unqualifiedQuantity": unqualifiedQuantity,
+                "goodsId": goodsId,
+                "lotNum": lotNum,
+                "quantity": receivedQuantity,
+                "registrationNum": registrationNum,
+                "serialNumber": None
             }]
         }
+        response = request.put_body01(url, body)
 
 
 # 主流程
@@ -279,6 +314,8 @@ class All:
         self.test1 = PickOrder()
         # 入库单
         self.test2 = InboundOrder()
+        # 验收单
+        self.test3 = CheckOrder()
 
         self.pickOrderId = self.test.get_out_orderInfo(keyword)[0]
         self.outOrderId = self.test.get_out_orderInfo(keyword)[1]
@@ -320,9 +357,11 @@ class All:
         self.test.approval(logisticsCompany='京东', deliveryDate=timeStamp, expressNo='123123',
                            outOrderId=self.outOrderId)
 
-    # 入库上架流程
+    # 入库、验收、上架流程
     def all_in_putOnShelf(self):
         inboundOrderId = self.test2.get_inboundOrderId(self.keyword)[0]
+        inboundCode = self.test2.get_inboundOrderId(self.keyword)[1]
+
         registrationNum = self.test2.get_InboundOrder_Info(inboundOrderId)
 
         # 入库单 收货
@@ -330,43 +369,30 @@ class All:
                                      lotNum=self.lotNum,
                                      registrationNum=registrationNum)
 
+        checkId = self.test3.get_checkOrder_list(inboundCode)[0]
+        checkCode = self.test3.get_checkOrder_list(inboundCode)[1]
+        data = self.test3.get_checkOrder_Info(checkId)
+        #     checkId, goodsLotInfoId, goodsId, lotNum, receivedQuantity, registrationNum
+        goodsLotInfoId = data[1]
+        goodsId = data[2]
+        lotNum = data[3]
+        inboundingQuantity = data[4]
+        registrationNum = data[5]
+        # 验收单 验收
+        self.test3.check(checkId=checkId, goodsLotInfoId=goodsLotInfoId, goodsId=goodsId, lotNum=lotNum,
+                         receivedQuantity=inboundingQuantity, registrationNum=str(registrationNum))
+
 
 if __name__ == '__main__':
-    pass
-
-    # 调拨单code
-    # allocateCode = Purchase_Management.AllocateOrder().all()
-    # print(allocateCode)
-    # all(allocateCode)
-    # # 临调单code
-    # adhocOrderCode = Order_Management.AdhocOrder().all_process()
-    #
-    # print(adhocOrderCode)
-    # all(adhocOrderCode)
-
-    # test = OutboundOrder()
-    #
-    # pickOrderId = test.get_out_orderInfo(keyword)[0]
-    # outOrderId = test.get_out_orderInfo(keyword)[1]
-    #
-    # test1 = PickOrder()
-    # data = test1.get_pick_orderInfo(pickOrderId)
-    # materialCode = data[0]
-    # warehouseId = data[1]
-    # storageLocationId = data[2]
-    # quantity = data[3]
-    #
-    # goodsInfo = test1.get_goodsInfo(warehouseId, materialCode)
-    # goodsId = goodsInfo[0]
-    # lotNum = goodsInfo[1]
-    # # 拣货
-    # test1.picking(goodsId=goodsId, lotNum=lotNum, pickOrderId=pickOrderId, storageLocationId=storageLocationId)
-    # # 拣货完成
-    # test1.pickFinished(pickOrderId=pickOrderId)
-    # # 审核拣货
-    # test1.pick_approval(goodsId=goodsId, quantity=quantity, pickOrderId=pickOrderId)
-    # # 发货
-    # test.delivery(logisticsCompany='京东', deliveryDate=timeStamp, expressNo='123123', outOrderId=outOrderId,
-    #               deliveryMode='DELIVERY')
-    # # # 审核发货
-    # test.approval(logisticsCompany='京东', deliveryDate=timeStamp, expressNo='123123', outOrderId=outOrderId)
+    test = CheckOrder()
+    checkId = test.get_checkOrder_list('OIO_20210615_0014')[0]
+    checkCode = test.get_checkOrder_list('OIO_20210615_0014')[1]
+    data = test.get_checkOrder_Info(checkId)
+    #     checkId, goodsLotInfoId, goodsId, lotNum, receivedQuantity, registrationNum
+    goodsLotInfoId = data[1]
+    goodsId = data[2]
+    lotNum = data[3]
+    receivedQuantity = data[4]
+    registrationNum = data[5]
+    test.check(checkId=checkId, goodsLotInfoId=goodsLotInfoId, goodsId=goodsId, lotNum=lotNum,
+               receivedQuantity=receivedQuantity, registrationNum=str(registrationNum))

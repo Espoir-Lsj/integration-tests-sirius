@@ -398,6 +398,40 @@ def PickOrder_pickFinished01(PickOrder_picking01, PickOrder_get_pickOrderId01):
     Warehouse_Management.PickOrder().pickFinished(PickOrder_get_pickOrderId01)
 
 
+# 拣货完成
+@pytest.fixture(scope='class')
+def PickOrder_picking02():
+    keyword = Purchase_Management.AllocateOrder().all()
+
+    pickOrderId = Warehouse_Management.OutboundOrder().get_out_orderInfo(keyword)[0]
+    infoList = Warehouse_Management.PickOrder().get_pick_orderInfo01(pickOrderId)
+    lotNum02 = infoList['data']['goodsDetail'][0]['lotNum']
+    goodsId02 = infoList['data']['goodsDetail'][0]['goodsId']
+    storageLocationId02 = infoList['data']['goodsDetail'][0]['storageLocationId']
+
+    Warehouse_Management.PickOrder().picking(goodsId=goodsId02, lotNum=lotNum02, pickOrderId=pickOrderId,
+                                             storageLocationId=storageLocationId02)
+    yield pickOrderId
+
+
+# 拣货审核完成
+@pytest.fixture(scope='class')
+def PickOrder_pickFinish02():
+    keyword = Purchase_Management.AllocateOrder().all()
+
+    pickOrderId = Warehouse_Management.OutboundOrder().get_out_orderInfo(keyword)[0]
+    infoList = Warehouse_Management.PickOrder().get_pick_orderInfo01(pickOrderId)
+    lotNum03 = infoList['data']['goodsDetail'][0]['lotNum']
+    goodsId03 = infoList['data']['goodsDetail'][0]['goodsId']
+    storageLocationId02 = infoList['data']['goodsDetail'][0]['storageLocationId']
+
+    Warehouse_Management.PickOrder().picking(goodsId=goodsId03, lotNum=lotNum03, pickOrderId=pickOrderId,
+                                             storageLocationId=storageLocationId02)
+    Warehouse_Management.PickOrder().pickFinished(pickOrderId)
+
+    yield pickOrderId, goodsId03
+
+
 # 仓库管理 拣货单 拣货审核
 @pytest.fixture(scope='class')
 def PickOrder_pick_approval(PickOrder_pickFinished, PickOrder_get_pickOrderInfo, PickOrder_get_goodsInfo,

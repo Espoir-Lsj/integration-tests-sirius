@@ -93,13 +93,11 @@ url,request_type,title,case,expected,模块,功能
 
 /pickOrder/pickFinished,put,拣货单ID为空,{"pickOrderId": None},请选择拣货单,仓库管理,拣货单——拣货完成
 /pickOrder/pickFinished,put,拣货单ID错误,{"pickOrderId": 99939},拣货单不存在,仓库管理,拣货单——拣货完成
-/pickOrder/pickFinished,put,拣货单未拣货,{"pickOrderId": 1},只有拣货中的订单才能拣货完成,仓库管理,拣货单——拣货完成
 /pickOrder/pickFinished,put,重复确认拣货,{"imagePath":["/file/2021/06/03/04a82f82-e0f3-44d7-93f3-964d11c44326/base64Testjpg"]},只有拣货中的订单才能拣货完成,仓库管理,拣货单——拣货完成
 
-/pickOrder/approval,put,拣货单未审核,{"pickOrderId": 1},只可审核已拣货的拣货单,仓库管理,拣货单——拣货审核
+/pickOrder/approval,put,拣货数量为空,{"quantity": None},只可审核已拣货的拣货单,仓库管理,拣货单——拣货审核
 /pickOrder/approval,put,拣货单不存在,{"pickOrderId": 1000000},拣货单不存在,仓库管理,拣货单——拣货审核
-/pickOrder/approval,put,拣货单不存在,{"pickOrderId": None},拣货单id为空,仓库管理,拣货单——拣货审核
-/pickOrder/approval,put,拣货单不存在,{"goodsId": None},物资【低切迹弧形重建接骨板3.5】待拣数量和审核数量不一致，请刷新后重试,仓库管理,拣货单——拣货审核
+/pickOrder/approval,put,商品不存在,{"goodsId": 0},物资【多维锁定肱骨髓内钉系统】待拣数量和审核数量不一致，请刷新后重试,仓库管理,拣货单——拣货审核
 /pickOrder/approval,put,拣货单不存在,{"pickOrderId": None},拣货单id为空,仓库管理,拣货单——拣货审核
 
 
