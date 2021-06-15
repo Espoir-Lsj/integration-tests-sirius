@@ -89,6 +89,7 @@ class PickOrder:
         quantity = response['data']['goodsDetail'][0]['quantity']
 
         return materialCode, warehouseId, storageLocationId, quantity
+
     # 查询拣货单信息1
     def get_pick_orderInfo01(self, pickOrderId):
         url = '/pickOrder/detail/%s' % pickOrderId
@@ -200,7 +201,8 @@ class InboundOrder:
         response = request.get01(url)
         data = response['data']['goodsList'][0]
         registrationNum = data['registrationNumList'][0]
-        return registrationNum
+        inboundingQuantity = data['inboundingQuantity']
+        return registrationNum, inboundingQuantity
 
     # 入库单收货
     def inbound_receiving(self, inboundOrderId=None, goodsId=None, quantity=None, lotNum=None, registrationNum=None,
@@ -220,7 +222,7 @@ class InboundOrder:
 
 
 # 上架单
-class PutOnShelf():
+class PutOnShelf:
     # 获取上架单号
     def get_putOnShelfId(self, inboundCode):
         """
@@ -242,6 +244,31 @@ class PutOnShelf():
         """
         url = '/putOnShelf/getDetail?orderId=%s' % putOnShelfId
         response = request.get01(url)
+        data = response['data']['goodsList'][0]
+        goodsId = data['goodsId']
+        goodsLotInfoId = data['goodsLotInfoId']
+        storageLocationCode = str(data['storageLocationCode'])
+        quantity = data['quantity']
+        putOnShelfCode = response['data']['code']
+        print('上架单号---------------%s' % putOnShelfCode)
+        putOnShelfId = putOnShelfId
+        return goodsId, goodsLotInfoId, storageLocationCode, quantity, putOnShelfId
+
+    # 上架商品
+    def putOnshelf(self, goodsId=None, goodsLotInfoId=None, quantity=None, storageLocationCode=None, putOnShelfId=None):
+        url = '/putOnShelf/putOnShelf'
+        body = {
+            "goodsList": [{
+                "goodsId": goodsId,
+                "goodsLotInfoId": goodsLotInfoId,
+                "quantity": quantity,
+                "storageLocationCode": storageLocationCode,
+                "supplierId": None
+            }],
+            "orderId": putOnShelfId,
+            "toolsList": []
+        }
+        response = request.post_body01(url, body)
 
 
 # 验收单
@@ -316,6 +343,8 @@ class All:
         self.test2 = InboundOrder()
         # 验收单
         self.test3 = CheckOrder()
+        # 上架单
+        self.test4 = PutOnShelf()
 
         self.pickOrderId = self.test.get_out_orderInfo(keyword)[0]
         self.outOrderId = self.test.get_out_orderInfo(keyword)[1]
@@ -362,10 +391,11 @@ class All:
         inboundOrderId = self.test2.get_inboundOrderId(self.keyword)[0]
         inboundCode = self.test2.get_inboundOrderId(self.keyword)[1]
 
-        registrationNum = self.test2.get_InboundOrder_Info(inboundOrderId)
+        registrationNum = self.test2.get_InboundOrder_Info(inboundOrderId)[0]
+        inboundingQuantity = self.test2.get_InboundOrder_Info(inboundOrderId)[1]
 
         # 入库单 收货
-        self.test2.inbound_receiving(inboundOrderId=inboundOrderId, goodsId=self.goodsId, quantity=self.quantity,
+        self.test2.inbound_receiving(inboundOrderId=inboundOrderId, goodsId=self.goodsId, quantity=inboundingQuantity,
                                      lotNum=self.lotNum,
                                      registrationNum=registrationNum)
 
@@ -381,6 +411,18 @@ class All:
         # 验收单 验收
         self.test3.check(checkId=checkId, goodsLotInfoId=goodsLotInfoId, goodsId=goodsId, lotNum=lotNum,
                          receivedQuantity=inboundingQuantity, registrationNum=str(registrationNum))
+        # 上架单 上架
+        putOnShelfId = self.test4.get_putOnShelfId(inboundCode)
+        # return goodsId, goodsLotInfoId, storageLocationCode, quantity, putOnShelfId
+
+        data = self.test4.get_putOnshelf_detail(putOnShelfId)
+        goodsId = data[0]
+        goodsLotInfoId = data[1]
+        storageLocationCode = data[2]
+        quantity = data[3]
+
+        self.test4.putOnshelf(goodsId=goodsId, goodsLotInfoId=goodsLotInfoId, quantity=quantity,
+                              storageLocationCode=storageLocationCode, putOnShelfId=putOnShelfId)
 
 
 if __name__ == '__main__':
