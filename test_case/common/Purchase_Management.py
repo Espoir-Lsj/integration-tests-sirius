@@ -24,7 +24,7 @@ class AllocateOrder:
             raise response
         # 目前有库存的是丽都仓
         for i in response['data']:
-            if i['warehouseName'] == '丽都仓':
+            if i['warehouseName'] == '骨科-丽都临调仓':
                 sourceWarehouseId = i['id']
                 return sourceWarehouseId
 
@@ -37,7 +37,7 @@ class AllocateOrder:
         except Exception:
             raise response
         for i in response['data']:
-            if i['warehouseName'] == '思南路二楼':
+            if i['warehouseName'] == '骨科-北京临调仓':
                 targetWarehouseId = i['id']
                 return targetWarehouseId
 
@@ -66,8 +66,8 @@ class AllocateOrder:
             assert response['msg'] == '请求成功'
         except Exception:
             raise response
-        goodsId = response['data']['rows'][0]['goodsId']
-        goodsLotInfoId = response['data']['rows'][0]['goodsLotInfoId']
+        goodsId = response['data']['rows'][1]['goodsId']
+        goodsLotInfoId = response['data']['rows'][1]['goodsLotInfoId']
         return goodsId, goodsLotInfoId
 
     # 获取调出仓的工具包信息
@@ -184,16 +184,16 @@ class AllocateOrder:
 
         # sourceWarehouseId = self.get_out_warehouse()
         # targetWarehouseId = self.get_in_warehouse()
-        sourceWarehouseId = 6
-        targetWarehouseId = 13
+        sourceWarehouseId = 1
+        targetWarehouseId = 114
 
         # 物资信息
         goodsInfo = self.get_goodsInfo(sourceWarehouseId)
         # goodsId = goodsInfo[0]
         # 6/3 号，后续商品ID需要动态获取，目前这个是 在数据库准备的数据
-        goodsId = 259
+        goodsId = 22344
         # goodsLotInfoId = goodsInfo[1]
-        goodsLotInfoId = 41
+        goodsLotInfoId = 1619
 
         # 工具包信息
         # kitStockId = self.get_kitStockId(sourceWarehouseId)

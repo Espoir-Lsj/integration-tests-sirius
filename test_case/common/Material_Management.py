@@ -397,7 +397,7 @@ class PackagingOrder:
             raise response
         # 目前有库存的是丽都仓
         for i in response['data']:
-            if i['warehouseName'] == '丽都仓':
+            if i['warehouseName'] == '骨科-丽都临调仓':
                 warehouseId = i['id']
                 return warehouseId
 
@@ -415,7 +415,7 @@ class PackagingOrder:
         except Exception:
             raise response
         for i in response['data']['rows']:
-            if i['templateName'] == '出库测试工具包':
+            if i['templateName'] == 'A2FN基础工具':
                 templateIds = i['id']
                 return templateIds
 

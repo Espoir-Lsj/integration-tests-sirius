@@ -37,17 +37,17 @@ def test_Oeder():
     AdhocOrder_test.all()
 
 
-# # 仓库管理主流程
-# def test_Warehouse():
-#     log.info("-----------调拨流程出入库--------------")
-#     purchaseKey = test_Purchase()
-#     all_test = Warehouse_Management.All(purchaseKey).all_pick_out()
-#
-#     OutboundOrder_test = Warehouse_Management.OutboundOrder()
-#
-#     PickOrder_test = Warehouse_Management.PickOrder()
-#
-#     InboundOrder_test = Warehouse_Management.InboundOrder()
+# 仓库管理主流程
+def test_Warehouse():
+    log.info("-----------调拨流程出入库--------------")
+    purchaseKey = test_Purchase()
+    all_out_test = Warehouse_Management.All(purchaseKey).all_pick_out()
+    all_in_test = Warehouse_Management.All(purchaseKey).all_in_putOnShelf()
 
+    OutboundOrder_test = Warehouse_Management.OutboundOrder()
+
+    PickOrder_test = Warehouse_Management.PickOrder()
+
+    InboundOrder_test = Warehouse_Management.InboundOrder()
 
 # test_Warehouse()

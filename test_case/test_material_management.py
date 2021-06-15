@@ -472,7 +472,6 @@ class TestKitTemplate:
 
 @pytest.mark.usefixtures('res_data')
 @allure.feature('物资管理')
-@allure.story('加工组包')
 class TestPackagingOrder:
     templateIds = None
     warehouseId = None
