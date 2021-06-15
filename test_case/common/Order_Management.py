@@ -460,7 +460,7 @@ class AdhocOrder:
         # kitTemplateId = toolsInfo[0]
         kitTemplateId = None
         # toolsSupplierId = toolsInfo[1]
-        Gquantity = 1
+        Gquantity = 3
         # 创建临调单
         data = self.adhocOrder_create(goodsQuantity=Gquantity, procedureSite=procedureSite,
                                       manufacturerId=manufacturerId,
@@ -474,23 +474,23 @@ class AdhocOrder:
         # 接收临调单
         self.adhocOrder_accept(goodsId=goodsId, Gquantity=Gquantity, kitTemplateId=kitTemplateId, Kquantity=1,
                                warehouseId=warehouseId, id=adhocOrderId)
-        # # 发货流程：出库、拣货
-        # Warehouse_Management.All(adhocOrderCode).all_pick_out()
-        #
-        # # 获取批次号
-        # goodsLotInfoId = self.get_goodsLotInfoId(adhocOrderId)
-        #
-        # # 提交销用
-        # self.adhocOrder_return(childAdhocOrderId=adhocOrderId, goodsId=goodsId, goodsLotInfoId=goodsLotInfoId,
-        #                        Usequantity=6, parentAdhocOrderId=adhocOrderId)
-        # # 收货流程：入库收货、验收
-        # Warehouse_Management.All(adhocOrderCode).all_in_putOnShelf()
-        #
-        # # 生成销售单
+        # 发货流程：出库、拣货
+        Warehouse_Management.All(adhocOrderCode).all_pick_out()
+
+        # 获取批次号
+        goodsLotInfoId = self.get_goodsLotInfoId(adhocOrderId)
+
+        # 提交销用
+        self.adhocOrder_return(childAdhocOrderId=adhocOrderId, goodsId=goodsId, goodsLotInfoId=goodsLotInfoId,
+                               Usequantity=1, parentAdhocOrderId=adhocOrderId)
+        # 收货流程：入库收货、验收
+        Warehouse_Management.All(adhocOrderCode).all_in_putOnShelf()
+
+        # 生成销售单
         # self.create_salesOrder(parentId=adhocOrderId, adhocOrderId=adhocOrderId, goodsId=goodsId,
-        #                        goodsLotInfoId=goodsLotInfoId, Usequantity=6)
+        #                        goodsLotInfoId=goodsLotInfoId, Usequantity=3)
         # self.check_salesOrder(parentId=adhocOrderId, adhocOrderId=adhocOrderId, goodsId=goodsId,
-        #                       goodsLotInfoId=goodsLotInfoId, Usequantity=6)
+        #                       goodsLotInfoId=goodsLotInfoId, Usequantity=3)
 
         self.delete_default_address(addressId)
         print('临调单号---------------%s' % adhocOrderCode)

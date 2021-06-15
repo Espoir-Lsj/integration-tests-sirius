@@ -80,7 +80,7 @@ url,request_type,title,case,expected,模块,功能
 /adhocOrder/updateAddress,post,身份证错误,{"receivingIdCard": 421322199814461},请输入正确的身份证号,订单管理,临调订单——修改收货地址
 /adhocOrder/updateAddress,post,提货委托书为空,{"powerOfAttorney": None},请上传提货委托书,订单管理,临调订单——修改收货地址
 /adhocOrder/updateAddress,post,订单ID错误,{'orderId':999999999},未查询到该临调订单，请刷新重试,订单管理,临调订单——修改收货地址
-,post,提货人姓名过长,{"consignorName": '主治医师' * 50},,订单管理,临调订单——修改收货地址
+/adhocOrder/updateAddress,post,收货人人姓名过长,{"consignorName": '主治医师' * 50},收货人姓名长度超出限制,订单管理,临调订单——修改收货地址
 
 /pickOrder/picking,put,商品ID为空,{"goodsId": None},请选择需要拣的物资,仓库管理,拣货单——拣货
 /pickOrder/picking,put,商品ID错误,{"goodsId": 99999},该批次商品不存在,仓库管理,拣货单——拣货
@@ -97,7 +97,6 @@ url,request_type,title,case,expected,模块,功能
 
 /pickOrder/approval,put,拣货数量为空,{"quantity": None},只可审核已拣货的拣货单,仓库管理,拣货单——拣货审核
 /pickOrder/approval,put,拣货单不存在,{"pickOrderId": 1000000},拣货单不存在,仓库管理,拣货单——拣货审核
-/pickOrder/approval,put,商品不存在,{"goodsId": 0},物资【多维锁定肱骨髓内钉系统】待拣数量和审核数量不一致，请刷新后重试,仓库管理,拣货单——拣货审核
 /pickOrder/approval,put,拣货单不存在,{"pickOrderId": None},拣货单id为空,仓库管理,拣货单——拣货审核
 
 

@@ -33,6 +33,7 @@ class TestPickOrder:
         assert response['msg'] == expected
 
     @allure.story('拣货单——拣货单 完成拣货')
+    @allure.title('上传图片过多')
     def test_pickFinished01(self, PickOrder_picking02):
         url = '/pickOrder/pickFinished'
         body = {
@@ -63,6 +64,7 @@ class TestPickOrder:
         assert response['msg'] == expected
 
     @allure.story('拣货单——拣货单 审核拣货')
+    @allure.title('商品不存在')
     def test_pickApproval01(self, PickOrder_pickFinish02):
         url = '/pickOrder/approval'
         body = {
