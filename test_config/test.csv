@@ -122,4 +122,13 @@ url,request_type,title,case,expected,模块,功能
 /outboundOrder/approval,put,出库单为空,{"id": None},请选择调拨出库单,仓库管理,出库单——发货审核
 /outboundOrder/approval,put,出库单错误,{"id": 999999},出库单不存在,仓库管理,出库单——发货审核
 
+/inboundOrder/receiving,put,入库单为空,{"inboundOrderId": None},入库单id不能为空,仓库管理,出库单——发货审核
+/inboundOrder/receiving,put,入库单不存在,{"inboundOrderId": 999999},入库单不存在,仓库管理,出库单——发货审核
+/inboundOrder/receiving,put,重复入库,{"serialNumber": None},非待收货状态的入库单不能进行收货,仓库管理,出库单——发货审核
+/inboundOrder/receiving,put,商品为空,{"goodsId": None},商品id不能为空,仓库管理,出库单——发货审核
+/inboundOrder/receiving,put,商品错误,{"goodsId": 999999},商品提交错误,仓库管理,出库单——发货审核
+/inboundOrder/receiving,put,商品数量为空,{"quantity": None},请填写收货数量,仓库管理,出库单——发货审核
+/inboundOrder/receiving,put,lotNum为空,{"lotNum": None},批号和序列号不能都为空,仓库管理,出库单——发货审核
+/inboundOrder/receiving,put,注册证号为空,{"registrationNum": None},注册证号不能为空,仓库管理,出库单——发货审核
+
 

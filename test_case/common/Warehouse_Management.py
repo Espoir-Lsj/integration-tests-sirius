@@ -239,7 +239,9 @@ class InboundOrder:
         data = response['data']['goodsList'][0]
         registrationNum = data['registrationNumList'][0]
         inboundingQuantity = data['inboundingQuantity']
-        return registrationNum, inboundingQuantity
+        goodsId = data['goodsId']
+        lotNum = data['lotNum']
+        return registrationNum, inboundingQuantity, goodsId, lotNum
 
     # 入库单收货
     def inbound_receiving(self, inboundOrderId=None, goodsId=None, quantity=None, lotNum=None, registrationNum=None,
@@ -260,6 +262,11 @@ class InboundOrder:
     # 获取入库单列表
     def get_inbound_list(self):
         url = '/inboundOrder/findCheckList?pageNum=0&pageSize=50'
+        response = request.get01(url)
+
+    # 导出入库单
+    def inbound_export(self):
+        url = '/inboundOrder/export'
         response = request.get01(url)
 
 
@@ -405,6 +412,8 @@ class All:
         self.test.get_outOrder_list()
         self.test1.get_pickOrder_list()
         self.test2.get_inbound_list()
+
+        self.test2.inbound_export()
 
     # 拣货出库流程
     def all_pick_out(self):

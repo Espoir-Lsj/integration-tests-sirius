@@ -516,6 +516,7 @@ def OutboundOrder_approve():
                                                   outOrderId=outOrderId, deliveryMode='DELIVERY')
     Warehouse_Management.OutboundOrder().approval(logisticsCompany='顺丰快递', deliveryDate=timeStamp, expressNo='999999',
                                                   outOrderId=outOrderId)
+    yield keyword
 
 
 # 仓库管理 已发货未审核
@@ -541,6 +542,47 @@ def OutboundOrder_getId01():
     Warehouse_Management.OutboundOrder().delivery(logisticsCompany='顺丰快递', deliveryDate=timeStamp, expressNo='888888',
                                                   outOrderId=outOrderId, deliveryMode='DELIVERY')
     yield outOrderId
+
+
+# 仓库管理 入库单 收货
+@pytest.fixture(scope='class')
+def InboundOrder_receiving(OutboundOrder_approve):
+    inboundId = Warehouse_Management.InboundOrder().get_inboundOrderId(OutboundOrder_approve)[0]
+    info = Warehouse_Management.InboundOrder().get_InboundOrder_Info(inboundOrderId=inboundId)
+    registrationNum = info[0]
+    inboundingQuantity = info[1]
+    goodsId = info[2]
+    lotNum = info[3]
+
+    Warehouse_Management.InboundOrder().inbound_receiving(inboundOrderId=inboundId, goodsId=goodsId,
+                                                          quantity=inboundingQuantity, lotNum=lotNum,
+                                                          registrationNum=registrationNum, serialNumber=None)
+
+
+@pytest.fixture(scope='class')
+def OutboundOrder_approve01():
+    keyword = Purchase_Management.AllocateOrder().all()
+
+    pickOrderId = Warehouse_Management.OutboundOrder().get_out_orderInfo(keyword)[0]
+    outOrderId = Warehouse_Management.OutboundOrder().get_out_orderInfo(keyword)[1]
+    infoList = Warehouse_Management.PickOrder().get_pick_orderInfo01(pickOrderId)
+    lotNum03 = infoList['data']['goodsDetail'][0]['lotNum']
+    goodsId03 = infoList['data']['goodsDetail'][0]['goodsId']
+    quantity = infoList['data']['goodsDetail'][0]['quantity']
+    storageLocationId02 = infoList['data']['goodsDetail'][0]['storageLocationId']
+
+    Warehouse_Management.PickOrder().picking(goodsId=goodsId03, lotNum=lotNum03, pickOrderId=pickOrderId,
+                                             storageLocationId=storageLocationId02)
+    Warehouse_Management.PickOrder().pickFinished(pickOrderId)
+    Warehouse_Management.PickOrder().pick_approval(pickOrderId=pickOrderId,
+                                                   goodsId=goodsId03,
+                                                   quantity=quantity)
+    Warehouse_Management.OutboundOrder().delivery(logisticsCompany='顺丰快递', deliveryDate=timeStamp, expressNo='888888',
+                                                  outOrderId=outOrderId, deliveryMode='DELIVERY')
+    Warehouse_Management.OutboundOrder().approval(logisticsCompany='顺丰快递', deliveryDate=timeStamp, expressNo='999999',
+                                                  outOrderId=outOrderId)
+    inboundId = Warehouse_Management.InboundOrder().get_inboundOrderId(keyword)[0]
+    yield inboundId
 
 
 def pytest_collection_modifyitems(items):

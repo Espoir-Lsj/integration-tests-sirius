@@ -101,3 +101,18 @@ class TestPickOrder:
             body['id'] = OutboundOrder_getId01
             response = request.put_body01(url, body)
             assert response['msg'] == expected
+
+    data = get_datas.get_csv('/inboundOrder/receiving')
+
+    @pytest.mark.parametrize('url,title,case,expected', data)
+    @allure.story('入库单——入库收货')
+    @allure.title('{title}')
+    def test_inOrderReceiving(self, url, title, case, expected, InboundOrder_receiving, OutboundOrder_approve01):
+        if title == '商品错误':
+            body = request.body_replace(url, case)
+            body['inboundOrderId'] = OutboundOrder_approve01
+            response = request.put_body01(url, body)
+            assert response['msg'] == expected
+
+    def test_11111(self, OutboundOrder_approve01):
+        pass

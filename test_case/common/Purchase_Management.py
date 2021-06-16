@@ -185,7 +185,7 @@ class AllocateOrder:
         # sourceWarehouseId = self.get_out_warehouse()
         # targetWarehouseId = self.get_in_warehouse()
         sourceWarehouseId = 1
-        targetWarehouseId = 114
+        targetWarehouseId = 89
 
         # 物资信息
         goodsInfo = self.get_goodsInfo(sourceWarehouseId)

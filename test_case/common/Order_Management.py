@@ -387,13 +387,11 @@ class AdhocOrder:
     # 创建流程
     def all(self):
         # 品牌
-        # manufacturerId = self.get_manufacturerId()
-        manufacturerId = 1
+        manufacturerId = self.get_manufacturerId()
         # 默认地址
         addressId = self.add_default_address()
         # 仓库地址
-        # warehouseId = self.get_warehouse()
-        warehouseId = 3
+        warehouseId = self.get_warehouse()
         # 年龄段
         ageGroup = self.get_ageGroup()
         # 手术部位
@@ -487,10 +485,10 @@ class AdhocOrder:
         Warehouse_Management.All(adhocOrderCode).all_in_putOnShelf()
 
         # 生成销售单
-        # self.create_salesOrder(parentId=adhocOrderId, adhocOrderId=adhocOrderId, goodsId=goodsId,
-        #                        goodsLotInfoId=goodsLotInfoId, Usequantity=1)
-        # self.check_salesOrder(parentId=adhocOrderId, adhocOrderId=adhocOrderId, goodsId=goodsId,
-        #                       goodsLotInfoId=goodsLotInfoId, Usequantity=1)
+        self.create_salesOrder(parentId=adhocOrderId, adhocOrderId=adhocOrderId, goodsId=goodsId,
+                               goodsLotInfoId=goodsLotInfoId, Usequantity=1)
+        self.check_salesOrder(parentId=adhocOrderId, adhocOrderId=adhocOrderId, goodsId=goodsId,
+                              goodsLotInfoId=goodsLotInfoId, Usequantity=1)
 
         self.delete_default_address(addressId)
         print('临调单号---------------%s' % adhocOrderCode)
@@ -506,5 +504,6 @@ if __name__ == '__main__':
     # test.adhocOrder_create()
     # test.get_warehouse()
 
+    test.all()
     test.all_process()
     # test.adhocOrder_return(182,20538,1,6,182)
