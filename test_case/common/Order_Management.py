@@ -342,9 +342,9 @@ class AdhocOrder:
 
     # 查询商品批次号
     def get_goodsLotInfoId(self, adhocOrderId):
-        url = '/adhocOrder/getDetailByOrderId?orderId=%s' % adhocOrderId
+        url = '/adhocOrder/getWebAdhocOrderConsumed?id=%s' % adhocOrderId
         response = request.get01(url)
-        get_goodsLotInfoId = response['data']['childUiList'][0]['detailBeanUiList'][0]['goodsLotInfoId']
+        get_goodsLotInfoId = response['data']['childList'][0]['goodsList'][0]['goodsLotInfoId']
         return get_goodsLotInfoId
 
     # 生成销售单
@@ -488,9 +488,9 @@ class AdhocOrder:
 
         # 生成销售单
         # self.create_salesOrder(parentId=adhocOrderId, adhocOrderId=adhocOrderId, goodsId=goodsId,
-        #                        goodsLotInfoId=goodsLotInfoId, Usequantity=3)
+        #                        goodsLotInfoId=goodsLotInfoId, Usequantity=1)
         # self.check_salesOrder(parentId=adhocOrderId, adhocOrderId=adhocOrderId, goodsId=goodsId,
-        #                       goodsLotInfoId=goodsLotInfoId, Usequantity=3)
+        #                       goodsLotInfoId=goodsLotInfoId, Usequantity=1)
 
         self.delete_default_address(addressId)
         print('临调单号---------------%s' % adhocOrderCode)
