@@ -132,3 +132,15 @@ url,request_type,title,case,expected,模块,功能
 /inboundOrder/receiving,put,注册证号为空,{"registrationNum": None},注册证号不能为空,仓库管理,出库单——发货审核
 
 
+/putOnShelf/putOnShelf,put,上架单为空,{"orderId": None},请输入单据号,仓库管理,上架单——上架
+/putOnShelf/putOnShelf,put,上架单错误,{"orderId": 999999},上架单不存在,仓库管理,上架单——上架
+/putOnShelf/putOnShelf,put,商品为空,{"goodsId": None},请输入id,仓库管理,上架单——上架
+/putOnShelf/putOnShelf,put,商品错误,{"goodsId": 999999},商品未提交完全，请刷新重试,仓库管理,上架单——上架
+/putOnShelf/putOnShelf,put,批次号为空,{"goodsLotInfoId": None},请输入批次号,仓库管理,上架单——上架
+/putOnShelf/putOnShelf,put,商品数量为空,{"quantity": None},请输入商品数量,仓库管理,上架单——上架
+/putOnShelf/putOnShelf,put,商品数量错误,{"quantity": 999999},商品上架数量有误，请刷新重试,仓库管理,上架单——上架
+/putOnShelf/putOnShelf,put,货位号为空,{"storageLocationCode": None},请输入货位号,仓库管理,上架单——上架
+/putOnShelf/putOnShelf,put,货位号错误,{"storageLocationCode": "huoweihao"},货位huoweihao不存在,仓库管理,上架单——上架
+
+
+

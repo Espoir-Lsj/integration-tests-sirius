@@ -344,7 +344,7 @@ class CheckOrder:
         goodsLotInfoId = goodsList['goodsLotInfoId']
         goodsId = goodsList['goodsId']
         # 注册证
-        registrationNum = goodsList['registrationNumList']
+        registrationNum = str(goodsList['registrationNumList'])
         lotNum = goodsList['lotNum']
         # toolsList = response['data']['toolsList'][0]
         return checkId, goodsLotInfoId, goodsId, lotNum, inboundingQuantity, registrationNum

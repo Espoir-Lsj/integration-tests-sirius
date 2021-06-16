@@ -114,5 +114,17 @@ class TestPickOrder:
             response = request.put_body01(url, body)
             assert response['msg'] == expected
 
-    def test_11111(self, OutboundOrder_approve01):
+    data = get_datas.get_csv('/putOnShelf/putOnShelf')
+
+    @pytest.mark.parametrize('url,title,case,expected', data)
+    @allure.story('上架单单——上架')
+    @allure.title('{title}')
+    def test_putOnShelf(self, url, title, case, expected, PutOnShelf_put, InboundOrder_receiving01):
+        if title in ('商品错误', '商品数量错误', '货位号为空', '货位号错误'):
+            body = request.body_replace(url, case)
+            body['orderId'] = InboundOrder_receiving01
+            response = request.post_body01(url, body)
+            assert response['msg'] == expected
+
+    def test1111(self, CheckOrder_check, PutOnShelf_put01):
         pass

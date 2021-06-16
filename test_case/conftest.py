@@ -548,6 +548,7 @@ def OutboundOrder_getId01():
 @pytest.fixture(scope='class')
 def InboundOrder_receiving(OutboundOrder_approve):
     inboundId = Warehouse_Management.InboundOrder().get_inboundOrderId(OutboundOrder_approve)[0]
+    inboundCode = Warehouse_Management.InboundOrder().get_inboundOrderId(OutboundOrder_approve)[1]
     info = Warehouse_Management.InboundOrder().get_InboundOrder_Info(inboundOrderId=inboundId)
     registrationNum = info[0]
     inboundingQuantity = info[1]
@@ -557,6 +558,7 @@ def InboundOrder_receiving(OutboundOrder_approve):
     Warehouse_Management.InboundOrder().inbound_receiving(inboundOrderId=inboundId, goodsId=goodsId,
                                                           quantity=inboundingQuantity, lotNum=lotNum,
                                                           registrationNum=registrationNum, serialNumber=None)
+    yield inboundCode
 
 
 @pytest.fixture(scope='class')
@@ -583,6 +585,89 @@ def OutboundOrder_approve01():
                                                   outOrderId=outOrderId)
     inboundId = Warehouse_Management.InboundOrder().get_inboundOrderId(keyword)[0]
     yield inboundId
+
+
+@pytest.fixture(scope='class')
+def OutboundOrder_approve02():
+    keyword = Purchase_Management.AllocateOrder().all()
+
+    pickOrderId = Warehouse_Management.OutboundOrder().get_out_orderInfo(keyword)[0]
+    outOrderId = Warehouse_Management.OutboundOrder().get_out_orderInfo(keyword)[1]
+    infoList = Warehouse_Management.PickOrder().get_pick_orderInfo01(pickOrderId)
+    lotNum03 = infoList['data']['goodsDetail'][0]['lotNum']
+    goodsId03 = infoList['data']['goodsDetail'][0]['goodsId']
+    quantity = infoList['data']['goodsDetail'][0]['quantity']
+    storageLocationId02 = infoList['data']['goodsDetail'][0]['storageLocationId']
+
+    Warehouse_Management.PickOrder().picking(goodsId=goodsId03, lotNum=lotNum03, pickOrderId=pickOrderId,
+                                             storageLocationId=storageLocationId02)
+    Warehouse_Management.PickOrder().pickFinished(pickOrderId)
+    Warehouse_Management.PickOrder().pick_approval(pickOrderId=pickOrderId,
+                                                   goodsId=goodsId03,
+                                                   quantity=quantity)
+    Warehouse_Management.OutboundOrder().delivery(logisticsCompany='顺丰快递', deliveryDate=timeStamp, expressNo='888888',
+                                                  outOrderId=outOrderId, deliveryMode='DELIVERY')
+    Warehouse_Management.OutboundOrder().approval(logisticsCompany='顺丰快递', deliveryDate=timeStamp, expressNo='999999',
+                                                  outOrderId=outOrderId)
+    yield keyword
+
+
+@pytest.fixture(scope='class')
+def PutOnShelf_put(InboundOrder_receiving):
+    putId = Warehouse_Management.PutOnShelf().get_putOnShelfId(InboundOrder_receiving)
+    info = Warehouse_Management.PutOnShelf().get_putOnshelf_detail(putId)
+    goodsId = info[0]
+    goodsLotInfoId = info[1]
+    storageLocationCode = info[2]
+    quantity = info[3]
+    putOnShelfId = info[4]
+    Warehouse_Management.PutOnShelf().putOnshelf(goodsId=goodsId, goodsLotInfoId=goodsLotInfoId, quantity=quantity,
+                                                 storageLocationCode=storageLocationCode, putOnShelfId=putOnShelfId)
+    yield InboundOrder_receiving
+
+
+@pytest.fixture(scope='class')
+def InboundOrder_receiving01(OutboundOrder_approve02):
+    inboundId = Warehouse_Management.InboundOrder().get_inboundOrderId(OutboundOrder_approve02)[0]
+    inboundCode = Warehouse_Management.InboundOrder().get_inboundOrderId(OutboundOrder_approve02)[1]
+    info = Warehouse_Management.InboundOrder().get_InboundOrder_Info(inboundOrderId=inboundId)
+    registrationNum = info[0]
+    inboundingQuantity = info[1]
+    goodsId = info[2]
+    lotNum = info[3]
+
+    Warehouse_Management.InboundOrder().inbound_receiving(inboundOrderId=inboundId, goodsId=goodsId,
+                                                          quantity=inboundingQuantity, lotNum=lotNum,
+                                                          registrationNum=registrationNum, serialNumber=None)
+    putOnShelfId = Warehouse_Management.PutOnShelf().get_putOnShelfId(inboundCode)
+
+    yield putOnShelfId
+
+
+@pytest.fixture(scope='class')
+def PutOnShelf_put01(InboundOrder_receiving01):
+    info = Warehouse_Management.PutOnShelf().get_putOnshelf_detail(InboundOrder_receiving01)
+    goodsId = info[0]
+    goodsLotInfoId = info[1]
+    storageLocationCode = info[2]
+    quantity = info[3]
+    putOnShelfId = info[4]
+    Warehouse_Management.PutOnShelf().putOnshelf(goodsId=goodsId, goodsLotInfoId=goodsLotInfoId, quantity=quantity,
+                                                 storageLocationCode=storageLocationCode, putOnShelfId=putOnShelfId)
+
+
+@pytest.fixture(scope='class')
+def CheckOrder_check(PutOnShelf_put):
+    checkId = Warehouse_Management.CheckOrder().get_checkOrder_list(PutOnShelf_put)[0]
+    info = Warehouse_Management.CheckOrder().get_checkOrder_Info(checkId)
+    goodsLotInfoId = info[1]
+    goodsId = info[2]
+    lotNum = info[3]
+    inboundingQuantity = info[4]
+    registrationNum = info[5]
+    Warehouse_Management.CheckOrder().check(checkId=checkId, goodsLotInfoId=goodsLotInfoId, goodsId=goodsId,
+                                            lotNum=lotNum, registrationNum=registrationNum,
+                                            receivedQuantity=inboundingQuantity)
 
 
 def pytest_collection_modifyitems(items):
