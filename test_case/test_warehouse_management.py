@@ -77,3 +77,6 @@ class TestPickOrder:
         }
         response = request.put_body01(url, body)
         assert response['msg'] == '物资【多维锁定肱骨髓内钉系统】待拣数量和审核数量不一致，请刷新后重试'
+
+    def test001(self, OutboundOrder_getId):
+        print(OutboundOrder_getId)

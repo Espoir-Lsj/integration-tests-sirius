@@ -229,6 +229,12 @@ class TestGoods:
         response = Material_Management.Goods('material').edit_Goods(self.Id, registrationNum=None)
         assert response['msg'] == '请输入注册证号'
 
+    @allure.title('Edit：商品不存在')
+    def test_2701(self, create):
+        """商品不存在"""
+        response = Material_Management.Goods('material').edit_Goods(id=0)
+        assert response['msg'] == '商品不存在'
+
     @allure.title('Edit：存储条件为空')
     def test_28(self, create):
         """存储条件为空"""
@@ -395,7 +401,7 @@ class TestKitTemplate:
 
     def test_0601(self, create):
         """工具包类型异常"""
-        response = Material_Management.KitTemplate().create_ToolsKit(self.goodsId,skuCode=timeStamp + 1,
+        response = Material_Management.KitTemplate().create_ToolsKit(self.goodsId, skuCode=timeStamp + 1,
                                                                      toolsKitCategory=111111)
         assert response['msg'] == '工具包类型异常，请刷新后重试'
 
@@ -421,7 +427,7 @@ class TestKitTemplate:
 
     def test_09(self, create):
         """工具包类型异常"""
-        response = Material_Management.KitTemplate().edit_ToolsKit(self.goodsId, self.toolsId,kitCategory=909999)
+        response = Material_Management.KitTemplate().edit_ToolsKit(self.goodsId, self.toolsId, kitCategory=909999)
         assert response['msg'] == '工具包类型异常，请刷新后重试'
 
     # def test_10(self, create):

@@ -71,6 +71,15 @@ class OutboundOrder:
         except Exception:
             raise response
 
+    # 查询出库单发货信息
+    def get_outOrder_deliveryInfo(self, outOrderId):
+        url = '/outboundOrder/deliveryInfo/%s' % outOrderId
+        response = request.get01(url)
+
+    def outOrder_print(self, outOrderId):
+        url = '/outboundOrder/print/{}?id={}'.format(outOrderId, outOrderId)
+        response = request.get01(url)
+
 
 # 拣货单
 class PickOrder:
@@ -177,6 +186,30 @@ class PickOrder:
         except Exception:
             raise response
 
+    # pda获取拣货单详情
+    def get_pda_detail(self, pickOrderId):
+        url = '/pickOrder/detailByPda/%s' % pickOrderId
+        response = request.get01(url)
+
+    # 解析gs1
+    def get_gs1(self, pickOrderId):
+        url = '/pickOrder/gs1Decode?code=010761181981206217781117104135392&id=%s' % pickOrderId
+        response = request.get01(url)
+
+    #
+    def pickOrder_print(self, pickOrderId):
+        url = '/pickOrder/detail/{}?id={}'.format(pickOrderId, pickOrderId)
+        response = request.get01(url)
+
+    def get_byCode(self, pickOrderId):
+        url = '/pickOrder/pickingByCode'
+        body = {
+            "code": "20538",
+            "pickOrderId": pickOrderId,
+            "storageLocationId": 0
+        }
+        response = request.get01(url)
+
 
 # 入库单
 class InboundOrder:
@@ -219,6 +252,11 @@ class InboundOrder:
             }]
         }
         response = request.put_body01(url, body)
+
+    # 获取入库单列表
+    def get_inbound_list(self):
+        url = '/inboundOrder/findCheckList?pageNum=0&pageSize=50'
+        response = request.get01(url)
 
 
 # 上架单
@@ -361,9 +399,8 @@ class All:
 
         # 查询接口
         self.test.get_outOrder_list()
-        self.test.get_outOrder_detail(self.outOrderId)
-
         self.test1.get_pickOrder_list()
+        self.test2.get_inbound_list()
 
     # 拣货出库流程
     def all_pick_out(self):
@@ -376,6 +413,14 @@ class All:
 
         # 拣货单 拣货完成
         self.test1.pickFinished(pickOrderId=self.pickOrderId)
+        # 拣货单 pda查询接口
+        self.test1.get_pda_detail(pickOrderId=self.pickOrderId)
+        # 拣货单 gs1解析
+        self.test1.get_gs1(pickOrderId=self.pickOrderId)
+        # 拣货单 code解析
+        self.test1.get_byCode(pickOrderId=self.pickOrderId)
+        # 拣货单 打印
+        self.test1.pickOrder_print(self.pickOrderId)
         # 拣货单 审核拣货
         self.test1.pick_approval(goodsId=self.goodsId, quantity=self.quantity, pickOrderId=self.pickOrderId)
         # 出库单 发货
@@ -385,6 +430,12 @@ class All:
         # 出库单 审核发货
         self.test.approval(logisticsCompany='京东', deliveryDate=timeStamp, expressNo='123123',
                            outOrderId=self.outOrderId)
+        # 出库单 查看发货详情
+        self.test.get_outOrder_deliveryInfo(self.outOrderId)
+        # 出库单 打印
+        self.test.outOrder_print(self.outOrderId)
+        # 出库单 详情
+        self.test.get_outOrder_detail(self.outOrderId)
 
     # 入库、验收、上架流程
     def all_in_putOnShelf(self):
@@ -409,8 +460,9 @@ class All:
         inboundingQuantity = data[4]
         registrationNum = data[5]
         # 验收单 验收
-        self.test3.check(checkId=checkId, goodsLotInfoId=goodsLotInfoId, goodsId=goodsId, lotNum=lotNum,
-                         receivedQuantity=inboundingQuantity, registrationNum=str(registrationNum))
+        # self.test3.check(checkId=checkId, goodsLotInfoId=goodsLotInfoId, goodsId=goodsId, lotNum=lotNum,
+        #                  receivedQuantity=inboundingQuantity, registrationNum=str(registrationNum))
+
         # 上架单 上架
         putOnShelfId = self.test4.get_putOnShelfId(inboundCode)
         # return goodsId, goodsLotInfoId, storageLocationCode, quantity, putOnShelfId
@@ -423,6 +475,10 @@ class All:
 
         self.test4.putOnshelf(goodsId=goodsId, goodsLotInfoId=goodsLotInfoId, quantity=quantity,
                               storageLocationCode=storageLocationCode, putOnShelfId=putOnShelfId)
+
+        # 验收单 验收
+        self.test3.check(checkId=checkId, goodsLotInfoId=goodsLotInfoId, goodsId=goodsId, lotNum=lotNum,
+                         receivedQuantity=inboundingQuantity, registrationNum=str(registrationNum))
 
 
 if __name__ == '__main__':
