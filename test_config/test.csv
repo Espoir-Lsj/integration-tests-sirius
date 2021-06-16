@@ -99,4 +99,27 @@ url,request_type,title,case,expected,模块,功能
 /pickOrder/approval,put,拣货单不存在,{"pickOrderId": 1000000},拣货单不存在,仓库管理,拣货单——拣货审核
 /pickOrder/approval,put,拣货单不存在,{"pickOrderId": None},拣货单id为空,仓库管理,拣货单——拣货审核
 
+/outboundOrder/delivery,put,物流公司为空,{"logisticsCompany": None},请填写物流承运公司名字,仓库管理,出库单——出库发货
+/outboundOrder/delivery,put,物流公司名称超长,{"logisticsCompany": '主治医师' * 80},物流公司长度超出限制,仓库管理,出库单——出库发货
+/outboundOrder/delivery,put,物流单号为空,{"expressNo": None},请填写物流单号,仓库管理,出库单——出库发货
+/outboundOrder/delivery,put,物流单号超长,{"expressNo": '123456789'*90},快递单号长度超出限制,仓库管理,出库单——出库发货
+/outboundOrder/delivery,put,物流单号错误,{"expressNo": "顺丰速运"},请填写正确的物流单号,仓库管理,出库单——出库发货
+/outboundOrder/delivery,put,发货日期为空,{"deliveryDate": None},请填写发货日期,仓库管理,出库单——出库发货
+/outboundOrder/delivery,put,配送方式为空,{"deliveryMode": None},请选择配送方式,仓库管理,出库单——出库发货
+/outboundOrder/delivery,put,出库单为空,{"id": None},请选择出库单,仓库管理,出库单——出库发货
+/outboundOrder/delivery,put,出库单错误,{"id": 999999},出库单不存在,仓库管理,出库单——出库发货
+/outboundOrder/delivery,put,正向流程,{"logisticsCompany": "顺丰速运"},请求成功,仓库管理,出库单——出库发货
+/outboundOrder/delivery,put,重复发货,{"logisticsCompany": "顺丰速运"},出库单状态异常，不能发货,仓库管理,出库单——出库发货
+
+
+/outboundOrder/approval,put,重复审核,{"logisticsCompany":"顺丰速运" },该订单状态不正确,仓库管理,出库单——发货审核
+/outboundOrder/approval,put,物流公司名称超长,{"logisticsCompany": '主治医师' * 80},物流公司长度超出限制,仓库管理,出库单——发货审核
+/outboundOrder/approval,put,物流公司为空,{"logisticsCompany": None},请填写正确的公司名称,仓库管理,出库单——发货审核
+/outboundOrder/approval,put,发货日期为空,{"deliveryDate": None},请输入发货日期,仓库管理,出库单——发货审核
+/outboundOrder/approval,put,物流单号为空,{"expressNo": None},请填写物流单号,仓库管理,出库单——发货审核
+/outboundOrder/approval,put,物流单号超长,{"expressNo": '123456789'*90},快递单号长度超出限制,仓库管理,出库单——发货审核
+/outboundOrder/approval,put,物流单号错误,{"expressNo": "顺丰速运"},请填写正确的物流单号,仓库管理,出库单——发货审核
+/outboundOrder/approval,put,出库单为空,{"id": None},请选择调拨出库单,仓库管理,出库单——发货审核
+/outboundOrder/approval,put,出库单错误,{"id": 999999},出库单不存在,仓库管理,出库单——发货审核
+
 

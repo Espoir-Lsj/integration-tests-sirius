@@ -313,7 +313,6 @@ def AdhocOrder_updateAddress(AdhocOrder_accept):
 @pytest.fixture(scope='class')
 def PickOrder_get_pickOrderId():
     global pickOrderId
-    # 这里后期要优化，keyword 是创建 调拨单/临调单 的时候返回的订单code，目前是没有继承fixture
     keyword = Purchase_Management.AllocateOrder().all()
     pickOrderId = Warehouse_Management.OutboundOrder().get_out_orderInfo(keyword)[0]
     yield pickOrderId
@@ -323,7 +322,6 @@ def PickOrder_get_pickOrderId():
 @pytest.fixture(scope='class')
 def PickOrder_get_pickOrderId01():
     global pickOrderId01
-    # 这里后期要优化，keyword 是创建 调拨单/临调单 的时候返回的订单code，目前是没有继承fixture
     keyword = Purchase_Management.AllocateOrder().all()
     pickOrderId01 = Warehouse_Management.OutboundOrder().get_out_orderInfo(keyword)[0]
     yield pickOrderId01
@@ -466,14 +464,14 @@ def PickOrder_approval01():
 # 仓库管理 出库单 发货
 @pytest.fixture(scope='class')
 def OutboundOrder_delivery(PickOrder_approval01):
-    info = Warehouse_Management.OutboundOrder().get_out_orderInfo(PickOrder_pickFinish02)
+    info = Warehouse_Management.OutboundOrder().get_out_orderInfo(PickOrder_approval01)
     outOrderId = info[1]
 
     Warehouse_Management.OutboundOrder().delivery(logisticsCompany='顺丰快递', deliveryDate=timeStamp, expressNo='888888',
                                                   outOrderId=outOrderId, deliveryMode='DELIVERY')
 
 
-# 仓库管理 审核发货到出库用
+# 仓库管理 拣货完成未出库
 @pytest.fixture(scope='class')
 def OutboundOrder_getId():
     keyword = Purchase_Management.AllocateOrder().all()
@@ -493,6 +491,55 @@ def OutboundOrder_getId():
                                                    quantity=quantity)
     info = Warehouse_Management.OutboundOrder().get_out_orderInfo(keyword)
     outOrderId = info[1]
+    yield outOrderId
+
+
+@pytest.fixture(scope='class')
+def OutboundOrder_approve():
+    keyword = Purchase_Management.AllocateOrder().all()
+
+    pickOrderId = Warehouse_Management.OutboundOrder().get_out_orderInfo(keyword)[0]
+    outOrderId = Warehouse_Management.OutboundOrder().get_out_orderInfo(keyword)[1]
+    infoList = Warehouse_Management.PickOrder().get_pick_orderInfo01(pickOrderId)
+    lotNum03 = infoList['data']['goodsDetail'][0]['lotNum']
+    goodsId03 = infoList['data']['goodsDetail'][0]['goodsId']
+    quantity = infoList['data']['goodsDetail'][0]['quantity']
+    storageLocationId02 = infoList['data']['goodsDetail'][0]['storageLocationId']
+
+    Warehouse_Management.PickOrder().picking(goodsId=goodsId03, lotNum=lotNum03, pickOrderId=pickOrderId,
+                                             storageLocationId=storageLocationId02)
+    Warehouse_Management.PickOrder().pickFinished(pickOrderId)
+    Warehouse_Management.PickOrder().pick_approval(pickOrderId=pickOrderId,
+                                                   goodsId=goodsId03,
+                                                   quantity=quantity)
+    Warehouse_Management.OutboundOrder().delivery(logisticsCompany='顺丰快递', deliveryDate=timeStamp, expressNo='888888',
+                                                  outOrderId=outOrderId, deliveryMode='DELIVERY')
+    Warehouse_Management.OutboundOrder().approval(logisticsCompany='顺丰快递', deliveryDate=timeStamp, expressNo='999999',
+                                                  outOrderId=outOrderId)
+
+
+# 仓库管理 已发货未审核
+@pytest.fixture(scope='class')
+def OutboundOrder_getId01():
+    keyword = Purchase_Management.AllocateOrder().all()
+
+    pickOrderId = Warehouse_Management.OutboundOrder().get_out_orderInfo(keyword)[0]
+    infoList = Warehouse_Management.PickOrder().get_pick_orderInfo01(pickOrderId)
+    lotNum03 = infoList['data']['goodsDetail'][0]['lotNum']
+    goodsId03 = infoList['data']['goodsDetail'][0]['goodsId']
+    quantity = infoList['data']['goodsDetail'][0]['quantity']
+    storageLocationId02 = infoList['data']['goodsDetail'][0]['storageLocationId']
+
+    Warehouse_Management.PickOrder().picking(goodsId=goodsId03, lotNum=lotNum03, pickOrderId=pickOrderId,
+                                             storageLocationId=storageLocationId02)
+    Warehouse_Management.PickOrder().pickFinished(pickOrderId)
+    Warehouse_Management.PickOrder().pick_approval(pickOrderId=pickOrderId,
+                                                   goodsId=goodsId03,
+                                                   quantity=quantity)
+    info = Warehouse_Management.OutboundOrder().get_out_orderInfo(keyword)
+    outOrderId = info[1]
+    Warehouse_Management.OutboundOrder().delivery(logisticsCompany='顺丰快递', deliveryDate=timeStamp, expressNo='888888',
+                                                  outOrderId=outOrderId, deliveryMode='DELIVERY')
     yield outOrderId
 
 

@@ -76,7 +76,28 @@ class TestPickOrder:
             }]
         }
         response = request.put_body01(url, body)
-        assert response['msg'] == '物资【多维锁定肱骨髓内钉系统】待拣数量和审核数量不一致，请刷新后重试'
+        assert response['msg'] == '物资【锁定接骨板】待拣数量和审核数量不一致，请刷新后重试'
 
-    def test001(self, OutboundOrder_getId):
-        print(OutboundOrder_getId)
+    data = get_datas.get_csv('/outboundOrder/delivery')
+
+    @pytest.mark.parametrize('url,title,case,expected', data)
+    @allure.story('出库单——出库发货')
+    @allure.title('{title}')
+    def test_outOrderDelivery(self, url, title, case, expected, OutboundOrder_delivery, OutboundOrder_getId):
+        if title in ('物流公司为空', '物流单号为空', '发货日期为空'):
+            body = request.body_replace(url, case)
+            body['id'] = OutboundOrder_getId
+            response = request.put_body01(url, body)
+            assert response['msg'] == expected
+
+    data = get_datas.get_csv('/outboundOrder/approval')
+
+    @pytest.mark.parametrize('url,title,case,expected', data)
+    @allure.story('出库单——出库发货')
+    @allure.title('{title}')
+    def test_outOrderApproval(self, url, title, case, expected, OutboundOrder_approve, OutboundOrder_getId01):
+        if title == '物流单号为空':
+            body = request.body_replace(url, case)
+            body['id'] = OutboundOrder_getId01
+            response = request.put_body01(url, body)
+            assert response['msg'] == expected

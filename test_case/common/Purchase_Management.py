@@ -191,9 +191,9 @@ class AllocateOrder:
         goodsInfo = self.get_goodsInfo(sourceWarehouseId)
         # goodsId = goodsInfo[0]
         # 6/3 号，后续商品ID需要动态获取，目前这个是 在数据库准备的数据
-        goodsId = 22344
+        goodsId = 20538
         # goodsLotInfoId = goodsInfo[1]
-        goodsLotInfoId = 1619
+        goodsLotInfoId = 1
 
         # 工具包信息
         # kitStockId = self.get_kitStockId(sourceWarehouseId)
