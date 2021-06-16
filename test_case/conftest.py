@@ -441,6 +441,61 @@ def PickOrder_pick_approval(PickOrder_pickFinished, PickOrder_get_pickOrderInfo,
                                                    quantity=PickOrder_get_pickOrderInfo[3])
 
 
+# 仓库管理 审核发货到出库用
+@pytest.fixture(scope='class')
+def PickOrder_approval01():
+    keyword = Purchase_Management.AllocateOrder().all()
+
+    pickOrderId = Warehouse_Management.OutboundOrder().get_out_orderInfo(keyword)[0]
+    infoList = Warehouse_Management.PickOrder().get_pick_orderInfo01(pickOrderId)
+    lotNum03 = infoList['data']['goodsDetail'][0]['lotNum']
+    goodsId03 = infoList['data']['goodsDetail'][0]['goodsId']
+    quantity = infoList['data']['goodsDetail'][0]['quantity']
+    storageLocationId02 = infoList['data']['goodsDetail'][0]['storageLocationId']
+
+    Warehouse_Management.PickOrder().picking(goodsId=goodsId03, lotNum=lotNum03, pickOrderId=pickOrderId,
+                                             storageLocationId=storageLocationId02)
+    Warehouse_Management.PickOrder().pickFinished(pickOrderId)
+    Warehouse_Management.PickOrder().pick_approval(pickOrderId=pickOrderId,
+                                                   goodsId=goodsId03,
+                                                   quantity=quantity)
+
+    yield keyword
+
+
+# 仓库管理 出库单 发货
+@pytest.fixture(scope='class')
+def OutboundOrder_delivery(PickOrder_approval01):
+    info = Warehouse_Management.OutboundOrder().get_out_orderInfo(PickOrder_pickFinish02)
+    outOrderId = info[1]
+
+    Warehouse_Management.OutboundOrder().delivery(logisticsCompany='顺丰快递', deliveryDate=timeStamp, expressNo='888888',
+                                                  outOrderId=outOrderId, deliveryMode='DELIVERY')
+
+
+# 仓库管理 审核发货到出库用
+@pytest.fixture(scope='class')
+def OutboundOrder_getId():
+    keyword = Purchase_Management.AllocateOrder().all()
+
+    pickOrderId = Warehouse_Management.OutboundOrder().get_out_orderInfo(keyword)[0]
+    infoList = Warehouse_Management.PickOrder().get_pick_orderInfo01(pickOrderId)
+    lotNum03 = infoList['data']['goodsDetail'][0]['lotNum']
+    goodsId03 = infoList['data']['goodsDetail'][0]['goodsId']
+    quantity = infoList['data']['goodsDetail'][0]['quantity']
+    storageLocationId02 = infoList['data']['goodsDetail'][0]['storageLocationId']
+
+    Warehouse_Management.PickOrder().picking(goodsId=goodsId03, lotNum=lotNum03, pickOrderId=pickOrderId,
+                                             storageLocationId=storageLocationId02)
+    Warehouse_Management.PickOrder().pickFinished(pickOrderId)
+    Warehouse_Management.PickOrder().pick_approval(pickOrderId=pickOrderId,
+                                                   goodsId=goodsId03,
+                                                   quantity=quantity)
+    info = Warehouse_Management.OutboundOrder().get_out_orderInfo(keyword)
+    outOrderId = info[1]
+    yield outOrderId
+
+
 def pytest_collection_modifyitems(items):
     """
     测试用例收集完成时，将收集到的item的name和nodeid的中文显示在控制台上
