@@ -80,6 +80,10 @@ class OutboundOrder:
         url = '/outboundOrder/print/{}?id={}'.format(outOrderId, outOrderId)
         response = request.get01(url)
 
+    def get_outOrder_adress(self, outOrderId):
+        url = '/outboundOrder/getAddress?outboundOrderId=%s' % outOrderId
+        response = request.get01(url)
+
 
 # 拣货单
 class PickOrder:
@@ -208,7 +212,7 @@ class PickOrder:
             "pickOrderId": pickOrderId,
             "storageLocationId": 0
         }
-        response = request.get01(url)
+        response = request.put_body01(url, body)
 
 
 # 入库单
@@ -436,6 +440,8 @@ class All:
         self.test.outOrder_print(self.outOrderId)
         # 出库单 详情
         self.test.get_outOrder_detail(self.outOrderId)
+        # 出库单 地址详情
+        self.test.get_outOrder_adress(self.outOrderId)
 
     # 入库、验收、上架流程
     def all_in_putOnShelf(self):
