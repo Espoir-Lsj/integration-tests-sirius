@@ -641,12 +641,12 @@ def InboundOrder_receiving01(OutboundOrder_approve02):
                                                           registrationNum=registrationNum, serialNumber=None)
     putOnShelfId = Warehouse_Management.PutOnShelf().get_putOnShelfId(inboundCode)
 
-    yield putOnShelfId
+    yield putOnShelfId, inboundCode
 
 
 @pytest.fixture(scope='class')
 def PutOnShelf_put01(InboundOrder_receiving01):
-    info = Warehouse_Management.PutOnShelf().get_putOnshelf_detail(InboundOrder_receiving01)
+    info = Warehouse_Management.PutOnShelf().get_putOnshelf_detail(InboundOrder_receiving01[0])
     goodsId = info[0]
     goodsLotInfoId = info[1]
     storageLocationCode = info[2]
@@ -654,6 +654,9 @@ def PutOnShelf_put01(InboundOrder_receiving01):
     putOnShelfId = info[4]
     Warehouse_Management.PutOnShelf().putOnshelf(goodsId=goodsId, goodsLotInfoId=goodsLotInfoId, quantity=quantity,
                                                  storageLocationCode=storageLocationCode, putOnShelfId=putOnShelfId)
+
+    checkId = Warehouse_Management.CheckOrder().get_checkOrder_list(InboundOrder_receiving01[1])[0]
+    yield checkId
 
 
 @pytest.fixture(scope='class')

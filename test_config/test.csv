@@ -142,5 +142,14 @@ url,request_type,title,case,expected,模块,功能
 /putOnShelf/putOnShelf,put,货位号为空,{"storageLocationCode": None},请输入货位号,仓库管理,上架单——上架
 /putOnShelf/putOnShelf,put,货位号错误,{"storageLocationCode": "huoweihao"},货位huoweihao不存在,仓库管理,上架单——上架
 
-
+/checkOrder/check,put,重复验收,{"serialNumber": None},验收单已验收，不能重复验收,仓库管理,验收单——验收
+/checkOrder/check,put,验收单为空,{"orderId": None},验收单id不能为空,仓库管理,验收单——验收
+/checkOrder/check,put,验收单错误,{"orderId": 999999},验收单不存在,仓库管理,验收单——验收
+/checkOrder/check,put,批次号为空,{"goodsLotInfoId": None},批号id不能为空,仓库管理,验收单——验收
+/checkOrder/check,put,批次号错误,{"goodsLotInfoId": 9999999},商品未提交完全,仓库管理,验收单——验收
+/checkOrder/check,put,未通过数量大于验收数量,{"unqualifiedQuantity": 2222},商品未提交完全,仓库管理,验收单——验收
+/checkOrder/check,put,商品数量为空,{"quantity": None},验收数量不能为空,仓库管理,验收单——验收
+/checkOrder/check,put,商品为空,{"goodsId": None},商品id不能为空,仓库管理,验收单——验收
+/checkOrder/check,put,验收数量错误,{"quantity": 999999},库存不足，扣减库存失败,仓库管理,验收单——验收
+/checkOrder/check,put,注册证为空,{"registrationNum": None},注册证号不能为空,仓库管理,验收单——验收
 

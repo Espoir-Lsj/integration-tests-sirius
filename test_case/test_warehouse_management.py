@@ -126,5 +126,14 @@ class TestPickOrder:
             response = request.post_body01(url, body)
             assert response['msg'] == expected
 
-    def test1111(self, CheckOrder_check, PutOnShelf_put01):
-        pass
+    data = get_datas.get_csv('/checkOrder/check')
+
+    @pytest.mark.parametrize('url,title,case,expected', data)
+    @allure.story('验收单——验收')
+    @allure.title('{title}')
+    def test_checkOrder(self, url, title, case, expected, CheckOrder_check, PutOnShelf_put01):
+        if title in ('批次号错误', '未通过数量大于验收数量', '商品错误'):
+            body = request.body_replace(url, case)
+            body['orderId'] = PutOnShelf_put01
+            response = request.put_body01(url, body)
+            assert response['msg'] == expected
