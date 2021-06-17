@@ -35,6 +35,7 @@ def test_Purchase():
 def test_Oeder():
     AdhocOrder_test = Order_Management.AdhocOrder()
     AdhocOrder_test.all()
+    AdhocOrder_test.all_process()
 
 
 # 仓库管理主流程
@@ -43,11 +44,3 @@ def test_Warehouse():
     purchaseKey = test_Purchase()
     all_out_test = Warehouse_Management.All(purchaseKey).all_pick_out()
     all_in_test = Warehouse_Management.All(purchaseKey).all_in_putOnShelf()
-
-    OutboundOrder_test = Warehouse_Management.OutboundOrder()
-
-    PickOrder_test = Warehouse_Management.PickOrder()
-
-    InboundOrder_test = Warehouse_Management.InboundOrder()
-
-# test_Warehouse()

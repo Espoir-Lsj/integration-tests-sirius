@@ -194,7 +194,7 @@ class AllocateOrder:
         goodsId = 20538
         # goodsLotInfoId = goodsInfo[1]
         goodsLotInfoId = 1
-
+        kitStockId = 116
         # 工具包信息
         # kitStockId = self.get_kitStockId(sourceWarehouseId)
 
@@ -202,8 +202,9 @@ class AllocateOrder:
         # Id, code = self.create(reasonCode, sourceWarehouseId, targetWarehouseId, goodsId, goodsLotInfoId,
         #                        kitStockId)
         # 创建调拨单
-        allocateId, allocateCode = self.create(reasonCode, sourceWarehouseId, targetWarehouseId, goodsId,
-                                               goodsLotInfoId)
+        allocateId, allocateCode = self.create(reasonCode=reasonCode, sourceWarehouseId=sourceWarehouseId,
+                                               targetWarehouseId=targetWarehouseId, goodsId=goodsId,
+                                               goodsLotInfoId=goodsLotInfoId, kitStockId=kitStockId)
         # 查询调拨单详情
         self.get_allocate_detail(allocateId=allocateId)
         # 查询调拨单列表
@@ -219,14 +220,13 @@ class AllocateOrder:
         self.close(allocateId=allocateId)
 
         # 创建调拨单
-        allocateId, allocateCode = self.create(reasonCode, sourceWarehouseId, targetWarehouseId, goodsId,
-                                               goodsLotInfoId)
+        allocateId, allocateCode = self.create(reasonCode=reasonCode, sourceWarehouseId=sourceWarehouseId,
+                                               targetWarehouseId=targetWarehouseId, goodsId=goodsId,
+                                               goodsLotInfoId=goodsLotInfoId, kitStockId=kitStockId)
 
         # 接收调拨单
         self.approve(allocateId=allocateId, approve=True, rejectReason=None)
         return allocateCode
-
-
 
 
 if __name__ == '__main__':

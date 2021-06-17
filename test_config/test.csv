@@ -72,6 +72,7 @@ url,request_type,title,case,expected,模块,功能
 /adhocOrder/close,put,重复关闭订单,{None},订单状态为待接收或待修改时才能关闭,订单管理,临调订单——关闭临调单
 /adhocOrder/close,put,订单ID为空,{'id':None},不能为null,订单管理,临调订单——关闭临调单
 /adhocOrder/close,put,订单ID错误,{'id':99999999},未查询到该临调订单，请刷新重试,订单管理,临调订单——关闭临调单
+
 /adhocOrder/updateAddress,post,订单ID为空,{'orderId':None},不能为null,订单管理,临调订单——修改收货地址
 /adhocOrder/updateAddress,post,提货人姓名为空,{"consignorName": None},请输入提货人,订单管理,临调订单——修改收货地址
 /adhocOrder/updateAddress,post,提货人电话为空,{"consignorPhone": None},请输入提货人电话,订单管理,临调订单——修改收货地址
@@ -80,7 +81,40 @@ url,request_type,title,case,expected,模块,功能
 /adhocOrder/updateAddress,post,身份证错误,{"receivingIdCard": 421322199814461},请输入正确的身份证号,订单管理,临调订单——修改收货地址
 /adhocOrder/updateAddress,post,提货委托书为空,{"powerOfAttorney": None},请上传提货委托书,订单管理,临调订单——修改收货地址
 /adhocOrder/updateAddress,post,订单ID错误,{'orderId':999999999},未查询到该临调订单，请刷新重试,订单管理,临调订单——修改收货地址
-/adhocOrder/updateAddress,post,收货人人姓名过长,{"consignorName": '主治医师' * 50},收货人姓名长度超出限制,订单管理,临调订单——修改收货地址
+/adhocOrder/updateAddress,post,收货人人姓名过长,{"consignorName": '主治医师' * 50},长度需要在0和10之间,订单管理,临调订单——修改收货地址
+
+/adhocOrder/adhocReturn,post,子订单ID为空,{"childAdhocOrderId":None},请填写子临调单Id,订单管理,临调订单——提交销用
+/adhocOrder/adhocReturn,post,重复提交,{"quantity":1},请勿重复操作,订单管理,临调订单——提交销用
+/adhocOrder/adhocReturn,post,商品为空,{"goodsId":None},请填写商品Id,订单管理,临调订单——提交销用
+/adhocOrder/adhocReturn,post,商品错误,{"goodsId":9999999},请填写完整的回库信息,订单管理,临调订单——提交销用
+/adhocOrder/adhocReturn,post,批次信息为空,{"goodsLotInfoId":None},请填写商品批次信息,订单管理,临调订单——提交销用
+/adhocOrder/adhocReturn,post,批次信息错误,{"goodsLotInfoId":999999},请填写完整的回库信息,订单管理,临调订单——提交销用
+/adhocOrder/adhocReturn,post,回库数量为空,{"quantity":None},请填写商品回库数量,订单管理,临调订单——提交销用
+/adhocOrder/adhocReturn,post,父订单ID为空,{"parentAdhocOrderId":None},请填写父临调单Id,订单管理,临调订单——提交销用
+/adhocOrder/adhocReturn,post,父订单ID为空,{"parentAdhocOrderId":999999},未查询到该临调订单，请刷新重试,订单管理,临调订单——提交销用
+
+/salesOrder/createSalesOrder,post,父订单ID为空,{"parentId":None},未查询到该临调订单，请刷新重试,订单管理,临调订单——生成销售单
+/salesOrder/createSalesOrder,post,子订单ID错误,{"adhocOrderId":999999},请提交正确的销售单！,订单管理,临调订单——生成销售单
+/salesOrder/createSalesOrder,post,子订单ID为空,{"adhocOrderId":None},临调订单id不能为空,订单管理,临调订单——生成销售单
+/salesOrder/createSalesOrder,post,商品ID为空,{"goodsId":None},请输入商品id,订单管理,临调订单——生成销售单
+/salesOrder/createSalesOrder,post,商品ID错误,{"goodsId":999999},回库数据异常,订单管理,临调订单——生成销售单
+/salesOrder/createSalesOrder,post,重复提交,{"goodsId":9999999},临调单状态异常,订单管理,临调订单——生成销售单
+/salesOrder/createSalesOrder,post,批次信息为空,{"goodsLotInfoId":None},请输入商品属性id,订单管理,临调订单——生成销售单
+/salesOrder/createSalesOrder,post,批次信息错误,{"goodsLotInfoId":99999},提交的数据和需要销用的数据不一致，请重新填写,订单管理,临调订单——生成销售单
+/salesOrder/createSalesOrder,post,商品数量为空,{"quantity":None},请输入协商数量,订单管理,临调订单——生成销售单
+/salesOrder/createSalesOrder,post,商品数量错误,{"quantity":999999},协商数量应等于实际消耗数量,订单管理,临调订单——生成销售单
+
+/salesOrder/checkSalesOrder,post,父订单ID为空,{"parentId":None},未查询到该临调订单，请刷新重试,订单管理,临调订单——生成销售单
+/salesOrder/checkSalesOrder,post,子订单ID错误,{"adhocOrderId":999999},请提交正确的销售单！,订单管理,临调订单——生成销售单
+/salesOrder/checkSalesOrder,post,子订单ID为空,{"adhocOrderId":None},临调订单id不能为空,订单管理,临调订单——生成销售单
+/salesOrder/checkSalesOrder,post,商品ID为空,{"goodsId":None},请输入商品id,订单管理,临调订单——生成销售单
+/salesOrder/checkSalesOrder,post,商品ID错误,{"goodsId":999999},回库数据异常,订单管理,临调订单——生成销售单
+/salesOrder/checkSalesOrder,post,重复提交,{"goodsId":9999999},临调单状态异常,订单管理,临调订单——生成销售单
+/salesOrder/checkSalesOrder,post,批次信息为空,{"goodsLotInfoId":None},请输入商品属性id,订单管理,临调订单——生成销售单
+/salesOrder/checkSalesOrder,post,批次信息错误,{"goodsLotInfoId":99999},提交的数据和需要销用的数据不一致，请重新填写,订单管理,临调订单——生成销售单
+/salesOrder/checkSalesOrder,post,商品数量为空,{"quantity":None},请输入协商数量,订单管理,临调订单——生成销售单
+/salesOrder/checkSalesOrder,post,商品数量错误,{"quantity":999999},协商数量应等于实际消耗数量,订单管理,临调订单——生成销售单
+
 
 /pickOrder/picking,put,商品ID为空,{"goodsId": None},请选择需要拣的物资,仓库管理,拣货单——拣货
 /pickOrder/picking,put,商品ID错误,{"goodsId": 99999},该批次商品不存在,仓库管理,拣货单——拣货
@@ -108,7 +142,6 @@ url,request_type,title,case,expected,模块,功能
 /outboundOrder/delivery,put,配送方式为空,{"deliveryMode": None},请选择配送方式,仓库管理,出库单——出库发货
 /outboundOrder/delivery,put,出库单为空,{"id": None},请选择出库单,仓库管理,出库单——出库发货
 /outboundOrder/delivery,put,出库单错误,{"id": 999999},出库单不存在,仓库管理,出库单——出库发货
-/outboundOrder/delivery,put,正向流程,{"logisticsCompany": "顺丰速运"},请求成功,仓库管理,出库单——出库发货
 /outboundOrder/delivery,put,重复发货,{"logisticsCompany": "顺丰速运"},出库单状态异常，不能发货,仓库管理,出库单——出库发货
 
 
@@ -150,6 +183,6 @@ url,request_type,title,case,expected,模块,功能
 /checkOrder/check,put,未通过数量大于验收数量,{"unqualifiedQuantity": 2222},商品未提交完全,仓库管理,验收单——验收
 /checkOrder/check,put,商品数量为空,{"quantity": None},验收数量不能为空,仓库管理,验收单——验收
 /checkOrder/check,put,商品为空,{"goodsId": None},商品id不能为空,仓库管理,验收单——验收
-/checkOrder/check,put,验收数量错误,{"quantity": 999999},库存不足，扣减库存失败,仓库管理,验收单——验收
+/checkOrder/check,put,验收数量错误,{"quantity": 999999},验收单已验收，不能重复验收,仓库管理,验收单——验收
 /checkOrder/check,put,注册证为空,{"registrationNum": None},注册证号不能为空,仓库管理,验收单——验收
 

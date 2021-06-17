@@ -673,6 +673,75 @@ def CheckOrder_check(PutOnShelf_put):
                                             receivedQuantity=inboundingQuantity)
 
 
+# 预备临调单用
+@pytest.fixture(scope='class')
+def Prepare_adhocOrder():
+    test = Order_Management.AdhocOrder()
+    # 品牌
+    manufacturerId = test.get_manufacturerId()
+    # 默认地址
+    addressId = test.add_default_address()
+    # 仓库地址
+    warehouseId = test.get_warehouse()
+    # 年龄段
+    ageGroup = test.get_ageGroup()
+    # 手术部位
+    procedureSite = test.get_procedureSite()
+    # 商品信息
+    goodsInfo = test.get_goodsInfo()
+    goodsId = 20538
+    goodsSupplierId = goodsInfo[1]
+    orderList = []
+    codeList = []
+
+    # 创建临调单
+    for i in range(1, 5):
+        data = test.adhocOrder_create(procedureSite=procedureSite, manufacturerId=manufacturerId,
+                                      ageGroup=ageGroup, addressId=addressId, supplierId=supplierId,
+                                      goodsId=goodsId, goodsSupplierId=goodsSupplierId, goodsQuantity=3,
+                                      kitTemplateId=None
+                                      )
+        adhocOrderId = data['data']['id']
+        adhocOrderCode = data['data']['code']
+        i += 1
+        orderList.append(adhocOrderId)
+        codeList.append(adhocOrderCode)
+
+    # 接收临调单
+    for id in orderList:
+        test.adhocOrder_accept(goodsId=goodsId, Gquantity=3,
+                               warehouseId=warehouseId, id=id)
+    # 拣货发货
+    for i in codeList:
+        Warehouse_Management.All(i).all_pick_out()
+
+    goodsLotInfoId = test.get_goodsLotInfoId(orderList[0])
+
+    # 提交销用
+    for id in orderList[1:]:
+        test.adhocOrder_return(childAdhocOrderId=id, goodsId=goodsId, goodsLotInfoId=goodsLotInfoId,
+                               Usequantity=1, parentAdhocOrderId=id)
+    # 入库、上架、验收
+    for i in codeList[1:]:
+        Warehouse_Management.All(i).all_in_putOnShelf()
+
+    # 生成销售单
+    for id in orderList[2:]:
+        test.create_salesOrder(parentId=id, adhocOrderId=id, goodsId=goodsId,
+                               goodsLotInfoId=goodsLotInfoId, Usequantity=1)
+    # 检查销售单
+    for id in orderList[3:]:
+        test.check_salesOrder(parentId=id, adhocOrderId=id, goodsId=goodsId,
+                              goodsLotInfoId=goodsLotInfoId, Usequantity=1)
+
+    return orderList
+
+
+@pytest.fixture(scope='class')
+def SalesOrder_check():
+    pass
+
+
 def pytest_collection_modifyitems(items):
     """
     测试用例收集完成时，将收集到的item的name和nodeid的中文显示在控制台上

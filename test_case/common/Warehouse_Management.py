@@ -261,7 +261,7 @@ class InboundOrder:
 
     # 获取入库单列表
     def get_inbound_list(self):
-        url = '/inboundOrder/findCheckList?pageNum=0&pageSize=50'
+        url = '/inboundOrder/findList?pageNum=0&pageSize=50'
         response = request.get01(url)
 
     # 导出入库单
@@ -408,13 +408,6 @@ class All:
         self.goodsId = goodsInfo[0]
         self.lotNum = goodsInfo[1]
 
-        # 查询接口
-        self.test.get_outOrder_list()
-        self.test1.get_pickOrder_list()
-        self.test2.get_inbound_list()
-
-        self.test2.inbound_export()
-
     # 拣货出库流程
     def all_pick_out(self):
         # 拣货
@@ -451,6 +444,12 @@ class All:
         self.test.get_outOrder_detail(self.outOrderId)
         # 出库单 地址详情
         self.test.get_outOrder_adress(self.outOrderId)
+        # 查询接口
+        self.test.get_outOrder_list()
+        self.test1.get_pickOrder_list()
+        self.test2.get_inbound_list()
+
+        self.test2.inbound_export()
 
     # 入库、验收、上架流程
     def all_in_putOnShelf(self):

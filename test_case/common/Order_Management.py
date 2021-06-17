@@ -349,7 +349,7 @@ class AdhocOrder:
 
     # 生成销售单
     def create_salesOrder(self, parentId=None, adhocOrderId=None, goodsId=None, goodsLotInfoId=None, Usequantity=None):
-        url = '/salesOrder/checkSalesOrder'
+        url = '/salesOrder/createSalesOrder'
         body = {
             "parentId": parentId,
             "createUiBeans": [{
@@ -485,11 +485,11 @@ class AdhocOrder:
         Warehouse_Management.All(adhocOrderCode).all_in_putOnShelf()
 
         # 生成销售单
-        self.create_salesOrder(parentId=adhocOrderId, adhocOrderId=adhocOrderId, goodsId=goodsId,
-                               goodsLotInfoId=goodsLotInfoId, Usequantity=1)
+
         self.check_salesOrder(parentId=adhocOrderId, adhocOrderId=adhocOrderId, goodsId=goodsId,
                               goodsLotInfoId=goodsLotInfoId, Usequantity=1)
-
+        self.create_salesOrder(parentId=adhocOrderId, adhocOrderId=adhocOrderId, goodsId=goodsId,
+                               goodsLotInfoId=goodsLotInfoId, Usequantity=1)
         self.delete_default_address(addressId)
         print('临调单号---------------%s' % adhocOrderCode)
 

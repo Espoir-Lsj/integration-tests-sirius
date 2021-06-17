@@ -78,62 +78,79 @@ class TestPickOrder:
         response = request.put_body01(url, body)
         assert response['msg'] == '物资【锁定接骨板】待拣数量和审核数量不一致，请刷新后重试'
 
+
+@allure.feature('仓库管理——出库单')
+class TestOutOrder:
     data = get_datas.get_csv('/outboundOrder/delivery')
 
     @pytest.mark.parametrize('url,title,case,expected', data)
     @allure.story('出库单——出库发货')
     @allure.title('{title}')
     def test_outOrderDelivery(self, url, title, case, expected, OutboundOrder_delivery, OutboundOrder_getId):
+        body = request.body_replace(url, case)
+
         if title in ('物流公司为空', '物流单号为空', '发货日期为空'):
-            body = request.body_replace(url, case)
             body['id'] = OutboundOrder_getId
-            response = request.put_body01(url, body)
-            assert response['msg'] == expected
+        response = request.put_body01(url, body)
+        assert response['msg'] == expected
 
     data = get_datas.get_csv('/outboundOrder/approval')
 
     @pytest.mark.parametrize('url,title,case,expected', data)
-    @allure.story('出库单——出库发货')
+    @allure.story('出库单——出库审核')
     @allure.title('{title}')
     def test_outOrderApproval(self, url, title, case, expected, OutboundOrder_approve, OutboundOrder_getId01):
-        if title == '物流单号为空':
-            body = request.body_replace(url, case)
-            body['id'] = OutboundOrder_getId01
-            response = request.put_body01(url, body)
-            assert response['msg'] == expected
+        body = request.body_replace(url, case)
 
+        if title == '物流单号为空':
+            body['id'] = OutboundOrder_getId01
+        response = request.put_body01(url, body)
+        assert response['msg'] == expected
+
+
+@allure.feature('仓库管理——入库单')
+class TestInOrder:
     data = get_datas.get_csv('/inboundOrder/receiving')
 
     @pytest.mark.parametrize('url,title,case,expected', data)
     @allure.story('入库单——入库收货')
     @allure.title('{title}')
     def test_inOrderReceiving(self, url, title, case, expected, InboundOrder_receiving, OutboundOrder_approve01):
-        if title == '商品错误':
-            body = request.body_replace(url, case)
-            body['inboundOrderId'] = OutboundOrder_approve01
-            response = request.put_body01(url, body)
-            assert response['msg'] == expected
+        body = request.body_replace(url, case)
 
+        if title == '商品错误':
+            body['inboundOrderId'] = OutboundOrder_approve01
+        response = request.put_body01(url, body)
+        assert response['msg'] == expected
+
+
+@allure.feature('仓库管理——上架单')
+class TestPutOnOrder:
     data = get_datas.get_csv('/putOnShelf/putOnShelf')
 
     @pytest.mark.parametrize('url,title,case,expected', data)
     @allure.story('上架单单——上架')
     @allure.title('{title}')
     def test_putOnShelf(self, url, title, case, expected, PutOnShelf_put, InboundOrder_receiving01):
-        if title in ('商品错误', '商品数量错误', '货位号为空', '货位号错误'):
-            body = request.body_replace(url, case)
-            body['orderId'] = InboundOrder_receiving01
-            response = request.post_body01(url, body)
-            assert response['msg'] == expected
+        body = request.body_replace(url, case)
 
+        if title in ('商品错误', '商品数量错误', '货位号为空', '货位号错误'):
+            body['orderId'] = InboundOrder_receiving01[0]
+        response = request.post_body01(url, body)
+        assert response['msg'] == expected
+
+
+@allure.feature('仓库管理——验收单')
+class TestCheckOrder:
     data = get_datas.get_csv('/checkOrder/check')
 
     @pytest.mark.parametrize('url,title,case,expected', data)
     @allure.story('验收单——验收')
     @allure.title('{title}')
     def test_checkOrder(self, url, title, case, expected, CheckOrder_check, PutOnShelf_put01):
+        body = request.body_replace(url, case)
+
         if title in ('批次号错误', '未通过数量大于验收数量', '商品错误'):
-            body = request.body_replace(url, case)
             body['orderId'] = PutOnShelf_put01
-            response = request.put_body01(url, body)
-            assert response['msg'] == expected
+        response = request.put_body01(url, body)
+        assert response['msg'] == expected

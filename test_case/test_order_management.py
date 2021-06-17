@@ -197,5 +197,62 @@ class TestAdhocOrder:
         response = request.post_body(url, body)
         assert response['msg'] == expected
 
+    data = get_datas.get_csv('/adhocOrder/adhocReturn')
 
-# (01)16048981425711(17)000617(10)4382394
+    @pytest.mark.parametrize('url,title,case,expected', data)
+    @allure.story('临调订单——提交销用')
+    @allure.title('{title}')
+    def test_return(self, url, title, case, expected, Prepare_adhocOrder):
+
+        body = request.body_replace(url, case)
+        if title == '重复提交':
+            body['parentAdhocOrderId'] = Prepare_adhocOrder[2]
+            body['detail'][0]['childAdhocOrderId'] = Prepare_adhocOrder[2]
+        if title in ('商品错误', '批次信息错误'):
+            body['parentAdhocOrderId'] = Prepare_adhocOrder[0]
+            body['detail'][0]['childAdhocOrderId'] = Prepare_adhocOrder[0]
+        response = request.post_body(url, body)
+        assert response['msg'] == expected
+
+    @allure.title('用户无权限')
+    def test_return01(self, Prepare_adhocOrder):
+        url = '/adhocOrder/adhocReturn'
+        case = {"quantity": 1}
+        body = request.body_replace(url, case)
+        response = request.post_body01(url, body)
+        assert response['msg'] == '临调单不存在'
+
+    data = get_datas.get_csv('/salesOrder/createSalesOrder')
+
+    @pytest.mark.parametrize('url,title,case,expected', data)
+    @allure.story('临调订单——创建销售单')
+    @allure.title('{title}')
+    def test_create(self, url, title, case, expected, Prepare_adhocOrder):
+        body = request.body_replace(url, case)
+
+        if title == '子订单ID错误':
+            body['parentId'] = Prepare_adhocOrder[1]
+        if title in ('商品ID错误', '批次信息错误', '商品数量为空', '商品数量错误'):
+            body['parentId'] = Prepare_adhocOrder[1]
+            body['createUiBeans'][0]['adhocOrderId'] = Prepare_adhocOrder[1]
+        response = request.post_body01(url, body)
+        assert response['msg'] == expected
+
+    data = get_datas.get_csv('/salesOrder/checkSalesOrder')
+
+    @pytest.mark.parametrize('url,title,case,expected', data)
+    @allure.story('临调订单——检查销售单')
+    @allure.title('{title}')
+    def test_check(self, url, title, case, expected, Prepare_adhocOrder):
+        body = request.body_replace(url, case)
+        if title == '子订单ID错误':
+            body['parentId'] = Prepare_adhocOrder[1]
+        if title in ('商品ID错误', '批次信息错误', '商品数量为空', '商品数量错误'):
+            body['parentId'] = Prepare_adhocOrder[1]
+            body['createUiBeans'][0]['adhocOrderId'] = Prepare_adhocOrder[1]
+        response = request.post_body01(url, body)
+        assert response['msg'] == expected
+
+    def test1(self, Prepare_adhocOrder):
+        pass
+# 568
