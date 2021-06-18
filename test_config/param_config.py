@@ -15,7 +15,7 @@ supplierLoginPassword02 = 'Aa888888'
 # other variable
 
 # 数据库
-database = "sirius_test"
+database = "sirius_int"
 user = "sirius_test"
 password = "123456"
 host = "192.168.10.253"

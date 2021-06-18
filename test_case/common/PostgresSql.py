@@ -28,7 +28,7 @@ class PostgresSql:
                     PostgresSql._instance.connectPool = pool.SimpleConnectionPool(2, 10, host=host,
                                                                                   port=port,
                                                                                   user="sirius_test", password='123456',
-                                                                                  database='sirius_test',
+                                                                                  database='sirius_int',
                                                                                   options='-c search_path={schema}'.format(
                                                                                       schema='sirius'),
                                                                                   keepalives=1, keepalives_idle=30,
@@ -79,7 +79,7 @@ class PostgresSql:
 if __name__ == '__main__':
     pass
     test = PostgresSql()
-    sql ='SELECT storage_location_id from wms_goods_stock  where goods_id= 259 ORDER BY storage_location_id limit 1 ;'
+    sql = 'SELECT storage_location_id from wms_goods_stock  where goods_id= 259 ORDER BY storage_location_id limit 1 ;'
     a = test.selectOne(sql)
     print(str(a))
     # # sql = 'SELECT id FROM  sirius.md_goods  limit 10'

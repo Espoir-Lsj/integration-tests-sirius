@@ -5,7 +5,7 @@
 
 import pytest
 import time, datetime
-from test_case.common import Purchase_Management, Order_Management, login, Warehouse_Management
+from test_case.common import Purchase_Management, Order_Management, login, Warehouse_Management, PostgresSql
 
 from test_config.yamlconfig import timeid, body_data
 
@@ -737,9 +737,12 @@ def Prepare_adhocOrder():
     return orderList
 
 
-@pytest.fixture(scope='class')
-def SalesOrder_check():
-    pass
+# 拆单需要数据库准备商品数量
+@pytest.fixture()
+def spit_order_prepare():
+    test = PostgresSql.PostgresSql()
+    sql = """update wms_goods_stock set quantity = 10 where goods_id=20539 and status = 'put_on_shelf' and warehouse_id in (1,89)"""
+    test.execute(sql)
 
 
 def pytest_collection_modifyitems(items):

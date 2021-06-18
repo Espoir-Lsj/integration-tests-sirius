@@ -53,10 +53,10 @@ class AdhocOrder:
         return ageGroup
 
     # 设置默认地址
-    def add_default_address(self):
+    def add_default_address(self, receivingName="收件人"):
         url = '/supplier/addReceivingAddress'
         body = {
-            "receivingName": "收件人",
+            "receivingName": receivingName,
             "receivingPhone": "13333333338",
             "districtCode": 110101000000,  # 地址代码
             "receivingAddress": "详情地址"
@@ -124,7 +124,7 @@ class AdhocOrder:
         return kitTemplateId, toolsSupplierId
 
     # 创建临调单
-    def adhocOrder_create(self, procedureSite=95, procedureTime=timeStamp, expectReturnTime=fiveDaysAfter_stamp,
+    def adhocOrder_create(self, procedureSite=100, procedureTime=timeStamp, expectReturnTime=fiveDaysAfter_stamp,
                           manufacturerId=None, gender='FEMALE', ageGroup='TEENAGERS', deliveryMode='SELF_PIKE_UP',
                           addressId=None, supplierId=supplierId, goodsId=None, goodsQuantity=1, goodsSupplierId=None,
                           kitTemplateId=None, toolsQuantity=None, toolsSupplierId=None, hospitalName="医院名称",
@@ -173,7 +173,8 @@ class AdhocOrder:
         if kitTemplateId is not None:
             body['toolsDetailUiBeans'].append(toolsDetailUiBeans)
         if deliveryMode == 'DELIVERY':
-            del body['consignorName'], body['consignorPhone'], body['receivingIdCard'], body['powerOfAttorney']
+            del body['orderUiBean']['consignorName'], body['orderUiBean']['consignorPhone'], body['orderUiBean'][
+                'receivingIdCard'], body['orderUiBean']['powerOfAttorney']
         response = request.post_body(url, body)
         try:
             response['msg'] == '请求成功'
@@ -181,13 +182,18 @@ class AdhocOrder:
             raise response
         return response
 
+    # 获取拆单结果
+    def get_result(self, orderId):
+        url = '/adhocOrder/getAssignAdhocOrderResult?orderId=%s' % orderId
+        response = request.get01(url)
+
     # 接收临调单
     def adhocOrder_accept(self, goodsId=None, Gquantity=None, kitTemplateId=None, Kquantity=None, warehouseId=None,
-                          id=None):
+                          id=None, deliveryMode="SELF_PIKE_UP"):
         url = '/adhocOrder/accept'
         body = {
             "detail": [{
-                "deliveryMode": "SELF_PIKE_UP",
+                "deliveryMode": deliveryMode,
                 "goodsDetailUiBeans": [{
                     "goodsId": goodsId,
                     "quantity": Gquantity
@@ -339,6 +345,7 @@ class AdhocOrder:
             assert response['msg'] == '请求成功'
         except Exception:
             raise response
+        return response
 
     # 查询商品批次号
     def get_goodsLotInfoId(self, adhocOrderId):
@@ -458,7 +465,7 @@ class AdhocOrder:
         # kitTemplateId = toolsInfo[0]
         kitTemplateId = None
         # toolsSupplierId = toolsInfo[1]
-        Gquantity = 3
+        Gquantity = 10
         # 创建临调单
         data = self.adhocOrder_create(goodsQuantity=Gquantity, procedureSite=procedureSite,
                                       manufacturerId=manufacturerId,
@@ -481,17 +488,17 @@ class AdhocOrder:
         # 提交销用
         self.adhocOrder_return(childAdhocOrderId=adhocOrderId, goodsId=goodsId, goodsLotInfoId=goodsLotInfoId,
                                Usequantity=1, parentAdhocOrderId=adhocOrderId)
-        # 收货流程：入库收货、验收
-        Warehouse_Management.All(adhocOrderCode).all_in_putOnShelf()
-
-        # 生成销售单
-
-        self.check_salesOrder(parentId=adhocOrderId, adhocOrderId=adhocOrderId, goodsId=goodsId,
-                              goodsLotInfoId=goodsLotInfoId, Usequantity=1)
-        self.create_salesOrder(parentId=adhocOrderId, adhocOrderId=adhocOrderId, goodsId=goodsId,
-                               goodsLotInfoId=goodsLotInfoId, Usequantity=1)
-        self.delete_default_address(addressId)
-        print('临调单号---------------%s' % adhocOrderCode)
+        # # 收货流程：入库收货、验收
+        # Warehouse_Management.All(adhocOrderCode).all_in_putOnShelf()
+        #
+        # # 生成销售单
+        #
+        # self.check_salesOrder(parentId=adhocOrderId, adhocOrderId=adhocOrderId, goodsId=goodsId,
+        #                       goodsLotInfoId=goodsLotInfoId, Usequantity=1)
+        # self.create_salesOrder(parentId=adhocOrderId, adhocOrderId=adhocOrderId, goodsId=goodsId,
+        #                        goodsLotInfoId=goodsLotInfoId, Usequantity=1)
+        # self.delete_default_address(addressId)
+        # print('临调单号---------------%s' % adhocOrderCode)
 
         # 查询临调单列表
         self.get_adhocOrder_list()
@@ -504,6 +511,6 @@ if __name__ == '__main__':
     # test.adhocOrder_create()
     # test.get_warehouse()
 
-    test.all()
+    # test.all()
     test.all_process()
     # test.adhocOrder_return(182,20538,1,6,182)

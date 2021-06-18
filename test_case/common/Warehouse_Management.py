@@ -408,17 +408,7 @@ class All:
         self.goodsId = goodsInfo[0]
         self.lotNum = goodsInfo[1]
 
-    # 拣货出库流程
-    def all_pick_out(self):
-        # 拣货
-        i = 0
-        while i < self.quantity:
-            self.test1.picking(goodsId=self.goodsId, lotNum=self.lotNum, pickOrderId=self.pickOrderId,
-                               storageLocationId=self.storageLocationId)
-            i += 1
-
-        # 拣货单 拣货完成
-        self.test1.pickFinished(pickOrderId=self.pickOrderId)
+        # ----------------------查询相关--------------------------
         # 拣货单 pda查询接口
         self.test1.get_pda_detail(pickOrderId=self.pickOrderId)
         # 拣货单 gs1解析
@@ -427,15 +417,7 @@ class All:
         self.test1.get_byCode(pickOrderId=self.pickOrderId)
         # 拣货单 打印
         self.test1.pickOrder_print(self.pickOrderId)
-        # 拣货单 审核拣货
-        self.test1.pick_approval(goodsId=self.goodsId, quantity=self.quantity, pickOrderId=self.pickOrderId)
-        # 出库单 发货
-        self.test.delivery(logisticsCompany='京东', deliveryDate=timeStamp, expressNo='123123',
-                           outOrderId=self.outOrderId,
-                           deliveryMode='DELIVERY')
-        # 出库单 审核发货
-        self.test.approval(logisticsCompany='京东', deliveryDate=timeStamp, expressNo='123123',
-                           outOrderId=self.outOrderId)
+
         # 出库单 查看发货详情
         self.test.get_outOrder_deliveryInfo(self.outOrderId)
         # 出库单 打印
@@ -450,6 +432,30 @@ class All:
         self.test2.get_inbound_list()
 
         self.test2.inbound_export()
+
+        # ----------------------查询相关--------------------------
+
+    # 拣货出库流程
+    def all_pick_out(self):
+        # 拣货
+        i = 0
+        while i < self.quantity:
+            self.test1.picking(goodsId=self.goodsId, lotNum=self.lotNum, pickOrderId=self.pickOrderId,
+                               storageLocationId=self.storageLocationId)
+            i += 1
+
+        # 拣货单 拣货完成
+        self.test1.pickFinished(pickOrderId=self.pickOrderId)
+
+        # 拣货单 审核拣货
+        self.test1.pick_approval(goodsId=self.goodsId, quantity=self.quantity, pickOrderId=self.pickOrderId)
+        # 出库单 发货
+        self.test.delivery(logisticsCompany='京东', deliveryDate=timeStamp, expressNo='123123',
+                           outOrderId=self.outOrderId,
+                           deliveryMode='DELIVERY')
+        # 出库单 审核发货
+        self.test.approval(logisticsCompany='京东', deliveryDate=timeStamp, expressNo='123123',
+                           outOrderId=self.outOrderId)
 
     # 入库、验收、上架流程
     def all_in_putOnShelf(self):
@@ -474,25 +480,25 @@ class All:
         inboundingQuantity = data[4]
         registrationNum = data[5]
         # 验收单 验收
-        # self.test3.check(checkId=checkId, goodsLotInfoId=goodsLotInfoId, goodsId=goodsId, lotNum=lotNum,
-        #                  receivedQuantity=inboundingQuantity, registrationNum=str(registrationNum))
-
-        # 上架单 上架
-        putOnShelfId = self.test4.get_putOnShelfId(inboundCode)
-        # return goodsId, goodsLotInfoId, storageLocationCode, quantity, putOnShelfId
-
-        data = self.test4.get_putOnshelf_detail(putOnShelfId)
-        goodsId = data[0]
-        goodsLotInfoId = data[1]
-        storageLocationCode = data[2]
-        quantity = data[3]
-
-        self.test4.putOnshelf(goodsId=goodsId, goodsLotInfoId=goodsLotInfoId, quantity=quantity,
-                              storageLocationCode=storageLocationCode, putOnShelfId=putOnShelfId)
-
-        # 验收单 验收
         self.test3.check(checkId=checkId, goodsLotInfoId=goodsLotInfoId, goodsId=goodsId, lotNum=lotNum,
                          receivedQuantity=inboundingQuantity, registrationNum=str(registrationNum))
+        if inboundingQuantity > 0:
+            # 上架单 上架
+            putOnShelfId = self.test4.get_putOnShelfId(inboundCode)
+            # return goodsId, goodsLotInfoId, storageLocationCode, quantity, putOnShelfId
+
+            data = self.test4.get_putOnshelf_detail(putOnShelfId)
+            goodsId = data[0]
+            goodsLotInfoId = data[1]
+            storageLocationCode = data[2]
+            quantity = data[3]
+
+            self.test4.putOnshelf(goodsId=goodsId, goodsLotInfoId=goodsLotInfoId, quantity=quantity,
+                                  storageLocationCode=storageLocationCode, putOnShelfId=putOnShelfId)
+
+        # # 验收单 验收
+        # self.test3.check(checkId=checkId, goodsLotInfoId=goodsLotInfoId, goodsId=goodsId, lotNum=lotNum,
+        #                  receivedQuantity=inboundingQuantity, registrationNum=str(registrationNum))
 
 
 if __name__ == '__main__':
