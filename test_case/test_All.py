@@ -119,7 +119,7 @@ def test_spit_order(spit_order_prepare):
                 "goodsId": goodsId,
                 "goodsLotInfoId": goodsLotInfoId,
                 "kitStockId": None,
-                "quantity": 5
+                "quantity": 0
             }]
         }, {
             "childAdhocOrderId": orderId2,
@@ -127,7 +127,7 @@ def test_spit_order(spit_order_prepare):
                 "goodsId": goodsId,
                 "goodsLotInfoId": goodsLotInfoId,
                 "kitStockId": None,
-                "quantity": 4
+                "quantity": 1
             }]
         }],
         "parentAdhocOrderId": orderId
@@ -148,7 +148,7 @@ def test_spit_order(spit_order_prepare):
                 "goodsId": goodsId,
                 "goodsLotInfoId": goodsLotInfoId,
                 "goodsExtraAttrId": 8117,
-                "quantity": 5
+                "quantity": 0
             }]
         }, {
             "adhocOrderId": orderId2,
@@ -157,7 +157,7 @@ def test_spit_order(spit_order_prepare):
                 "goodsId": goodsId,
                 "goodsLotInfoId": goodsLotInfoId,
                 "goodsExtraAttrId": 8117,
-                "quantity": 4
+                "quantity": 1
             }]
         }]
     }

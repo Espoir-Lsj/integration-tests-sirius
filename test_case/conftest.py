@@ -726,6 +726,7 @@ def Prepare_adhocOrder():
         Warehouse_Management.All(i).all_in_putOnShelf()
 
     # 生成销售单
+
     for id in orderList[2:]:
         test.create_salesOrder(parentId=id, adhocOrderId=id, goodsId=goodsId,
                                goodsLotInfoId=goodsLotInfoId, Usequantity=1)

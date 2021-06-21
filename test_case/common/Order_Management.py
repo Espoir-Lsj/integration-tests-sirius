@@ -608,8 +608,8 @@ if __name__ == '__main__':
     orderId = res['data']['id']
     test.adhocOrder_accept(goodsDetailUiBeans, id=orderId, warehouseId=1)
     code = res['data']['code']
-    Warehouse_Management.All(code).all_goods_pick()
-    goodsList = test.get_return_(orderId)
-    test.adhocOrder_return(parentAdhocOrderId=orderId, childAdhocOrderId=orderId, goodsList=goodsList)
-    Warehouse_Management.All(code).all_goods_inbound()
-    print(code)
+    # Warehouse_Management.All(code).all_goods_pick()
+    # goodsList = test.get_return_(orderId)
+    # test.adhocOrder_return(parentAdhocOrderId=orderId, childAdhocOrderId=orderId, goodsList=goodsList)
+    # Warehouse_Management.All(code).all_goods_inbound()
+    # print(code)
