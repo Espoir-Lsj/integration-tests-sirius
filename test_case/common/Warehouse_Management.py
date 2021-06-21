@@ -103,7 +103,7 @@ class PickOrder:
 
         return materialCode, warehouseId, storageLocationId, quantity
 
-    # 查询拣货单信息1
+    # 查询拣货单信息1 前置条件用
     def get_pick_orderInfo01(self, pickOrderId):
         url = '/pickOrder/detail/%s' % pickOrderId
 
@@ -133,6 +133,45 @@ class PickOrder:
 
         return goodsId, lotNum
 
+    # 多物资拣货
+    def pick_goods(self, pickOrderId):
+        url = '/pickOrder/detail/%s' % pickOrderId
+        quantityList = []
+        goodsIdList = []
+        lotNumList = []
+        storageLocationIdList = []
+        res = request.get01(url)
+        warehouseId = res['data']['warehouseId']
+        for i in res['data']['goodsDetail']:
+            storageLocationId = i['storageLocationId']
+            quantity = i['quantity']
+            goodsId = i['goodsId']
+            lotNum = i['lotNum']
+            storageLocationIdList.append(storageLocationId)
+            quantityList.append(quantity)
+            goodsIdList.append(goodsId)
+            lotNumList.append(lotNum)
+        url = '/pickOrder/picking'
+        for goodsId, lotNum, storageLocationId, quantity in zip(goodsIdList, lotNumList, storageLocationIdList,
+                                                                quantityList):
+            body = {
+                "goodsId": goodsId,
+                "lotNum": lotNum,
+                "pickOrderId": pickOrderId,
+                "serialNumber": None,
+                "storageLocationId": storageLocationId
+            }
+            for i in range(quantity):
+                response = request.put_body01(url, body)
+        pickingUiBeans = []
+        for goodsId, quantity in zip(goodsIdList, quantityList):
+            goods = {
+                "goodsId": goodsId,
+                "quantity": quantity
+            }
+            pickingUiBeans.append(goods)
+        return pickingUiBeans
+
     # 拣货
     def picking(self, goodsId=None, lotNum=None, pickOrderId=None, storageLocationId=None):
         url = '/pickOrder/picking'
@@ -160,25 +199,32 @@ class PickOrder:
         response = request.put_body01(url, body)
 
     # 审核拣货单
-    def pick_approval(self, pickOrderId=None, goodsId=None, quantity=None, kitStockId=None, kitquantity=None
+    def pick_approval(self, pickingUiBeans=list(), pickOrderId=None, goodsId=None, quantity=None, kitStockId=None,
+                      kitquantity=None
                       , imagePath=["/file/2021/06/03/04a82f82-e0f3-44d7-93f3-964d11c44326/base64Test.jpg"]):
         url = '/pickOrder/approval'
         body = {
             "imagePath": imagePath,
             "pickOrderId": pickOrderId,
-            "pickingUiBeans": [
-                {
-                    "goodsId": goodsId,
-                    "quantity": quantity
-                }
-            ]
+            "pickingUiBeans": pickingUiBeans
         }
+
+        goods = {
+            "goodsId": goodsId,
+            "quantity": quantity
+
+        }
+
         kitInfo = {
             "kitStockId": kitStockId,
             "quantity": kitquantity
         }
+
+        if goodsId:
+            body['pickingUiBeans'] = [goods]
+
         if kitStockId:
-            body['pickingUiBeans'].append(kitInfo)
+            body['pickingUiBeans'] = [kitInfo]
         response = request.put_body01(url, body)
 
     # 查询拣货单列表
@@ -243,20 +289,54 @@ class InboundOrder:
         lotNum = data['lotNum']
         return registrationNum, inboundingQuantity, goodsId, lotNum
 
+    # 获取入库单信息
+    def get_InboundOrder_Infos(self, inboundOrderId=None):
+        url = '/inboundOrder/getDetailById?inboundOrderId=%s' % inboundOrderId
+        response = request.get01(url)
+        data = response['data']['goodsList']
+        registrationNumList = []
+        inboundingQuantityList = []
+        goodsIdList = []
+        lotNumList = []
+        inboundOrderDetailReceiveBeanList = []
+        for i in data:
+            registrationNum = i['registrationNumList'][0]
+            inboundingQuantity = i['inboundingQuantity']
+            goodsId = i['goodsId']
+            lotNum = i['lotNum']
+            registrationNumList.append(registrationNum)
+            inboundingQuantityList.append(inboundingQuantity)
+            goodsIdList.append(goodsId)
+            lotNumList.append(lotNum)
+        for goodsId, quantity, lotNum, registrationNum in zip(goodsIdList, inboundingQuantityList, lotNumList,
+                                                              registrationNumList):
+            goods = {
+                "goodsId": goodsId,
+                "quantity": quantity,
+                "lotNum": lotNum,
+                "registrationNum": registrationNum,
+                "serialNumber": None
+            }
+            inboundOrderDetailReceiveBeanList.append(goods)
+        return inboundOrderDetailReceiveBeanList
+
     # 入库单收货
     def inbound_receiving(self, inboundOrderId=None, goodsId=None, quantity=None, lotNum=None, registrationNum=None,
-                          serialNumber=None):
+                          serialNumber=None, inboundOrderDetailReceiveBeanList=list()):
         url = '/inboundOrder/receiving'
         body = {
             "inboundOrderId": inboundOrderId,
-            "inboundOrderDetailReceiveBeanList": [{
+            "inboundOrderDetailReceiveBeanList": inboundOrderDetailReceiveBeanList
+        }
+        if goodsId:
+            goods = {
                 "goodsId": goodsId,
                 "quantity": quantity,
                 "lotNum": lotNum,
                 "registrationNum": registrationNum,
                 "serialNumber": serialNumber
-            }]
-        }
+            }
+            body['inboundOrderDetailReceiveBeanList'] = [goods]
         response = request.put_body01(url, body)
 
     # 获取入库单列表
@@ -410,28 +490,28 @@ class All:
 
         # ----------------------查询相关--------------------------
         # 拣货单 pda查询接口
-        self.test1.get_pda_detail(pickOrderId=self.pickOrderId)
-        # 拣货单 gs1解析
-        self.test1.get_gs1(pickOrderId=self.pickOrderId)
-        # 拣货单 code解析
-        self.test1.get_byCode(pickOrderId=self.pickOrderId)
-        # 拣货单 打印
-        self.test1.pickOrder_print(self.pickOrderId)
-
-        # 出库单 查看发货详情
-        self.test.get_outOrder_deliveryInfo(self.outOrderId)
-        # 出库单 打印
-        self.test.outOrder_print(self.outOrderId)
-        # 出库单 详情
-        self.test.get_outOrder_detail(self.outOrderId)
-        # 出库单 地址详情
-        self.test.get_outOrder_adress(self.outOrderId)
-        # 查询接口
-        self.test.get_outOrder_list()
-        self.test1.get_pickOrder_list()
-        self.test2.get_inbound_list()
-
-        self.test2.inbound_export()
+        # self.test1.get_pda_detail(pickOrderId=self.pickOrderId)
+        # # 拣货单 gs1解析
+        # self.test1.get_gs1(pickOrderId=self.pickOrderId)
+        # # 拣货单 code解析
+        # self.test1.get_byCode(pickOrderId=self.pickOrderId)
+        # # 拣货单 打印
+        # self.test1.pickOrder_print(self.pickOrderId)
+        #
+        # # 出库单 查看发货详情
+        # self.test.get_outOrder_deliveryInfo(self.outOrderId)
+        # # 出库单 打印
+        # self.test.outOrder_print(self.outOrderId)
+        # # 出库单 详情
+        # self.test.get_outOrder_detail(self.outOrderId)
+        # # 出库单 地址详情
+        # self.test.get_outOrder_adress(self.outOrderId)
+        # # 查询接口
+        # self.test.get_outOrder_list()
+        # self.test1.get_pickOrder_list()
+        # self.test2.get_inbound_list()
+        #
+        # self.test2.inbound_export()
 
         # ----------------------查询相关--------------------------
 
@@ -500,17 +580,31 @@ class All:
         # self.test3.check(checkId=checkId, goodsLotInfoId=goodsLotInfoId, goodsId=goodsId, lotNum=lotNum,
         #                  receivedQuantity=inboundingQuantity, registrationNum=str(registrationNum))
 
+    def all_goods_pick(self):
+        # 多物资拣货
+        pickingUiBeans = self.test1.pick_goods(pickOrderId=self.pickOrderId)
+        # 拣货单 拣货完成
+        self.test1.pickFinished(pickOrderId=self.pickOrderId)
+
+        # 拣货单 审核拣货
+        self.test1.pick_approval(pickingUiBeans=pickingUiBeans, pickOrderId=self.pickOrderId)
+        # 出库单 发货
+        self.test.delivery(logisticsCompany='京东', deliveryDate=timeStamp, expressNo='123123',
+                           outOrderId=self.outOrderId,
+                           deliveryMode='DELIVERY')
+        # 出库单 审核发货
+        self.test.approval(logisticsCompany='京东', deliveryDate=timeStamp, expressNo='123123',
+                           outOrderId=self.outOrderId)
+
+    def all_goods_inbound(self):
+        # 入库
+        inboundOrderId = self.test2.get_inboundOrderId(self.keyword)[0]
+        inboundOrderDetailReceiveBeanList = self.test2.get_InboundOrder_Infos(inboundOrderId)
+        self.test2.inbound_receiving(inboundOrderDetailReceiveBeanList=inboundOrderDetailReceiveBeanList,
+                                     inboundOrderId=inboundOrderId)
+        # 验收
+
 
 if __name__ == '__main__':
-    test = CheckOrder()
-    checkId = test.get_checkOrder_list('OIO_20210615_0014')[0]
-    checkCode = test.get_checkOrder_list('OIO_20210615_0014')[1]
-    data = test.get_checkOrder_Info(checkId)
-    #     checkId, goodsLotInfoId, goodsId, lotNum, receivedQuantity, registrationNum
-    goodsLotInfoId = data[1]
-    goodsId = data[2]
-    lotNum = data[3]
-    receivedQuantity = data[4]
-    registrationNum = data[5]
-    test.check(checkId=checkId, goodsLotInfoId=goodsLotInfoId, goodsId=goodsId, lotNum=lotNum,
-               receivedQuantity=receivedQuantity, registrationNum=str(registrationNum))
+    test = InboundOrder()
+    test.get_InboundOrder_Infos(817)

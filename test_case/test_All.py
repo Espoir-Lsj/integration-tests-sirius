@@ -70,9 +70,10 @@ def test_spit_order(spit_order_prepare):
     # 创建地址
     addressId = test.add_default_address(receivingName="拆单专用")
     # 创建临调单
-    info = test.adhocOrder_create(goodsId=goodsId, goodsQuantity=16, addressId=addressId, supplierId=216,
+    info = test.adhocOrder_create([], [], goodsId=goodsId, goodsQuantity=16, addressId=addressId, supplierId=216,
                                   manufacturerId=1, deliveryMode="DELIVERY")
     orderId = info['data']['id']
+    orderCode = info['data']['code']
     test.get_result(orderId)
     # 审核临调单
     url = '/adhocOrder/accept'
@@ -105,8 +106,10 @@ def test_spit_order(spit_order_prepare):
     orderId2 = data[0]['childAdhocOrderUiBean']['id']
     codelist = [code1, code2]
     # 根据code 拣货出库
-    for i in codelist:
-        Warehouse_Management.All(i).all_pick_out()
+    # for i in codelist:
+    #     Warehouse_Management.All(i).all_pick_out()
+    Warehouse_Management.All(code1).all_pick_out()
+    Warehouse_Management.All(code2).all_pick_out()
     # 提交销用
     url = '/adhocOrder/adhocReturn'
     body = {
@@ -116,7 +119,7 @@ def test_spit_order(spit_order_prepare):
                 "goodsId": goodsId,
                 "goodsLotInfoId": goodsLotInfoId,
                 "kitStockId": None,
-                "quantity": 9
+                "quantity": 5
             }]
         }, {
             "childAdhocOrderId": orderId2,
@@ -124,7 +127,7 @@ def test_spit_order(spit_order_prepare):
                 "goodsId": goodsId,
                 "goodsLotInfoId": goodsLotInfoId,
                 "kitStockId": None,
-                "quantity": 7
+                "quantity": 4
             }]
         }],
         "parentAdhocOrderId": orderId
@@ -140,19 +143,47 @@ def test_spit_order(spit_order_prepare):
         "parentId": orderId,
         "createUiBeans": [{
             "adhocOrderId": orderId1,
+            "warehouseId": warehouse1,
             "detailUiBeanList": [{
                 "goodsId": goodsId,
                 "goodsLotInfoId": goodsLotInfoId,
-                "quantity": 9
+                "goodsExtraAttrId": 8117,
+                "quantity": 5
             }]
         }, {
             "adhocOrderId": orderId2,
+            "warehouseId": warehouse2,
             "detailUiBeanList": [{
                 "goodsId": goodsId,
                 "goodsLotInfoId": goodsLotInfoId,
-                "quantity": 7
+                "goodsExtraAttrId": 8117,
+                "quantity": 4
             }]
         }]
     }
     for i in ['/salesOrder/checkSalesOrder', '/salesOrder/createSalesOrder']:
         response2 = request.post_body01(i, body)
+    print(orderCode)
+
+
+# 临调申请多物资
+@allure.story('多物资临调')
+def test_more_goods():
+    test = Order_Management.AdhocOrder()
+    addressId = test.add_default_address()
+    manufacturerId = test.get_manufacturerId()
+    warehouseId = test.get_warehouse()
+    goodsList = [20538, 20540]
+    quantityList = [1, 2]
+    info = test.adhocOrder_create_more(goodsList, quantityList, addressId=addressId, manufacturerId=manufacturerId)
+    # return res, goodsDetailUiBeans, toolsDetailUiBeans, goods_acceptList, toolsacceptList
+    res = info[0]
+    goodsDetailUiBeans = info[3]
+    orderId = res['data']['id']
+    test.adhocOrder_accept(goodsDetailUiBeans, id=orderId, warehouseId=warehouseId)
+    code = res['data']['code']
+    Warehouse_Management.All(code).all_goods_pick()
+    goodsList = test.get_return_(orderId)
+    test.adhocOrder_return(parentAdhocOrderId=orderId, childAdhocOrderId=orderId, goodsList=goodsList)
+    Warehouse_Management.All(code).all_goods_inbound()
+    print(code)
