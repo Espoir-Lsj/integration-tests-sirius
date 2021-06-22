@@ -294,29 +294,16 @@ class InboundOrder:
         url = '/inboundOrder/getDetailById?inboundOrderId=%s' % inboundOrderId
         response = request.get01(url)
         data = response['data']['goodsList']
-        registrationNumList = []
-        inboundingQuantityList = []
-        goodsIdList = []
-        lotNumList = []
         inboundOrderDetailReceiveBeanList = []
         for i in data:
-            registrationNum = i['registrationNumList'][0]
-            inboundingQuantity = i['inboundingQuantity']
-            goodsId = i['goodsId']
-            lotNum = i['lotNum']
-            registrationNumList.append(registrationNum)
-            inboundingQuantityList.append(inboundingQuantity)
-            goodsIdList.append(goodsId)
-            lotNumList.append(lotNum)
-        for goodsId, quantity, lotNum, registrationNum in zip(goodsIdList, inboundingQuantityList, lotNumList,
-                                                              registrationNumList):
             goods = {
-                "goodsId": goodsId,
-                "quantity": quantity,
-                "lotNum": lotNum,
-                "registrationNum": registrationNum,
+                "goodsId": i['goodsId'],
+                "quantity": i['inboundingQuantity'],
+                "lotNum": i['lotNum'],
+                "registrationNum": ['registrationNumList'][0],
                 "serialNumber": None
             }
+
             inboundOrderDetailReceiveBeanList.append(goods)
         return inboundOrderDetailReceiveBeanList
 
@@ -379,24 +366,49 @@ class PutOnShelf:
         storageLocationCode = str(data['storageLocationCode'])
         quantity = data['quantity']
         putOnShelfCode = response['data']['code']
+        goodsList = data = response['data']['goodsList']
         print('上架单号---------------%s' % putOnShelfCode)
         putOnShelfId = putOnShelfId
-        return goodsId, goodsLotInfoId, storageLocationCode, quantity, putOnShelfId
+        return goodsId, goodsLotInfoId, storageLocationCode, quantity, putOnShelfId, goodsList
+
+    # 多物资 上架单信息
+    def get_putOnshelf_details(self, putOnShelfId):
+        url = '/putOnShelf/getDetail?orderId=%s' % putOnShelfId
+        response = request.get01(url)
+        putOnShelfCode = response['data']['code']
+        print('上架单号---------------%s' % putOnShelfCode)
+
+        dataList = []
+        data = response['data']['goodsList']
+        for i in data:
+            goods = {
+                "goodsId": i['goodsId'],
+                "goodsLotInfoId": i['goodsLotInfoId'],
+                "quantity": i['quantity'],
+                "storageLocationCode": i['storageLocationCode'],
+                "supplierId": None
+            }
+            dataList.append(goods)
+        return dataList
 
     # 上架商品
-    def putOnshelf(self, goodsId=None, goodsLotInfoId=None, quantity=None, storageLocationCode=None, putOnShelfId=None):
+    def putOnshelf(self, goodsId=None, goodsLotInfoId=None, quantity=None, storageLocationCode=None,
+                   putOnShelfId=None, goodsList=list()):
         url = '/putOnShelf/putOnShelf'
         body = {
-            "goodsList": [{
-                "goodsId": goodsId,
-                "goodsLotInfoId": goodsLotInfoId,
-                "quantity": quantity,
-                "storageLocationCode": storageLocationCode,
-                "supplierId": None
-            }],
+            "goodsList": goodsList,
             "orderId": putOnShelfId,
             "toolsList": []
         }
+        goodsList = {
+            "goodsId": goodsId,
+            "goodsLotInfoId": goodsLotInfoId,
+            "quantity": quantity,
+            "storageLocationCode": storageLocationCode,
+            "supplierId": None
+        }
+        if goodsId:
+            body['goodsList'] = [goodsList]
         response = request.post_body01(url, body)
 
 
@@ -436,37 +448,20 @@ class CheckOrder:
     def get_checkOrder_Infos(self, checkId):
         url = '/checkOrder/detail?orderId=%s' % checkId
         response = request.get01(url)
-        goodsLotInfoIdList = []
-        goodsIdList = []
-        lotNumList = []
-        receivedQuantityList = []
         inboundOrderDetailCheckBeanList = []
         for i in response['data']['goodsList']:
-            goodsLotInfoId = i['goodsLotInfoId']
-            goodsId = i['goodsId']
-            lotNum = i['lotNum']
-            # 入库数量
-            inboundingQuantity = i['inboundingQuantity']
-            # 不合格数量
             unqualifiedQuantity = 0
-            # 留一个口，入库数量 减去 不合格数量 = 验收数量
-            receivedQuantity = inboundingQuantity - unqualifiedQuantity
-            goodsLotInfoIdList.append(goodsLotInfoId)
-            goodsIdList.append(goodsId)
-            lotNumList.append(lotNum)
-            receivedQuantityList.append(receivedQuantity)
-        for goodsLotInfoId, goodsId, lotNum, receivedQuantity in zip(goodsLotInfoIdList, goodsIdList, lotNumList,
-                                                                     receivedQuantityList):
             goods = {
                 "checkInstructionUiList": [],
-                "goodsLotInfoId": goodsLotInfoId,
+                "goodsLotInfoId": i['goodsLotInfoId'],
                 "unqualifiedQuantity": 0,
-                "goodsId": goodsId,
-                "lotNum": lotNum,
-                "quantity": receivedQuantity,
-                "registrationNum": "国械注进20183462026",
+                "goodsId": i['goodsId'],
+                "lotNum": i['lotNum'],
+                "quantity": i['inboundingQuantity'] - unqualifiedQuantity,
+                "registrationNum": i['registrationNumList'][0],
                 "serialNumber": None
             }
+
             inboundOrderDetailCheckBeanList.append(goods)
         return inboundOrderDetailCheckBeanList
 
@@ -595,18 +590,20 @@ class All:
                                      lotNum=self.lotNum,
                                      registrationNum=registrationNum)
 
-        checkId = self.test3.get_checkOrder_list(inboundCode)[0]
-        checkCode = self.test3.get_checkOrder_list(inboundCode)[1]
-        data = self.test3.get_checkOrder_Info(checkId)
-        #     checkId, goodsLotInfoId, goodsId, lotNum, receivedQuantity, registrationNum
-        goodsLotInfoId = data[1]
-        goodsId = data[2]
-        lotNum = data[3]
-        inboundingQuantity = data[4]
-        registrationNum = data[5]
-        # 验收单 验收
-        self.test3.check(checkId=checkId, goodsLotInfoId=goodsLotInfoId, goodsId=goodsId, lotNum=lotNum,
-                         receivedQuantity=inboundingQuantity, registrationNum=str(registrationNum))
+        data1 = self.test3.get_checkOrder_list(inboundCode)
+        if data1[0]:
+            checkId = data1[0]
+            checkCode = self.test3.get_checkOrder_list(inboundCode)[1]
+            data = self.test3.get_checkOrder_Info(checkId)
+            #     checkId, goodsLotInfoId, goodsId, lotNum, receivedQuantity, registrationNum
+            goodsLotInfoId = data[1]
+            goodsId = data[2]
+            lotNum = data[3]
+            inboundingQuantity = data[4]
+            registrationNum = data[5]
+            # 验收单 验收
+            self.test3.check(checkId=checkId, goodsLotInfoId=goodsLotInfoId, goodsId=goodsId, lotNum=lotNum,
+                             receivedQuantity=inboundingQuantity, registrationNum=str(registrationNum))
         if inboundingQuantity > 0:
             # 上架单 上架
             putOnShelfId = self.test4.get_putOnShelfId(inboundCode)
@@ -648,6 +645,7 @@ class All:
         inboundOrderDetailReceiveBeanList = self.test2.get_InboundOrder_Infos(inboundOrderId)
         self.test2.inbound_receiving(inboundOrderDetailReceiveBeanList=inboundOrderDetailReceiveBeanList,
                                      inboundOrderId=inboundOrderId)
+        inboundingQuantity = self.test2.get_InboundOrder_Info(inboundOrderId)[1]
         # 验收
         data = self.test3.get_checkOrder_list(inboundCode)
         if data[0]:
@@ -657,8 +655,27 @@ class All:
 
             # 验收
             self.test3.check(inboundOrderDetailCheckBeanList=inboundOrderDetailCheckBeanList, checkId=checkId)
+        if inboundingQuantity > 0:
+            # 上架单 上架
+            putOnShelfId = self.test4.get_putOnShelfId(inboundCode)
+
+            data = self.test4.get_putOnshelf_detail(putOnShelfId)
+            if len(data[-1]) == 1:
+
+                goodsId = data[0]
+                goodsLotInfoId = data[1]
+                storageLocationCode = data[2]
+                quantity = data[3]
+                # ----需要兼容多物资上架
+                self.test4.putOnshelf(goodsId=goodsId, goodsLotInfoId=goodsLotInfoId, quantity=quantity,
+                                      storageLocationCode=storageLocationCode, putOnShelfId=putOnShelfId)
+            else:
+                goodsList = self.test4.get_putOnshelf_details(putOnShelfId)
+                self.test4.putOnshelf(putOnShelfId=putOnShelfId, goodsList=goodsList)
 
 
 if __name__ == '__main__':
-    test = InboundOrder()
-    test.get_InboundOrder_Infos(817)
+    # test = InboundOrder()
+    # test.get_InboundOrder_Infos(817)
+    test = PutOnShelf()
+    test.get_putOnshelf_details(803)

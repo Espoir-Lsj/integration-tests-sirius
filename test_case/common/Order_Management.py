@@ -5,6 +5,7 @@
 import time, datetime
 from faker import Faker
 import request, login, Warehouse_Management
+from test_case.common import PostgresSql
 
 faker = Faker(locale='zh_CN')
 
@@ -173,9 +174,9 @@ class AdhocOrder:
         }
 
         if goodsId:
-            body['goodsDetailUiBeans'].append(goodsDetailUiBeans)
+            body['goodsDetailUiBeans'] = [goodsDetailUiBeans]
         if kitTemplateId:
-            body['toolsDetailUiBeans'].append(toolsDetailUiBeans)
+            body['toolsDetailUiBeans'] = [toolsDetailUiBeans]
         if deliveryMode == 'DELIVERY':
             del body['orderUiBean']['consignorName'], body['orderUiBean']['consignorPhone'], body['orderUiBean'][
                 'receivingIdCard'], body['orderUiBean']['powerOfAttorney']
@@ -242,9 +243,9 @@ class AdhocOrder:
             "quantity": Gquantity
         }
         if goodsId:
-            body['detail'][0]['goodsDetailUiBeans'].append(goodsDetailUiBeans)
+            body['detail'][0]['goodsDetailUiBeans'] = [goodsDetailUiBeans]
         if kitTemplateId:
-            body['detail'][0]['toolsDetailUiBeans'].append(toolsDetailUiBeans)
+            body['detail'][0]['toolsDetailUiBeans'] = [toolsDetailUiBeans]
         response = request.put_body01(url, body)
 
     # 拒绝临调单
@@ -334,7 +335,7 @@ class AdhocOrder:
                 "goodsLotInfoId": goodsLotInfoId,
                 "quantity": Usequantity
             }
-            goodsList.append(goods)
+            body['detail'][0]['goodsList'] = [goods]
         response = request.post_body(url, body)
 
     # 关闭临调单
@@ -522,8 +523,8 @@ class AdhocOrder:
                                goodsId=goodsId, goodsSupplierId=goodsSupplierId)
         self.delete_default_address(addressId)
 
-    # 临调单主流程
-    def all_process(self):
+    # 临调单单物资主流程
+    def all_process(self, Usequantity=None):
         # 品牌
         manufacturerId = self.get_manufacturerId()
         # 默认地址
@@ -546,7 +547,7 @@ class AdhocOrder:
         # toolsSupplierId = toolsInfo[1]
         Gquantity = 10
         # 使用数量
-        Usequantity = 1
+        Usequantity = Usequantity
         # 创建临调单
         data = self.adhocOrder_create(goodsQuantity=Gquantity,
                                       procedureSite=procedureSite,
@@ -574,26 +575,141 @@ class AdhocOrder:
         print('临调单号-----%s----------------' % adhocOrderCode)
 
         # 收货流程：入库收货、验收
-        # Warehouse_Management.All(adhocOrderCode).all_in_putOnShelf()
-        #
-        # if Usequantity > 0:
-        #     goodsExtraAttrId = self.get_goodsExtraAttrId(adhocOrderId)
-        #
-        #     # 生成销售单
-        #
-        #     self.check_salesOrder(parentId=adhocOrderId, adhocOrderId=adhocOrderId, goodsId=goodsId,
-        #                           goodsLotInfoId=goodsLotInfoId, goodsExtraAttrId=goodsExtraAttrId, Usequantity=Usequantity,
-        #                           warehouseId=warehouseId)
-        #     self.create_salesOrder(parentId=adhocOrderId, adhocOrderId=adhocOrderId, goodsId=goodsId,
-        #                            goodsLotInfoId=goodsLotInfoId, goodsExtraAttrId=goodsExtraAttrId,
-        #                            Usequantity=Usequantity,
-        #                            warehouseId=warehouseId)
-        # self.delete_default_address(addressId)
+        Warehouse_Management.All(adhocOrderCode).all_in_putOnShelf()
+
+        if Usequantity >= 0:
+            goodsExtraAttrId = self.get_goodsExtraAttrId(adhocOrderId)
+
+            # 生成销售单
+
+            self.check_salesOrder(parentId=adhocOrderId, adhocOrderId=adhocOrderId, goodsId=goodsId,
+                                  goodsLotInfoId=goodsLotInfoId, goodsExtraAttrId=goodsExtraAttrId,
+                                  Usequantity=Usequantity,
+                                  warehouseId=warehouseId)
+            self.create_salesOrder(parentId=adhocOrderId, adhocOrderId=adhocOrderId, goodsId=goodsId,
+                                   goodsLotInfoId=goodsLotInfoId, goodsExtraAttrId=goodsExtraAttrId,
+                                   Usequantity=Usequantity,
+                                   warehouseId=warehouseId)
+        self.delete_default_address(addressId)
         #
         # # 查询临调单列表
         # self.get_adhocOrder_list()
 
         return adhocOrderCode
+
+    # 临调单多物资主流程
+    def all_process_more(self, UsequantityList=None):
+        """
+         临调物资20539 :两个仓库（1，89）库存分别为10
+         临调数量16: 1仓发货9，89仓发货7
+         """
+        goodsId = 20539
+        warehouse1 = 1
+        warehouse2 = 89
+        goodsLotInfoId = 8962
+        usequantity1 = UsequantityList[0]
+        usequantity2 = UsequantityList[1]
+        test = PostgresSql.PostgresSql()
+        sql = """update wms_goods_stock set quantity = 10 where goods_id=20539 and status = 'put_on_shelf' and warehouse_id in (1,89)"""
+        test.execute(sql)
+        # 创建地址
+        addressId = self.add_default_address(receivingName="拆单专用")
+        # 创建临调单
+        info = self.adhocOrder_create([], [], goodsId=goodsId, goodsQuantity=16, addressId=addressId, supplierId=216,
+                                      manufacturerId=1, deliveryMode="DELIVERY")
+        orderId = info['data']['id']
+        orderCode = info['data']['code']
+        self.get_result(orderId)
+        # 审核临调单
+        url = '/adhocOrder/accept'
+        body = {
+            "detail": [{
+                "deliveryMode": "DELIVERY",
+                "goodsDetailUiBeans": [{
+                    "goodsId": goodsId,
+                    "quantity": 9
+                }],
+                "toolsDetailUiBeans": [],
+                "warehouseId": warehouse1
+            }, {
+                "deliveryMode": "DELIVERY",
+                "goodsDetailUiBeans": [{
+                    "goodsId": goodsId,
+                    "quantity": 7
+                }],
+                "toolsDetailUiBeans": [],
+                "warehouseId": warehouse2
+            }],
+            "id": orderId
+        }
+        response = request.put_body01(url, body)
+        # 获取拆单结果
+        data = self.get_adhocOrder_detail(orderId)['data']['childUiList']
+        code1 = data[1]['childAdhocOrderUiBean']['code']
+        code2 = data[0]['childAdhocOrderUiBean']['code']
+        orderId1 = data[1]['childAdhocOrderUiBean']['id']
+        orderId2 = data[0]['childAdhocOrderUiBean']['id']
+        codelist = [code1, code2]
+        self.delete_default_address(addressId)
+        # 根据code 拣货出库
+        # for i in codelist:
+        #     Warehouse_Management.All(i).all_pick_out()
+        Warehouse_Management.All(code1).all_pick_out()
+        Warehouse_Management.All(code2).all_pick_out()
+        # 提交销用
+        url = '/adhocOrder/adhocReturn'
+        body = {
+            "detail": [{
+                "childAdhocOrderId": orderId1,
+                "goodsList": [{
+                    "goodsId": goodsId,
+                    "goodsLotInfoId": goodsLotInfoId,
+                    "kitStockId": None,
+                    "quantity": usequantity1
+                }]
+            }, {
+                "childAdhocOrderId": orderId2,
+                "goodsList": [{
+                    "goodsId": goodsId,
+                    "goodsLotInfoId": goodsLotInfoId,
+                    "kitStockId": None,
+                    "quantity": usequantity2
+                }]
+            }],
+            "parentAdhocOrderId": orderId
+        }
+        response1 = request.post_body(url, body)
+
+        # 根据code入库验收
+        for i in codelist:
+            Warehouse_Management.All(i).all_in_putOnShelf()
+
+        # 生成销售单
+        body = {
+            "parentId": orderId,
+            "createUiBeans": [{
+                "adhocOrderId": orderId1,
+                "warehouseId": warehouse1,
+                "detailUiBeanList": [{
+                    "goodsId": goodsId,
+                    "goodsLotInfoId": goodsLotInfoId,
+                    "goodsExtraAttrId": 8117,
+                    "quantity": usequantity1
+                }]
+            }, {
+                "adhocOrderId": orderId2,
+                "warehouseId": warehouse2,
+                "detailUiBeanList": [{
+                    "goodsId": goodsId,
+                    "goodsLotInfoId": goodsLotInfoId,
+                    "goodsExtraAttrId": 8117,
+                    "quantity": usequantity2
+                }]
+            }]
+        }
+        for i in ['/salesOrder/checkSalesOrder', '/salesOrder/createSalesOrder']:
+            response2 = request.post_body01(i, body)
+        print(orderCode)
 
 
 if __name__ == '__main__':
@@ -602,7 +718,8 @@ if __name__ == '__main__':
     # test.get_warehouse()
 
     # test.all()
-    test.all_process()
+    # test.all_process(Usequantity=1)
+    test.all_process_more([1, 1])
     # test.adhocOrder_return(182,20538,1,6,182)
     #
     # goodsList = [20538, 20540]

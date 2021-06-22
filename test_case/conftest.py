@@ -725,15 +725,20 @@ def Prepare_adhocOrder():
     for i in codeList[1:]:
         Warehouse_Management.All(i).all_in_putOnShelf()
 
+    goodsExtraAttrId = test.get_goodsExtraAttrId(adhocOrderId=orderList[3])
+
+    # 检查销售单
+    for id in orderList[3:]:
+        test.check_salesOrder(parentId=id, adhocOrderId=id, goodsId=goodsId,
+                              goodsLotInfoId=goodsLotInfoId, Usequantity=1, warehouseId=warehouseId,
+                              goodsExtraAttrId=goodsExtraAttrId)
+
     # 生成销售单
 
     for id in orderList[2:]:
         test.create_salesOrder(parentId=id, adhocOrderId=id, goodsId=goodsId,
-                               goodsLotInfoId=goodsLotInfoId, Usequantity=1)
-    # 检查销售单
-    for id in orderList[3:]:
-        test.check_salesOrder(parentId=id, adhocOrderId=id, goodsId=goodsId,
-                              goodsLotInfoId=goodsLotInfoId, Usequantity=1)
+                               goodsLotInfoId=goodsLotInfoId, Usequantity=1, warehouseId=warehouseId,
+                               goodsExtraAttrId=goodsExtraAttrId)
 
     return orderList
 

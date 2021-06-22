@@ -38,11 +38,21 @@ def test_Purchase():
 
 
 # 订单管理主流程
-@allure.story('订单管理')
+@allure.story('订单管理——创建订单')
 def test_Order():
     AdhocOrder_test = Order_Management.AdhocOrder()
     AdhocOrder_test.all()
-    AdhocOrder_test.all_process()
+
+
+@allure.story('订单管理——单物资全流程')
+def test_Order_all():
+    AdhocOrder_test = Order_Management.AdhocOrder()
+    # 全部销用
+    AdhocOrder_test.all_process(Usequantity=10)
+    # 部分销用
+    AdhocOrder_test.all_process(Usequantity=4)
+    # 全部未销用
+    AdhocOrder_test.all_process(Usequantity=0)
 
 
 # 仓库管理主流程
@@ -55,115 +65,25 @@ def test_Warehouse():
 
 
 # 拆单流程
-@allure.story('拆单流程')
+@allure.story('临调——拆单流程--全部销用')
 def test_spit_order(spit_order_prepare):
-    """
-    临调物资20539 :两个仓库（1，89）库存分别为10
-    临调数量16: 1仓发货9，89仓发货7
-    """
-    goodsId = 20539
-    warehouse1 = 1
-    warehouse2 = 89
-    goodsLotInfoId = 8962
-
     test = Order_Management.AdhocOrder()
-    # 创建地址
-    addressId = test.add_default_address(receivingName="拆单专用")
-    # 创建临调单
-    info = test.adhocOrder_create([], [], goodsId=goodsId, goodsQuantity=16, addressId=addressId, supplierId=216,
-                                  manufacturerId=1, deliveryMode="DELIVERY")
-    orderId = info['data']['id']
-    orderCode = info['data']['code']
-    test.get_result(orderId)
-    # 审核临调单
-    url = '/adhocOrder/accept'
-    body = {
-        "detail": [{
-            "deliveryMode": "DELIVERY",
-            "goodsDetailUiBeans": [{
-                "goodsId": goodsId,
-                "quantity": 9
-            }],
-            "toolsDetailUiBeans": [],
-            "warehouseId": warehouse1
-        }, {
-            "deliveryMode": "DELIVERY",
-            "goodsDetailUiBeans": [{
-                "goodsId": goodsId,
-                "quantity": 7
-            }],
-            "toolsDetailUiBeans": [],
-            "warehouseId": warehouse2
-        }],
-        "id": orderId
-    }
-    response = request.put_body01(url, body)
-    # 获取拆单结果
-    data = test.get_adhocOrder_detail(orderId)['data']['childUiList']
-    code1 = data[1]['childAdhocOrderUiBean']['code']
-    code2 = data[0]['childAdhocOrderUiBean']['code']
-    orderId1 = data[1]['childAdhocOrderUiBean']['id']
-    orderId2 = data[0]['childAdhocOrderUiBean']['id']
-    codelist = [code1, code2]
-    # 根据code 拣货出库
-    # for i in codelist:
-    #     Warehouse_Management.All(i).all_pick_out()
-    Warehouse_Management.All(code1).all_pick_out()
-    Warehouse_Management.All(code2).all_pick_out()
-    # 提交销用
-    url = '/adhocOrder/adhocReturn'
-    body = {
-        "detail": [{
-            "childAdhocOrderId": orderId1,
-            "goodsList": [{
-                "goodsId": goodsId,
-                "goodsLotInfoId": goodsLotInfoId,
-                "kitStockId": None,
-                "quantity": 0
-            }]
-        }, {
-            "childAdhocOrderId": orderId2,
-            "goodsList": [{
-                "goodsId": goodsId,
-                "goodsLotInfoId": goodsLotInfoId,
-                "kitStockId": None,
-                "quantity": 1
-            }]
-        }],
-        "parentAdhocOrderId": orderId
-    }
-    response1 = request.post_body(url, body)
+    # 全部销用
+    test.all_process_more([9, 7])
 
-    # 根据code入库验收
-    for i in codelist:
-        Warehouse_Management.All(i).all_in_putOnShelf()
 
-    # 生成销售单
-    body = {
-        "parentId": orderId,
-        "createUiBeans": [{
-            "adhocOrderId": orderId1,
-            "warehouseId": warehouse1,
-            "detailUiBeanList": [{
-                "goodsId": goodsId,
-                "goodsLotInfoId": goodsLotInfoId,
-                "goodsExtraAttrId": 8117,
-                "quantity": 0
-            }]
-        }, {
-            "adhocOrderId": orderId2,
-            "warehouseId": warehouse2,
-            "detailUiBeanList": [{
-                "goodsId": goodsId,
-                "goodsLotInfoId": goodsLotInfoId,
-                "goodsExtraAttrId": 8117,
-                "quantity": 1
-            }]
-        }]
-    }
-    # for i in ['/salesOrder/checkSalesOrder', '/salesOrder/createSalesOrder']:
-    #     response2 = request.post_body01(i, body)
-    print(orderCode)
+@allure.story('临调——拆单流程--部分销用')
+def test_spit_order2(spit_order_prepare):
+    test = Order_Management.AdhocOrder()
+    # 部分销用
+    test.all_process_more([1, 2])
+
+
+@allure.story('临调——拆单流程--全部未销用')
+def test_spit_order3(spit_order_prepare):
+    test = Order_Management.AdhocOrder()
+    # 全部未销用
+    test.all_process_more([0, 0])
 
 
 # 临调申请多物资
@@ -188,3 +108,8 @@ def test_more_goods():
     print(code)
 
     Warehouse_Management.All(code).all_goods_inbound()
+
+
+def test001(spit_order_prepare):
+    test = Order_Management.AdhocOrder()
+    test.all_process_more()
