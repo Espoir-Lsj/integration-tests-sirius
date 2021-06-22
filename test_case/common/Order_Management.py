@@ -194,7 +194,6 @@ class AdhocOrder:
         toolsDetailUiBeans = []
         goods_acceptList = []
         toolsacceptList = []
-        goodsLotInfoIdList = []
         for goodsId, goodsQuantity in zip(goodsIds, goodsQuantity):
             goods = {
                 "goodsId": goodsId,  # 物资ID
@@ -416,43 +415,67 @@ class AdhocOrder:
         get_goodsLotInfoId = response['data']['childList'][0]['goodsUiList'][0]['goodsExtraAttrId']
         return get_goodsLotInfoId
 
+    def get_salesOrder_details(self, adhocOrderId):
+        url = '/salesOrder/getDetailByAdhocId?adhocId=%s' % adhocOrderId
+        data = request.get01(url)['data']['childList'][0]['goodsUiList']
+        goodsList = []
+        for i in data:
+            goods = {
+                "goodsId": i['goodsId'],
+                "goodsLotInfoId": i['goodsLotInfoId'],
+                "goodsExtraAttrId": i['goodsExtraAttrId'],
+                "quantity": i['receivedSaleQuantity']
+            }
+            goodsList.append(goods)
+        return goodsList
+
     # 生成销售单
     def create_salesOrder(self, parentId=None, adhocOrderId=None, goodsId=None, goodsExtraAttrId=None,
-                          goodsLotInfoId=None, Usequantity=None, warehouseId=None):
+                          goodsLotInfoId=None, Usequantity=None, warehouseId=None, detailUiBeanList=list()):
         url = '/salesOrder/createSalesOrder'
         body = {
             "parentId": parentId,
             "createUiBeans": [{
                 "adhocOrderId": adhocOrderId,
                 "warehouseId": warehouseId,
-                "detailUiBeanList": [{
-                    "goodsId": goodsId,
-                    "goodsLotInfoId": goodsLotInfoId,
-                    "goodsExtraAttrId": goodsExtraAttrId,
-                    "quantity": Usequantity
-                }]
+                "detailUiBeanList": detailUiBeanList
             }]
+        }
+        goods = {
+            "goodsId": goodsId,
+            "goodsLotInfoId": goodsLotInfoId,
+            "goodsExtraAttrId": goodsExtraAttrId,
+            "quantity": Usequantity
         }
         response = request.post_body01(url, body)
 
     # 确认生成销售单
     def check_salesOrder(self, parentId=None, adhocOrderId=None, goodsId=None, goodsLotInfoId=None,
-                         goodsExtraAttrId=None, Usequantity=None, warehouseId=None):
+                         goodsExtraAttrId=None, Usequantity=None, warehouseId=None, detailUiBeanList=list()):
         url = '/salesOrder/checkSalesOrder'
         body = {
             "parentId": parentId,
             "createUiBeans": [{
                 "adhocOrderId": adhocOrderId,
                 "warehouseId": warehouseId,
-                "detailUiBeanList": [{
-                    "goodsId": goodsId,
-                    "goodsLotInfoId": goodsLotInfoId,
-                    "goodsExtraAttrId": goodsExtraAttrId,
-                    "quantity": Usequantity
-                }]
+                "detailUiBeanList": detailUiBeanList
             }]
         }
+        goods = {
+            "goodsId": goodsId,
+            "goodsLotInfoId": goodsLotInfoId,
+            "goodsExtraAttrId": goodsExtraAttrId,
+            "quantity": Usequantity
+        }
+        if goodsId:
+            body['createUiBeans'][0]['detailUiBeanList'] = [goods]
+        if goodsId:
+            body['createUiBeans'][0]['detailUiBeanList'] = [goods]
         response = request.post_body01(url, body)
+        try:
+            assert response['msg'] == '请求成功'
+        except Exception:
+            raise response
 
     # 获取临调单 销用详情
     def get_Web_consumed(self, adhocOrderId):
@@ -587,8 +610,8 @@ class AdhocOrder:
 
         return adhocOrderCode
 
-    # 临调单多物资主流程
-    def all_process_more(self, UsequantityList=None):
+    # 临调单拆单主流程
+    def all_process_spit(self, UsequantityList=None):
         """
          临调物资20539 :两个仓库（1，89）库存分别为10
          临调数量16: 1仓发货9，89仓发货7
@@ -650,7 +673,7 @@ class AdhocOrder:
         url = '/adhocOrder/adhocReturn'
         body = {
             "detail": [{
-                "childAdhocOrderId": orderId1,
+                "childAdhocOrderId": orderId2,
                 "goodsList": [{
                     "goodsId": goodsId,
                     "goodsLotInfoId": goodsLotInfoId,
@@ -658,7 +681,7 @@ class AdhocOrder:
                     "quantity": usequantity1
                 }]
             }, {
-                "childAdhocOrderId": orderId2,
+                "childAdhocOrderId": orderId1,
                 "goodsList": [{
                     "goodsId": goodsId,
                     "goodsLotInfoId": goodsLotInfoId,
@@ -678,8 +701,8 @@ class AdhocOrder:
         body = {
             "parentId": orderId,
             "createUiBeans": [{
-                "adhocOrderId": orderId1,
-                "warehouseId": warehouse1,
+                "adhocOrderId": orderId2,
+                "warehouseId": warehouse2,
                 "detailUiBeanList": [{
                     "goodsId": goodsId,
                     "goodsLotInfoId": goodsLotInfoId,
@@ -687,8 +710,8 @@ class AdhocOrder:
                     "quantity": usequantity1
                 }]
             }, {
-                "adhocOrderId": orderId2,
-                "warehouseId": warehouse2,
+                "adhocOrderId": orderId1,
+                "warehouseId": warehouse1,
                 "detailUiBeanList": [{
                     "goodsId": goodsId,
                     "goodsLotInfoId": goodsLotInfoId,
@@ -701,6 +724,37 @@ class AdhocOrder:
             response2 = request.post_body01(i, body)
         print(orderCode)
 
+    def all_process_more(self, goodsList=None, quantityList=None, Usequantity=None):
+
+        addressId = self.add_default_address()
+        manufacturerId = self.get_manufacturerId()
+        warehouseId = self.get_warehouse()
+        # goodsList = [20538, 20540]
+        # quantityList = [1, 2]
+        goodsList = goodsList
+        quantityList = quantityList
+        info = self.adhocOrder_create_more(goodsList, quantityList, addressId=addressId, manufacturerId=manufacturerId)
+        res = info[0]
+        goodsDetailUiBeans = info[3]
+        orderId = res['data']['id']
+        self.adhocOrder_accept(goodsDetailUiBeans, id=orderId, warehouseId=warehouseId)
+        code = res['data']['code']
+        Warehouse_Management.All(code).all_goods_pick()
+        goodsList = self.get_return_(orderId)
+        for x, y in zip(goodsList, Usequantity):
+            x['quantity'] = y
+
+        self.adhocOrder_return(parentAdhocOrderId=orderId, childAdhocOrderId=orderId, goodsList=goodsList)
+        print(code)
+
+        Warehouse_Management.All(code).all_goods_inbound()
+
+        detailUiBeanList = self.get_salesOrder_details(orderId)
+        self.check_salesOrder(parentId=orderId, adhocOrderId=orderId, detailUiBeanList=detailUiBeanList,
+                              warehouseId=warehouseId)
+        self.create_salesOrder(parentId=orderId, adhocOrderId=orderId, detailUiBeanList=detailUiBeanList,
+                               warehouseId=warehouseId)
+
 
 if __name__ == '__main__':
     test = AdhocOrder()
@@ -708,8 +762,9 @@ if __name__ == '__main__':
     # test.get_warehouse()
 
     # test.all()
-    # test.all_process(Usequantity=1)
-    test.all_process_more([1, 1])
+    test.all_process(Usequantity=6)
+    # test.all_process_spit([1, 1])
+    # test.all_process_more([20538, 20540], [10, 10], [6, 0])
     # test.adhocOrder_return(182,20538,1,6,182)
     #
     # goodsList = [20538, 20540]
