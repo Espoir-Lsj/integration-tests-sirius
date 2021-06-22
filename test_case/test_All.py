@@ -72,6 +72,7 @@ def test_spit_order(spit_order_prepare):
     test.all_process_more([9, 7])
 
 
+
 @allure.story('临调——拆单流程--部分销用')
 def test_spit_order2(spit_order_prepare):
     test = Order_Management.AdhocOrder()
@@ -96,7 +97,6 @@ def test_more_goods():
     goodsList = [20538, 20540]
     quantityList = [1, 2]
     info = test.adhocOrder_create_more(goodsList, quantityList, addressId=addressId, manufacturerId=manufacturerId)
-    # return res, goodsDetailUiBeans, toolsDetailUiBeans, goods_acceptList, toolsacceptList
     res = info[0]
     goodsDetailUiBeans = info[3]
     orderId = res['data']['id']
