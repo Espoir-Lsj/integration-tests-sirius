@@ -274,8 +274,10 @@ class AllocateOrder:
                                 sourceWarehouseId=sourceWarehouseId,
                                 targetWarehouseId=targetWarehouseId, reasonCode=reasonCode)
         self.approve(allocateId=data[0], approve=True, rejectReason='')
+        print('调拨单号----------%s------------' % data[1])
         # 拣货
         Warehouse_Management.All(data[1]).all_goods_pick()
+        Warehouse_Management.All(data[1]).all_goods_inbound()
 
 
 if __name__ == '__main__':

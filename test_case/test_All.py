@@ -161,8 +161,8 @@ def test_spit_order(spit_order_prepare):
             }]
         }]
     }
-    for i in ['/salesOrder/checkSalesOrder', '/salesOrder/createSalesOrder']:
-        response2 = request.post_body01(i, body)
+    # for i in ['/salesOrder/checkSalesOrder', '/salesOrder/createSalesOrder']:
+    #     response2 = request.post_body01(i, body)
     print(orderCode)
 
 
@@ -185,5 +185,6 @@ def test_more_goods():
     Warehouse_Management.All(code).all_goods_pick()
     goodsList = test.get_return_(orderId)
     test.adhocOrder_return(parentAdhocOrderId=orderId, childAdhocOrderId=orderId, goodsList=goodsList)
-    Warehouse_Management.All(code).all_goods_inbound()
     print(code)
+
+    Warehouse_Management.All(code).all_goods_inbound()

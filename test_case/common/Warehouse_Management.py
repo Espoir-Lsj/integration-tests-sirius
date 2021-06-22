@@ -407,8 +407,11 @@ class CheckOrder:
     def get_checkOrder_list(self, inboundCode):
         url = '/checkOrder/list?pageNum=0&pageSize=50&keyword=%s' % inboundCode
         response = request.get01(url)
-        checkId = response['data']['rows'][0]['id']
-        checkCode = response['data']['rows'][0]['code']
+        if response['data']['rows'] != []:
+            checkId = response['data']['rows'][0]['id']
+            checkCode = response['data']['rows'][0]['code']
+        else:
+            checkId, checkCode = None, None
         return checkId, checkCode
 
     # 获取验收单详情
@@ -429,9 +432,47 @@ class CheckOrder:
         # toolsList = response['data']['toolsList'][0]
         return checkId, goodsLotInfoId, goodsId, lotNum, inboundingQuantity, registrationNum
 
+    # 获取多物资验收单详情
+    def get_checkOrder_Infos(self, checkId):
+        url = '/checkOrder/detail?orderId=%s' % checkId
+        response = request.get01(url)
+        goodsLotInfoIdList = []
+        goodsIdList = []
+        lotNumList = []
+        receivedQuantityList = []
+        inboundOrderDetailCheckBeanList = []
+        for i in response['data']['goodsList']:
+            goodsLotInfoId = i['goodsLotInfoId']
+            goodsId = i['goodsId']
+            lotNum = i['lotNum']
+            # 入库数量
+            inboundingQuantity = i['inboundingQuantity']
+            # 不合格数量
+            unqualifiedQuantity = 0
+            # 留一个口，入库数量 减去 不合格数量 = 验收数量
+            receivedQuantity = inboundingQuantity - unqualifiedQuantity
+            goodsLotInfoIdList.append(goodsLotInfoId)
+            goodsIdList.append(goodsId)
+            lotNumList.append(lotNum)
+            receivedQuantityList.append(receivedQuantity)
+        for goodsLotInfoId, goodsId, lotNum, receivedQuantity in zip(goodsLotInfoIdList, goodsIdList, lotNumList,
+                                                                     receivedQuantityList):
+            goods = {
+                "checkInstructionUiList": [],
+                "goodsLotInfoId": goodsLotInfoId,
+                "unqualifiedQuantity": 0,
+                "goodsId": goodsId,
+                "lotNum": lotNum,
+                "quantity": receivedQuantity,
+                "registrationNum": "国械注进20183462026",
+                "serialNumber": None
+            }
+            inboundOrderDetailCheckBeanList.append(goods)
+        return inboundOrderDetailCheckBeanList
+
     def check(self, checkId=None, goodsLotInfoId=None, unqualifiedQuantity=0, goodsId=None, lotNum=None,
               receivedQuantity=None,
-              registrationNum=None):
+              registrationNum=None, inboundOrderDetailCheckBeanList=list()):
         """
 
         :param checkId: 验收单号
@@ -446,7 +487,11 @@ class CheckOrder:
         url = '/checkOrder/check'
         body = {
             "orderId": checkId,
-            "inboundOrderDetailCheckBeanList": [{
+            "inboundOrderDetailCheckBeanList": inboundOrderDetailCheckBeanList
+        }
+
+        if goodsId:
+            inboundOrderDetailCheckBeanList = {
                 "checkInstructionUiList": [],
                 "goodsLotInfoId": goodsLotInfoId,
                 "unqualifiedQuantity": unqualifiedQuantity,
@@ -455,8 +500,8 @@ class CheckOrder:
                 "quantity": receivedQuantity,
                 "registrationNum": registrationNum,
                 "serialNumber": None
-            }]
-        }
+            }
+            body['inboundOrderDetailCheckBeanList'] = [inboundOrderDetailCheckBeanList]
         response = request.put_body01(url, body)
 
 
@@ -599,10 +644,19 @@ class All:
     def all_goods_inbound(self):
         # 入库
         inboundOrderId = self.test2.get_inboundOrderId(self.keyword)[0]
+        inboundCode = self.test2.get_inboundOrderId(self.keyword)[1]
         inboundOrderDetailReceiveBeanList = self.test2.get_InboundOrder_Infos(inboundOrderId)
         self.test2.inbound_receiving(inboundOrderDetailReceiveBeanList=inboundOrderDetailReceiveBeanList,
                                      inboundOrderId=inboundOrderId)
         # 验收
+        data = self.test3.get_checkOrder_list(inboundCode)
+        if data[0]:
+            checkId = data[0]
+            # 获取验收接口参数
+            inboundOrderDetailCheckBeanList = self.test3.get_checkOrder_Infos(checkId)
+
+            # 验收
+            self.test3.check(inboundOrderDetailCheckBeanList=inboundOrderDetailCheckBeanList, checkId=checkId)
 
 
 if __name__ == '__main__':

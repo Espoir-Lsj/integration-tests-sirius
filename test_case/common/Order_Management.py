@@ -545,6 +545,8 @@ class AdhocOrder:
         kitTemplateId = None
         # toolsSupplierId = toolsInfo[1]
         Gquantity = 10
+        # 使用数量
+        Usequantity = 1
         # 创建临调单
         data = self.adhocOrder_create(goodsQuantity=Gquantity,
                                       procedureSite=procedureSite,
@@ -568,24 +570,28 @@ class AdhocOrder:
 
         # 提交销用
         self.adhocOrder_return(childAdhocOrderId=adhocOrderId, goodsId=goodsId, goodsLotInfoId=goodsLotInfoId,
-                               Usequantity=1, parentAdhocOrderId=adhocOrderId)
+                               Usequantity=Usequantity, parentAdhocOrderId=adhocOrderId)
+        print('临调单号-----%s----------------' % adhocOrderCode)
+
         # 收货流程：入库收货、验收
-        Warehouse_Management.All(adhocOrderCode).all_in_putOnShelf()
-
-        # 生成销售单
-        goodsExtraAttrId = self.get_goodsExtraAttrId(adhocOrderId)
-
-        self.check_salesOrder(parentId=adhocOrderId, adhocOrderId=adhocOrderId, goodsId=goodsId,
-                              goodsLotInfoId=goodsLotInfoId, goodsExtraAttrId=goodsExtraAttrId, Usequantity=1,
-                              warehouseId=warehouseId)
-        self.create_salesOrder(parentId=adhocOrderId, adhocOrderId=adhocOrderId, goodsId=goodsId,
-                               goodsLotInfoId=goodsLotInfoId, goodsExtraAttrId=goodsExtraAttrId, Usequantity=1,
-                               warehouseId=warehouseId)
-        self.delete_default_address(addressId)
-        print('临调单号---------------%s' % adhocOrderCode)
-
-        # 查询临调单列表
-        self.get_adhocOrder_list()
+        # Warehouse_Management.All(adhocOrderCode).all_in_putOnShelf()
+        #
+        # if Usequantity > 0:
+        #     goodsExtraAttrId = self.get_goodsExtraAttrId(adhocOrderId)
+        #
+        #     # 生成销售单
+        #
+        #     self.check_salesOrder(parentId=adhocOrderId, adhocOrderId=adhocOrderId, goodsId=goodsId,
+        #                           goodsLotInfoId=goodsLotInfoId, goodsExtraAttrId=goodsExtraAttrId, Usequantity=Usequantity,
+        #                           warehouseId=warehouseId)
+        #     self.create_salesOrder(parentId=adhocOrderId, adhocOrderId=adhocOrderId, goodsId=goodsId,
+        #                            goodsLotInfoId=goodsLotInfoId, goodsExtraAttrId=goodsExtraAttrId,
+        #                            Usequantity=Usequantity,
+        #                            warehouseId=warehouseId)
+        # self.delete_default_address(addressId)
+        #
+        # # 查询临调单列表
+        # self.get_adhocOrder_list()
 
         return adhocOrderCode
 
@@ -596,18 +602,18 @@ if __name__ == '__main__':
     # test.get_warehouse()
 
     # test.all()
-    # test.all_process()
+    test.all_process()
     # test.adhocOrder_return(182,20538,1,6,182)
     #
-    goodsList = [20538, 20540]
-    quantityList = [1, 2]
-    info = test.adhocOrder_create_more(goodsList, quantityList, addressId=428, manufacturerId=1)
-    # return res, goodsDetailUiBeans, toolsDetailUiBeans, goods_acceptList, toolsacceptList
-    res = info[0]
-    goodsDetailUiBeans = info[3]
-    orderId = res['data']['id']
-    test.adhocOrder_accept(goodsDetailUiBeans, id=orderId, warehouseId=1)
-    code = res['data']['code']
+    # goodsList = [20538, 20540]
+    # quantityList = [1, 2]
+    # info = test.adhocOrder_create_more(goodsList, quantityList, addressId=428, manufacturerId=1)
+    # # return res, goodsDetailUiBeans, toolsDetailUiBeans, goods_acceptList, toolsacceptList
+    # res = info[0]
+    # goodsDetailUiBeans = info[3]
+    # orderId = res['data']['id']
+    # test.adhocOrder_accept(goodsDetailUiBeans, id=orderId, warehouseId=1)
+    # code = res['data']['code']
     # Warehouse_Management.All(code).all_goods_pick()
     # goodsList = test.get_return_(orderId)
     # test.adhocOrder_return(parentAdhocOrderId=orderId, childAdhocOrderId=orderId, goodsList=goodsList)
