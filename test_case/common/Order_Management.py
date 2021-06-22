@@ -398,24 +398,14 @@ class AdhocOrder:
     # 提交销用需要加入的参数
     def get_return_(self, adhocOrderId):
         data = request.get01('/adhocOrder/getWebAdhocOrderConsumed?id=%s' % adhocOrderId)
-        goodsLotInfoIdList = []
-        goodsIds = []
-        goodsQuantityList = []
+
         goodsList = []
         for i in data['data']['childList'][0]['goodsList']:
-            goodsLotInfoId = i['goodsLotInfoId']
-            goodsId = i['goodsId']
-            goodsQuantity = i['quantity']
-            goodsLotInfoIdList.append(goodsLotInfoId)
-            goodsIds.append(goodsId)
-            goodsQuantityList.append(goodsQuantity)
-
-        for x, y, z in zip(goodsIds, goodsLotInfoIdList, goodsQuantityList):
             goods = {
-                "goodsId": x,
-                "goodsLotInfoId": y,
+                "goodsId": i['goodsId'],
+                "goodsLotInfoId": i['goodsLotInfoId'],
                 "kitStockId": None,
-                "quantity": z
+                "quantity": i['quantity']
             }
             goodsList.append(goods)
         return goodsList
