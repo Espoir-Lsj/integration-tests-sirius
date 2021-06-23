@@ -86,6 +86,27 @@ def test_spit_order3(spit_order_prepare):
     test.all_process_spit([0, 0])
 
 
+@allure.story('临调——拆单流程--未销用--加部分销用')
+def test_spit_order4(spit_order_prepare):
+    test = Order_Management.AdhocOrder()
+    # 全部未销用+部分销用
+    test.all_process_spit([0, 1])
+
+
+@allure.story('临调——拆单流程--全部销用--加全未销用')
+def test_spit_order5(spit_order_prepare):
+    test = Order_Management.AdhocOrder()
+    # 全部销用+未销用
+    test.all_process_spit([9, 0])
+
+
+@allure.story('临调——拆单流程--全部销用--加部分销用')
+def test_spit_order5(spit_order_prepare):
+    test = Order_Management.AdhocOrder()
+    # 全部销用+未销用
+    test.all_process_spit([9, 1])
+
+
 # 临调申请多物资
 @allure.story('多物资临调--全部销用')
 def test_more_goods():
@@ -96,13 +117,31 @@ def test_more_goods():
 @allure.story('多物资临调--部分销用')
 def test_more_goods2():
     test = Order_Management.AdhocOrder()
-    test.all_process_more([20538, 20540], [10, 10], [3, 4])
+    test.all_process_more([20538, 20540], [10, 10], [3, 6])
 
 
 @allure.story('多物资临调--未销用')
 def test_more_goods3():
     test = Order_Management.AdhocOrder()
     test.all_process_more([20538, 20540], [10, 10], [0, 0])
+
+
+@allure.story('多物资临调--未销用--加部分销用')
+def test_more_goods4():
+    test = Order_Management.AdhocOrder()
+    test.all_process_more([20538, 20540], [10, 10], [0, 3])
+
+
+@allure.story('多物资临调--全部销用--加全未销用')
+def test_more_goods5():
+    test = Order_Management.AdhocOrder()
+    test.all_process_more([20538, 20540], [10, 10], [10, 0])
+
+
+@allure.story('多物资临调--全部销用--加部分销用')
+def test_more_goods6():
+    test = Order_Management.AdhocOrder()
+    test.all_process_more([20538, 20540], [10, 10], [10, 1])
 
 
 @allure.story('临调--只申请工具包')

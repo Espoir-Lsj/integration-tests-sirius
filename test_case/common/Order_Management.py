@@ -764,13 +764,13 @@ class AdhocOrder:
         self.adhocOrder_return(parentAdhocOrderId=orderId, childAdhocOrderId=orderId, goodsList=goodsList)
         print(code)
 
-        Warehouse_Management.All(code).all_goods_inbound()
-
-        detailUiBeanList = self.get_salesOrder_details(orderId)
-        self.check_salesOrder(parentId=orderId, adhocOrderId=orderId, detailUiBeanList=detailUiBeanList,
-                              warehouseId=warehouseId)
-        self.create_salesOrder(parentId=orderId, adhocOrderId=orderId, detailUiBeanList=detailUiBeanList,
-                               warehouseId=warehouseId)
+        # Warehouse_Management.All(code).all_goods_inbound()
+        #
+        # detailUiBeanList = self.get_salesOrder_details(orderId)
+        # self.check_salesOrder(parentId=orderId, adhocOrderId=orderId, detailUiBeanList=detailUiBeanList,
+        #                       warehouseId=warehouseId)
+        # self.create_salesOrder(parentId=orderId, adhocOrderId=orderId, detailUiBeanList=detailUiBeanList,
+        #                        warehouseId=warehouseId)
 
     # 临调工具包
     def all_tools(self):
@@ -815,7 +815,7 @@ if __name__ == '__main__':
     # test.get_warehouse()
 
     # test.all()
-    # test.all_process(Usequantity=10)
+    # test.all_process(Usequantity=5)
     # test.all_process_spit([1, 1])
     # test.all_process_more([20538, 20540], [10, 10], [6, 0])
 
