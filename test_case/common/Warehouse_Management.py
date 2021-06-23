@@ -172,6 +172,26 @@ class PickOrder:
             pickingUiBeans.append(goods)
         return pickingUiBeans
 
+    # 工具包拣货
+    def pick_tools(self, pickOrderId):
+        url = '/pickOrder/detail/%s' % pickOrderId
+        response = request.get01(url)
+        operatorBarcode = response['data']['toolsKitDetail']
+        pickingUiBeansList = []
+        for i in operatorBarcode:
+            body = {
+                "code": i['operatorBarcode'],
+                "pickOrderId": pickOrderId,
+                "storageLocationId": i['storageLocationId']
+            }
+            response1 = self.picking_bycode(body)
+            pickingUiBeans = {
+                "kitStockId": i['kitStockId'],
+                "quantity": i['quantity']
+            }
+            pickingUiBeansList.append(pickingUiBeans)
+        return pickingUiBeansList
+
     # 拣货
     def picking(self, goodsId=None, lotNum=None, pickOrderId=None, storageLocationId=None):
         url = '/pickOrder/picking'
@@ -187,6 +207,16 @@ class PickOrder:
             response['msg'] == '请求成功'
         except Exception:
             raise response
+
+    # 拣货
+    def picking_bycode(self, code=None, pickOrderId=None, storageLocationId=None):
+        url = '/pickOrder/pickingByCode'
+        body = {
+            "code": code,
+            "pickOrderId": pickOrderId,
+            "storageLocationId": storageLocationId
+        }
+        response = request.put_body01(url, body)
 
     # 完成拣货
     def pickFinished(self, pickOrderId=None,
@@ -282,29 +312,55 @@ class InboundOrder:
     def get_InboundOrder_Info(self, inboundOrderId=None):
         url = '/inboundOrder/getDetailById?inboundOrderId=%s' % inboundOrderId
         response = request.get01(url)
-        data = response['data']['goodsList'][0]
-        registrationNum = data['registrationNumList'][0]
-        inboundingQuantity = data['inboundingQuantity']
-        goodsId = data['goodsId']
-        lotNum = data['lotNum']
-        return registrationNum, inboundingQuantity, goodsId, lotNum
+        data = response['data']['goodsList']
+        data1 = response['data']['toolsList']
+        if len(data) > 0:
+            for i in data:
+                registrationNum = i['registrationNumList'][0]
+                inboundingQuantity = i['inboundingQuantity']
+                goodsId = i['goodsId']
+                lotNum = i['lotNum']
+                return registrationNum, inboundingQuantity, goodsId, lotNum
+        elif len(data1) > 0:
+            for j in data1:
+                for i in j['goodsList']:
+                    registrationNum = i['registrationNumList'][0]
+                    inboundingQuantity = i['inboundingQuantity']
+                    goodsId = i['goodsId']
+                    lotNum = i['lotNum']
+
+                    return registrationNum, inboundingQuantity, goodsId, lotNum
 
     # 获取入库单信息
     def get_InboundOrder_Infos(self, inboundOrderId=None):
         url = '/inboundOrder/getDetailById?inboundOrderId=%s' % inboundOrderId
         response = request.get01(url)
         data = response['data']['goodsList']
+        data1 = response['data']['toolsList']
         inboundOrderDetailReceiveBeanList = []
-        for i in data:
-            goods = {
-                "goodsId": i['goodsId'],
-                "quantity": i['inboundingQuantity'],
-                "lotNum": i['lotNum'],
-                "registrationNum": ['registrationNumList'][0],
-                "serialNumber": None
-            }
-
-            inboundOrderDetailReceiveBeanList.append(goods)
+        if len(data) > 0:
+            for i in data:
+                goods = {
+                    "goodsId": i['goodsId'],
+                    "quantity": i['inboundingQuantity'],
+                    "lotNum": i['lotNum'],
+                    "registrationNum": i['registrationNumList'][0],
+                    "serialNumber": None
+                }
+                inboundOrderDetailReceiveBeanList.append(goods)
+        if len(data1) > 0:
+            for j in data1:
+                kitStockId = j['kitStockId']
+                for i in j['goodsList']:
+                    goods1 = {
+                        "goodsId": i['goodsId'],
+                        "kitStockId": kitStockId,
+                        "quantity": i['inboundingQuantity'],
+                        "lotNum": i['lotNum'],
+                        "registrationNum": i['registrationNumList'][0],
+                        "serialNumber": None
+                    }
+                    inboundOrderDetailReceiveBeanList.append(goods1)
         return inboundOrderDetailReceiveBeanList
 
     # 入库单收货
@@ -378,27 +434,38 @@ class PutOnShelf:
         putOnShelfCode = response['data']['code']
         print('上架单号---------------%s' % putOnShelfCode)
 
-        dataList = []
+        goodsList = []
+        toolsList = []
         data = response['data']['goodsList']
-        for i in data:
-            goods = {
-                "goodsId": i['goodsId'],
-                "goodsLotInfoId": i['goodsLotInfoId'],
-                "quantity": i['quantity'],
-                "storageLocationCode": i['storageLocationCode'],
-                "supplierId": None
-            }
-            dataList.append(goods)
-        return dataList
+        data1 = response['data']['toolsList']
+        if len(data) > 0:
+            for i in data:
+                goods = {
+                    "goodsId": i['goodsId'],
+                    "goodsLotInfoId": i['goodsLotInfoId'],
+                    "quantity": i['quantity'],
+                    "storageLocationCode": i['storageLocationCode'],
+                    "supplierId": None
+                }
+                goodsList.append(goods)
+        if len(data1) > 0:
+            for j in data1:
+                goods1 = {
+                    "kitStockId": j['kitStockId'],
+                    "storageLocationCode": j['storageLocationCode'],
+                }
+                toolsList.append(goods1)
+
+        return goodsList, toolsList
 
     # 上架商品
     def putOnshelf(self, goodsId=None, goodsLotInfoId=None, quantity=None, storageLocationCode=None,
-                   putOnShelfId=None, goodsList=list()):
+                   putOnShelfId=None, goodsList=list(), toolsList=list()):
         url = '/putOnShelf/putOnShelf'
         body = {
             "goodsList": goodsList,
             "orderId": putOnShelfId,
-            "toolsList": []
+            "toolsList": toolsList
         }
         goodsList = {
             "goodsId": goodsId,
@@ -518,16 +585,6 @@ class All:
         self.pickOrderId = self.test.get_out_orderInfo(keyword)[0]
         self.outOrderId = self.test.get_out_orderInfo(keyword)[1]
 
-        data = self.test1.get_pick_orderInfo(self.pickOrderId)
-        self.materialCode = data[0]
-        self.warehouseId = data[1]
-        self.storageLocationId = data[2]
-        self.quantity = data[3]
-
-        goodsInfo = self.test1.get_goodsInfo(self.warehouseId, self.materialCode)
-        self.goodsId = goodsInfo[0]
-        self.lotNum = goodsInfo[1]
-
         # ----------------------查询相关--------------------------
         # 拣货单 pda查询接口
         # self.test1.get_pda_detail(pickOrderId=self.pickOrderId)
@@ -557,6 +614,15 @@ class All:
 
     # 拣货出库流程
     def all_pick_out(self):
+        data = self.test1.get_pick_orderInfo(self.pickOrderId)
+        self.materialCode = data[0]
+        self.warehouseId = data[1]
+        self.storageLocationId = data[2]
+        self.quantity = data[3]
+
+        goodsInfo = self.test1.get_goodsInfo(self.warehouseId, self.materialCode)
+        self.goodsId = goodsInfo[0]
+        self.lotNum = goodsInfo[1]
         # 拣货
         i = 0
         while i < self.quantity:
@@ -579,6 +645,16 @@ class All:
 
     # 入库、验收、上架流程
     def all_in_putOnShelf(self):
+        data = self.test1.get_pick_orderInfo(self.pickOrderId)
+        self.materialCode = data[0]
+        self.warehouseId = data[1]
+        self.storageLocationId = data[2]
+        self.quantity = data[3]
+
+        goodsInfo = self.test1.get_goodsInfo(self.warehouseId, self.materialCode)
+        self.goodsId = goodsInfo[0]
+        self.lotNum = goodsInfo[1]
+
         inboundOrderId = self.test2.get_inboundOrderId(self.keyword)[0]
         inboundCode = self.test2.get_inboundOrderId(self.keyword)[1]
 
@@ -638,6 +714,22 @@ class All:
         self.test.approval(logisticsCompany='京东', deliveryDate=timeStamp, expressNo='123123',
                            outOrderId=self.outOrderId)
 
+    def all_tools_pick(self):
+        # 工具包拣货
+        pickingUiBeans = self.test1.pick_tools(pickOrderId=self.pickOrderId)
+        # 拣货单 拣货完成
+        self.test1.pickFinished(pickOrderId=self.pickOrderId)
+
+        # 拣货单 审核拣货
+        self.test1.pick_approval(pickingUiBeans=pickingUiBeans, pickOrderId=self.pickOrderId)
+        # 出库单 发货
+        self.test.delivery(logisticsCompany='京东', deliveryDate=timeStamp, expressNo='123123',
+                           outOrderId=self.outOrderId,
+                           deliveryMode='DELIVERY')
+        # 出库单 审核发货
+        self.test.approval(logisticsCompany='京东', deliveryDate=timeStamp, expressNo='123123',
+                           outOrderId=self.outOrderId)
+
     def all_goods_inbound(self):
         # 入库
         inboundOrderId = self.test2.get_inboundOrderId(self.keyword)[0]
@@ -645,9 +737,33 @@ class All:
         inboundOrderDetailReceiveBeanList = self.test2.get_InboundOrder_Infos(inboundOrderId)
         self.test2.inbound_receiving(inboundOrderDetailReceiveBeanList=inboundOrderDetailReceiveBeanList,
                                      inboundOrderId=inboundOrderId)
+
         inboundingQuantity = self.test2.get_InboundOrder_Info(inboundOrderId)[1]
+
+        if inboundingQuantity > 0:
+            # 上架单 上架
+            putOnShelfId = self.test4.get_putOnShelfId(inboundCode)
+            #
+            # data = self.test4.get_putOnshelf_detail(putOnShelfId)
+            # # 兼容多个物资 部分销用
+            # if len(data[-1]) == 1:
+            #
+            #     goodsId = data[0]
+            #     goodsLotInfoId = data[1]
+            #     storageLocationCode = data[2]
+            #     quantity = data[3]
+            #     # ----需要兼容多物资上架
+            #     self.test4.putOnshelf(goodsId=goodsId, goodsLotInfoId=goodsLotInfoId, quantity=quantity,
+            #                           storageLocationCode=storageLocationCode, putOnShelfId=putOnShelfId)
+            # else:
+            dataList = self.test4.get_putOnshelf_details(putOnShelfId)
+            goodsList = dataList[0]
+            toolsList = dataList[1]
+
+            self.test4.putOnshelf(putOnShelfId=putOnShelfId, toolsList=toolsList, goodsList=goodsList)
         # 验收
         data = self.test3.get_checkOrder_list(inboundCode)
+
         if data[0]:
             checkId = data[0]
             # 获取验收接口参数
@@ -655,27 +771,13 @@ class All:
 
             # 验收
             self.test3.check(inboundOrderDetailCheckBeanList=inboundOrderDetailCheckBeanList, checkId=checkId)
-        if inboundingQuantity > 0:
-            # 上架单 上架
-            putOnShelfId = self.test4.get_putOnShelfId(inboundCode)
-
-            data = self.test4.get_putOnshelf_detail(putOnShelfId)
-            if len(data[-1]) == 1:
-
-                goodsId = data[0]
-                goodsLotInfoId = data[1]
-                storageLocationCode = data[2]
-                quantity = data[3]
-                # ----需要兼容多物资上架
-                self.test4.putOnshelf(goodsId=goodsId, goodsLotInfoId=goodsLotInfoId, quantity=quantity,
-                                      storageLocationCode=storageLocationCode, putOnShelfId=putOnShelfId)
-            else:
-                goodsList = self.test4.get_putOnshelf_details(putOnShelfId)
-                self.test4.putOnshelf(putOnShelfId=putOnShelfId, goodsList=goodsList)
 
 
 if __name__ == '__main__':
-    # test = InboundOrder()
-    # test.get_InboundOrder_Infos(817)
-    test = PutOnShelf()
-    test.get_putOnshelf_details(803)
+    test = InboundOrder()
+    a = test.get_InboundOrder_Info(1319)
+    print(a)
+    # test = PutOnShelf()
+    # test.get_putOnshelf_details(803)
+    # test = All('AH_20210623_0033')
+    # test.all_tools_pick()

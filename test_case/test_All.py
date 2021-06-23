@@ -64,7 +64,6 @@ def test_Warehouse():
     all_in_test = Warehouse_Management.All(purchaseKey).all_in_putOnShelf()
 
 
-
 # 拆单流程
 @allure.story('临调——拆单流程--全部销用')
 def test_spit_order(spit_order_prepare):
@@ -101,12 +100,17 @@ def test_more_goods2():
 
 
 @allure.story('多物资临调--未销用')
-def test_more_goods2():
+def test_more_goods3():
     test = Order_Management.AdhocOrder()
     test.all_process_more([20538, 20540], [10, 10], [0, 0])
+
+
+@allure.story('临调--只申请工具包')
+def test_tools():
+    test = Order_Management.AdhocOrder()
+    test.all_tools()
 
 
 def test001(spit_order_prepare):
     test = Order_Management.AdhocOrder()
     test.all_process_spit()
-
