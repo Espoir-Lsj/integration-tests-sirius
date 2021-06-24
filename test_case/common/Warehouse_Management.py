@@ -750,6 +750,7 @@ class All:
         self.test.approval(logisticsCompany='京东', deliveryDate=timeStamp, expressNo='123123',
                            outOrderId=self.outOrderId)
 
+    #     多物资入库
     def all_goods_inbound(self):
         # 入库
         inboundOrderId = self.test2.get_inboundOrderId(self.keyword)[0]
@@ -763,19 +764,7 @@ class All:
         if inboundingQuantity > 0:
             # 上架单 上架
             putOnShelfId = self.test4.get_putOnShelfId(inboundCode)
-            #
-            # data = self.test4.get_putOnshelf_detail(putOnShelfId)
-            # # 兼容多个物资 部分销用
-            # if len(data[-1]) == 1:
-            #
-            #     goodsId = data[0]
-            #     goodsLotInfoId = data[1]
-            #     storageLocationCode = data[2]
-            #     quantity = data[3]
-            #     # ----需要兼容多物资上架
-            #     self.test4.putOnshelf(goodsId=goodsId, goodsLotInfoId=goodsLotInfoId, quantity=quantity,
-            #                           storageLocationCode=storageLocationCode, putOnShelfId=putOnShelfId)
-            # else:
+
             dataList = self.test4.get_putOnshelf_details(putOnShelfId)
             goodsList = dataList[0]
             toolsList = dataList[1]

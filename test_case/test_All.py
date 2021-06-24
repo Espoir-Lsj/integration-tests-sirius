@@ -29,14 +29,6 @@ def test_material():
     PackagingOrder_test.all()
 
 
-# 采购管理主流程
-@allure.story('采购管理')
-def test_Purchase():
-    AllocateOrder_test = Purchase_Management.AllocateOrder()
-    code = AllocateOrder_test.all()
-    return code
-
-
 # 订单管理主流程
 @allure.story('订单管理——创建订单')
 def test_Order():
@@ -54,15 +46,6 @@ def test_Order_all():
     AdhocOrder_test.all_process(Usequantity=4)
     # 全部未销用
     AdhocOrder_test.all_process(Usequantity=0)
-
-
-# 仓库管理主流程
-@allure.story('仓库管理')
-def test_Warehouse_():
-    log.info("-----------调拨流程出入库--------------")
-    purchaseKey = test_Purchase()
-    all_out_test = Warehouse_Management.All(purchaseKey).all_pick_out()
-    all_in_test = Warehouse_Management.All(purchaseKey).all_in_putOnShelf()
 
 
 # 拆单流程
@@ -188,6 +171,6 @@ def test_allocateOrder_more():
     test.all_tools_goods(['ID_20538', 'ID_22344'], [1, 2])
 
 
-def test001(spit_order_prepare):
-    test = Order_Management.AdhocOrder()
-    test.all_process_spit()
+# def test001(spit_order_prepare):
+#     test = Order_Management.AdhocOrder()
+#     test.all_process_spit()
