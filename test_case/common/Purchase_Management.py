@@ -80,12 +80,13 @@ class AllocateOrder:
         return goodsId, goodInfoId
 
     # 获取调出仓的工具包信息
-    def get_kitStockId(self, sourceWarehouseId):
+    def get_kitStockId(self, sourceWarehouseId, keyword=None):
         url = '/stockBaseData/findKitStockListByAllocate'
         params = {
             'pageNum': 0,
             'pageSize': 50,
-            'warehouseId': sourceWarehouseId
+            'warehouseId': sourceWarehouseId,
+            'keyword': keyword
         }
         response = request.get_params01(url, params)
         try:
@@ -98,7 +99,7 @@ class AllocateOrder:
     # 调拨单创建、编辑（编辑要传 ID）
     def create(self, reasonCode=None, sourceWarehouseId=None, targetWarehouseId=None,
                goodsId=None, goodsLotInfoId=None, goodsQuantity=1, kitStockId=None, kitStockQuantity=1, Id=None,
-               goodsDetailUiBeans=list()):
+               goodsDetailUiBeans=list(), toolKitDetailUiBeans=list()):
         url = '/allocateOrder/create'
         body = {
             "baseOrderInfo": {
@@ -110,7 +111,7 @@ class AllocateOrder:
             },
             "goodsDetailUiBeans": goodsDetailUiBeans,
             "toolsDetailUiBeans": [],
-            "toolKitDetailUiBeans": []
+            "toolKitDetailUiBeans": toolKitDetailUiBeans
         }
         toolKitDetailUiBeans = {
             "kitStockId": kitStockId,
@@ -132,16 +133,26 @@ class AllocateOrder:
         return allocateId, code
 
     def create_more(self, goodsList=None, quantityList=None, goodsLotInfoIdList=None, sourceWarehouseId=None,
-                    targetWarehouseId=None, reasonCode=None):
+                    targetWarehouseId=None, reasonCode=None, kitStockIdList=None, kitQuantityList=None):
         goodsDetailUiBeans = []
-        for x, y, z in zip(goodsList, quantityList, goodsLotInfoIdList):
-            goods = {
-                "goodsId": x,
-                "goodsLotInfoId": z,
-                "goodsQuantity": y
-            }
-            goodsDetailUiBeans.append(goods)
+        toolKitDetailUiBeans = []
+        if len(goodsList) > 0:
+            for x, y, z in zip(goodsList, quantityList, goodsLotInfoIdList):
+                goods = {
+                    "goodsId": x,
+                    "goodsLotInfoId": z,
+                    "goodsQuantity": y
+                }
+                goodsDetailUiBeans.append(goods)
+        if len(kitStockIdList) > 0:
+            for x, y in zip(kitStockIdList, kitQuantityList):
+                kits = {
+                    "kitStockId": x,
+                    "kitStockQuantity": y
+                }
+                toolKitDetailUiBeans.append(kits)
         data = self.create(goodsDetailUiBeans=goodsDetailUiBeans, sourceWarehouseId=sourceWarehouseId,
+                           toolKitDetailUiBeans=toolKitDetailUiBeans,
                            targetWarehouseId=targetWarehouseId, reasonCode=reasonCode)
         return data
 
@@ -204,7 +215,7 @@ class AllocateOrder:
             raise response
 
     # 主流程：创建调拨单
-    def all(self):
+    def all(self, goodsId=None, goodsQuantity=None):
 
         # 调出仓、调入仓、调拨理由
         reasonCode = self.get_allocate_reason()
@@ -218,16 +229,10 @@ class AllocateOrder:
         goodsInfo = self.get_goodsInfo(sourceWarehouseId)
         # goodsId = goodsInfo[0]
         # 6/3 号，后续商品ID需要动态获取，目前这个是 在数据库准备的数据
-        goodsId = 20538
-        # goodsLotInfoId = goodsInfo[1]
+        goodsId = goodsId
         goodsLotInfoId = 1
         kitStockId = None
-        # 工具包信息
-        # kitStockId = self.get_kitStockId(sourceWarehouseId)
 
-        #  创建调拨单 --有工具包
-        # Id, code = self.create(reasonCode, sourceWarehouseId, targetWarehouseId, goodsId, goodsLotInfoId,
-        #                        kitStockId)
         # 创建调拨单
         allocateId, allocateCode = self.create(reasonCode=reasonCode, sourceWarehouseId=sourceWarehouseId,
                                                targetWarehouseId=targetWarehouseId, goodsId=goodsId,
@@ -247,25 +252,29 @@ class AllocateOrder:
         self.close(allocateId=allocateId)
 
         # 创建调拨单
-        allocateId, allocateCode = self.create(reasonCode=reasonCode, sourceWarehouseId=sourceWarehouseId,
+        allocateId, allocateCode = self.create(reasonCode=reasonCode, goodsQuantity=goodsQuantity,
+                                               sourceWarehouseId=sourceWarehouseId,
                                                targetWarehouseId=targetWarehouseId, goodsId=goodsId,
                                                goodsLotInfoId=goodsLotInfoId, kitStockId=kitStockId)
 
         # 接收调拨单
         self.approve(allocateId=allocateId, approve=True, rejectReason='')
+        Warehouse_Management.All(allocateCode).all_pick_out()
+        Warehouse_Management.All(allocateCode).all_in_putOnShelf()
+
         return allocateCode
 
-    def all_moreGoods(self):
+    def all_moreGoods(self, goodsList=None, goodsQuantityList=None):
         sourceWarehouseId = 1
         targetWarehouseId = 89
 
         reasonCode = self.get_allocate_reason()
-        goods = ['ID_20538', 'ID_22344']
-        quantityList = [1, 2]
+        goods = goodsList
+        quantityList = goodsQuantityList
         goodsIdList = []
         goodInfoIdList = []
         for i in goods:
-            data = self.get_all_goodInfoId(i, 1)
+            data = self.get_all_goodInfoId(i, sourceWarehouseId)
             goodsId = data[0]
             goodInfoId = data[1]
             goodsIdList.append(goodsId)
@@ -279,6 +288,53 @@ class AllocateOrder:
         Warehouse_Management.All(data[1]).all_goods_pick()
         Warehouse_Management.All(data[1]).all_goods_inbound()
 
+    def all_tools(self):
+        sourceWarehouseId = 1
+        targetWarehouseId = 89
+
+        kitStockId = self.get_kitStockId(sourceWarehouseId, 4026565)
+
+        reasonCode = self.get_allocate_reason()
+        # 创建调拨单
+        allocateId, allocateCode = self.create(reasonCode=reasonCode,
+                                               sourceWarehouseId=sourceWarehouseId,
+                                               targetWarehouseId=targetWarehouseId,
+                                               kitStockId=kitStockId)
+
+        # 接收调拨单
+        self.approve(allocateId=allocateId, approve=True, rejectReason='')
+        Warehouse_Management.All(allocateCode).all_tools_pick()
+        Warehouse_Management.All(allocateCode).all_goods_inbound()
+
+    def all_tools_goods(self,goods=None,quantityList=None):
+        sourceWarehouseId = 1
+        targetWarehouseId = 89
+
+        kitStockId = self.get_kitStockId(sourceWarehouseId, 4026565)
+        kitStockIdList = []
+        kitStockIdList.append(kitStockId)
+        kitQuantityList = [1]
+        reasonCode = self.get_allocate_reason()
+        goods = ['ID_20538', 'ID_22344']
+        quantityList = [1, 2]
+        goodsIdList = []
+        goodInfoIdList = []
+        for i in goods:
+            data = self.get_all_goodInfoId(i, sourceWarehouseId)
+            goodsId = data[0]
+            goodInfoId = data[1]
+            goodsIdList.append(goodsId)
+            goodInfoIdList.append(goodInfoId)
+        data = self.create_more(goodsList=goodsIdList, quantityList=quantityList, goodsLotInfoIdList=goodInfoIdList,
+                                sourceWarehouseId=sourceWarehouseId,
+                                targetWarehouseId=targetWarehouseId, reasonCode=reasonCode,
+                                kitStockIdList=kitStockIdList, kitQuantityList=kitQuantityList)
+
+        self.approve(allocateId=data[0], approve=True, rejectReason='')
+        adhocOrderCode = data[1]
+        Warehouse_Management.All(adhocOrderCode).all_tools_goods_pick()
+        Warehouse_Management.All(adhocOrderCode).all_goods_inbound()
+
 
 if __name__ == '__main__':
     sourceWarehouseId = 1
@@ -286,7 +342,9 @@ if __name__ == '__main__':
     test = AllocateOrder()
     # a = test.all()
     # print(a)
-    test.all_moreGoods()
+    # test.all_moreGoods()
+    # test.all_tools()
+    test.all_tools_goods()
     # test.approve(True)
     # test.close(115)
     # # test.remove(112)

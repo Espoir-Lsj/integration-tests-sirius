@@ -830,10 +830,10 @@ class AdhocOrder:
         self.adhocOrder_return(parentAdhocOrderId=orderId, childAdhocOrderId=orderId, goodsList=goodsList)
         print(adhocOrderCode)
         self.delete_default_address(addressId)
-        Warehouse_Management.All(adhocOrderCode).all_goods_inbound()
+        # Warehouse_Management.All(adhocOrderCode).all_goods_inbound()
 
     # 临调工具包 加物资
-    def all_tools_goods(self):
+    def all_tools_goods(self, Usequantity=None):
         addressId = self.add_default_address()
         manufacturerId = self.get_manufacturerId()
         warehouseId = self.get_warehouse()
@@ -847,6 +847,22 @@ class AdhocOrder:
         self.adhocOrder_accept(goodsDetailUiBeans=goods_acceptList, toolsDetailUiBeans=toolsacceptList, id=orderId,
                                warehouseId=warehouseId, deliveryMode="DELIVERY")
         Warehouse_Management.All(adhocOrderCode).all_tools_goods_pick()
+        self.delete_default_address(addressId)
+        goodsList = self.get_return_goods(orderId)
+        Usequantity = [0]
+        for x, y in zip(goodsList, Usequantity):
+            x['quantity'] = y
+
+        self.adhocOrder_return(parentAdhocOrderId=orderId, childAdhocOrderId=orderId, goodsList=goodsList)
+
+        Warehouse_Management.All(adhocOrderCode).all_goods_inbound()
+
+        detailUiBeanList = self.get_salesOrder_details(orderId)
+        self.check_salesOrder(parentId=orderId, adhocOrderId=orderId, detailUiBeanList=detailUiBeanList,
+                              warehouseId=warehouseId)
+        self.create_salesOrder(parentId=orderId, adhocOrderId=orderId, detailUiBeanList=detailUiBeanList,
+                               warehouseId=warehouseId)
+        print('-------%s---------' % '生成销售单成功')
 
 
 # deliveryMode="DELIVERY"
@@ -856,8 +872,8 @@ if __name__ == '__main__':
     # test.get_warehouse()
 
     # test.all()
-    # test.all_process(Usequantity=5)
+    # test.all_process(Usequantity=10)
     # test.all_process_spit([1, 1])
     # test.all_process_more([20538, 20540], [10, 10], [6, 0])
-    # test.all_tools()
-    test.all_tools_goods()
+    test.all_tools()
+    # test.all_tools_goods()

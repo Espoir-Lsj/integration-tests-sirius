@@ -164,6 +164,30 @@ def test_tools():
     test.all_tools()
 
 
+@allure.story('调拨--单物资')
+def test_allocateOrder():
+    test = Purchase_Management.AllocateOrder()
+    test.all(20538, 10)
+
+
+@allure.story('调拨--多物资')
+def test_allocateOrder_more():
+    test = Purchase_Management.AllocateOrder()
+    test.all_moreGoods(['ID_20538', 'ID_22344'], [1, 2])
+
+
+@allure.story('调拨--工具包')
+def test_allocateOrder_more():
+    test = Purchase_Management.AllocateOrder()
+    test.all_tools()
+
+
+@allure.story('调拨--多物资 加 工具包')
+def test_allocateOrder_more():
+    test = Purchase_Management.AllocateOrder()
+    test.all_tools_goods(['ID_20538', 'ID_22344'], [1, 2])
+
+
 def test001(spit_order_prepare):
     test = Order_Management.AdhocOrder()
     test.all_process_spit()
