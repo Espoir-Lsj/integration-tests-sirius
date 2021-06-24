@@ -730,6 +730,26 @@ class All:
         self.test.approval(logisticsCompany='京东', deliveryDate=timeStamp, expressNo='123123',
                            outOrderId=self.outOrderId)
 
+    def all_tools_goods_pick(self):
+        # 拣工具包
+        pickingUiBeans_tools = self.test1.pick_tools(pickOrderId=self.pickOrderId)
+        # 拣物资
+        pickingUiBeans_goods = self.test1.pick_goods(pickOrderId=self.pickOrderId)
+        self.test1.pickFinished(pickOrderId=self.pickOrderId)
+        pickingUiBeansList = []
+        for x in pickingUiBeans_tools:
+            pickingUiBeansList.append(x)
+        for y in pickingUiBeans_goods:
+            pickingUiBeansList.append(y)
+        self.test1.pick_approval(pickingUiBeans=pickingUiBeansList, pickOrderId=self.pickOrderId)
+        # 出库单 发货
+        self.test.delivery(logisticsCompany='京东', deliveryDate=timeStamp, expressNo='123123',
+                           outOrderId=self.outOrderId,
+                           deliveryMode='DELIVERY')
+        # 出库单 审核发货
+        self.test.approval(logisticsCompany='京东', deliveryDate=timeStamp, expressNo='123123',
+                           outOrderId=self.outOrderId)
+
     def all_goods_inbound(self):
         # 入库
         inboundOrderId = self.test2.get_inboundOrderId(self.keyword)[0]

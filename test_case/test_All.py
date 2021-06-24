@@ -2,7 +2,7 @@
 # @Time : 2021/6/7 2:47 下午 
 # @Author : lsj
 # @File : test_All.py
-import allure
+import allure, pytest
 
 from test_case.common import Material_Management, Order_Management, Purchase_Management, Warehouse_Management, logger, \
     request
@@ -44,6 +44,7 @@ def test_Order():
     AdhocOrder_test.all()
 
 
+@pytest.mark.Order_Smoke
 @allure.story('订单管理——单物资全流程')
 def test_Order_all():
     AdhocOrder_test = Order_Management.AdhocOrder()
@@ -57,7 +58,7 @@ def test_Order_all():
 
 # 仓库管理主流程
 @allure.story('仓库管理')
-def test_Warehouse():
+def test_Warehouse_():
     log.info("-----------调拨流程出入库--------------")
     purchaseKey = test_Purchase()
     all_out_test = Warehouse_Management.All(purchaseKey).all_pick_out()
@@ -65,6 +66,7 @@ def test_Warehouse():
 
 
 # 拆单流程
+@pytest.mark.Order_Smoke
 @allure.story('临调——拆单流程--全部销用')
 def test_spit_order(spit_order_prepare):
     test = Order_Management.AdhocOrder()
@@ -72,6 +74,7 @@ def test_spit_order(spit_order_prepare):
     test.all_process_spit([9, 7])
 
 
+@pytest.mark.Order_Smoke
 @allure.story('临调——拆单流程--部分销用')
 def test_spit_order2(spit_order_prepare):
     test = Order_Management.AdhocOrder()
@@ -79,6 +82,7 @@ def test_spit_order2(spit_order_prepare):
     test.all_process_spit([1, 2])
 
 
+@pytest.mark.Order_Smoke
 @allure.story('临调——拆单流程--未销用')
 def test_spit_order3(spit_order_prepare):
     test = Order_Management.AdhocOrder()
@@ -86,6 +90,7 @@ def test_spit_order3(spit_order_prepare):
     test.all_process_spit([0, 0])
 
 
+@pytest.mark.Order_Smoke
 @allure.story('临调——拆单流程--未销用--加部分销用')
 def test_spit_order4(spit_order_prepare):
     test = Order_Management.AdhocOrder()
@@ -93,6 +98,7 @@ def test_spit_order4(spit_order_prepare):
     test.all_process_spit([0, 1])
 
 
+@pytest.mark.Order_Smoke
 @allure.story('临调——拆单流程--全部销用--加全未销用')
 def test_spit_order5(spit_order_prepare):
     test = Order_Management.AdhocOrder()
@@ -100,6 +106,7 @@ def test_spit_order5(spit_order_prepare):
     test.all_process_spit([9, 0])
 
 
+@pytest.mark.Order_Smoke
 @allure.story('临调——拆单流程--全部销用--加部分销用')
 def test_spit_order5(spit_order_prepare):
     test = Order_Management.AdhocOrder()
@@ -107,6 +114,7 @@ def test_spit_order5(spit_order_prepare):
     test.all_process_spit([9, 1])
 
 
+@pytest.mark.Order_Smoke
 # 临调申请多物资
 @allure.story('多物资临调--全部销用')
 def test_more_goods():
@@ -114,36 +122,42 @@ def test_more_goods():
     test.all_process_more([20538, 20540], [10, 10], [10, 10])
 
 
+@pytest.mark.Order_Smoke
 @allure.story('多物资临调--部分销用')
 def test_more_goods2():
     test = Order_Management.AdhocOrder()
     test.all_process_more([20538, 20540], [10, 10], [3, 6])
 
 
+@pytest.mark.Order_Smoke
 @allure.story('多物资临调--未销用')
 def test_more_goods3():
     test = Order_Management.AdhocOrder()
     test.all_process_more([20538, 20540], [10, 10], [0, 0])
 
 
+@pytest.mark.Order_Smoke
 @allure.story('多物资临调--未销用--加部分销用')
 def test_more_goods4():
     test = Order_Management.AdhocOrder()
     test.all_process_more([20538, 20540], [10, 10], [0, 3])
 
 
+@pytest.mark.Order_Smoke
 @allure.story('多物资临调--全部销用--加全未销用')
 def test_more_goods5():
     test = Order_Management.AdhocOrder()
     test.all_process_more([20538, 20540], [10, 10], [10, 0])
 
 
+@pytest.mark.Order_Smoke
 @allure.story('多物资临调--全部销用--加部分销用')
 def test_more_goods6():
     test = Order_Management.AdhocOrder()
     test.all_process_more([20538, 20540], [10, 10], [10, 1])
 
 
+@pytest.mark.Order_Smoke
 @allure.story('临调--只申请工具包')
 def test_tools():
     test = Order_Management.AdhocOrder()

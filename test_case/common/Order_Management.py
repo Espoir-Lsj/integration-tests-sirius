@@ -188,28 +188,59 @@ class AdhocOrder:
         return response
 
     # 创建临调单 多个商品+多个工具包
-    def adhocOrder_create_more(self, goodsIds: list, goodsQuantity: list,
-                               goodsSupplierId=None, addressId=None, manufacturerId=None):
+    def adhocOrder_create_more(self, goodsIdsList=list(), goodsQuantityList=list(), kitTemplateIdList=list(),
+                               kitsQuantityList=list(),
+                               goodsSupplierId=None, toolsSupplierId=None, addressId=None, manufacturerId=None,
+                               deliveryMode="DELIVERY"
+                               ):
+        """
+
+        :param goodsIdsList: 商品列表
+        :param goodsQuantityList: 商品数量列表
+        :param kitTemplateIdList: 工具包列表
+        :param kitsQuantityList: 工具包数量列表
+        :param goodsSupplierId: 商品供应商
+        :param toolsSupplierId: 工具包供应商
+        :param addressId:   收货地址
+        :param manufacturerId: 生产商
+        :param deliveryMode: 收货方式（SELF_PIKE_UP：自提 ，"DELIVERY"： 快递）
+        :return:
+        """
         goodsDetailUiBeans = []
         toolsDetailUiBeans = []
         goods_acceptList = []
         toolsacceptList = []
-        for goodsId, goodsQuantity in zip(goodsIds, goodsQuantity):
-            goods = {
-                "goodsId": goodsId,  # 物资ID
-                "quantity": goodsQuantity,  # 物资数量
-                "supplierId": goodsSupplierId  # 物资供应商
-            }
-            goods1 = {
-                "goodsId": goodsId,
-                "quantity": goodsQuantity
-            }
+        if len(goodsIdsList) > 0:
+            for goodsId, goodsQuantity in zip(goodsIdsList, goodsQuantityList):
+                goods = {
+                    "goodsId": goodsId,  # 物资ID
+                    "quantity": goodsQuantity,  # 物资数量
+                    "supplierId": goodsSupplierId  # 物资供应商
+                }
+                goods1 = {
+                    "goodsId": goodsId,
+                    "quantity": goodsQuantity
+                }
 
-            goodsDetailUiBeans.append(goods)
-            goods_acceptList.append(goods1)
+                goodsDetailUiBeans.append(goods)
+
+                goods_acceptList.append(goods1)
+        if len(kitTemplateIdList) > 0:
+            for kitTemplateId, kitsQuantity in zip(kitTemplateIdList, kitsQuantityList):
+                tools = {
+                    "kitTemplateId": kitTemplateId,
+                    "quantity": kitsQuantity,
+                    "supplierId": toolsSupplierId
+                }
+                tools1 = {
+                    "kitTemplateId": kitTemplateId,
+                    "quantity": kitsQuantity,
+                }
+                toolsDetailUiBeans.append(tools)
+                toolsacceptList.append(tools1)
         res = self.adhocOrder_create(goodsDetailUiBeans=goodsDetailUiBeans, toolsDetailUiBeans=toolsDetailUiBeans,
                                      addressId=addressId,
-                                     manufacturerId=manufacturerId)
+                                     manufacturerId=manufacturerId, deliveryMode=deliveryMode)
         adhocOrderId = res['data']['id']
 
         return res, goodsDetailUiBeans, toolsDetailUiBeans, goods_acceptList, toolsacceptList
@@ -757,6 +788,7 @@ class AdhocOrder:
         self.adhocOrder_accept(goodsDetailUiBeans, id=orderId, warehouseId=warehouseId)
         code = res['data']['code']
         Warehouse_Management.All(code).all_goods_pick()
+        self.delete_default_address(addressId)
         goodsList = self.get_return_goods(orderId)
         for x, y in zip(goodsList, Usequantity):
             x['quantity'] = y
@@ -764,13 +796,14 @@ class AdhocOrder:
         self.adhocOrder_return(parentAdhocOrderId=orderId, childAdhocOrderId=orderId, goodsList=goodsList)
         print(code)
 
-        # Warehouse_Management.All(code).all_goods_inbound()
-        #
-        # detailUiBeanList = self.get_salesOrder_details(orderId)
-        # self.check_salesOrder(parentId=orderId, adhocOrderId=orderId, detailUiBeanList=detailUiBeanList,
-        #                       warehouseId=warehouseId)
-        # self.create_salesOrder(parentId=orderId, adhocOrderId=orderId, detailUiBeanList=detailUiBeanList,
-        #                        warehouseId=warehouseId)
+        Warehouse_Management.All(code).all_goods_inbound()
+
+        detailUiBeanList = self.get_salesOrder_details(orderId)
+        self.check_salesOrder(parentId=orderId, adhocOrderId=orderId, detailUiBeanList=detailUiBeanList,
+                              warehouseId=warehouseId)
+        self.create_salesOrder(parentId=orderId, adhocOrderId=orderId, detailUiBeanList=detailUiBeanList,
+                               warehouseId=warehouseId)
+        print('-------%s---------' % '生成销售单成功')
 
     # 临调工具包
     def all_tools(self):
@@ -780,35 +813,43 @@ class AdhocOrder:
         addressId = self.add_default_address()
         # 仓库地址
         warehouseId = self.get_warehouse()
-        # 年龄段
-        ageGroup = self.get_ageGroup()
-        # 手术部位
-        procedureSite = self.get_procedureSite()
-        # 工具包信息
-        toolssInfo = self.get_toolsInfo()
-        kitTemplateId = 112
-        toolsQuantity = 1
-        # 创建
-        res = self.adhocOrder_create(toolsQuantity=toolsQuantity,
-                                     procedureSite=procedureSite,
-                                     manufacturerId=manufacturerId,
-                                     ageGroup=ageGroup, addressId=addressId, supplierId=supplierId,
-                                     kitTemplateId=kitTemplateId, toolsSupplierId=toolssInfo[1],
-                                     )
-        orderId = res['data']['id']
-        adhocOrderCode = res['data']['code']
-        # 审核
-        self.adhocOrder_accept(kitTemplateId=kitTemplateId, Kquantity=toolsQuantity, warehouseId=warehouseId,
-                               id=orderId)
+
+        info = self.adhocOrder_create_more(kitTemplateIdList=[112], kitsQuantityList=[1], addressId=addressId,
+                                           manufacturerId=manufacturerId)
+        goods_acceptList = info[3]
+        toolsacceptList = info[4]
+        orderId = info[0]['data']['id']
+        adhocOrderCode = info[0]['data']['code']
+        self.adhocOrder_accept(goodsDetailUiBeans=goods_acceptList, toolsDetailUiBeans=toolsacceptList, id=orderId,
+                               warehouseId=warehouseId)
+
         Warehouse_Management.All(adhocOrderCode).all_tools_pick()
 
         goodsList = self.get_return_goods(orderId)
 
         self.adhocOrder_return(parentAdhocOrderId=orderId, childAdhocOrderId=orderId, goodsList=goodsList)
         print(adhocOrderCode)
+        self.delete_default_address(addressId)
         Warehouse_Management.All(adhocOrderCode).all_goods_inbound()
 
+    # 临调工具包 加物资
+    def all_tools_goods(self):
+        addressId = self.add_default_address()
+        manufacturerId = self.get_manufacturerId()
+        warehouseId = self.get_warehouse()
+        goodsInfo = self.get_goodsInfo()
+        goodsSupplierId = goodsInfo[1]
+        info = self.adhocOrder_create_more([20538], [2], [112], [1], addressId=addressId, manufacturerId=manufacturerId)
+        goods_acceptList = info[3]
+        toolsacceptList = info[4]
+        orderId = info[0]['data']['id']
+        adhocOrderCode = info[0]['data']['code']
+        self.adhocOrder_accept(goodsDetailUiBeans=goods_acceptList, toolsDetailUiBeans=toolsacceptList, id=orderId,
+                               warehouseId=warehouseId, deliveryMode="DELIVERY")
+        Warehouse_Management.All(adhocOrderCode).all_tools_goods_pick()
 
+
+# deliveryMode="DELIVERY"
 if __name__ == '__main__':
     test = AdhocOrder()
     # test.adhocOrder_create()
@@ -818,5 +859,5 @@ if __name__ == '__main__':
     # test.all_process(Usequantity=5)
     # test.all_process_spit([1, 1])
     # test.all_process_more([20538, 20540], [10, 10], [6, 0])
-
-    test.all_tools()
+    # test.all_tools()
+    test.all_tools_goods()
