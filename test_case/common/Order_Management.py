@@ -440,6 +440,8 @@ class AdhocOrder:
             if i['kitStockId']:
                 goods['quantity'] = 0
             goodsList.append(goods)
+            # 这里是按goodsId 排序，所以在请领物资的时候，把物资排序一下 按照顺序提交销用数量
+            goodsList.sort(key=lambda j: j['goodsId'])
         return goodsList
 
     def get_goodsExtraAttrId(self, adhocOrderId):
@@ -588,7 +590,7 @@ class AdhocOrder:
         # 商品信息
         goodsInfo = self.get_goodsInfo()
         # goodsId = goodsInfo[0]
-        goodsId = 20538
+        goodsId = 22344
         goodsSupplierId = goodsInfo[1]
         # 工具包信息
         # toolsInfo = self.get_toolsInfo()
@@ -791,7 +793,7 @@ class AdhocOrder:
         self.delete_default_address(addressId)
         goodsList = self.get_return_goods(orderId)
         for x, y in zip(goodsList, Usequantity):
-            x['quantity'] = y
+            x['quantity'] = 1
 
         self.adhocOrder_return(parentAdhocOrderId=orderId, childAdhocOrderId=orderId, goodsList=goodsList)
         print(code)
@@ -830,16 +832,41 @@ class AdhocOrder:
         self.adhocOrder_return(parentAdhocOrderId=orderId, childAdhocOrderId=orderId, goodsList=goodsList)
         print(adhocOrderCode)
         self.delete_default_address(addressId)
-        # Warehouse_Management.All(adhocOrderCode).all_goods_inbound()
+        Warehouse_Management.All(adhocOrderCode).all_goods_inbound()
+        detailUiBeanList = self.get_salesOrder_details(orderId)
+        self.check_salesOrder(parentId=orderId, adhocOrderId=orderId, detailUiBeanList=detailUiBeanList,
+                              warehouseId=warehouseId)
+        self.create_salesOrder(parentId=orderId, adhocOrderId=orderId, detailUiBeanList=detailUiBeanList,
+                               warehouseId=warehouseId)
+        print('-------%s---------' % '生成销售单成功')
 
     # 临调工具包 加物资
-    def all_tools_goods(self, Usequantity=None):
+    def all_tools_goods(self, goodsList=None, goodsQuantity=None, Usequantity=None, toolsList=None, toolsQuantity=None):
+        """
+
+        :param goodsList: 物资列表
+        :param goodsQuantity: 物资数量
+        :param Usequantity: 使用数量
+        :param toolsList: 工具包列表
+        :param toolsQuantity: 工具包数量只能为1，多个工具包 对应数量list里面都是1
+        :return:
+        """
         addressId = self.add_default_address()
         manufacturerId = self.get_manufacturerId()
         warehouseId = self.get_warehouse()
         goodsInfo = self.get_goodsInfo()
         goodsSupplierId = goodsInfo[1]
-        info = self.adhocOrder_create_more([20538], [2], [112], [1], addressId=addressId, manufacturerId=manufacturerId)
+        # goodsList = [20538, 20540]
+        # goodsQuantity = [5, 4]
+        # toolsList = [112]
+        # toolsQuantity = [1]
+        # Usequantity = [1, 2]
+        goodsList = goodsList
+        goodsQuantity = goodsQuantity
+        toolsList = toolsList
+        toolsQuantity = toolsQuantity
+        info = self.adhocOrder_create_more(goodsList, goodsQuantity, toolsList, toolsQuantity, addressId=addressId,
+                                           manufacturerId=manufacturerId)
         goods_acceptList = info[3]
         toolsacceptList = info[4]
         orderId = info[0]['data']['id']
@@ -849,9 +876,12 @@ class AdhocOrder:
         Warehouse_Management.All(adhocOrderCode).all_tools_goods_pick()
         self.delete_default_address(addressId)
         goodsList = self.get_return_goods(orderId)
-        Usequantity = [0]
-        for x, y in zip(goodsList, Usequantity):
-            x['quantity'] = y
+        Usequantity = Usequantity
+        i = 0
+        for x in goodsList:
+            if not x['kitStockId']:
+                x['quantity'] = Usequantity[i]
+                i += 1
 
         self.adhocOrder_return(parentAdhocOrderId=orderId, childAdhocOrderId=orderId, goodsList=goodsList)
 
@@ -875,5 +905,5 @@ if __name__ == '__main__':
     # test.all_process(Usequantity=10)
     # test.all_process_spit([1, 1])
     # test.all_process_more([20538, 20540], [10, 10], [6, 0])
-    test.all_tools()
+    test.all_tools_goods()
     # test.all_tools_goods()

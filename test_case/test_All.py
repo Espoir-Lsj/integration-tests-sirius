@@ -127,7 +127,7 @@ def test_more_goods4():
 
 
 @pytest.mark.Order_Smoke
-@allure.story('多物资临调--全部销用--加全未销用')
+@allure.story('多物资临调--全部销用--加部分未销用')
 def test_more_goods5():
     test = Order_Management.AdhocOrder()
     test.all_process_more([20538, 20540], [10, 10], [10, 0])
@@ -147,6 +147,34 @@ def test_tools():
     test.all_tools()
 
 
+@pytest.mark.Order_Smoke
+@allure.story('临调--工具包+多物资全部销用')
+def test_tools_goods():
+    test = Order_Management.AdhocOrder()
+    test.all_tools_goods([20538, 20540], [5, 4], [5, 4], [112], [1])
+
+
+@pytest.mark.Order_Smoke
+@allure.story('临调--工具包+多物资')
+def test_tools_goods1():
+    test = Order_Management.AdhocOrder()
+    test.all_tools_goods([20538, 20540, 22344], [5, 4, 3], [1, 2, 3], [112], [1])
+
+
+@pytest.mark.Order_Smoke
+@allure.story('临调--工具包+多物资 部分全部销用')
+def test_tools_goods2():
+    test = Order_Management.AdhocOrder()
+    test.all_tools_goods([20538, 20540], [5, 4], [5, 0], [112], [1])
+
+
+@pytest.mark.Order_Smoke
+@allure.story('临调--工具包+多物资 未销用')
+def test_tools_goods3():
+    test = Order_Management.AdhocOrder()
+    test.all_tools_goods([20538, 20540], [5, 4], [0, 0], [112], [1])
+
+
 @allure.story('调拨--单物资')
 def test_allocateOrder():
     test = Purchase_Management.AllocateOrder()
@@ -160,16 +188,15 @@ def test_allocateOrder_more():
 
 
 @allure.story('调拨--工具包')
-def test_allocateOrder_more():
+def test_allocateOrder_tools():
     test = Purchase_Management.AllocateOrder()
     test.all_tools()
 
 
 @allure.story('调拨--多物资 加 工具包')
-def test_allocateOrder_more():
+def test_allocateOrder_tools_goods():
     test = Purchase_Management.AllocateOrder()
     test.all_tools_goods(['ID_20538', 'ID_22344'], [1, 2])
-
 
 # def test001(spit_order_prepare):
 #     test = Order_Management.AdhocOrder()

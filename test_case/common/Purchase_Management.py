@@ -261,7 +261,7 @@ class AllocateOrder:
         self.approve(allocateId=allocateId, approve=True, rejectReason='')
         Warehouse_Management.All(allocateCode).all_pick_out()
         Warehouse_Management.All(allocateCode).all_in_putOnShelf()
-
+        print('---------调拨单号%s---------------------------' % allocateCode)
         return allocateCode
 
     def all_moreGoods(self, goodsList=None, goodsQuantityList=None):
@@ -306,7 +306,7 @@ class AllocateOrder:
         Warehouse_Management.All(allocateCode).all_tools_pick()
         Warehouse_Management.All(allocateCode).all_goods_inbound()
 
-    def all_tools_goods(self,goods=None,quantityList=None):
+    def all_tools_goods(self, goods=None, quantityList=None):
         sourceWarehouseId = 1
         targetWarehouseId = 89
 
@@ -315,8 +315,8 @@ class AllocateOrder:
         kitStockIdList.append(kitStockId)
         kitQuantityList = [1]
         reasonCode = self.get_allocate_reason()
-        goods = ['ID_20538', 'ID_22344']
-        quantityList = [1, 2]
+        goods = goods
+        quantityList = quantityList
         goodsIdList = []
         goodInfoIdList = []
         for i in goods:
