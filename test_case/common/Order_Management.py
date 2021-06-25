@@ -128,7 +128,7 @@ class AdhocOrder:
     def adhocOrder_create(self,
                           toolsDetailUiBeans=list(), goodsDetailUiBeans=list(), procedureSite=100,
                           procedureTime=timeStamp, expectReturnTime=fiveDaysAfter_stamp,
-                          manufacturerId=None, gender='FEMALE', ageGroup='TEENAGERS', deliveryMode='SELF_PIKE_UP',
+                          manufacturerId=None, gender='FEMALE', ageGroup='JUVENILE', deliveryMode='SELF_PIKE_UP',
                           addressId=None, supplierId=supplierId, goodsId=None, goodsQuantity=1, goodsSupplierId=None,
                           kitTemplateId=None, toolsQuantity=None, toolsSupplierId=None, hospitalName="医院名称",
                           contactName="订单联系人", contactPhone="13333333333", receivingName="收件人", surgeon='主刀医生',
@@ -147,7 +147,7 @@ class AdhocOrder:
                 "contactName": contactName,  # 订单联系人
                 "contactPhone": contactPhone,  # 联系人电话
                 "manufacturerId": manufacturerId,  # 品牌
-                "salesPerson": "销售人员",  # 销售人员
+                # "salesPerson": "销售人员",  # 销售人员
                 "gender": gender,  # 性别 ： 女
                 "ageGroup": ageGroup,  # 患者年龄段 ：青少年
                 "deliveryMode": deliveryMode,  # 提货方式 ：自提
@@ -508,8 +508,8 @@ class AdhocOrder:
         }
         if goodsId:
             body['createUiBeans'][0]['detailUiBeanList'] = [goods]
-        if goodsId:
-            body['createUiBeans'][0]['detailUiBeanList'] = [goods]
+        # if goodsId:
+        #     body['createUiBeans'][0]['detailUiBeanList'] = [goods]
         response = request.post_body01(url, body)
         try:
             assert response['msg'] == '请求成功'
@@ -901,9 +901,9 @@ if __name__ == '__main__':
     # test.adhocOrder_create()
     # test.get_warehouse()
 
-    # test.all()
+    test.all()
     # test.all_process(Usequantity=10)
     # test.all_process_spit([1, 1])
     # test.all_process_more([20538, 20540], [10, 10], [6, 0])
-    test.all_tools_goods()
+    # test.all_tools_goods()
     # test.all_tools_goods()

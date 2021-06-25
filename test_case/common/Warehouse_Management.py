@@ -694,9 +694,20 @@ class All:
             self.test4.putOnshelf(goodsId=goodsId, goodsLotInfoId=goodsLotInfoId, quantity=quantity,
                                   storageLocationCode=storageLocationCode, putOnShelfId=putOnShelfId)
 
-        # # 验收单 验收
-        # self.test3.check(checkId=checkId, goodsLotInfoId=goodsLotInfoId, goodsId=goodsId, lotNum=lotNum,
-        #                  receivedQuantity=inboundingQuantity, registrationNum=str(registrationNum))
+        # data1 = self.test3.get_checkOrder_list(inboundCode)
+        # if data1[0]:
+        #     checkId = data1[0]
+        #     checkCode = self.test3.get_checkOrder_list(inboundCode)[1]
+        #     data = self.test3.get_checkOrder_Info(checkId)
+        #     #     checkId, goodsLotInfoId, goodsId, lotNum, receivedQuantity, registrationNum
+        #     goodsLotInfoId = data[1]
+        #     goodsId = data[2]
+        #     lotNum = data[3]
+        #     inboundingQuantity = data[4]
+        #     registrationNum = data[5]
+        #     # # 验收单 验收
+        #     # self.test3.check(checkId=checkId, goodsLotInfoId=goodsLotInfoId, goodsId=goodsId, lotNum=lotNum,
+        #     #                  receivedQuantity=inboundingQuantity, registrationNum=str(registrationNum))
 
     def all_goods_pick(self):
         # 多物资拣货

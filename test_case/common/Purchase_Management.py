@@ -132,8 +132,8 @@ class AllocateOrder:
         code = response['data']['code']
         return allocateId, code
 
-    def create_more(self, goodsList=None, quantityList=None, goodsLotInfoIdList=None, sourceWarehouseId=None,
-                    targetWarehouseId=None, reasonCode=None, kitStockIdList=None, kitQuantityList=None):
+    def create_more(self, goodsList=list(), quantityList=None, goodsLotInfoIdList=None, sourceWarehouseId=None,
+                    targetWarehouseId=None, reasonCode=None, kitStockIdList=list(), kitQuantityList=None):
         goodsDetailUiBeans = []
         toolKitDetailUiBeans = []
         if len(goodsList) > 0:
