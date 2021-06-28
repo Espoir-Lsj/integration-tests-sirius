@@ -477,6 +477,10 @@ class PutOnShelf:
         if goodsId:
             body['goodsList'] = [goodsList]
         response = request.post_body01(url, body)
+        try:
+            response['msg'] == '请求成功'
+        except Exception:
+            raise response
 
 
 # 验收单

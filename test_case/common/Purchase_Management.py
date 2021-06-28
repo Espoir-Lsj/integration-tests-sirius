@@ -223,14 +223,14 @@ class AllocateOrder:
         # sourceWarehouseId = self.get_out_warehouse()
         # targetWarehouseId = self.get_in_warehouse()
         sourceWarehouseId = 1
-        targetWarehouseId = 89
+        targetWarehouseId = 140
 
         # 物资信息
         goodsInfo = self.get_goodsInfo(sourceWarehouseId)
         # goodsId = goodsInfo[0]
         # 6/3 号，后续商品ID需要动态获取，目前这个是 在数据库准备的数据
         goodsId = goodsId
-        goodsLotInfoId = 1
+        goodsLotInfoId = self.get_all_goodInfoId('ID_22344', sourceWarehouseId)[1]
         kitStockId = None
 
         # 创建调拨单
@@ -260,13 +260,13 @@ class AllocateOrder:
         # 接收调拨单
         self.approve(allocateId=allocateId, approve=True, rejectReason='')
         Warehouse_Management.All(allocateCode).all_pick_out()
-        Warehouse_Management.All(allocateCode).all_in_putOnShelf()
+        # Warehouse_Management.All(allocateCode).all_in_putOnShelf()
         print('---------调拨单号%s---------------------------' % allocateCode)
         return allocateCode
 
     def all_moreGoods(self, goodsList=None, goodsQuantityList=None):
-        sourceWarehouseId = 1
-        targetWarehouseId = 89
+        sourceWarehouseId = 89
+        targetWarehouseId = 1
 
         reasonCode = self.get_allocate_reason()
         goods = goodsList

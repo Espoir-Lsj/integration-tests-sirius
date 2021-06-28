@@ -453,15 +453,31 @@ class AdhocOrder:
     def get_salesOrder_details(self, adhocOrderId):
         url = '/salesOrder/getDetailByAdhocId?adhocId=%s' % adhocOrderId
         data = request.get01(url)['data']['childList'][0]['goodsUiList']
+        data1 = request.get01(url)['data']['childList'][0]['toolsKitUiList']
         goodsList = []
         for i in data:
             goods = {
                 "goodsId": i['goodsId'],
                 "goodsLotInfoId": i['goodsLotInfoId'],
                 "goodsExtraAttrId": i['goodsExtraAttrId'],
-                "quantity": i['receivedSaleQuantity']
+                "quantity": i['receivedSaleQuantity'],
+                "kitStockId": None,
+                "serviceCharge": None
             }
             goodsList.append(goods)
+        if data1:
+            for j in data1:
+                goods1 = {
+                    "goodsId": None,
+                    "goodsLotInfoId": None,
+                    "goodsExtraAttrId": None,
+                    "quantity": j['quantity'],
+                    "kitStockId": j['kitStockId'],
+                    "serviceCharge": j['serviceCharge']
+                }
+
+                goodsList.append(goods1)
+
         return goodsList
 
     # 生成销售单
@@ -482,6 +498,9 @@ class AdhocOrder:
             "goodsExtraAttrId": goodsExtraAttrId,
             "quantity": Usequantity
         }
+        if goodsId:
+            body['createUiBeans'][0]['detailUiBeanList'] = [goods]
+
         response = request.post_body01(url, body)
         try:
             assert response['msg'] == '请求成功'
@@ -490,7 +509,8 @@ class AdhocOrder:
 
     # 确认生成销售单
     def check_salesOrder(self, parentId=None, adhocOrderId=None, goodsId=None, goodsLotInfoId=None,
-                         goodsExtraAttrId=None, Usequantity=None, warehouseId=None, detailUiBeanList=list()):
+                         goodsExtraAttrId=None, Usequantity=None, warehouseId=None, detailUiBeanList=list(),
+                         kitStockId=None, serviceCharge=None):
         url = '/salesOrder/checkSalesOrder'
         body = {
             "parentId": parentId,
@@ -504,7 +524,9 @@ class AdhocOrder:
             "goodsId": goodsId,
             "goodsLotInfoId": goodsLotInfoId,
             "goodsExtraAttrId": goodsExtraAttrId,
-            "quantity": Usequantity
+            "quantity": Usequantity,
+            "kitStockId": kitStockId,
+            "serviceCharge": serviceCharge
         }
         if goodsId:
             body['createUiBeans'][0]['detailUiBeanList'] = [goods]
@@ -590,7 +612,7 @@ class AdhocOrder:
         # 商品信息
         goodsInfo = self.get_goodsInfo()
         # goodsId = goodsInfo[0]
-        goodsId = 22344
+        goodsId = 20539
         goodsSupplierId = goodsInfo[1]
         # 工具包信息
         # toolsInfo = self.get_toolsInfo()
@@ -632,22 +654,22 @@ class AdhocOrder:
         if Usequantity >= 0:
             goodsExtraAttrId = self.get_goodsExtraAttrId(adhocOrderId)
 
-            # 生成销售单
-
-            self.check_salesOrder(parentId=adhocOrderId, adhocOrderId=adhocOrderId, goodsId=goodsId,
-                                  goodsLotInfoId=goodsLotInfoId, goodsExtraAttrId=goodsExtraAttrId,
-                                  Usequantity=Usequantity,
-                                  warehouseId=warehouseId)
-            self.create_salesOrder(parentId=adhocOrderId, adhocOrderId=adhocOrderId, goodsId=goodsId,
-                                   goodsLotInfoId=goodsLotInfoId, goodsExtraAttrId=goodsExtraAttrId,
-                                   Usequantity=Usequantity,
-                                   warehouseId=warehouseId)
+        # # 生成销售单
+        #
+        #     self.check_salesOrder(parentId=adhocOrderId, adhocOrderId=adhocOrderId, goodsId=goodsId,
+        #                           goodsLotInfoId=goodsLotInfoId, goodsExtraAttrId=goodsExtraAttrId,
+        #                           Usequantity=Usequantity,
+        #                           warehouseId=warehouseId)
+        #     self.create_salesOrder(parentId=adhocOrderId, adhocOrderId=adhocOrderId, goodsId=goodsId,
+        #                            goodsLotInfoId=goodsLotInfoId, goodsExtraAttrId=goodsExtraAttrId,
+        #                            Usequantity=Usequantity,
+        #                            warehouseId=warehouseId)
         self.delete_default_address(addressId)
+        #
+        # # 查询临调单列表
+        # self.get_adhocOrder_list()
 
-        # 查询临调单列表
-        self.get_adhocOrder_list()
-
-        return adhocOrderCode
+        # return adhocOrderCode
 
     # 临调单拆单主流程
     def all_process_spit(self, UsequantityList=None):
@@ -793,7 +815,7 @@ class AdhocOrder:
         self.delete_default_address(addressId)
         goodsList = self.get_return_goods(orderId)
         for x, y in zip(goodsList, Usequantity):
-            x['quantity'] = 1
+            x['quantity'] = y
 
         self.adhocOrder_return(parentAdhocOrderId=orderId, childAdhocOrderId=orderId, goodsList=goodsList)
         print(code)
@@ -833,11 +855,11 @@ class AdhocOrder:
         print(adhocOrderCode)
         self.delete_default_address(addressId)
         Warehouse_Management.All(adhocOrderCode).all_goods_inbound()
-        detailUiBeanList = self.get_salesOrder_details(orderId)
-        self.check_salesOrder(parentId=orderId, adhocOrderId=orderId, detailUiBeanList=detailUiBeanList,
-                              warehouseId=warehouseId)
-        self.create_salesOrder(parentId=orderId, adhocOrderId=orderId, detailUiBeanList=detailUiBeanList,
-                               warehouseId=warehouseId)
+        # detailUiBeanList = self.get_salesOrder_details(orderId)
+        # self.check_salesOrder(parentId=orderId, adhocOrderId=orderId, detailUiBeanList=detailUiBeanList,
+        #                       warehouseId=warehouseId)
+        # self.create_salesOrder(parentId=orderId, adhocOrderId=orderId, detailUiBeanList=detailUiBeanList,
+        #                        warehouseId=warehouseId)
         print('-------%s---------' % '生成销售单成功')
 
     # 临调工具包 加物资
