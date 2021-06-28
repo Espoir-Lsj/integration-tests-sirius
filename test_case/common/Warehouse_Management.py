@@ -320,8 +320,10 @@ class InboundOrder:
                 inboundingQuantity = i['inboundingQuantity']
                 goodsId = i['goodsId']
                 lotNum = i['lotNum']
+                if inboundingQuantity == 0:
+                    break
                 return registrationNum, inboundingQuantity, goodsId, lotNum
-        elif len(data1) > 0:
+        if len(data1) > 0:
             for j in data1:
                 for i in j['goodsList']:
                     registrationNum = i['registrationNumList'][0]
@@ -330,6 +332,8 @@ class InboundOrder:
                     lotNum = i['lotNum']
 
                     return registrationNum, inboundingQuantity, goodsId, lotNum
+        else:
+            return None, 0
 
     # 获取入库单信息
     def get_InboundOrder_Infos(self, inboundOrderId=None):
