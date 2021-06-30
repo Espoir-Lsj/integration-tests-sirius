@@ -41,11 +41,11 @@ def test_Order():
 def test_Order_all():
     AdhocOrder_test = Order_Management.AdhocOrder()
     # # 全部销用
-    AdhocOrder_test.all_process(Usequantity=0)
+    # AdhocOrder_test.all_process(Usequantity=0)
     # # 部分销用
     # AdhocOrder_test.all_process(Usequantity=4)
     # 全部未销用
-    # AdhocOrder_test.all_process(Usequantity=0)
+    AdhocOrder_test.all_process(Usequantity=0)
 
 
 # 拆单流程
@@ -158,7 +158,7 @@ def test_tools_goods():
 @allure.story('临调--工具包+多物资')
 def test_tools_goods1():
     test = Order_Management.AdhocOrder()
-    test.all_tools_goods([20538, 20540, 22344], [5, 4, 3], [1, 1, 1], [112], [1])
+    test.all_tools_goods([20538, 20540, 22344], [30, 20, 10], [1, 1, 1], [112], [1])
 
 
 @pytest.mark.Order_Smoke
@@ -184,8 +184,8 @@ def test_allocateOrder():
 @allure.story('调拨--多物资')
 def test_allocateOrder_more():
     test = Purchase_Management.AllocateOrder()
-    test.all_moreGoods(['ID_20539'], [9])
-    # test.all_moreGoods(['ID_20538', 'ID_22344'], [1, 2])
+    # test.all_moreGoods(['ID_20539'], [9])
+    test.all_moreGoods(['ID_20538', 'ID_22344'], [1, 2])
 
 
 @allure.story('调拨--工具包')

@@ -333,7 +333,12 @@ class InboundOrder:
 
                     return registrationNum, inboundingQuantity, goodsId, lotNum
         else:
-            return None, 0
+            for i in data:
+                registrationNum = i['registrationNumList'][0]
+                inboundingQuantity = i['inboundingQuantity']
+                goodsId = i['goodsId']
+                lotNum = i['lotNum']
+                return registrationNum, inboundingQuantity, goodsId, lotNum
 
     # 获取入库单信息
     def get_InboundOrder_Infos(self, inboundOrderId=None):
@@ -463,7 +468,8 @@ class PutOnShelf:
         return goodsList, toolsList
 
     # 上架商品
-    def putOnshelf(self, goodsId=None, goodsLotInfoId=None, quantity=None, storageLocationCode=None,
+    def putOnshelf(self, goodsId=None, goodsLotInfoId=None, quantity=None, sourceStorageLocationCode=None,
+                   targetStorageLocationCode=None,
                    putOnShelfId=None, goodsList=list(), toolsList=list()):
         url = '/putOnShelf/putOnShelf'
         body = {
@@ -475,7 +481,8 @@ class PutOnShelf:
             "goodsId": goodsId,
             "goodsLotInfoId": goodsLotInfoId,
             "quantity": quantity,
-            "storageLocationCode": storageLocationCode,
+            "sourceStorageLocationCode": sourceStorageLocationCode,
+            "targetStorageLocationCode": targetStorageLocationCode,
             "supplierId": None
         }
         if goodsId:
@@ -696,11 +703,13 @@ class All:
             data = self.test4.get_putOnshelf_detail(putOnShelfId)
             goodsId = data[0]
             goodsLotInfoId = data[1]
-            storageLocationCode = data[2]
+            sourceStorageLocationCode = data[2]
+            targetStorageLocationCode = data[2]
+
             quantity = data[3]
 
             self.test4.putOnshelf(goodsId=goodsId, goodsLotInfoId=goodsLotInfoId, quantity=quantity,
-                                  storageLocationCode=storageLocationCode, putOnShelfId=putOnShelfId)
+                                  sourceStorageLocationCode=sourceStorageLocationCode, targetStorageLocationCode=targetStorageLocationCode,putOnShelfId=putOnShelfId,)
 
         # data1 = self.test3.get_checkOrder_list(inboundCode)
         # if data1[0]:

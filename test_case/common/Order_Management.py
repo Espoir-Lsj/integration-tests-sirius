@@ -191,7 +191,7 @@ class AdhocOrder:
     def adhocOrder_create_more(self, goodsIdsList=list(), goodsQuantityList=list(), kitTemplateIdList=list(),
                                kitsQuantityList=list(),
                                goodsSupplierId=None, toolsSupplierId=None, addressId=None, manufacturerId=None,
-                               deliveryMode="DELIVERY"
+                               deliveryMode='SELF_PIKE_UP'
                                ):
         """
 
@@ -612,7 +612,7 @@ class AdhocOrder:
         # 商品信息
         goodsInfo = self.get_goodsInfo()
         # goodsId = goodsInfo[0]
-        goodsId = 20539
+        goodsId = 20538
         goodsSupplierId = goodsInfo[1]
         # 工具包信息
         # toolsInfo = self.get_toolsInfo()
@@ -654,16 +654,16 @@ class AdhocOrder:
         if Usequantity >= 0:
             goodsExtraAttrId = self.get_goodsExtraAttrId(adhocOrderId)
 
-        # # 生成销售单
-        #
-        #     self.check_salesOrder(parentId=adhocOrderId, adhocOrderId=adhocOrderId, goodsId=goodsId,
-        #                           goodsLotInfoId=goodsLotInfoId, goodsExtraAttrId=goodsExtraAttrId,
-        #                           Usequantity=Usequantity,
-        #                           warehouseId=warehouseId)
-        #     self.create_salesOrder(parentId=adhocOrderId, adhocOrderId=adhocOrderId, goodsId=goodsId,
-        #                            goodsLotInfoId=goodsLotInfoId, goodsExtraAttrId=goodsExtraAttrId,
-        #                            Usequantity=Usequantity,
-        #                            warehouseId=warehouseId)
+        # 生成销售单
+
+            self.check_salesOrder(parentId=adhocOrderId, adhocOrderId=adhocOrderId, goodsId=goodsId,
+                                  goodsLotInfoId=goodsLotInfoId, goodsExtraAttrId=goodsExtraAttrId,
+                                  Usequantity=Usequantity,
+                                  warehouseId=warehouseId)
+            self.create_salesOrder(parentId=adhocOrderId, adhocOrderId=adhocOrderId, goodsId=goodsId,
+                                   goodsLotInfoId=goodsLotInfoId, goodsExtraAttrId=goodsExtraAttrId,
+                                   Usequantity=Usequantity,
+                                   warehouseId=warehouseId)
         self.delete_default_address(addressId)
         #
         # # 查询临调单列表
@@ -758,7 +758,7 @@ class AdhocOrder:
 
         # 根据code入库验收
         for i in codelist:
-            Warehouse_Management.All(i).all_in_putOnShelf()
+            Warehouse_Management.All(i).all_goods_inbound()
 
         # 生成销售单
         body = {
@@ -894,7 +894,7 @@ class AdhocOrder:
         orderId = info[0]['data']['id']
         adhocOrderCode = info[0]['data']['code']
         self.adhocOrder_accept(goodsDetailUiBeans=goods_acceptList, toolsDetailUiBeans=toolsacceptList, id=orderId,
-                               warehouseId=warehouseId, deliveryMode="DELIVERY")
+                               warehouseId=warehouseId)
         Warehouse_Management.All(adhocOrderCode).all_tools_goods_pick()
         self.delete_default_address(addressId)
         goodsList = self.get_return_goods(orderId)
