@@ -730,8 +730,8 @@ class AdhocOrder:
         # 根据code 拣货出库
         # for i in codelist:
         #     Warehouse_Management.All(i).all_pick_out()
-        Warehouse_Management.All(code1).all_pick_out()
-        Warehouse_Management.All(code2).all_pick_out()
+        # Warehouse_Management.All(code1).all_pick_out()
+        # Warehouse_Management.All(code2).all_pick_out()
         # # 提交销用
         # url = '/adhocOrder/adhocReturn'
         # body = {

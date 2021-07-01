@@ -158,7 +158,7 @@ def test_tools_goods():
 @allure.story('临调--工具包+多物资')
 def test_tools_goods1():
     test = Order_Management.AdhocOrder()
-    test.all_tools_goods([20538, 20540, 22344], [30, 20, 10], [1, 1, 1], [112], [1])
+    test.all_tools_goods([20538, 20540, 22344], [5, 6, 7], [1, 1, 1], [101], [1])
 
 
 @pytest.mark.Order_Smoke

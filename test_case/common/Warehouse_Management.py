@@ -532,20 +532,35 @@ class CheckOrder:
         url = '/checkOrder/detail?orderId=%s' % checkId
         response = request.get01(url)
         inboundOrderDetailCheckBeanList = []
-        for i in response['data']['goodsList']:
-            unqualifiedQuantity = 0
-            goods = {
-                "checkInstructionUiList": [],
-                "goodsLotInfoId": i['goodsLotInfoId'],
-                "unqualifiedQuantity": 0,
-                "goodsId": i['goodsId'],
-                "lotNum": i['lotNum'],
-                "quantity": i['inboundingQuantity'] - unqualifiedQuantity,
-                "registrationNum": i['registrationNumList'][0],
-                "serialNumber": None
-            }
+        if len(response['data']['goodsList']) > 0:
+            for i in response['data']['goodsList']:
+                unqualifiedQuantity = 0
+                goods = {
+                    "checkInstructionUiList": [],
+                    "goodsLotInfoId": i['goodsLotInfoId'],
+                    "unqualifiedQuantity": 0,
+                    "goodsId": i['goodsId'],
+                    "lotNum": i['lotNum'],
+                    "quantity": i['inboundingQuantity'] - unqualifiedQuantity,
+                    "registrationNum": i['registrationNumList'][0],
+                    "serialNumber": None
+                }
+                inboundOrderDetailCheckBeanList.append(goods)
+        if len((response['data']['toolsList'])) > 0:
+            for j in response['data']['toolsList']:
+                for i in j['goodsList']:
+                    goods = {
+                        "checkInstructionUiList": [],
+                        "goodsLotInfoId": i['goodsLotInfoId'],
+                        "unqualifiedQuantity": 0,
+                        "goodsId": i['goodsId'],
+                        "lotNum": i['lotNum'],
+                        "quantity": i['inboundingQuantity'],
+                        "registrationNum": i['registrationNumList'][0],
+                        "serialNumber": None
+                    }
+                    inboundOrderDetailCheckBeanList.append(goods)
 
-            inboundOrderDetailCheckBeanList.append(goods)
         return inboundOrderDetailCheckBeanList
 
     def check(self, checkId=None, goodsLotInfoId=None, unqualifiedQuantity=0, goodsId=None, lotNum=None,
