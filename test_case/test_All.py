@@ -45,7 +45,7 @@ def test_Order_all():
     # # 部分销用
     # AdhocOrder_test.all_process(Usequantity=4)
     # 全部未销用
-    AdhocOrder_test.all_process(Usequantity=0)
+    AdhocOrder_test.all_process(Usequantity=4)
 
 
 # 拆单流程

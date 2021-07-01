@@ -453,7 +453,8 @@ class PutOnShelf:
                     "goodsId": i['goodsId'],
                     "goodsLotInfoId": i['goodsLotInfoId'],
                     "quantity": i['quantity'],
-                    "storageLocationCode": i['storageLocationCode'],
+                    "sourceStorageLocationCode": i['storageLocationCode'],
+                    "targetStorageLocationCode": i['storageLocationCode'],
                     "supplierId": None
                 }
                 goodsList.append(goods)
@@ -709,7 +710,8 @@ class All:
             quantity = data[3]
 
             self.test4.putOnshelf(goodsId=goodsId, goodsLotInfoId=goodsLotInfoId, quantity=quantity,
-                                  sourceStorageLocationCode=sourceStorageLocationCode, targetStorageLocationCode=targetStorageLocationCode,putOnShelfId=putOnShelfId,)
+                                  sourceStorageLocationCode=sourceStorageLocationCode,
+                                  targetStorageLocationCode=targetStorageLocationCode, putOnShelfId=putOnShelfId, )
 
         # data1 = self.test3.get_checkOrder_list(inboundCode)
         # if data1[0]:

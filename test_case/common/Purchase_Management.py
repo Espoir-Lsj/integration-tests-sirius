@@ -286,7 +286,7 @@ class AllocateOrder:
         print('调拨单号----------%s------------' % data[1])
         # 拣货
         Warehouse_Management.All(data[1]).all_goods_pick()
-        Warehouse_Management.All(data[1]).all_goods_inbound()
+        # Warehouse_Management.All(data[1]).all_goods_inbound()
 
     def all_tools(self):
         sourceWarehouseId = 1
