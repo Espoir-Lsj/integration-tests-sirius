@@ -313,7 +313,7 @@ def AdhocOrder_updateAddress(AdhocOrder_accept):
 @pytest.fixture(scope='class')
 def PickOrder_get_pickOrderId():
     global pickOrderId
-    keyword = Purchase_Management.AllocateOrder().all()
+    keyword = Purchase_Management.AllocateOrder().all_fixture(goodsId='26745', goodsQuantity=1)
     pickOrderId = Warehouse_Management.OutboundOrder().get_out_orderInfo(keyword)[0]
     yield pickOrderId
 
@@ -322,7 +322,7 @@ def PickOrder_get_pickOrderId():
 @pytest.fixture(scope='class')
 def PickOrder_get_pickOrderId01():
     global pickOrderId01
-    keyword = Purchase_Management.AllocateOrder().all()
+    keyword = Purchase_Management.AllocateOrder().all_fixture(goodsId='26745', goodsQuantity=1)
     pickOrderId01 = Warehouse_Management.OutboundOrder().get_out_orderInfo(keyword)[0]
     yield pickOrderId01
 
@@ -399,7 +399,22 @@ def PickOrder_pickFinished01(PickOrder_picking01, PickOrder_get_pickOrderId01):
 # 拣货完成
 @pytest.fixture(scope='class')
 def PickOrder_picking02():
-    keyword = Purchase_Management.AllocateOrder().all()
+    keyword = Purchase_Management.AllocateOrder().all_fixture(goodsId='26745', goodsQuantity=1)
+
+    pickOrderId = Warehouse_Management.OutboundOrder().get_out_orderInfo(keyword)[0]
+    infoList = Warehouse_Management.PickOrder().get_pick_orderInfo01(pickOrderId)
+    lotNum02 = infoList['data']['goodsDetail'][0]['lotNum']
+    goodsId02 = infoList['data']['goodsDetail'][0]['goodsId']
+    storageLocationId02 = infoList['data']['goodsDetail'][0]['storageLocationId']
+
+    Warehouse_Management.PickOrder().picking(goodsId=goodsId02, lotNum=lotNum02, pickOrderId=pickOrderId,
+                                             storageLocationId=storageLocationId02)
+    yield pickOrderId
+
+
+@pytest.fixture(scope='class')
+def PickOrder_picking03():
+    keyword = Purchase_Management.AllocateOrder().all_fixture(goodsId='26745', goodsQuantity=1)
 
     pickOrderId = Warehouse_Management.OutboundOrder().get_out_orderInfo(keyword)[0]
     infoList = Warehouse_Management.PickOrder().get_pick_orderInfo01(pickOrderId)
@@ -415,7 +430,7 @@ def PickOrder_picking02():
 # 拣货审核完成
 @pytest.fixture(scope='class')
 def PickOrder_pickFinish02():
-    keyword = Purchase_Management.AllocateOrder().all()
+    keyword = Purchase_Management.AllocateOrder().all_fixture(goodsId='26745', goodsQuantity=1)
 
     pickOrderId = Warehouse_Management.OutboundOrder().get_out_orderInfo(keyword)[0]
     infoList = Warehouse_Management.PickOrder().get_pick_orderInfo01(pickOrderId)
@@ -442,7 +457,7 @@ def PickOrder_pick_approval(PickOrder_pickFinished, PickOrder_get_pickOrderInfo,
 # 仓库管理 审核发货到出库用
 @pytest.fixture(scope='class')
 def PickOrder_approval01():
-    keyword = Purchase_Management.AllocateOrder().all()
+    keyword = Purchase_Management.AllocateOrder().all_fixture(goodsId='26745', goodsQuantity=1)
 
     pickOrderId = Warehouse_Management.OutboundOrder().get_out_orderInfo(keyword)[0]
     infoList = Warehouse_Management.PickOrder().get_pick_orderInfo01(pickOrderId)
@@ -474,7 +489,7 @@ def OutboundOrder_delivery(PickOrder_approval01):
 # 仓库管理 拣货完成未出库
 @pytest.fixture(scope='class')
 def OutboundOrder_getId():
-    keyword = Purchase_Management.AllocateOrder().all()
+    keyword = Purchase_Management.AllocateOrder().all_fixture(goodsId='26745', goodsQuantity=1)
 
     pickOrderId = Warehouse_Management.OutboundOrder().get_out_orderInfo(keyword)[0]
     infoList = Warehouse_Management.PickOrder().get_pick_orderInfo01(pickOrderId)
@@ -496,7 +511,7 @@ def OutboundOrder_getId():
 
 @pytest.fixture(scope='class')
 def OutboundOrder_approve():
-    keyword = Purchase_Management.AllocateOrder().all()
+    keyword = Purchase_Management.AllocateOrder().all_fixture(goodsId='26745', goodsQuantity=1)
 
     pickOrderId = Warehouse_Management.OutboundOrder().get_out_orderInfo(keyword)[0]
     outOrderId = Warehouse_Management.OutboundOrder().get_out_orderInfo(keyword)[1]
@@ -522,7 +537,7 @@ def OutboundOrder_approve():
 # 仓库管理 已发货未审核
 @pytest.fixture(scope='class')
 def OutboundOrder_getId01():
-    keyword = Purchase_Management.AllocateOrder().all()
+    keyword = Purchase_Management.AllocateOrder().all_fixture(goodsId='26745', goodsQuantity=1)
 
     pickOrderId = Warehouse_Management.OutboundOrder().get_out_orderInfo(keyword)[0]
     infoList = Warehouse_Management.PickOrder().get_pick_orderInfo01(pickOrderId)
@@ -563,7 +578,7 @@ def InboundOrder_receiving(OutboundOrder_approve):
 
 @pytest.fixture(scope='class')
 def OutboundOrder_approve01():
-    keyword = Purchase_Management.AllocateOrder().all()
+    keyword = Purchase_Management.AllocateOrder().all_fixture(goodsId='26745', goodsQuantity=1)
 
     pickOrderId = Warehouse_Management.OutboundOrder().get_out_orderInfo(keyword)[0]
     outOrderId = Warehouse_Management.OutboundOrder().get_out_orderInfo(keyword)[1]
@@ -589,7 +604,7 @@ def OutboundOrder_approve01():
 
 @pytest.fixture(scope='class')
 def OutboundOrder_approve02():
-    keyword = Purchase_Management.AllocateOrder().all()
+    keyword = Purchase_Management.AllocateOrder().all_fixture(goodsId='26745', goodsQuantity=1)
 
     pickOrderId = Warehouse_Management.OutboundOrder().get_out_orderInfo(keyword)[0]
     outOrderId = Warehouse_Management.OutboundOrder().get_out_orderInfo(keyword)[1]
@@ -622,7 +637,9 @@ def PutOnShelf_put(InboundOrder_receiving):
     quantity = info[3]
     putOnShelfId = info[4]
     Warehouse_Management.PutOnShelf().putOnshelf(goodsId=goodsId, goodsLotInfoId=goodsLotInfoId, quantity=quantity,
-                                                 storageLocationCode=storageLocationCode, putOnShelfId=putOnShelfId)
+                                                 sourceStorageLocationCode=storageLocationCode,
+                                                 targetStorageLocationCode=storageLocationCode,
+                                                 putOnShelfId=putOnShelfId)
     yield InboundOrder_receiving
 
 
@@ -653,7 +670,9 @@ def PutOnShelf_put01(InboundOrder_receiving01):
     quantity = info[3]
     putOnShelfId = info[4]
     Warehouse_Management.PutOnShelf().putOnshelf(goodsId=goodsId, goodsLotInfoId=goodsLotInfoId, quantity=quantity,
-                                                 storageLocationCode=storageLocationCode, putOnShelfId=putOnShelfId)
+                                                 sourceStorageLocationCode=storageLocationCode,
+                                                 targetStorageLocationCode=storageLocationCode,
+                                                 putOnShelfId=putOnShelfId)
 
     checkId = Warehouse_Management.CheckOrder().get_checkOrder_list(InboundOrder_receiving01[1])[0]
     yield checkId
@@ -689,7 +708,7 @@ def Prepare_adhocOrder():
     procedureSite = test.get_procedureSite()
     # 商品信息
     goodsInfo = test.get_goodsInfo()
-    goodsId = 20538
+    goodsId = 26745
     goodsSupplierId = goodsInfo[1]
     orderList = []
     codeList = []
@@ -728,14 +747,14 @@ def Prepare_adhocOrder():
     goodsExtraAttrId = test.get_goodsExtraAttrId(adhocOrderId=orderList[3])
 
     # 检查销售单
-    for id in orderList[3:]:
+    for id in orderList[2:]:
         test.check_salesOrder(parentId=id, adhocOrderId=id, goodsId=goodsId,
                               goodsLotInfoId=goodsLotInfoId, Usequantity=1, warehouseId=warehouseId,
                               goodsExtraAttrId=goodsExtraAttrId)
 
     # 生成销售单
 
-    for id in orderList[2:]:
+    for id in orderList[3:]:
         test.create_salesOrder(parentId=id, adhocOrderId=id, goodsId=goodsId,
                                goodsLotInfoId=goodsLotInfoId, Usequantity=1, warehouseId=warehouseId,
                                goodsExtraAttrId=goodsExtraAttrId)
@@ -747,7 +766,7 @@ def Prepare_adhocOrder():
 @pytest.fixture()
 def spit_order_prepare():
     test = PostgresSql.PostgresSql()
-    sql = """update wms_goods_stock set quantity = 10 where goods_id=20539 and status = 'put_on_shelf' and warehouse_id in (1,89)"""
+    sql = """update wms_goods_stock set quantity = 10 where goods_id=22006 and status = 'put_on_shelf' and warehouse_id in (1,89)"""
     test.execute(sql)
 
 

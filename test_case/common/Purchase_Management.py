@@ -66,9 +66,11 @@ class AllocateOrder:
             assert response['msg'] == '请求成功'
         except Exception:
             raise response
-        goodsId = response['data']['rows'][1]['goodsId']
-        goodsLotInfoId = response['data']['rows'][1]['goodsLotInfoId']
-        return goodsId, goodsLotInfoId
+        for i in response['data']['rows']:
+            if type(i['quantity']) is int and i['quantity'] > 50:
+                goodsId = i['goodsId']
+                goodsLotInfoId = i['goodsLotInfoId']
+                return goodsId, goodsLotInfoId
 
     # 获取goodInfoId
     def get_all_goodInfoId(self, keyword, warehouseId):
@@ -78,6 +80,11 @@ class AllocateOrder:
         goodInfoId = response['data']['rows'][0]['goodsLotInfoId']
         goodsId = response['data']['rows'][0]['goodsId']
         return goodsId, goodInfoId
+        # for i in response['data']['rows']:
+        #     if type(i['quantity']) is int and i['quantity'] > 100:
+        #         goodsId = i['goodsId']
+        #         goodsLotInfoId = i['goodsLotInfoId']
+        #         return goodsId, goodsLotInfoId
 
     # 获取调出仓的工具包信息
     def get_kitStockId(self, sourceWarehouseId, keyword=None):
@@ -93,9 +100,11 @@ class AllocateOrder:
             assert response['msg'] == '请求成功'
         except Exception:
             raise response
-        kitStockId = response['data']['rows'][0]['id']
-        return kitStockId
-
+        for i in response['data']['rows']:
+            if type(i['quantity']) is int and i['quantity'] > 0:
+                kitStockId = i['id']
+                print(kitStockId)
+                return kitStockId
     # 调拨单创建、编辑（编辑要传 ID）
     def create(self, reasonCode=None, sourceWarehouseId=None, targetWarehouseId=None,
                goodsId=None, goodsLotInfoId=None, goodsQuantity=1, kitStockId=None, kitStockQuantity=1, Id=None,
@@ -223,33 +232,33 @@ class AllocateOrder:
         # sourceWarehouseId = self.get_out_warehouse()
         # targetWarehouseId = self.get_in_warehouse()
         sourceWarehouseId = 1
-        targetWarehouseId = 140
+        targetWarehouseId = 89
 
         # 物资信息
         goodsInfo = self.get_goodsInfo(sourceWarehouseId)
         # goodsId = goodsInfo[0]
         # 6/3 号，后续商品ID需要动态获取，目前这个是 在数据库准备的数据
-        goodsId = goodsId
-        goodsLotInfoId = self.get_all_goodInfoId('ID_22344', sourceWarehouseId)[1]
+        # goodsId = goodsId
+        goodsLotInfoId = self.get_all_goodInfoId('ID_%s' % goodsId, sourceWarehouseId)[1]
         kitStockId = None
 
-        # 创建调拨单
-        allocateId, allocateCode = self.create(reasonCode=reasonCode, sourceWarehouseId=sourceWarehouseId,
-                                               targetWarehouseId=targetWarehouseId, goodsId=goodsId,
-                                               goodsLotInfoId=goodsLotInfoId, kitStockId=kitStockId)
-        # 查询调拨单详情
-        self.get_allocate_detail(allocateId=allocateId)
-        # 查询调拨单列表
-        self.get_allocate_list()
-        # 驳回调拨单---修改
-        self.approve(allocateId=allocateId)
-        # 修改调拨单
-        self.create(reasonCode, sourceWarehouseId, targetWarehouseId, goodsId,
-                    goodsLotInfoId, Id=allocateId)
-        # 驳回调拨单 -- 关闭
-        self.approve(allocateId=allocateId)
-        # 关闭调拨单
-        self.close(allocateId=allocateId)
+        # # 创建调拨单
+        # allocateId, allocateCode = self.create(reasonCode=reasonCode, sourceWarehouseId=sourceWarehouseId,
+        #                                        targetWarehouseId=targetWarehouseId, goodsId=goodsId,
+        #                                        goodsLotInfoId=goodsLotInfoId, kitStockId=kitStockId)
+        # # 查询调拨单详情
+        # self.get_allocate_detail(allocateId=allocateId)
+        # # 查询调拨单列表
+        # self.get_allocate_list()
+        # # 驳回调拨单---修改
+        # self.approve(allocateId=allocateId)
+        # # 修改调拨单
+        # self.create(reasonCode, sourceWarehouseId, targetWarehouseId, goodsId,
+        #             goodsLotInfoId, Id=allocateId)
+        # # 驳回调拨单 -- 关闭
+        # self.approve(allocateId=allocateId)
+        # # 关闭调拨单
+        # self.close(allocateId=allocateId)
 
         # 创建调拨单
         allocateId, allocateCode = self.create(reasonCode=reasonCode, goodsQuantity=goodsQuantity,
@@ -260,8 +269,34 @@ class AllocateOrder:
         # 接收调拨单
         self.approve(allocateId=allocateId, approve=True, rejectReason='')
         Warehouse_Management.All(allocateCode).all_pick_out()
-        # Warehouse_Management.All(allocateCode).all_in_putOnShelf()
+        Warehouse_Management.All(allocateCode).all_in_putOnShelf()
         print('---------调拨单号%s---------------------------' % allocateCode)
+        return allocateCode
+
+    def all_fixture(self, goodsId=None, goodsQuantity=None):
+
+        # 调出仓、调入仓、调拨理由
+        reasonCode = self.get_allocate_reason()
+
+        # sourceWarehouseId = self.get_out_warehouse()
+        # targetWarehouseId = self.get_in_warehouse()
+        sourceWarehouseId = 1
+        targetWarehouseId = 89
+
+        # 物资信息
+        goodsInfo = self.get_goodsInfo(sourceWarehouseId)
+
+        goodsLotInfoId = self.get_all_goodInfoId('ID_%s' % goodsId, sourceWarehouseId)[1]
+        kitStockId = None
+
+        # 创建调拨单
+        allocateId, allocateCode = self.create(reasonCode=reasonCode, goodsQuantity=goodsQuantity,
+                                               sourceWarehouseId=sourceWarehouseId,
+                                               targetWarehouseId=targetWarehouseId, goodsId=goodsId,
+                                               goodsLotInfoId=goodsLotInfoId, kitStockId=kitStockId)
+
+        # 接收调拨单
+        self.approve(allocateId=allocateId, approve=True, rejectReason='')
         return allocateCode
 
     def all_moreGoods(self, goodsList=None, goodsQuantityList=None):
@@ -286,7 +321,7 @@ class AllocateOrder:
         print('调拨单号----------%s------------' % data[1])
         # 拣货
         Warehouse_Management.All(data[1]).all_goods_pick()
-        # Warehouse_Management.All(data[1]).all_goods_inbound()
+        Warehouse_Management.All(data[1]).all_goods_inbound()
 
     def all_tools(self):
         sourceWarehouseId = 1
@@ -304,7 +339,7 @@ class AllocateOrder:
         # 接收调拨单
         self.approve(allocateId=allocateId, approve=True, rejectReason='')
         Warehouse_Management.All(allocateCode).all_tools_pick()
-        Warehouse_Management.All(allocateCode).all_goods_inbound()
+        # Warehouse_Management.All(allocateCode).all_goods_inbound()
 
     def all_tools_goods(self, goods=None, quantityList=None):
         sourceWarehouseId = 1
@@ -344,7 +379,7 @@ if __name__ == '__main__':
     # print(a)
     # test.all_moreGoods()
     # test.all_tools()
-    test.all_tools_goods()
+    test.get_kitStockId(1)
     # test.approve(True)
     # test.close(115)
     # # test.remove(112)

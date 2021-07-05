@@ -96,11 +96,11 @@ url,request_type,title,case,expected,模块,功能
 /salesOrder/createSalesOrder,post,父订单ID为空,{"parentId":None},未查询到该临调订单，请刷新重试,订单管理,临调订单——生成销售单
 /salesOrder/createSalesOrder,post,子订单ID错误,{"adhocOrderId":999999},请提交正确的销售单！,订单管理,临调订单——生成销售单
 /salesOrder/createSalesOrder,post,子订单ID为空,{"adhocOrderId":None},临调订单id不能为空,订单管理,临调订单——生成销售单
-/salesOrder/createSalesOrder,post,商品ID为空,{"goodsId":None},请输入商品id,订单管理,临调订单——生成销售单
+/salesOrder/createSalesOrder,post,商品ID为空,{"goodsId":None},只有状态为待生成销售单的订单才能生成销售单,订单管理,临调订单——生成销售单
 /salesOrder/createSalesOrder,post,商品ID错误,{"goodsId":999999},回库数据异常,订单管理,临调订单——生成销售单
-/salesOrder/createSalesOrder,post,重复提交,{"goodsId":9999999},临调单状态异常,订单管理,临调订单——生成销售单
-/salesOrder/createSalesOrder,post,批次信息为空,{"goodsLotInfoId":None},请输入商品属性id,订单管理,临调订单——生成销售单
-/salesOrder/createSalesOrder,post,批次信息错误,{"goodsLotInfoId":99999},提交的数据和需要销用的数据不一致，请重新填写,订单管理,临调订单——生成销售单
+/salesOrder/createSalesOrder,post,重复提交,{"goodsId":1},只有状态为待生成销售单的订单才能生成销售单,订单管理,临调订单——生成销售单
+/salesOrder/createSalesOrder,post,批次信息为空,{"goodsLotInfoId":None},只有状态为待生成销售单的订单才能生成销售单,订单管理,临调订单——生成销售单
+/salesOrder/createSalesOrder,post,批次信息错误,{"goodsLotInfoId":99999},回库数据异常,订单管理,临调订单——生成销售单
 /salesOrder/createSalesOrder,post,商品数量为空,{"quantity":None},请输入协商数量,订单管理,临调订单——生成销售单
 /salesOrder/createSalesOrder,post,商品数量错误,{"quantity":999999},协商数量应等于实际消耗数量,订单管理,临调订单——生成销售单
 
@@ -109,9 +109,9 @@ url,request_type,title,case,expected,模块,功能
 /salesOrder/checkSalesOrder,post,子订单ID为空,{"adhocOrderId":None},临调订单id不能为空,订单管理,临调订单——生成销售单
 /salesOrder/checkSalesOrder,post,商品ID为空,{"goodsId":None},请输入商品id,订单管理,临调订单——生成销售单
 /salesOrder/checkSalesOrder,post,商品ID错误,{"goodsId":999999},回库数据异常,订单管理,临调订单——生成销售单
-/salesOrder/checkSalesOrder,post,重复提交,{"goodsId":9999999},临调单状态异常,订单管理,临调订单——生成销售单
+/salesOrder/checkSalesOrder,post,重复提交,{"goodsId":9999999},回库数据异常,订单管理,临调订单——生成销售单
 /salesOrder/checkSalesOrder,post,批次信息为空,{"goodsLotInfoId":None},请输入商品属性id,订单管理,临调订单——生成销售单
-/salesOrder/checkSalesOrder,post,批次信息错误,{"goodsLotInfoId":99999},提交的数据和需要销用的数据不一致，请重新填写,订单管理,临调订单——生成销售单
+/salesOrder/checkSalesOrder,post,批次信息错误,{"goodsLotInfoId":99999},回库数据异常,临调订单——生成销售单
 /salesOrder/checkSalesOrder,post,商品数量为空,{"quantity":None},请输入协商数量,订单管理,临调订单——生成销售单
 /salesOrder/checkSalesOrder,post,商品数量错误,{"quantity":999999},协商数量应等于实际消耗数量,订单管理,临调订单——生成销售单
 
@@ -147,7 +147,7 @@ url,request_type,title,case,expected,模块,功能
 
 /outboundOrder/approval,put,重复审核,{"logisticsCompany":"顺丰速运" },该订单状态不正确,仓库管理,出库单——发货审核
 /outboundOrder/approval,put,物流公司名称超长,{"logisticsCompany": '主治医师' * 80},物流公司长度超出限制,仓库管理,出库单——发货审核
-/outboundOrder/approval,put,物流公司为空,{"logisticsCompany": None},请填写正确的公司名称,仓库管理,出库单——发货审核
+/outboundOrder/approval,put,物流公司为空,{"logisticsCompany": None},请填写物流承运公司名字,仓库管理,出库单——发货审核
 /outboundOrder/approval,put,发货日期为空,{"deliveryDate": None},请输入发货日期,仓库管理,出库单——发货审核
 /outboundOrder/approval,put,物流单号为空,{"expressNo": None},请填写物流单号,仓库管理,出库单——发货审核
 /outboundOrder/approval,put,物流单号超长,{"expressNo": '123456789'*90},快递单号长度超出限制,仓库管理,出库单——发货审核
@@ -172,8 +172,7 @@ url,request_type,title,case,expected,模块,功能
 /putOnShelf/putOnShelf,put,批次号为空,{"goodsLotInfoId": None},请输入批次号,仓库管理,上架单——上架
 /putOnShelf/putOnShelf,put,商品数量为空,{"quantity": None},请输入商品数量,仓库管理,上架单——上架
 /putOnShelf/putOnShelf,put,商品数量错误,{"quantity": 999999},商品上架数量有误，请刷新重试,仓库管理,上架单——上架
-/putOnShelf/putOnShelf,put,货位号为空,{"storageLocationCode": None},请输入货位号,仓库管理,上架单——上架
-/putOnShelf/putOnShelf,put,货位号错误,{"storageLocationCode": "huoweihao"},货位huoweihao不存在,仓库管理,上架单——上架
+
 
 /checkOrder/check,put,重复验收,{"serialNumber": None},验收单已验收，不能重复验收,仓库管理,验收单——验收
 /checkOrder/check,put,验收单为空,{"orderId": None},验收单id不能为空,仓库管理,验收单——验收

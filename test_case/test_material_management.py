@@ -286,12 +286,12 @@ class TestGoods:
     def test_32(self, create):
         """di码 少于14位"""
         response = Material_Management.Goods('material').edit_GoodsDi(1, self.Id)
-        assert response['msg'] == 'DI码长度异常，必须为14位'
+        assert response['msg'] == 'DI码长度异常，必须为16位'
 
     @allure.title('di码：商品ID为空')
     def test_33(self, create):
         """商品ID为空"""
-        response = Material_Management.Goods('material').edit_GoodsDi(12345671234567, None)
+        response = Material_Management.Goods('material').edit_GoodsDi(1234567812345678, None)
         assert response['msg'] == '请选择要编辑的物资'
 
     # 编辑价格
@@ -495,7 +495,6 @@ class TestPackagingOrder:
         yield response
 
     data = [
-        ('正向流程', {'templateIds': 'templateIds', 'warehouseId': 'warehouseId'}, '请求成功'),
         ('仓库未选择', {'templateIds': 'templateIds', 'warehouseId': None}, '参数异常，请刷新后重试'),
         ('工具包未选择', {'templateIds': None, 'warehouseId': 'warehouseId'}, '请选择工具包',)
     ]
@@ -517,7 +516,7 @@ class TestPackagingOrder:
             'templateIds': case['templateIds'],
             'warehouseId': case['warehouseId']
         }
-        response = request.get_params(url, params)
+        response = request.get_params01(url, params)
         assert response['msg'] == expected
 
     @pytest.fixture(scope='class')

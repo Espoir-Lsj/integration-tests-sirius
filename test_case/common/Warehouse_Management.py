@@ -651,9 +651,10 @@ class All:
         self.storageLocationId = data[2]
         self.quantity = data[3]
 
-        goodsInfo = self.test1.get_goodsInfo(self.warehouseId, self.materialCode)
-        self.goodsId = goodsInfo[0]
-        self.lotNum = goodsInfo[1]
+        # goodsInfo = self.test1.get_goodsInfo(self.warehouseId, self.materialCode)
+        goodsInfo=self.test1.get_pick_orderInfo01(self.pickOrderId)['data']['goodsDetail'][0]
+        self.goodsId = goodsInfo['goodsId']
+        self.lotNum = goodsInfo['lotNum']
         # 拣货
         i = 0
         while i < self.quantity:
@@ -682,9 +683,10 @@ class All:
         self.storageLocationId = data[2]
         self.quantity = data[3]
 
-        goodsInfo = self.test1.get_goodsInfo(self.warehouseId, self.materialCode)
-        self.goodsId = goodsInfo[0]
-        self.lotNum = goodsInfo[1]
+        # goodsInfo = self.test1.get_goodsInfo(self.warehouseId, self.materialCode)
+        goodsInfo=self.test1.get_pick_orderInfo01(self.pickOrderId)['data']['goodsDetail'][0]
+        self.goodsId = goodsInfo['goodsId']
+        self.lotNum = goodsInfo['lotNum']
 
         inboundOrderId = self.test2.get_inboundOrderId(self.keyword)[0]
         inboundCode = self.test2.get_inboundOrderId(self.keyword)[1]
@@ -797,6 +799,7 @@ class All:
 
     #     多物资入库
     def all_goods_inbound(self):
+
         # 入库
         inboundOrderId = self.test2.get_inboundOrderId(self.keyword)[0]
         inboundCode = self.test2.get_inboundOrderId(self.keyword)[1]
@@ -828,10 +831,15 @@ class All:
 
 
 if __name__ == '__main__':
-    test = InboundOrder()
-    a = test.get_InboundOrder_Info(1319)
-    print(a)
+    # test = InboundOrder()
+    # a = test.get_InboundOrder_Info(1319)
+    # print(a)
     # test = PutOnShelf()
     # test.get_putOnshelf_details(803)
     # test = All('AH_20210623_0033')
     # test.all_tools_pick()
+    # test = All('AH_20210702_0007')
+    # test.all_tools_goods_pick()
+    # test.all_goods_inbound()
+    test = All('AH_20210705_0004')
+    test.all_pick_out()

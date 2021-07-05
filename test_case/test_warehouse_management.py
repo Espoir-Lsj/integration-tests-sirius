@@ -34,10 +34,10 @@ class TestPickOrder:
 
     @allure.story('拣货单——拣货单 完成拣货')
     @allure.title('上传图片过多')
-    def test_pickFinished01(self, PickOrder_picking02):
+    def test_pickFinished01(self, PickOrder_picking03):
         url = '/pickOrder/pickFinished'
         body = {
-            "pickOrderId": PickOrder_picking02,
+            "pickOrderId": PickOrder_picking03,
             "imagePath": ["/file/2021/06/15/0a9dcc89-f831-4b48-a5c4-2f05b8701868/base64Test.jpg",
                           "/file/2021/06/15/e9c93cc7-66d1-4e50-b9a3-75cd71581632/base64Test.jpg",
                           "/file/2021/06/15/d6dfc69f-dbe7-4c64-b349-f3d8c574cbbf/base64Test.jpg",
@@ -76,7 +76,7 @@ class TestPickOrder:
             }]
         }
         response = request.put_body01(url, body)
-        assert response['msg'] == '物资【锁定接骨板】待拣数量和审核数量不一致，请刷新后重试'
+        assert response['msg'] == '物资【锁定接骨螺钉】待拣数量和审核数量不一致，请刷新后重试'
 
 
 @allure.feature('仓库管理——出库单')
@@ -102,7 +102,7 @@ class TestOutOrder:
     def test_outOrderApproval(self, url, title, case, expected, OutboundOrder_approve, OutboundOrder_getId01):
         body = request.body_replace(url, case)
 
-        if title == '物流单号为空':
+        if title == '物流单号为空' or title == '物流公司为空':
             body['id'] = OutboundOrder_getId01
         response = request.put_body01(url, body)
         assert response['msg'] == expected
@@ -134,7 +134,7 @@ class TestPutOnOrder:
     def test_putOnShelf(self, url, title, case, expected, PutOnShelf_put, InboundOrder_receiving01):
         body = request.body_replace(url, case)
 
-        if title in ('商品错误', '商品数量错误', '货位号为空', '货位号错误'):
+        if title in ('商品错误', '商品数量错误'):
             body['orderId'] = InboundOrder_receiving01[0]
         response = request.post_body01(url, body)
         assert response['msg'] == expected

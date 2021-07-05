@@ -217,7 +217,7 @@ class Goods:
         # 编辑商品
         self.edit_Goods(id, goodsCategory=goodsCategory)
         # 编辑di
-        self.edit_GoodsDi('12345678123456', id)
+        self.edit_GoodsDi('1234567812345678', id)
         # 编辑价格
         self.edit_price(id)
         # 删除商品
@@ -502,7 +502,7 @@ class PackagingOrder:
 
 if __name__ == '__main__':
     # test = PackagingOrder()
-    test = KitTemplate()
+    test = Goods('material')
     test.all()
     # 物资
     # create = test.create_Goods()

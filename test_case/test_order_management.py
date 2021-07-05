@@ -124,7 +124,7 @@ class TestAdhocOrder:
     @pytest.mark.parametrize('url1,title,case,expected', data)
     @allure.story('临调订单——接收临调单')
     @allure.title('{title}')
-    def test_accept01(self, url1, title, case, expected, AdhocOrder_get_id01):
+    def test_accept01(self, url1, title, case, expected, AdhocOrder_get_id01,AdhocOrder_accept):
         url = '/adhocOrder/accept'
         body = request.body_replace(url, case)
         body['id'] = AdhocOrder_get_id01
@@ -132,6 +132,8 @@ class TestAdhocOrder:
         body['detail'][0]['toolsDetailUiBeans'][0]['quantity'] = 99999
         response = request.put_body01(url, body)
         assert response['msg'] == expected
+
+
 
     data = get_datas.get_csv('/adhocOrder/close')
 
@@ -165,12 +167,12 @@ class TestAdhocOrder:
         response = request.put_body(url, body)
         assert response['msg'] == expected
 
-    @allure.story('临调订单——修改默认地址')
-    @allure.title('经销商修改供应商地址')
-    def test_updateReceivingAddress01(self):
-        addressId = request.get('/supplier/getReceivingAddress?dealerId=%s' % supplierId)['data'][0]['id']
-        response = Order_Management.AdhocOrder().update_default_address(id=addressId)
-        assert response['msg'] == '不可操作其他经销商数据'
+    # @allure.story('临调订单——修改默认地址')
+    # @allure.title('经销商修改供应商地址')
+    # def test_updateReceivingAddress01(self):
+    #     addressId = request.get('/supplier/getReceivingAddress?dealerId=%s' % supplierId)['data'][0]['id']
+    #     response = Order_Management.AdhocOrder().update_default_address(id=addressId)
+    #     assert response['msg'] == '不可操作其他经销商数据'
 
     data = [('id为空', {'id': None}, 'id不能为空'),
             ('id为空', {'id': 99990099}, '地址不存在')]
@@ -220,7 +222,7 @@ class TestAdhocOrder:
         case = {"quantity": 1}
         body = request.body_replace(url, case)
         response = request.post_body01(url, body)
-        assert response['msg'] == '临调单不存在'
+        assert response['msg'] == '权限不足'
 
     data = get_datas.get_csv('/salesOrder/createSalesOrder')
 

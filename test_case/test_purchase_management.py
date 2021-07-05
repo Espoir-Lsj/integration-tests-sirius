@@ -35,7 +35,7 @@ class TestAllocateOrder:
             # ('商品ID为空', {'goodsId': None}, ''),
             ('商品数量为空', {'goodsQuantity': None}, '请输入商品数量'),
             ('商品数量过大', {'goodsQuantity': 999999999999}, '商品数量超出限制'),
-            ('商品数量过大', {'goodsQuantity': 999999}, '填写数量超出库存数量，请刷新后确认"'),
+            ('商品数量过大', {'goodsQuantity': 999999}, '填写数量超出库存数量，请刷新后确认'),
             ('商品信息为空', {'goodsLotInfoId': None}, '参数异常'),
             ('工具包数量过大', {'kitStockQuantity': 99999999999999}, '工具包数量超出限制')
             ]
