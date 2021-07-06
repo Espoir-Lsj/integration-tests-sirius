@@ -105,6 +105,7 @@ class AllocateOrder:
                 kitStockId = i['id']
                 print(kitStockId)
                 return kitStockId
+
     # 调拨单创建、编辑（编辑要传 ID）
     def create(self, reasonCode=None, sourceWarehouseId=None, targetWarehouseId=None,
                goodsId=None, goodsLotInfoId=None, goodsQuantity=1, kitStockId=None, kitStockQuantity=1, Id=None,
@@ -322,6 +323,8 @@ class AllocateOrder:
         # 拣货
         Warehouse_Management.All(data[1]).all_goods_pick()
         Warehouse_Management.All(data[1]).all_goods_inbound()
+        msg = 'success'
+        return msg
 
     def all_tools(self):
         sourceWarehouseId = 1
@@ -339,7 +342,9 @@ class AllocateOrder:
         # 接收调拨单
         self.approve(allocateId=allocateId, approve=True, rejectReason='')
         Warehouse_Management.All(allocateCode).all_tools_pick()
-        # Warehouse_Management.All(allocateCode).all_goods_inbound()
+        Warehouse_Management.All(allocateCode).all_goods_inbound()
+        msg ='success'
+        return msg
 
     def all_tools_goods(self, goods=None, quantityList=None):
         sourceWarehouseId = 1
@@ -369,6 +374,8 @@ class AllocateOrder:
         adhocOrderCode = data[1]
         Warehouse_Management.All(adhocOrderCode).all_tools_goods_pick()
         Warehouse_Management.All(adhocOrderCode).all_goods_inbound()
+        msg ='success'
+        return msg
 
 
 if __name__ == '__main__':

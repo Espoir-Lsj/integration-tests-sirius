@@ -602,6 +602,9 @@ class AdhocOrder:
                                goodsId=goodsId, goodsSupplierId=goodsSupplierId)
         self.delete_default_address(addressId)
 
+        msg = 'success'
+        return msg
+
     # 临调单单物资主流程
     def all_process(self, goodsId=None, Usequantity=None):
         # 品牌
@@ -806,6 +809,8 @@ class AdhocOrder:
         for i in ['/salesOrder/checkSalesOrder', '/salesOrder/createSalesOrder']:
             response2 = request.post_body01(i, body)
         print(orderCode)
+        res = 'success'
+        return res
 
     # 临调多物资
     def all_process_more(self, goodsList=None, quantityList=None, Usequantity=None):
@@ -847,6 +852,8 @@ class AdhocOrder:
         self.create_salesOrder(parentId=orderId, adhocOrderId=orderId, detailUiBeanList=detailUiBeanList,
                                warehouseId=warehouseId)
         print('-------%s---------' % '生成销售单成功')
+        msg = 'success'
+        return msg
 
     # 临调工具包
     def all_tools(self):
@@ -880,6 +887,8 @@ class AdhocOrder:
         self.create_salesOrder(parentId=orderId, adhocOrderId=orderId, detailUiBeanList=detailUiBeanList,
                                warehouseId=warehouseId)
         print('-------%s---------' % '生成销售单成功')
+        msg ='success'
+        return msg
 
     # 临调工具包 加物资
     def all_tools_goods(self, goodsList=None, goodsQuantity=None, Usequantity=None, toolsList=None, toolsQuantity=None):
@@ -926,14 +935,16 @@ class AdhocOrder:
 
         self.adhocOrder_return(parentAdhocOrderId=orderId, childAdhocOrderId=orderId, goodsList=goodsList)
 
-        # Warehouse_Management.All(adhocOrderCode).all_goods_inbound()
-        #
-        # detailUiBeanList = self.get_salesOrder_details(orderId)
-        # self.check_salesOrder(parentId=orderId, adhocOrderId=orderId, detailUiBeanList=detailUiBeanList,
-        #                       warehouseId=warehouseId)
-        # self.create_salesOrder(parentId=orderId, adhocOrderId=orderId, detailUiBeanList=detailUiBeanList,
-        #                        warehouseId=warehouseId)
+        Warehouse_Management.All(adhocOrderCode).all_goods_inbound()
+
+        detailUiBeanList = self.get_salesOrder_details(orderId)
+        self.check_salesOrder(parentId=orderId, adhocOrderId=orderId, detailUiBeanList=detailUiBeanList,
+                              warehouseId=warehouseId)
+        self.create_salesOrder(parentId=orderId, adhocOrderId=orderId, detailUiBeanList=detailUiBeanList,
+                               warehouseId=warehouseId)
         print('-------%s---------' % '生成销售单成功')
+        msg = 'success'
+        return msg
 
 
 # deliveryMode="DELIVERY"

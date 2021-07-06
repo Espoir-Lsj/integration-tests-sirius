@@ -60,7 +60,8 @@ def test_Order_all():
 def test_spit_order(spit_order_prepare):
     test = Order_Management.AdhocOrder()
     # 全部销用
-    test.all_process_spit([9, 7])
+    res = test.all_process_spit([9, 7])
+    assert res == 'success'
 
 
 @pytest.mark.Order_Smoke
@@ -69,7 +70,8 @@ def test_spit_order(spit_order_prepare):
 def test_spit_order2(spit_order_prepare):
     test = Order_Management.AdhocOrder()
     # 部分销用
-    test.all_process_spit([1, 2])
+    res = test.all_process_spit([1, 2])
+    assert res == 'success'
 
 
 @pytest.mark.Order_Smoke
@@ -78,7 +80,8 @@ def test_spit_order2(spit_order_prepare):
 def test_spit_order3(spit_order_prepare):
     test = Order_Management.AdhocOrder()
     # 全部未销用
-    test.all_process_spit([0, 0])
+    res = test.all_process_spit([0, 0])
+    assert res == 'success'
 
 
 @pytest.mark.Order_Smoke
@@ -87,7 +90,8 @@ def test_spit_order3(spit_order_prepare):
 def test_spit_order4(spit_order_prepare):
     test = Order_Management.AdhocOrder()
     # 全部未销用+部分销用
-    test.all_process_spit([0, 1])
+    res = test.all_process_spit([0, 1])
+    assert res == 'success'
 
 
 @pytest.mark.Order_Smoke
@@ -96,7 +100,8 @@ def test_spit_order4(spit_order_prepare):
 def test_spit_order5(spit_order_prepare):
     test = Order_Management.AdhocOrder()
     # 全部销用+未销用
-    test.all_process_spit([9, 0])
+    res = test.all_process_spit([9, 0])
+    assert res == 'success'
 
 
 @pytest.mark.Order_Smoke
@@ -105,7 +110,8 @@ def test_spit_order5(spit_order_prepare):
 def test_spit_order5(spit_order_prepare):
     test = Order_Management.AdhocOrder()
     # 全部销用+未销用
-    test.all_process_spit([9, 1])
+    res = test.all_process_spit([9, 1])
+    assert res == 'success'
 
 
 @pytest.mark.Order_Smoke
@@ -114,7 +120,8 @@ def test_spit_order5(spit_order_prepare):
 @allure.story('多物资临调--全部销用')
 def test_more_goods():
     test = Order_Management.AdhocOrder()
-    test.all_process_more([26745, 23626], [10, 10], [10, 10])
+    res = test.all_process_more([26745, 23626], [10, 10], [10, 10])
+    assert res == 'success'
 
 
 @pytest.mark.Order_Smoke
@@ -122,7 +129,8 @@ def test_more_goods():
 @allure.story('多物资临调--部分销用')
 def test_more_goods2():
     test = Order_Management.AdhocOrder()
-    test.all_process_more([26745, 23626, 22130], [10, 10, 10], [10, 2, 3])
+    res = test.all_process_more([26745, 23626, 22130], [10, 10, 10], [10, 2, 3])
+    assert res == 'success'
 
 
 @pytest.mark.Order_Smoke
@@ -130,7 +138,8 @@ def test_more_goods2():
 @allure.story('多物资临调--未销用')
 def test_more_goods3():
     test = Order_Management.AdhocOrder()
-    test.all_process_more([26745, 23626], [10, 10], [0, 0])
+    res = test.all_process_more([26745, 23626], [10, 10], [0, 0])
+    assert res == 'success'
 
 
 @pytest.mark.Order_Smoke
@@ -138,7 +147,8 @@ def test_more_goods3():
 @allure.story('多物资临调--未销用--加部分销用')
 def test_more_goods4():
     test = Order_Management.AdhocOrder()
-    test.all_process_more([26745, 23626], [10, 10], [0, 3])
+    res = test.all_process_more([26745, 23626], [10, 10], [0, 3])
+    assert res == 'success'
 
 
 @pytest.mark.Order_Smoke
@@ -146,7 +156,8 @@ def test_more_goods4():
 @allure.story('多物资临调--全部销用--加部分未销用')
 def test_more_goods5():
     test = Order_Management.AdhocOrder()
-    test.all_process_more([26745, 23626], [10, 10], [10, 0])
+    res = test.all_process_more([26745, 23626], [10, 10], [10, 0])
+    assert res == 'success'
 
 
 @pytest.mark.Order_Smoke
@@ -154,7 +165,8 @@ def test_more_goods5():
 @allure.story('多物资临调--全部销用--加部分销用')
 def test_more_goods6():
     test = Order_Management.AdhocOrder()
-    test.all_process_more([26745, 23626], [10, 10], [10, 1])
+    res = test.all_process_more([26745, 23626], [10, 10], [10, 1])
+    assert res == 'success'
 
 
 @pytest.mark.Order_Smoke
@@ -162,7 +174,8 @@ def test_more_goods6():
 @allure.story('临调--只申请工具包')
 def test_tools():
     test = Order_Management.AdhocOrder()
-    test.all_tools()
+    res = test.all_tools()
+    assert res == 'success'
 
 
 @pytest.mark.Order_Smoke
@@ -170,7 +183,8 @@ def test_tools():
 @allure.story('临调--工具包+多物资全部销用')
 def test_tools_goods():
     test = Order_Management.AdhocOrder()
-    test.all_tools_goods([26745, 23626], [5, 4], [5, 4], [112], [1])
+    res = test.all_tools_goods([26745, 23626], [5, 4], [5, 4], [112], [1])
+    assert res == 'success'
 
 
 @pytest.mark.Order_Smoke
@@ -178,7 +192,8 @@ def test_tools_goods():
 @allure.story('临调--工具包+多物资')
 def test_tools_goods1():
     test = Order_Management.AdhocOrder()
-    test.all_tools_goods([26745, 23626, 22130], [5, 6, 7], [1, 1, 1], [112], [1])
+    res = test.all_tools_goods([26745, 23626, 22130], [5, 6, 7], [1, 1, 1], [112], [1])
+    assert res == 'success'
 
 
 @pytest.mark.Order_Smoke
@@ -186,7 +201,8 @@ def test_tools_goods1():
 @allure.story('临调--工具包+多物资 部分全部销用')
 def test_tools_goods2():
     test = Order_Management.AdhocOrder()
-    test.all_tools_goods([26745, 23626], [5, 4], [5, 0], [112], [1])
+    res = test.all_tools_goods([26745, 23626], [5, 4], [5, 0], [112], [1])
+    assert res == 'success'
 
 
 @pytest.mark.Order_Smoke
@@ -194,7 +210,8 @@ def test_tools_goods2():
 @allure.story('临调--工具包+多物资 未销用')
 def test_tools_goods3():
     test = Order_Management.AdhocOrder()
-    test.all_tools_goods([26745, 23626], [5, 4], [0, 0], [112], [1])
+    res = test.all_tools_goods([26745, 23626], [5, 4], [0, 0], [112], [1])
+    assert res == 'success'
 
 
 @allure.story('调拨--单物资')
@@ -209,21 +226,24 @@ def test_allocateOrder():
 def test_allocateOrder_more():
     test = Purchase_Management.AllocateOrder()
     # test.all_moreGoods(['ID_20539'], [9])
-    test.all_moreGoods(['ID_26745', 'ID_23626'], [1, 2])
+    res = test.all_moreGoods(['ID_26745', 'ID_23626'], [1, 2])
+    assert res == 'success'
 
 
 @allure.story('调拨--工具包')
 @allure.feature('主流程冒烟')
 def test_allocateOrder_tools():
     test = Purchase_Management.AllocateOrder()
-    test.all_tools()
+    res = test.all_tools()
+    assert res == 'success'
 
 
 @allure.story('调拨--多物资 加 工具包')
 @allure.feature('主流程冒烟')
 def test_allocateOrder_tools_goods():
     test = Purchase_Management.AllocateOrder()
-    test.all_tools_goods(['ID_26745', 'ID_23626'], [1, 2])
+    res = test.all_tools_goods(['ID_26745', 'ID_23626'], [1, 2])
+    assert res == 'success'
 
 # def test001(spit_order_prepare):
 #     test = Order_Management.AdhocOrder()

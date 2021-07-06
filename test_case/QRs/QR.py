@@ -7,11 +7,10 @@ import qrcode, os
 
 def make_qr(name):
     path = os.path.join(os.path.dirname(__file__))
-    num = name
 
-    for x, y in zip(name, num):
+    for x in name:
         img = qrcode.make(x)
-        with open('%s/%s.png' % (path, y), 'wb') as f:
+        with open('%s/%s.png' % (path, x), 'wb') as f:
             img.save(f)
 
 
